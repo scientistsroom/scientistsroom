@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #efefe9;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+    }
+
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 700px;
+      background: #efefe9;
+      overflow: hidden;
+    }
+
+    /* -----------------------
+       TOP
+    ----------------------- */
+
+    .top {
+      position: absolute;
+      top: 36px;
+      left: 40px;
+      right: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      z-index: 10;
+    }
+
+    .top-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.22;
+    }
+
+    /* -----------------------
+       TITLE
+    ----------------------- */
+
+    .title {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: clamp(38px, 4.2vw, 72px);
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+      text-align: center;
+      font-weight: 500;
+
+      z-index: 10;
+    }
+
+    .title span {
+      display: block;
+    }
+
+    .title .light {
+      font-weight: 300;
+      color: #555;
+    }
+
+    .title .bold {
+      font-weight: 600;
+      color: #111;
+    }
+
+    /* -----------------------
+       BIG GUIDE CIRCLE
+    ----------------------- */
+
+    .guide-circle {
+      position: absolute;
+
+      width: min(58vw, 720px);
+      aspect-ratio: 1 / 1;
+
+      left: 50%;
+      top: 48%;
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      border-radius: 50%;
+
+      pointer-events: none;
+    }
+
+    .guide-circle::before,
+    .guide-circle::after {
+      content: "";
+      position: absolute;
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .guide-circle::before {
+      width: 140%;
+      height: 1px;
+
+      left: -20%;
+      top: 50%;
+    }
+
+    .guide-circle::after {
+      height: 140%;
+      width: 1px;
+
+      top: -20%;
+      left: 50%;
+    }
+
+    /* diagonal lines */
+
+    .line {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      width: 118%;
+      height: 1px;
+
+      background: rgba(0, 0, 0, 0.045);
+
+      transform-origin: center;
+    }
+
+    .line.one {
+      transform: translate(-50%, -50%) rotate(32deg);
+    }
+
+    .line.two {
+      transform: translate(-50%, -50%) rotate(-32deg);
+    }
+
+    /* -----------------------
+       EARTH
+    ----------------------- */
+
+    #earthWrap {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: min(36vw, 500px);
+      height: min(36vw, 500px);
+
+      transform: translate(-50%, -48%);
+      z-index: 5;
+
+      transition:
+        transform 0.7s cubic-bezier(.16,1,.3,1),
+        filter 0.5s ease;
+    }
+
+    #earthWrap:hover {
+      transform:
+        translate(-50%, -48%)
+        scale(1.06);
+
+      filter: drop-shadow(
+        0 30px 50px rgba(0,0,0,0.1)
+      );
+    }
+
+    #earth {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* -----------------------
+       SIDE LINES
+    ----------------------- */
+
+    .side-line {
+      position: absolute;
+      top: 45%;
+
+      width: 12%;
+      height: 1px;
+
+      background: rgba(0,0,0,.12);
+    }
+
+    .side-line.left {
+      left: 3.5%;
+    }
+
+    .side-line.right {
+      right: 3.5%;
+    }
+
+    /* -----------------------
+       BOTTOM TEXT
+    ----------------------- */
+
+    .bottom {
+      position: absolute;
+
+      left: 40px;
+      right: 40px;
+      bottom: 34px;
+
+      display: grid;
+      grid-template-columns:
+        1.2fr
+        1fr
+        1.2fr
+        auto;
+
+      gap: 50px;
+
+      align-items: end;
+
+      z-index: 10;
+    }
+
+    .item h3 {
+      font-size: 13px;
+      margin-bottom: 9px;
+      font-weight: 600;
+    }
+
+    .item p {
+      max-width: 300px;
+
+      font-size: 10px;
+      line-height: 1.35;
+
+      color: rgba(0,0,0,.36);
+    }
+
+    .bottom .center-item {
+      text-align: center;
+    }
+
+    .bottom .center-item p {
+      margin: 0 auto;
+    }
+
+    .bottom .right-item {
+      text-align: right;
+    }
+
+    /* -----------------------
+       tiny index
+    ----------------------- */
+
+    .index {
+      position: absolute;
+
+      left: 50%;
+      bottom: 25px;
+
+      transform: translateX(-50%);
+
+      font-size: 9px;
+      color: rgba(0,0,0,.25);
+
+      z-index: 9;
+    }
+
+    /* -----------------------
+       MOBILE
+    ----------------------- */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      .top {
+        top: 22px;
+        left: 20px;
+        right: 20px;
+      }
+
+      .title {
+        top: 13%;
+        font-size: 46px;
+      }
+
+      #earthWrap {
+        width: 70vw;
+        height: 70vw;
+
+        top: 49%;
+      }
+
+      .guide-circle {
+        width: 90vw;
+        top: 49%;
+      }
+
+      .side-line {
+        display: none;
+      }
+
+      .bottom {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .bottom .item:nth-child(2),
+      .bottom .item:nth-child(3) {
+        display: none;
+      }
+
+      .right-item {
+        text-align: right;
+      }
+
+      .item p {
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="hero">
+
+    <!-- TOP -->
+
+    <header class="top">
+      <div>MINWOO</div>
+
+      <div class="top-center">
+        PORTFOLIO
+      </div>
+
+      <div>2026</div>
+    </header>
+
+
+    <!-- TITLE -->
+
+    <div class="title">
+      <span class="light">infinite</span>
+      <span class="bold">creativity</span>
+    </div>
+
+
+    <!-- guide -->
+
+    <div class="guide-circle">
+
+      <div class="line one"></div>
+      <div class="line two"></div>
+
+    </div>
+
+
+    <div class="side-line left"></div>
+    <div class="side-line right"></div>
+
+
+    <!-- EARTH -->
+
+    <div id="earthWrap">
+      <div id="earth"></div>
+    </div>
+
+
+    <!-- BOTTOM -->
+
+    <section class="bottom">
+
+      <div class="item">
+        <h3>Visual Design</h3>
+
+        <p>
+          Graphic / Editorial / Branding / Exhibition.
+          Creating visual experiences across
+          physical and digital environments.
+        </p>
+      </div>
+
+
+      <div class="item center-item">
+
+        <h3>Kim Minwoo</h3>
+
+        <p>
+          Graphic designer creating
+          identities, publications,
+          objects and experiences.
+        </p>
+
+      </div>
+
+
+      <div class="item">
+
+        <h3>Selected Works</h3>
+
+        <p>
+          LIG D&A / LG Electronics /
+          Langmuir / Exhibition /
+          Editorial / Cultural Projects
+        </p>
+
+      </div>
+
+
+      <div class="item right-item">
+
+        <h3>Scroll</h3>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- THREE JS -->
+
+  <script type="module">
+
+    import * as THREE
+    from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
+
+
+    /* ----------------------
+       SCENE
+    ---------------------- */
+
+    const container =
+      document.getElementById("earth");
+
+    const scene =
+      new THREE.Scene();
+
+
+    /* ----------------------
+       CAMERA
+    ---------------------- */
+
+    const camera =
+      new THREE.PerspectiveCamera(
+        38,
+        1,
+        0.1,
+        100
+      );
+
+    camera.position.z = 4.8;
+
+
+    /* ----------------------
+       RENDERER
+    ---------------------- */
+
+    const renderer =
+      new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+      });
+
+    renderer.setPixelRatio(
+      Math.min(
+        window.devicePixelRatio,
+        2
+      )
+    );
+
+    container.appendChild(
+      renderer.domElement
+    );
+
+
+    /* ----------------------
+       GROUP
+    ---------------------- */
+
+    const globe =
+      new THREE.Group();
+
+    scene.add(globe);
+
+
+    /* ----------------------
+       GLOBE BODY
+    ---------------------- */
+
+    const globeGeometry =
+      new THREE.SphereGeometry(
+        1.35,
+        128,
+        128
+      );
+
+
+    const globeMaterial =
+      new THREE.MeshPhysicalMaterial({
+
+        color: 0xf5f5f0,
+
+        transparent: true,
+        opacity: 0.18,
+
+        roughness: 0.05,
+        metalness: 0.02,
+
+        transmission: 0.85,
+
+        thickness: 1,
+
+        ior: 1.35,
+
+        clearcoat: 1,
+        clearcoatRoughness: 0.06
+
+      });
+
+
+    const sphere =
+      new THREE.Mesh(
+        globeGeometry,
+        globeMaterial
+      );
+
+    globe.add(sphere);
+
+
+    /* ----------------------
+       DOTS
+    ---------------------- */
+
+    const dotGeometry =
+      new THREE.BufferGeometry();
+
+    const points = [];
+
+    const DOT_COUNT = 3000;
+
+
+    for (
+      let i = 0;
+      i < DOT_COUNT;
+      i++
+    ) {
+
+      const phi =
+        Math.acos(
+          -1 +
+          (2 * i) /
+          DOT_COUNT
+        );
+
+      const theta =
+        Math.sqrt(
+          DOT_COUNT * Math.PI
+        ) * phi;
+
+
+      const radius = 1.37;
+
+
+      const x =
+        radius *
+        Math.cos(theta) *
+        Math.sin(phi);
+
+      const y =
+        radius *
+        Math.sin(theta) *
+        Math.sin(phi);
+
+      const z =
+        radius *
+        Math.cos(phi);
+
+
+      points.push(
+        x,
+        y,
+        z
+      );
+
+    }
+
+
+    dotGeometry.setAttribute(
+      "position",
+
+      new THREE.Float32BufferAttribute(
+        points,
+        3
+      )
+    );
+
+
+    const dotMaterial =
+      new THREE.PointsMaterial({
+
+        color: 0x111111,
+
+        size: 0.013,
+
+        transparent: true,
+
+        opacity: 0.52,
+
+        sizeAttenuation: true
+
+      });
+
+
+    const dots =
+      new THREE.Points(
+        dotGeometry,
+        dotMaterial
+      );
+
+
+    globe.add(dots);
+
+
+    /* ----------------------
+       WIREFRAME
+    ---------------------- */
+
+    const wireGeometry =
+      new THREE.SphereGeometry(
+        1.36,
+        30,
+        20
+      );
+
+
+    const wireMaterial =
+      new THREE.MeshBasicMaterial({
+
+        color: 0x111111,
+
+        wireframe: true,
+
+        transparent: true,
+
+        opacity: 0.025
+
+      });
+
+
+    const wire =
+      new THREE.Mesh(
+        wireGeometry,
+        wireMaterial
+      );
+
+
+    globe.add(wire);
+
+
+    /* ----------------------
+       LIGHT
+    ---------------------- */
+
+    const lightA =
+      new THREE.DirectionalLight(
+        0xffffff,
+        4
+      );
+
+    lightA.position.set(
+      2,
+      3,
+      4
+    );
+
+    scene.add(lightA);
+
+
+    const lightB =
+      new THREE.DirectionalLight(
+        0x7ea1ff,
+        3
+      );
+
+    lightB.position.set(
+      -3,
+      -1,
+      2
+    );
+
+    scene.add(lightB);
+
+
+    const lightC =
+      new THREE.DirectionalLight(
+        0xffaa88,
+        2
+      );
+
+    lightC.position.set(
+      3,
+      -2,
+      -1
+    );
+
+    scene.add(lightC);
+
+
+    /* ----------------------
+       ORIENTATION
+    ---------------------- */
+
+    globe.rotation.x =
+      THREE.MathUtils.degToRad(
+        -14
+      );
+
+    globe.rotation.z =
+      THREE.MathUtils.degToRad(
+        -8
+      );
+
+
+    /* ----------------------
+       MOUSE
+    ---------------------- */
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+
+    document.addEventListener(
+      "mousemove",
+      (e) => {
+
+        mouseX =
+          (
+            e.clientX /
+            window.innerWidth
+            -
+            0.5
+          );
+
+        mouseY =
+          (
+            e.clientY /
+            window.innerHeight
+            -
+            0.5
+          );
+
+      }
+    );
+
+
+    /* ----------------------
+       RESIZE
+    ---------------------- */
+
+    function resize() {
+
+      const width =
+        container.clientWidth;
+
+      const height =
+        container.clientHeight;
+
+
+      renderer.setSize(
+        width,
+        height
+      );
+
+
+      camera.aspect =
+        width /
+        height;
+
+      camera.updateProjectionMatrix();
+
+    }
+
+
+    window.addEventListener(
+      "resize",
+      resize
+    );
+
+
+    resize();
+
+
+    /* ----------------------
+       ANIMATION
+    ---------------------- */
+
+    function animate() {
+
+      requestAnimationFrame(
+        animate
+      );
+
+
+      /* 기본 회전 */
+
+      globe.rotation.y +=
+        0.0024;
+
+
+      /* 마우스 반응 */
+
+      globe.rotation.x +=
+        (
+          mouseY *
+          0.18
+          -
+          globe.rotation.x
+        )
+        *
+        0.012;
+
+
+      globe.rotation.z +=
+        (
+          -mouseX *
+          0.1
+          -
+          globe.rotation.z
+        )
+        *
+        0.008;
+
+
+      renderer.render(
+        scene,
+        camera
+      );
+
+    }
+
+
+    animate();
+
+  </script>
+
+</body>
+</html>
