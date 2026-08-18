@@ -1,875 +1,1237 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #efefe9;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-    }
-
-    .hero {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      min-height: 700px;
-      background: #efefe9;
-      overflow: hidden;
-    }
-
-    /* -----------------------
-       TOP
-    ----------------------- */
-
-    .top {
-      position: absolute;
-      top: 36px;
-      left: 40px;
-      right: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      font-size: 12px;
-      font-weight: 600;
-
-      z-index: 10;
-    }
-
-    .top-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.22;
-    }
-
-    /* -----------------------
-       TITLE
-    ----------------------- */
-
-    .title {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-
-      font-size: clamp(38px, 4.2vw, 72px);
-      line-height: 0.88;
-      letter-spacing: -0.065em;
-      text-align: center;
-      font-weight: 500;
-
-      z-index: 10;
-    }
-
-    .title span {
-      display: block;
-    }
-
-    .title .light {
-      font-weight: 300;
-      color: #555;
-    }
-
-    .title .bold {
-      font-weight: 600;
-      color: #111;
-    }
-
-    /* -----------------------
-       BIG GUIDE CIRCLE
-    ----------------------- */
-
-    .guide-circle {
-      position: absolute;
-
-      width: min(58vw, 720px);
-      aspect-ratio: 1 / 1;
-
-      left: 50%;
-      top: 48%;
-      transform: translate(-50%, -50%);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      border-radius: 50%;
+<title>scientistsroom</title>
 
-      pointer-events: none;
-    }
+<style>
 
-    .guide-circle::before,
-    .guide-circle::after {
-      content: "";
-      position: absolute;
-      background: rgba(0, 0, 0, 0.06);
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .guide-circle::before {
-      width: 140%;
-      height: 1px;
+html {
+  scroll-behavior: smooth;
+}
 
-      left: -20%;
-      top: 50%;
-    }
+body {
+  background: #efefe9;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    .guide-circle::after {
-      height: 140%;
-      width: 1px;
 
-      top: -20%;
-      left: 50%;
-    }
+/* ===============================
+   HERO
+================================ */
 
-    /* diagonal lines */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #efefe9;
+}
 
-    .line {
-      position: absolute;
-      left: 50%;
-      top: 50%;
 
-      width: 118%;
-      height: 1px;
+/* TOP */
 
-      background: rgba(0, 0, 0, 0.045);
+.top {
+  position: absolute;
 
-      transform-origin: center;
-    }
+  top: 34px;
+  left: 40px;
+  right: 40px;
 
-    .line.one {
-      transform: translate(-50%, -50%) rotate(32deg);
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    .line.two {
-      transform: translate(-50%, -50%) rotate(-32deg);
-    }
+  font-size: 12px;
+  font-weight: 600;
 
-    /* -----------------------
-       EARTH
-    ----------------------- */
+  z-index: 20;
+}
 
-    #earthWrap {
-      position: absolute;
+.top-center {
+  position: absolute;
 
-      left: 50%;
-      top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 
-      width: min(36vw, 500px);
-      height: min(36vw, 500px);
+  opacity: .22;
+}
 
-      transform: translate(-50%, -48%);
-      z-index: 5;
 
-      transition:
-        transform 0.7s cubic-bezier(.16,1,.3,1),
-        filter 0.5s ease;
-    }
+/* TITLE */
 
-    #earthWrap:hover {
-      transform:
-        translate(-50%, -48%)
-        scale(1.06);
+.hero-title {
+  position: absolute;
 
-      filter: drop-shadow(
-        0 30px 50px rgba(0,0,0,0.1)
-      );
-    }
+  top: 9%;
+  left: 50%;
 
-    #earth {
-      width: 100%;
-      height: 100%;
-    }
+  transform: translateX(-50%);
 
-    /* -----------------------
-       SIDE LINES
-    ----------------------- */
+  font-size: clamp(42px, 5vw, 76px);
 
-    .side-line {
-      position: absolute;
-      top: 45%;
+  letter-spacing: -.07em;
 
-      width: 12%;
-      height: 1px;
+  font-weight: 500;
 
-      background: rgba(0,0,0,.12);
-    }
+  z-index: 10;
+}
 
-    .side-line.left {
-      left: 3.5%;
-    }
+.hero-title span {
+  display: inline-block;
+}
 
-    .side-line.right {
-      right: 3.5%;
-    }
 
-    /* -----------------------
-       BOTTOM TEXT
-    ----------------------- */
+/* GUIDE */
 
-    .bottom {
-      position: absolute;
+.guide-circle {
 
-      left: 40px;
-      right: 40px;
-      bottom: 34px;
+  position: absolute;
 
-      display: grid;
-      grid-template-columns:
-        1.2fr
-        1fr
-        1.2fr
-        auto;
+  width: min(59vw, 720px);
+  aspect-ratio: 1;
 
-      gap: 50px;
+  left: 50%;
+  top: 50%;
 
-      align-items: end;
+  transform: translate(-50%, -50%);
 
-      z-index: 10;
-    }
+  border: 1px solid rgba(0,0,0,.055);
 
-    .item h3 {
-      font-size: 13px;
-      margin-bottom: 9px;
-      font-weight: 600;
-    }
+  border-radius: 50%;
 
-    .item p {
-      max-width: 300px;
+}
 
-      font-size: 10px;
-      line-height: 1.35;
+.guide-circle::before,
+.guide-circle::after {
 
-      color: rgba(0,0,0,.36);
-    }
+  content: "";
 
-    .bottom .center-item {
-      text-align: center;
-    }
+  position: absolute;
 
-    .bottom .center-item p {
-      margin: 0 auto;
-    }
+  background: rgba(0,0,0,.045);
 
-    .bottom .right-item {
-      text-align: right;
-    }
+}
 
-    /* -----------------------
-       tiny index
-    ----------------------- */
+.guide-circle::before {
 
-    .index {
-      position: absolute;
+  width: 140%;
+  height: 1px;
 
-      left: 50%;
-      bottom: 25px;
+  left: -20%;
+  top: 50%;
 
-      transform: translateX(-50%);
+}
 
-      font-size: 9px;
-      color: rgba(0,0,0,.25);
+.guide-circle::after {
 
-      z-index: 9;
-    }
+  width: 1px;
+  height: 140%;
 
-    /* -----------------------
-       MOBILE
-    ----------------------- */
+  top: -20%;
+  left: 50%;
 
-    @media (max-width: 900px) {
+}
 
-      .hero {
-        min-height: 100svh;
-      }
 
-      .top {
-        top: 22px;
-        left: 20px;
-        right: 20px;
-      }
+.guide-line {
 
-      .title {
-        top: 13%;
-        font-size: 46px;
-      }
+  position: absolute;
 
-      #earthWrap {
-        width: 70vw;
-        height: 70vw;
+  left: 50%;
+  top: 50%;
 
-        top: 49%;
-      }
+  width: 118%;
+  height: 1px;
 
-      .guide-circle {
-        width: 90vw;
-        top: 49%;
-      }
+  background: rgba(0,0,0,.035);
 
-      .side-line {
-        display: none;
-      }
+  transform-origin: center;
 
-      .bottom {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
+}
 
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
+.guide-line.a {
 
-      .bottom .item:nth-child(2),
-      .bottom .item:nth-child(3) {
-        display: none;
-      }
+  transform:
+  translate(-50%,-50%)
+  rotate(32deg);
 
-      .right-item {
-        text-align: right;
-      }
+}
 
-      .item p {
-        font-size: 9px;
-      }
-    }
-  </style>
+.guide-line.b {
+
+  transform:
+  translate(-50%,-50%)
+  rotate(-32deg);
+
+}
+
+
+/* EARTH */
+
+#globe {
+
+  position: absolute;
+
+  width: min(38vw, 510px);
+  height: min(38vw, 510px);
+
+  left: 50%;
+  top: 51%;
+
+  transform: translate(-50%,-50%);
+
+  z-index: 5;
+
+}
+
+
+/* SIDE GUIDE */
+
+.side-line {
+
+  position: absolute;
+
+  top: 45%;
+
+  width: 12%;
+  height: 1px;
+
+  background: rgba(0,0,0,.10);
+
+}
+
+.side-line.left {
+
+  left: 3.5%;
+
+}
+
+.side-line.right {
+
+  right: 3.5%;
+
+}
+
+
+/* BOTTOM INFO */
+
+.bottom-info {
+
+  position: absolute;
+
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+
+  display: grid;
+
+  grid-template-columns:
+  1fr
+  1fr
+  1fr;
+
+  gap: 80px;
+
+  z-index: 10;
+
+}
+
+.info h3 {
+
+  font-size: 13px;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+}
+
+.info p {
+
+  max-width: 310px;
+
+  color: rgba(0,0,0,.35);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+}
+
+.info.center {
+
+  text-align: center;
+
+}
+
+.info.center p {
+
+  margin: auto;
+
+}
+
+.info.right {
+
+  text-align: right;
+
+}
+
+.info.right p {
+
+  margin-left: auto;
+
+}
+
+
+/* ===============================
+   WORK
+================================ */
+
+.work {
+
+  background: #111;
+
+  color: #f1f1eb;
+
+  padding:
+  150px 40px
+  100px;
+
+}
+
+.section-label {
+
+  font-size: 12px;
+
+  opacity: .5;
+
+  margin-bottom: 70px;
+
+}
+
+.project {
+
+  padding:
+  35px 0;
+
+  border-top:
+  1px solid
+  rgba(255,255,255,.2);
+
+  display: grid;
+
+  grid-template-columns:
+  70px
+  1fr
+  auto;
+
+  align-items: center;
+
+  cursor: pointer;
+
+}
+
+.project-number {
+
+  opacity: .35;
+
+  font-size: 12px;
+
+}
+
+.project-name {
+
+  font-size:
+  clamp(34px,5vw,78px);
+
+  letter-spacing:
+  -.055em;
+
+}
+
+.project-year {
+
+  font-size: 12px;
+
+  opacity: .45;
+
+}
+
+
+/* IMAGE */
+
+.project-image {
+
+  width: 100%;
+
+  margin:
+  30px 0 100px;
+
+  overflow: hidden;
+
+}
+
+.project-image img {
+
+  width: 100%;
+
+  display: block;
+
+  transition:
+  transform .8s
+  cubic-bezier(.16,1,.3,1);
+
+}
+
+.project-image:hover img {
+
+  transform:
+  scale(1.02);
+
+}
+
+
+/* ABOUT */
+
+.about {
+
+  min-height: 100vh;
+
+  padding:
+  160px 40px;
+
+  background:
+  #efefe9;
+
+}
+
+.about-grid {
+
+  display: grid;
+
+  grid-template-columns:
+  1fr
+  2.4fr;
+
+  gap: 100px;
+
+}
+
+.about-title {
+
+  font-size: 12px;
+
+}
+
+.about-text {
+
+  font-size:
+  clamp(36px,5vw,76px);
+
+  line-height: 1;
+
+  letter-spacing:
+  -.06em;
+
+  max-width: 1100px;
+
+}
+
+
+/* CONTACT */
+
+.contact {
+
+  min-height:
+  80vh;
+
+  background:
+  #2d5cff;
+
+  color: white;
+
+  padding:
+  150px 40px
+  50px;
+
+  display:
+  flex;
+
+  flex-direction:
+  column;
+
+  justify-content:
+  space-between;
+
+}
+
+.contact-title {
+
+  font-size:
+  clamp(65px,11vw,180px);
+
+  line-height:
+  .8;
+
+  letter-spacing:
+  -.08em;
+
+}
+
+.contact-bottom {
+
+  display:
+  flex;
+
+  justify-content:
+  space-between;
+
+  font-size:
+  12px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+.hero-title {
+
+  font-size: 44px;
+
+  top: 13%;
+
+}
+
+#globe {
+
+  width: 75vw;
+  height: 75vw;
+
+}
+
+.guide-circle {
+
+  width: 92vw;
+
+}
+
+.side-line {
+
+  display:none;
+
+}
+
+.bottom-info {
+
+  left:20px;
+  right:20px;
+
+  grid-template-columns:
+  1fr 1fr;
+
+  gap:30px;
+
+}
+
+.bottom-info .center {
+
+  display:none;
+
+}
+
+.project {
+
+  grid-template-columns:
+  40px
+  1fr;
+
+}
+
+.project-year {
+
+  display:none;
+
+}
+
+.about-grid {
+
+  grid-template-columns:
+  1fr;
+
+}
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <main class="hero">
 
-    <!-- TOP -->
+<!-- =====================
+     HERO
+===================== -->
 
-    <header class="top">
-      <div>MINWOO</div>
+<section class="hero">
 
-      <div class="top-center">
-        PORTFOLIO
-      </div>
+<header class="top">
 
-      <div>2026</div>
-    </header>
+<div>
+scientistsroom
+</div>
 
+<div class="top-center">
+PORTFOLIO
+</div>
 
-    <!-- TITLE -->
+<div>
+2026
+</div>
 
-    <div class="title">
-      <span class="light">infinite</span>
-      <span class="bold">creativity</span>
-    </div>
+</header>
 
 
-    <!-- guide -->
+<h1 class="hero-title">
+scientistsroom
+</h1>
 
-    <div class="guide-circle">
 
-      <div class="line one"></div>
-      <div class="line two"></div>
+<div class="guide-circle">
 
-    </div>
+<div class="guide-line a"></div>
 
+<div class="guide-line b"></div>
 
-    <div class="side-line left"></div>
-    <div class="side-line right"></div>
+</div>
 
 
-    <!-- EARTH -->
+<div class="side-line left"></div>
 
-    <div id="earthWrap">
-      <div id="earth"></div>
-    </div>
+<div class="side-line right"></div>
 
 
-    <!-- BOTTOM -->
+<div id="globe"></div>
 
-    <section class="bottom">
 
-      <div class="item">
-        <h3>Visual Design</h3>
+<div class="bottom-info">
 
-        <p>
-          Graphic / Editorial / Branding / Exhibition.
-          Creating visual experiences across
-          physical and digital environments.
-        </p>
-      </div>
+<div class="info">
 
+<h3>Visual Design</h3>
 
-      <div class="item center-item">
+<p>
+Graphic / Editorial / Branding /
+Exhibition / Digital Experience
+</p>
 
-        <h3>Kim Minwoo</h3>
+</div>
 
-        <p>
-          Graphic designer creating
-          identities, publications,
-          objects and experiences.
-        </p>
 
-      </div>
+<div class="info center">
 
+<h3>scientistsroom</h3>
 
-      <div class="item">
+<p>
+Visual communication across
+print, space and digital media.
+</p>
 
-        <h3>Selected Works</h3>
+</div>
 
-        <p>
-          LIG D&A / LG Electronics /
-          Langmuir / Exhibition /
-          Editorial / Cultural Projects
-        </p>
 
-      </div>
+<div class="info right">
 
+<h3>Selected Works</h3>
 
-      <div class="item right-item">
+<p>
+Brand / Editorial / Exhibition /
+Package / Art Direction
+</p>
 
-        <h3>Scroll</h3>
+</div>
 
-      </div>
+</div>
 
-    </section>
+</section>
 
-  </main>
 
+<!-- =====================
+     WORK
+===================== -->
 
-  <!-- THREE JS -->
+<section class="work">
 
-  <script type="module">
+<div class="section-label">
+SELECTED WORK / 2022—2026
+</div>
 
-    import * as THREE
-    from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
+<div class="project">
 
-    /* ----------------------
-       SCENE
-    ---------------------- */
+<div class="project-number">
+01
+</div>
 
-    const container =
-      document.getElementById("earth");
+<div class="project-name">
+LIG D&A 50th Anniversary
+</div>
 
-    const scene =
-      new THREE.Scene();
+<div class="project-year">
+2026
+</div>
 
+</div>
 
-    /* ----------------------
-       CAMERA
-    ---------------------- */
 
-    const camera =
-      new THREE.PerspectiveCamera(
-        38,
-        1,
-        0.1,
-        100
-      );
+<div class="project-image">
 
-    camera.position.z = 4.8;
+<img
+src="images/lig.jpg"
+alt="LIG 50th Anniversary"
+/>
 
+</div>
 
-    /* ----------------------
-       RENDERER
-    ---------------------- */
 
-    const renderer =
-      new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true
-      });
 
-    renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2
-      )
-    );
+<div class="project">
 
-    container.appendChild(
-      renderer.domElement
-    );
+<div class="project-number">
+02
+</div>
 
+<div class="project-name">
+Langmuir
+</div>
 
-    /* ----------------------
-       GROUP
-    ---------------------- */
+<div class="project-year">
+2022
+</div>
 
-    const globe =
-      new THREE.Group();
+</div>
 
-    scene.add(globe);
 
+<div class="project-image">
 
-    /* ----------------------
-       GLOBE BODY
-    ---------------------- */
+<img
+src="images/langmuir.jpg"
+alt="Langmuir"
+/>
 
-    const globeGeometry =
-      new THREE.SphereGeometry(
-        1.35,
-        128,
-        128
-      );
+</div>
 
 
-    const globeMaterial =
-      new THREE.MeshPhysicalMaterial({
 
-        color: 0xf5f5f0,
+<div class="project">
 
-        transparent: true,
-        opacity: 0.18,
+<div class="project-number">
+03
+</div>
 
-        roughness: 0.05,
-        metalness: 0.02,
+<div class="project-name">
+KES LG Electronics
+</div>
 
-        transmission: 0.85,
+<div class="project-year">
+2025
+</div>
 
-        thickness: 1,
+</div>
 
-        ior: 1.35,
+</section>
 
-        clearcoat: 1,
-        clearcoatRoughness: 0.06
 
-      });
 
+<!-- =====================
+     ABOUT
+===================== -->
 
-    const sphere =
-      new THREE.Mesh(
-        globeGeometry,
-        globeMaterial
-      );
+<section class="about">
 
-    globe.add(sphere);
+<div class="about-grid">
 
+<div class="about-title">
+ABOUT
+</div>
 
-    /* ----------------------
-       DOTS
-    ---------------------- */
 
-    const dotGeometry =
-      new THREE.BufferGeometry();
+<div class="about-text">
 
-    const points = [];
+scientistsroom is a
+visual design practice
+exploring branding,
+editorial, exhibition
+and printed matter.
 
-    const DOT_COUNT = 3000;
+</div>
 
+</div>
 
-    for (
-      let i = 0;
-      i < DOT_COUNT;
-      i++
-    ) {
+</section>
 
-      const phi =
-        Math.acos(
-          -1 +
-          (2 * i) /
-          DOT_COUNT
-        );
 
-      const theta =
-        Math.sqrt(
-          DOT_COUNT * Math.PI
-        ) * phi;
 
+<!-- =====================
+     CONTACT
+===================== -->
 
-      const radius = 1.37;
+<section class="contact">
 
+<div class="contact-title">
 
-      const x =
-        radius *
-        Math.cos(theta) *
-        Math.sin(phi);
+LET'S<br>
+WORK<br>
+TOGETHER.
 
-      const y =
-        radius *
-        Math.sin(theta) *
-        Math.sin(phi);
+</div>
 
-      const z =
-        radius *
-        Math.cos(phi);
 
+<div class="contact-bottom">
 
-      points.push(
-        x,
-        y,
-        z
-      );
+<div>
+scientistsroom
+</div>
 
-    }
+<div>
+CONTACT
+</div>
 
+<div>
+© 2026
+</div>
 
-    dotGeometry.setAttribute(
-      "position",
+</div>
 
-      new THREE.Float32BufferAttribute(
-        points,
-        3
-      )
-    );
+</section>
 
 
-    const dotMaterial =
-      new THREE.PointsMaterial({
 
-        color: 0x111111,
+<script type="module">
 
-        size: 0.013,
+import * as THREE from
+"https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
-        transparent: true,
 
-        opacity: 0.52,
+import ThreeGlobe from
+"https://cdn.jsdelivr.net/npm/three-globe/+esm";
 
-        sizeAttenuation: true
 
-      });
+/* =============================
+   SCENE
+============================= */
 
+const el =
+document.getElementById("globe");
 
-    const dots =
-      new THREE.Points(
-        dotGeometry,
-        dotMaterial
-      );
 
+const scene =
+new THREE.Scene();
 
-    globe.add(dots);
 
+const camera =
+new THREE.PerspectiveCamera(
+38,
+1,
+0.1,
+100
+);
 
-    /* ----------------------
-       WIREFRAME
-    ---------------------- */
 
-    const wireGeometry =
-      new THREE.SphereGeometry(
-        1.36,
-        30,
-        20
-      );
+camera.position.z =
+320;
 
 
-    const wireMaterial =
-      new THREE.MeshBasicMaterial({
+/* renderer */
 
-        color: 0x111111,
+const renderer =
+new THREE.WebGLRenderer({
 
-        wireframe: true,
+alpha:true,
 
-        transparent: true,
+antialias:true
 
-        opacity: 0.025
+});
 
-      });
 
+renderer.setPixelRatio(
 
-    const wire =
-      new THREE.Mesh(
-        wireGeometry,
-        wireMaterial
-      );
+Math.min(
+window.devicePixelRatio,
+2
+)
 
+);
 
-    globe.add(wire);
 
+el.appendChild(
+renderer.domElement
+);
 
-    /* ----------------------
-       LIGHT
-    ---------------------- */
 
-    const lightA =
-      new THREE.DirectionalLight(
-        0xffffff,
-        4
-      );
+/* =============================
+   GLOBE
+============================= */
 
-    lightA.position.set(
-      2,
-      3,
-      4
-    );
+const globe =
+new ThreeGlobe({
 
-    scene.add(lightA);
+waitForGlobeReady:true,
 
+animateIn:true
 
-    const lightB =
-      new THREE.DirectionalLight(
-        0x7ea1ff,
-        3
-      );
+});
 
-    lightB.position.set(
-      -3,
-      -1,
-      2
-    );
 
-    scene.add(lightB);
+/* 지구 표면 */
 
+globe.globeMaterial(
+new THREE.MeshPhysicalMaterial({
 
-    const lightC =
-      new THREE.DirectionalLight(
-        0xffaa88,
-        2
-      );
+color:
+0xf2f2ec,
 
-    lightC.position.set(
-      3,
-      -2,
-      -1
-    );
+roughness:
+.32,
 
-    scene.add(lightC);
+metalness:
+0,
 
+transparent:
+true,
 
-    /* ----------------------
-       ORIENTATION
-    ---------------------- */
+opacity:
+.88
 
-    globe.rotation.x =
-      THREE.MathUtils.degToRad(
-        -14
-      );
+})
+);
 
-    globe.rotation.z =
-      THREE.MathUtils.degToRad(
-        -8
-      );
 
+/* =============================
+   ACTUAL CONTINENTS
+============================= */
 
-    /* ----------------------
-       MOUSE
-    ---------------------- */
+const countries =
+await fetch(
 
-    let mouseX = 0;
-    let mouseY = 0;
+"https://raw.githubusercontent.com/vasturiano/three-globe/master/example/datasets/ne_110m_admin_0_countries.geojson"
 
+)
+.then(
+res => res.json()
+);
 
-    document.addEventListener(
-      "mousemove",
-      (e) => {
 
-        mouseX =
-          (
-            e.clientX /
-            window.innerWidth
-            -
-            0.5
-          );
+globe
+.polygonsData(
+countries.features
+)
 
-        mouseY =
-          (
-            e.clientY /
-            window.innerHeight
-            -
-            0.5
-          );
+.polygonAltitude(
+0.008
+)
 
-      }
-    );
+.polygonCapColor(
+() =>
+"rgba(20,20,20,.55)"
+)
 
+.polygonSideColor(
+() =>
+"rgba(0,0,0,.08)"
+)
 
-    /* ----------------------
-       RESIZE
-    ---------------------- */
+.polygonStrokeColor(
+() =>
+"rgba(255,255,255,.18)"
+);
 
-    function resize() {
 
-      const width =
-        container.clientWidth;
+/* =============================
+   DOT EFFECT
+============================= */
 
-      const height =
-        container.clientHeight;
+const dots = [];
 
+for(
+let lat = -80;
+lat <= 80;
+lat += 5
+){
 
-      renderer.setSize(
-        width,
-        height
-      );
+for(
+let lng = -180;
+lng < 180;
+lng += 5
+){
 
+dots.push({
 
-      camera.aspect =
-        width /
-        height;
+lat:
+lat +
+(Math.random()-.5)*2,
 
-      camera.updateProjectionMatrix();
+lng:
+lng +
+(Math.random()-.5)*2,
 
-    }
+size:
+Math.random()
+*.22
++.05
 
+});
 
-    window.addEventListener(
-      "resize",
-      resize
-    );
+}
 
+}
 
-    resize();
 
+globe
+.pointsData(dots)
 
-    /* ----------------------
-       ANIMATION
-    ---------------------- */
+.pointLat(
+d => d.lat
+)
 
-    function animate() {
+.pointLng(
+d => d.lng
+)
 
-      requestAnimationFrame(
-        animate
-      );
+.pointAltitude(
+.012
+)
 
+.pointRadius(
+d => d.size
+)
 
-      /* 기본 회전 */
+.pointColor(
+() =>
+"rgba(20,20,20,.18)"
+);
 
-      globe.rotation.y +=
-        0.0024;
 
+/* atmosphere */
 
-      /* 마우스 반응 */
+globe
+.showAtmosphere(true)
 
-      globe.rotation.x +=
-        (
-          mouseY *
-          0.18
-          -
-          globe.rotation.x
-        )
-        *
-        0.012;
+.atmosphereColor(
+"#cccccc"
+)
 
+.atmosphereAltitude(
+.12
+);
 
-      globe.rotation.z +=
-        (
-          -mouseX *
-          0.1
-          -
-          globe.rotation.z
-        )
-        *
-        0.008;
 
+/* =============================
+   SCALE
+============================= */
 
-      renderer.render(
-        scene,
-        camera
-      );
+globe.scale.set(
+1.45,
+1.45,
+1.45
+);
 
-    }
 
+scene.add(
+globe
+);
 
-    animate();
 
-  </script>
+/* =============================
+   LIGHT
+============================= */
+
+const light1 =
+new THREE.DirectionalLight(
+0xffffff,
+4
+);
+
+
+light1.position.set(
+1,
+1,
+2
+);
+
+
+scene.add(
+light1
+);
+
+
+
+const light2 =
+new THREE.DirectionalLight(
+0x6688ff,
+2
+);
+
+
+light2.position.set(
+-2,
+0,
+2
+);
+
+
+scene.add(
+light2
+);
+
+
+
+const ambient =
+new THREE.AmbientLight(
+0xffffff,
+1.3
+);
+
+
+scene.add(
+ambient
+);
+
+
+/* initial position */
+
+globe.rotation.x =
+-.12;
+
+globe.rotation.z =
+-.08;
+
+
+/* =============================
+   MOUSE
+============================= */
+
+let mouseX = 0;
+let mouseY = 0;
+
+
+window.addEventListener(
+
+"mousemove",
+
+e => {
+
+mouseX =
+(
+e.clientX /
+innerWidth
+-
+.5
+);
+
+mouseY =
+(
+e.clientY /
+innerHeight
+-
+.5
+);
+
+}
+
+);
+
+
+/* =============================
+   RESIZE
+============================= */
+
+function resize(){
+
+const w =
+el.clientWidth;
+
+const h =
+el.clientHeight;
+
+
+renderer.setSize(
+w,
+h
+);
+
+
+camera.aspect =
+w/h;
+
+
+camera.updateProjectionMatrix();
+
+}
+
+
+window.addEventListener(
+"resize",
+resize
+);
+
+
+resize();
+
+
+/* =============================
+   ANIMATION
+============================= */
+
+function animate(){
+
+requestAnimationFrame(
+animate
+);
+
+
+/* 계속 회전 */
+
+globe.rotation.y +=
+.0017;
+
+
+/* mouse interaction */
+
+globe.rotation.x +=
+(
+mouseY*.12
+-
+globe.rotation.x
+)
+*.015;
+
+
+renderer.render(
+scene,
+camera
+);
+
+}
+
+
+animate();
+
+</script>
+
 
 </body>
 </html>
