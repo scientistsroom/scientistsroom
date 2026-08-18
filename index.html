@@ -1,789 +1,679 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>scientistsroom</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      background: #efefe9;
-      color: #111;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* ===============================
-       HOME
-    ================================ */
-
-    .hero {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-      background: #efefe9;
-    }
-
-    /* ===============================
-       TOP
-    ================================ */
-
-    .top {
-      position: absolute;
-      top: 34px;
-      left: 40px;
-      right: 40px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      font-size: 12px;
-      font-weight: 600;
-
-      z-index: 20;
-    }
-
-    .top-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.22;
-    }
-
-    /* ===============================
-       TITLE
-    ================================ */
-
-    .hero-title {
-      position: absolute;
-      top: 9%;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      font-size: clamp(42px, 5vw, 76px);
-      letter-spacing: -0.07em;
-      font-weight: 500;
-
-      z-index: 10;
-    }
-
-    /* ===============================
-       GUIDE CIRCLE
-    ================================ */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .guide-circle {
-      position: absolute;
-
-      width: min(59vw, 720px);
-      aspect-ratio: 1 / 1;
+<title>scientistsroom</title>
 
-      left: 50%;
-      top: 50%;
+<!-- Globe -->
+<script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
 
-      transform: translate(-50%, -50%);
-
-      border: 1px solid rgba(0, 0, 0, 0.055);
-      border-radius: 50%;
+<style>
 
-      pointer-events: none;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .guide-circle::before,
-    .guide-circle::after {
-      content: "";
-      position: absolute;
-      background: rgba(0, 0, 0, 0.045);
-    }
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-    .guide-circle::before {
-      width: 140%;
-      height: 1px;
-      left: -20%;
-      top: 50%;
-    }
+body {
+  background: #efefe9;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    .guide-circle::after {
-      width: 1px;
-      height: 140%;
-      top: -20%;
-      left: 50%;
-    }
 
-    .guide-line {
-      position: absolute;
+/* =========================
+   HOME
+========================= */
 
-      left: 50%;
-      top: 50%;
+.hero {
+  position: relative;
 
-      width: 118%;
-      height: 1px;
+  width: 100vw;
+  height: 100vh;
 
-      background: rgba(0, 0, 0, 0.035);
+  min-height: 650px;
 
-      transform-origin: center;
-    }
+  overflow: hidden;
 
-    .guide-line.a {
-      transform: translate(-50%, -50%) rotate(32deg);
-    }
+  background: #efefe9;
+}
 
-    .guide-line.b {
-      transform: translate(-50%, -50%) rotate(-32deg);
-    }
 
-    /* ===============================
-       EARTH
-    ================================ */
+/* =========================
+   TOP
+========================= */
 
-    #globe {
-      position: absolute;
+.top {
 
-      width: min(38vw, 510px);
-      height: min(38vw, 510px);
+  position: absolute;
 
-      left: 50%;
-      top: 51%;
+  top: 32px;
+  left: 40px;
+  right: 40px;
 
-      transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
 
-      z-index: 5;
-    }
+  font-size: 12px;
+  font-weight: 600;
 
-    #globe canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
+  z-index: 20;
 
-    /* ===============================
-       SIDE LINES
-    ================================ */
+}
 
-    .side-line {
-      position: absolute;
 
-      top: 45%;
+.top-center {
 
-      width: 12%;
-      height: 1px;
+  position: absolute;
 
-      background: rgba(0, 0, 0, 0.1);
-    }
+  left: 50%;
 
-    .side-line.left {
-      left: 3.5%;
-    }
+  transform: translateX(-50%);
 
-    .side-line.right {
-      right: 3.5%;
-    }
+  opacity: .25;
 
-    /* ===============================
-       BOTTOM
-    ================================ */
+}
 
-    .bottom-info {
-      position: absolute;
 
-      left: 40px;
-      right: 40px;
-      bottom: 34px;
+/* =========================
+   TITLE
+========================= */
 
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+.hero-title {
 
-      gap: 80px;
+  position: absolute;
 
-      z-index: 10;
-    }
+  top: 8%;
 
-    .info h3 {
-      font-size: 13px;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
+  left: 50%;
 
-    .info p {
-      max-width: 310px;
+  transform: translateX(-50%);
 
-      color: rgba(0, 0, 0, 0.35);
+  font-size: clamp(45px, 5vw, 80px);
 
-      font-size: 10px;
-      line-height: 1.4;
-    }
+  font-weight: 500;
 
-    .info.center {
-      text-align: center;
-    }
+  letter-spacing: -.07em;
 
-    .info.center p {
-      margin: auto;
-    }
+  z-index: 20;
 
-    .info.right {
-      text-align: right;
-    }
+  white-space: nowrap;
 
-    .info.right p {
-      margin-left: auto;
-    }
+}
 
-    /* ===============================
-       MOBILE
-    ================================ */
 
-    @media (max-width: 800px) {
-      .hero {
-        min-height: 100svh;
-      }
+/* =========================
+   GUIDE
+========================= */
 
-      .top {
-        top: 22px;
-        left: 20px;
-        right: 20px;
-      }
+.guide {
 
-      .hero-title {
-        font-size: 44px;
-        top: 13%;
-      }
+  position: absolute;
 
-      #globe {
-        width: 74vw;
-        height: 74vw;
-        top: 50%;
-      }
+  width: min(59vw, 720px);
 
-      .guide-circle {
-        width: 92vw;
-        top: 50%;
-      }
+  aspect-ratio: 1;
 
-      .side-line {
-        display: none;
-      }
+  left: 50%;
+  top: 50%;
 
-      .bottom-info {
-        left: 20px;
-        right: 20px;
-        bottom: 22px;
+  transform:
+  translate(-50%, -50%);
 
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-      }
+  border:
 
-      .bottom-info .center {
-        display: none;
-      }
-    }
-  </style>
+  1px solid
+  rgba(0,0,0,.055);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+}
+
+
+.guide::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 140%;
+  height: 1px;
+
+  left: -20%;
+  top: 50%;
+
+  background:
+  rgba(0,0,0,.05);
+
+}
+
+
+.guide::after {
+
+  content: "";
+
+  position: absolute;
+
+  height: 140%;
+  width: 1px;
+
+  left: 50%;
+  top: -20%;
+
+  background:
+  rgba(0,0,0,.05);
+
+}
+
+
+.diagonal {
+
+  position: absolute;
+
+  width: 118%;
+  height: 1px;
+
+  left: 50%;
+  top: 50%;
+
+  background:
+  rgba(0,0,0,.035);
+
+}
+
+
+.diagonal.a {
+
+  transform:
+  translate(-50%,-50%)
+  rotate(32deg);
+
+}
+
+
+.diagonal.b {
+
+  transform:
+  translate(-50%,-50%)
+  rotate(-32deg);
+
+}
+
+
+/* =========================
+   GLOBE
+========================= */
+
+#globe {
+
+  position: absolute;
+
+  width: min(38vw, 510px);
+  height: min(38vw, 510px);
+
+  left: 50%;
+  top: 51%;
+
+  transform:
+  translate(-50%, -50%);
+
+  z-index: 10;
+
+}
+
+
+/* 지구를 전체 사이트 톤에 맞춰
+   흑백에 가깝게 */
+
+#globe canvas {
+
+  filter:
+  grayscale(1)
+  contrast(.88)
+  brightness(1.12);
+
+}
+
+
+/* =========================
+   SIDE LINE
+========================= */
+
+.side {
+
+  position: absolute;
+
+  top: 45%;
+
+  width: 12%;
+
+  height: 1px;
+
+  background:
+  rgba(0,0,0,.11);
+
+}
+
+
+.side.left {
+
+  left: 3.5%;
+
+}
+
+
+.side.right {
+
+  right: 3.5%;
+
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom {
+
+  position: absolute;
+
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+
+  display: grid;
+
+  grid-template-columns:
+  1fr 1fr 1fr;
+
+  gap: 80px;
+
+  z-index: 20;
+
+}
+
+
+.info h3 {
+
+  font-size: 13px;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+}
+
+
+.info p {
+
+  max-width: 300px;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  color:
+  rgba(0,0,0,.38);
+
+}
+
+
+.info.center {
+
+  text-align: center;
+
+}
+
+
+.info.center p {
+
+  margin: auto;
+
+}
+
+
+.info.right {
+
+  text-align: right;
+
+}
+
+
+.info.right p {
+
+  margin-left: auto;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
+
+  .top {
+
+    top: 22px;
+    left: 20px;
+    right: 20px;
+
+  }
+
+
+  .hero-title {
+
+    top: 13%;
+
+    font-size:
+    clamp(38px, 11vw, 55px);
+
+  }
+
+
+  #globe {
+
+    width: 72vw;
+    height: 72vw;
+
+    top: 50%;
+
+  }
+
+
+  .guide {
+
+    width: 92vw;
+
+  }
+
+
+  .side {
+
+    display: none;
+
+  }
+
+
+  .bottom {
+
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+
+    grid-template-columns:
+    1fr 1fr;
+
+  }
+
+
+  .info.center {
+
+    display: none;
+
+  }
+
+}
+
+</style>
 </head>
+
+
 
 <body>
 
-  <main class="hero">
 
-    <!-- TOP -->
+<main class="hero">
 
-    <header class="top">
-      <div>scientistsroom</div>
 
-      <div class="top-center">
-        PORTFOLIO
-      </div>
+<!-- =========================
+     HEADER
+========================= -->
 
-      <div>2026</div>
-    </header>
+<header class="top">
 
+<div>
+scientistsroom
+</div>
 
-    <!-- TITLE -->
 
-    <h1 class="hero-title">
-      scientistsroom
-    </h1>
+<div class="top-center">
+PORTFOLIO
+</div>
 
 
-    <!-- GUIDE -->
+<div>
+2026
+</div>
 
-    <div class="guide-circle">
-      <div class="guide-line a"></div>
-      <div class="guide-line b"></div>
-    </div>
+</header>
 
 
-    <div class="side-line left"></div>
-    <div class="side-line right"></div>
 
+<!-- =========================
+     TITLE
+========================= -->
 
-    <!-- EARTH -->
+<h1 class="hero-title">
 
-    <div id="globe"></div>
+scientistsroom
 
+</h1>
 
-    <!-- BOTTOM INFO -->
 
-    <div class="bottom-info">
 
-      <div class="info">
-        <h3>Visual Design</h3>
+<!-- =========================
+     GUIDE
+========================= -->
 
-        <p>
-          Graphic / Editorial / Branding /
-          Exhibition / Digital Experience
-        </p>
-      </div>
+<div class="guide">
 
+<div class="diagonal a"></div>
 
-      <div class="info center">
-        <h3>scientistsroom</h3>
+<div class="diagonal b"></div>
 
-        <p>
-          Visual communication across
-          print, space and digital media.
-        </p>
-      </div>
+</div>
 
 
-      <div class="info right">
-        <h3>Selected Works</h3>
+<div class="side left"></div>
 
-        <p>
-          Brand / Editorial / Exhibition /
-          Package / Art Direction
-        </p>
-      </div>
+<div class="side right"></div>
 
-    </div>
 
-  </main>
 
+<!-- =========================
+     EARTH
+========================= -->
 
-  <script type="module">
+<div id="globe"></div>
 
-    import * as THREE from
-    "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
-    import ThreeGlobe from
-    "https://cdn.jsdelivr.net/npm/three-globe/+esm";
 
+<!-- =========================
+     BOTTOM
+========================= -->
 
-    /* ===============================
-       SCENE
-    ================================ */
+<div class="bottom">
 
-    const el =
-      document.getElementById("globe");
 
-    const scene =
-      new THREE.Scene();
+<div class="info">
 
+<h3>
+Visual Design
+</h3>
 
-    /* ===============================
-       CAMERA
-    ================================ */
+<p>
 
-    const camera =
-      new THREE.PerspectiveCamera(
-        38,
-        1,
-        0.1,
-        1000
-      );
+Graphic / Editorial /
+Branding / Exhibition /
+Digital Experience
 
-    camera.position.z = 320;
+</p>
 
+</div>
 
-    /* ===============================
-       RENDERER
-    ================================ */
 
-    const renderer =
-      new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true
-      });
 
-    renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2
-      )
-    );
+<div class="info center">
 
-    renderer.setClearColor(
-      0x000000,
-      0
-    );
+<h3>
+scientistsroom
+</h3>
 
-    el.appendChild(
-      renderer.domElement
-    );
+<p>
 
+Visual communication
+across print, space
+and digital media.
 
-    /* ===============================
-       GLOBE
-    ================================ */
+</p>
 
-    const globe =
-      new ThreeGlobe({
-        waitForGlobeReady: true,
-        animateIn: false
-      });
+</div>
 
-    /* 먼저 씬에 추가 */
-    scene.add(globe);
 
 
-    /* ===============================
-       GLOBE MATERIAL
-    ================================ */
+<div class="info right">
 
-    globe.globeMaterial(
-      new THREE.MeshPhysicalMaterial({
-        color: 0xf1f1ec,
+<h3>
+Selected Works
+</h3>
 
-        roughness: 0.5,
-        metalness: 0,
+<p>
 
-        transparent: true,
-        opacity: 0.96
-      })
-    );
+Brand / Editorial /
+Exhibition / Package /
+Art Direction
 
+</p>
 
-    /* ===============================
-       CONTINENTS
-    ================================ */
+</div>
 
-    try {
 
-      const countries =
-        await fetch(
-          "https://raw.githubusercontent.com/vasturiano/three-globe/master/example/datasets/ne_110m_admin_0_countries.geojson"
-        )
-        .then(
-          response => response.json()
-        );
+</div>
 
 
-      globe
-        .polygonsData(
-          countries.features
-        )
+</main>
 
-        .polygonAltitude(
-          0.006
-        )
 
-        .polygonCapColor(
-          () =>
-          "rgba(20,20,20,0.52)"
-        )
 
-        .polygonSideColor(
-          () =>
-          "rgba(0,0,0,0.05)"
-        )
+<script>
 
-        .polygonStrokeColor(
-          () =>
-          "rgba(255,255,255,0.3)"
-        );
+/* =========================
+   GLOBE
+========================= */
 
-    }
+const container =
+document.getElementById(
+  "globe"
+);
 
-    catch (error) {
 
-      console.log(
-        "대륙 데이터를 불러오지 못했습니다.",
-        error
-      );
+/* globe 생성 */
 
-    }
+const world =
+new Globe(container)
 
+.width(
+  container.clientWidth
+)
 
-    /* ===============================
-       DOTS
-    ================================ */
+.height(
+  container.clientHeight
+)
 
-    const dots = [];
+.backgroundColor(
+  "rgba(0,0,0,0)"
+)
 
+.globeImageUrl(
+  "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg"
+)
 
-    for (
-      let lat = -80;
-      lat <= 80;
-      lat += 6
-    ) {
+.showAtmosphere(true)
 
-      for (
-        let lng = -180;
-        lng < 180;
-        lng += 6
-      ) {
+.atmosphereColor(
+  "#d4d4cf"
+)
 
-        dots.push({
+.atmosphereAltitude(
+  0.08
+);
 
-          lat:
-            lat +
-            (Math.random() - 0.5) *
-            1.5,
 
-          lng:
-            lng +
-            (Math.random() - 0.5) *
-            1.5,
+/* =========================
+   CAMERA
+========================= */
 
-          size:
-            Math.random() *
-            0.16 +
-            0.04
+world.pointOfView({
 
-        });
+  lat: 15,
 
-      }
+  lng: 20,
 
-    }
+  altitude: 2.05
 
+});
 
-    globe
-      .pointsData(dots)
 
-      .pointLat(
-        d => d.lat
-      )
+/* =========================
+   ROTATION
+========================= */
 
-      .pointLng(
-        d => d.lng
-      )
+const controls =
+world.controls();
 
-      .pointAltitude(
-        0.01
-      )
 
-      .pointRadius(
-        d => d.size
-      )
+controls.autoRotate = true;
 
-      .pointColor(
-        () =>
-        "rgba(0,0,0,0.16)"
-      );
+controls.autoRotateSpeed =
+0.55;
 
 
-    /* ===============================
-       ATMOSPHERE
-    ================================ */
+controls.enableZoom = false;
 
-    globe
-      .showAtmosphere(true)
 
-      .atmosphereColor(
-        "#d5d5d0"
-      )
+/* 마우스로 직접 돌리는 건 가능 */
 
-      .atmosphereAltitude(
-        0.1
-      );
+controls.enableRotate = true;
 
 
-    /* ===============================
-       SCALE
-    ================================ */
+/* =========================
+   RESIZE
+========================= */
 
-    globe.scale.set(
-      1.35,
-      1.35,
-      1.35
-    );
+function resizeGlobe() {
 
+  world
+  .width(
+    container.clientWidth
+  )
 
-    /* ===============================
-       LIGHT
-    ================================ */
+  .height(
+    container.clientHeight
+  );
 
-    const light1 =
-      new THREE.DirectionalLight(
-        0xffffff,
-        3.2
-      );
+}
 
-    light1.position.set(
-      2,
-      3,
-      4
-    );
 
-    scene.add(light1);
+window.addEventListener(
+  "resize",
+  resizeGlobe
+);
 
+</script>
 
-    const light2 =
-      new THREE.DirectionalLight(
-        0x7895ff,
-        1.4
-      );
-
-    light2.position.set(
-      -3,
-      0,
-      2
-    );
-
-    scene.add(light2);
-
-
-    const ambient =
-      new THREE.AmbientLight(
-        0xffffff,
-        1.5
-      );
-
-    scene.add(ambient);
-
-
-    /* ===============================
-       INITIAL ROTATION
-    ================================ */
-
-    globe.rotation.x =
-      THREE.MathUtils.degToRad(
-        -10
-      );
-
-    globe.rotation.z =
-      THREE.MathUtils.degToRad(
-        -7
-      );
-
-
-    /* ===============================
-       MOUSE
-    ================================ */
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-
-    window.addEventListener(
-      "mousemove",
-      event => {
-
-        mouseX =
-          event.clientX /
-          window.innerWidth -
-          0.5;
-
-        mouseY =
-          event.clientY /
-          window.innerHeight -
-          0.5;
-
-      }
-    );
-
-
-    /* ===============================
-       RESIZE
-    ================================ */
-
-    function resize() {
-
-      const width =
-        el.clientWidth;
-
-      const height =
-        el.clientHeight;
-
-
-      renderer.setSize(
-        width,
-        height
-      );
-
-
-      camera.aspect =
-        width /
-        height;
-
-      camera.updateProjectionMatrix();
-
-    }
-
-
-    window.addEventListener(
-      "resize",
-      resize
-    );
-
-    resize();
-
-
-    /* ===============================
-       ANIMATION
-    ================================ */
-
-    let targetX =
-      globe.rotation.x;
-
-
-    function animate() {
-
-      requestAnimationFrame(
-        animate
-      );
-
-
-      /* 자동 회전 */
-
-      globe.rotation.y +=
-        0.0015;
-
-
-      /* 마우스에 따라 아주 살짝 움직임 */
-
-      targetX =
-        THREE.MathUtils.degToRad(-10)
-        +
-        mouseY *
-        0.07;
-
-
-      globe.rotation.x +=
-        (
-          targetX -
-          globe.rotation.x
-        )
-        *
-        0.02;
-
-
-      renderer.render(
-        scene,
-        camera
-      );
-
-    }
-
-
-    animate();
-
-  </script>
 
 </body>
 </html>
