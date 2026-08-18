@@ -1,1237 +1,789 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>scientistsroom</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #efefe9;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ===============================
+       HOME
+    ================================ */
+
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      background: #efefe9;
+    }
+
+    /* ===============================
+       TOP
+    ================================ */
+
+    .top {
+      position: absolute;
+      top: 34px;
+      left: 40px;
+      right: 40px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      z-index: 20;
+    }
+
+    .top-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.22;
+    }
+
+    /* ===============================
+       TITLE
+    ================================ */
+
+    .hero-title {
+      position: absolute;
+      top: 9%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-size: clamp(42px, 5vw, 76px);
+      letter-spacing: -0.07em;
+      font-weight: 500;
+
+      z-index: 10;
+    }
+
+    /* ===============================
+       GUIDE CIRCLE
+    ================================ */
 
-<title>scientistsroom</title>
+    .guide-circle {
+      position: absolute;
+
+      width: min(59vw, 720px);
+      aspect-ratio: 1 / 1;
 
-<style>
+      left: 50%;
+      top: 50%;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(0, 0, 0, 0.055);
+      border-radius: 50%;
 
-html {
-  scroll-behavior: smooth;
-}
+      pointer-events: none;
+    }
 
-body {
-  background: #efefe9;
-  color: #111;
-  font-family: Arial, Helvetica, sans-serif;
-}
+    .guide-circle::before,
+    .guide-circle::after {
+      content: "";
+      position: absolute;
+      background: rgba(0, 0, 0, 0.045);
+    }
 
+    .guide-circle::before {
+      width: 140%;
+      height: 1px;
+      left: -20%;
+      top: 50%;
+    }
 
-/* ===============================
-   HERO
-================================ */
+    .guide-circle::after {
+      width: 1px;
+      height: 140%;
+      top: -20%;
+      left: 50%;
+    }
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-  background: #efefe9;
-}
+    .guide-line {
+      position: absolute;
 
+      left: 50%;
+      top: 50%;
 
-/* TOP */
+      width: 118%;
+      height: 1px;
 
-.top {
-  position: absolute;
+      background: rgba(0, 0, 0, 0.035);
 
-  top: 34px;
-  left: 40px;
-  right: 40px;
+      transform-origin: center;
+    }
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    .guide-line.a {
+      transform: translate(-50%, -50%) rotate(32deg);
+    }
 
-  font-size: 12px;
-  font-weight: 600;
+    .guide-line.b {
+      transform: translate(-50%, -50%) rotate(-32deg);
+    }
 
-  z-index: 20;
-}
+    /* ===============================
+       EARTH
+    ================================ */
 
-.top-center {
-  position: absolute;
+    #globe {
+      position: absolute;
 
-  left: 50%;
-  transform: translateX(-50%);
+      width: min(38vw, 510px);
+      height: min(38vw, 510px);
 
-  opacity: .22;
-}
+      left: 50%;
+      top: 51%;
 
+      transform: translate(-50%, -50%);
 
-/* TITLE */
+      z-index: 5;
+    }
 
-.hero-title {
-  position: absolute;
+    #globe canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
-  top: 9%;
-  left: 50%;
+    /* ===============================
+       SIDE LINES
+    ================================ */
 
-  transform: translateX(-50%);
+    .side-line {
+      position: absolute;
 
-  font-size: clamp(42px, 5vw, 76px);
+      top: 45%;
 
-  letter-spacing: -.07em;
+      width: 12%;
+      height: 1px;
 
-  font-weight: 500;
+      background: rgba(0, 0, 0, 0.1);
+    }
 
-  z-index: 10;
-}
+    .side-line.left {
+      left: 3.5%;
+    }
 
-.hero-title span {
-  display: inline-block;
-}
+    .side-line.right {
+      right: 3.5%;
+    }
 
+    /* ===============================
+       BOTTOM
+    ================================ */
 
-/* GUIDE */
+    .bottom-info {
+      position: absolute;
 
-.guide-circle {
+      left: 40px;
+      right: 40px;
+      bottom: 34px;
 
-  position: absolute;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
 
-  width: min(59vw, 720px);
-  aspect-ratio: 1;
+      gap: 80px;
 
-  left: 50%;
-  top: 50%;
+      z-index: 10;
+    }
 
-  transform: translate(-50%, -50%);
+    .info h3 {
+      font-size: 13px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
 
-  border: 1px solid rgba(0,0,0,.055);
+    .info p {
+      max-width: 310px;
 
-  border-radius: 50%;
+      color: rgba(0, 0, 0, 0.35);
 
-}
+      font-size: 10px;
+      line-height: 1.4;
+    }
 
-.guide-circle::before,
-.guide-circle::after {
+    .info.center {
+      text-align: center;
+    }
 
-  content: "";
+    .info.center p {
+      margin: auto;
+    }
 
-  position: absolute;
+    .info.right {
+      text-align: right;
+    }
 
-  background: rgba(0,0,0,.045);
+    .info.right p {
+      margin-left: auto;
+    }
 
-}
+    /* ===============================
+       MOBILE
+    ================================ */
 
-.guide-circle::before {
+    @media (max-width: 800px) {
+      .hero {
+        min-height: 100svh;
+      }
 
-  width: 140%;
-  height: 1px;
+      .top {
+        top: 22px;
+        left: 20px;
+        right: 20px;
+      }
 
-  left: -20%;
-  top: 50%;
+      .hero-title {
+        font-size: 44px;
+        top: 13%;
+      }
 
-}
+      #globe {
+        width: 74vw;
+        height: 74vw;
+        top: 50%;
+      }
 
-.guide-circle::after {
+      .guide-circle {
+        width: 92vw;
+        top: 50%;
+      }
 
-  width: 1px;
-  height: 140%;
+      .side-line {
+        display: none;
+      }
 
-  top: -20%;
-  left: 50%;
+      .bottom-info {
+        left: 20px;
+        right: 20px;
+        bottom: 22px;
 
-}
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
 
-
-.guide-line {
-
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 118%;
-  height: 1px;
-
-  background: rgba(0,0,0,.035);
-
-  transform-origin: center;
-
-}
-
-.guide-line.a {
-
-  transform:
-  translate(-50%,-50%)
-  rotate(32deg);
-
-}
-
-.guide-line.b {
-
-  transform:
-  translate(-50%,-50%)
-  rotate(-32deg);
-
-}
-
-
-/* EARTH */
-
-#globe {
-
-  position: absolute;
-
-  width: min(38vw, 510px);
-  height: min(38vw, 510px);
-
-  left: 50%;
-  top: 51%;
-
-  transform: translate(-50%,-50%);
-
-  z-index: 5;
-
-}
-
-
-/* SIDE GUIDE */
-
-.side-line {
-
-  position: absolute;
-
-  top: 45%;
-
-  width: 12%;
-  height: 1px;
-
-  background: rgba(0,0,0,.10);
-
-}
-
-.side-line.left {
-
-  left: 3.5%;
-
-}
-
-.side-line.right {
-
-  right: 3.5%;
-
-}
-
-
-/* BOTTOM INFO */
-
-.bottom-info {
-
-  position: absolute;
-
-  left: 40px;
-  right: 40px;
-  bottom: 34px;
-
-  display: grid;
-
-  grid-template-columns:
-  1fr
-  1fr
-  1fr;
-
-  gap: 80px;
-
-  z-index: 10;
-
-}
-
-.info h3 {
-
-  font-size: 13px;
-
-  margin-bottom: 8px;
-
-  font-weight: 600;
-
-}
-
-.info p {
-
-  max-width: 310px;
-
-  color: rgba(0,0,0,.35);
-
-  font-size: 10px;
-
-  line-height: 1.4;
-
-}
-
-.info.center {
-
-  text-align: center;
-
-}
-
-.info.center p {
-
-  margin: auto;
-
-}
-
-.info.right {
-
-  text-align: right;
-
-}
-
-.info.right p {
-
-  margin-left: auto;
-
-}
-
-
-/* ===============================
-   WORK
-================================ */
-
-.work {
-
-  background: #111;
-
-  color: #f1f1eb;
-
-  padding:
-  150px 40px
-  100px;
-
-}
-
-.section-label {
-
-  font-size: 12px;
-
-  opacity: .5;
-
-  margin-bottom: 70px;
-
-}
-
-.project {
-
-  padding:
-  35px 0;
-
-  border-top:
-  1px solid
-  rgba(255,255,255,.2);
-
-  display: grid;
-
-  grid-template-columns:
-  70px
-  1fr
-  auto;
-
-  align-items: center;
-
-  cursor: pointer;
-
-}
-
-.project-number {
-
-  opacity: .35;
-
-  font-size: 12px;
-
-}
-
-.project-name {
-
-  font-size:
-  clamp(34px,5vw,78px);
-
-  letter-spacing:
-  -.055em;
-
-}
-
-.project-year {
-
-  font-size: 12px;
-
-  opacity: .45;
-
-}
-
-
-/* IMAGE */
-
-.project-image {
-
-  width: 100%;
-
-  margin:
-  30px 0 100px;
-
-  overflow: hidden;
-
-}
-
-.project-image img {
-
-  width: 100%;
-
-  display: block;
-
-  transition:
-  transform .8s
-  cubic-bezier(.16,1,.3,1);
-
-}
-
-.project-image:hover img {
-
-  transform:
-  scale(1.02);
-
-}
-
-
-/* ABOUT */
-
-.about {
-
-  min-height: 100vh;
-
-  padding:
-  160px 40px;
-
-  background:
-  #efefe9;
-
-}
-
-.about-grid {
-
-  display: grid;
-
-  grid-template-columns:
-  1fr
-  2.4fr;
-
-  gap: 100px;
-
-}
-
-.about-title {
-
-  font-size: 12px;
-
-}
-
-.about-text {
-
-  font-size:
-  clamp(36px,5vw,76px);
-
-  line-height: 1;
-
-  letter-spacing:
-  -.06em;
-
-  max-width: 1100px;
-
-}
-
-
-/* CONTACT */
-
-.contact {
-
-  min-height:
-  80vh;
-
-  background:
-  #2d5cff;
-
-  color: white;
-
-  padding:
-  150px 40px
-  50px;
-
-  display:
-  flex;
-
-  flex-direction:
-  column;
-
-  justify-content:
-  space-between;
-
-}
-
-.contact-title {
-
-  font-size:
-  clamp(65px,11vw,180px);
-
-  line-height:
-  .8;
-
-  letter-spacing:
-  -.08em;
-
-}
-
-.contact-bottom {
-
-  display:
-  flex;
-
-  justify-content:
-  space-between;
-
-  font-size:
-  12px;
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:800px) {
-
-.hero-title {
-
-  font-size: 44px;
-
-  top: 13%;
-
-}
-
-#globe {
-
-  width: 75vw;
-  height: 75vw;
-
-}
-
-.guide-circle {
-
-  width: 92vw;
-
-}
-
-.side-line {
-
-  display:none;
-
-}
-
-.bottom-info {
-
-  left:20px;
-  right:20px;
-
-  grid-template-columns:
-  1fr 1fr;
-
-  gap:30px;
-
-}
-
-.bottom-info .center {
-
-  display:none;
-
-}
-
-.project {
-
-  grid-template-columns:
-  40px
-  1fr;
-
-}
-
-.project-year {
-
-  display:none;
-
-}
-
-.about-grid {
-
-  grid-template-columns:
-  1fr;
-
-}
-
-}
-
-</style>
+      .bottom-info .center {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <main class="hero">
 
-<!-- =====================
-     HERO
-===================== -->
+    <!-- TOP -->
 
-<section class="hero">
+    <header class="top">
+      <div>scientistsroom</div>
 
-<header class="top">
+      <div class="top-center">
+        PORTFOLIO
+      </div>
 
-<div>
-scientistsroom
-</div>
+      <div>2026</div>
+    </header>
 
-<div class="top-center">
-PORTFOLIO
-</div>
 
-<div>
-2026
-</div>
+    <!-- TITLE -->
 
-</header>
+    <h1 class="hero-title">
+      scientistsroom
+    </h1>
 
 
-<h1 class="hero-title">
-scientistsroom
-</h1>
+    <!-- GUIDE -->
 
+    <div class="guide-circle">
+      <div class="guide-line a"></div>
+      <div class="guide-line b"></div>
+    </div>
 
-<div class="guide-circle">
 
-<div class="guide-line a"></div>
+    <div class="side-line left"></div>
+    <div class="side-line right"></div>
 
-<div class="guide-line b"></div>
 
-</div>
+    <!-- EARTH -->
 
+    <div id="globe"></div>
 
-<div class="side-line left"></div>
 
-<div class="side-line right"></div>
+    <!-- BOTTOM INFO -->
 
+    <div class="bottom-info">
 
-<div id="globe"></div>
+      <div class="info">
+        <h3>Visual Design</h3>
 
+        <p>
+          Graphic / Editorial / Branding /
+          Exhibition / Digital Experience
+        </p>
+      </div>
 
-<div class="bottom-info">
 
-<div class="info">
+      <div class="info center">
+        <h3>scientistsroom</h3>
 
-<h3>Visual Design</h3>
+        <p>
+          Visual communication across
+          print, space and digital media.
+        </p>
+      </div>
 
-<p>
-Graphic / Editorial / Branding /
-Exhibition / Digital Experience
-</p>
 
-</div>
+      <div class="info right">
+        <h3>Selected Works</h3>
 
+        <p>
+          Brand / Editorial / Exhibition /
+          Package / Art Direction
+        </p>
+      </div>
 
-<div class="info center">
+    </div>
 
-<h3>scientistsroom</h3>
+  </main>
 
-<p>
-Visual communication across
-print, space and digital media.
-</p>
 
-</div>
+  <script type="module">
 
+    import * as THREE from
+    "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
-<div class="info right">
+    import ThreeGlobe from
+    "https://cdn.jsdelivr.net/npm/three-globe/+esm";
 
-<h3>Selected Works</h3>
 
-<p>
-Brand / Editorial / Exhibition /
-Package / Art Direction
-</p>
+    /* ===============================
+       SCENE
+    ================================ */
 
-</div>
+    const el =
+      document.getElementById("globe");
 
-</div>
+    const scene =
+      new THREE.Scene();
 
-</section>
 
+    /* ===============================
+       CAMERA
+    ================================ */
 
-<!-- =====================
-     WORK
-===================== -->
+    const camera =
+      new THREE.PerspectiveCamera(
+        38,
+        1,
+        0.1,
+        1000
+      );
 
-<section class="work">
+    camera.position.z = 320;
 
-<div class="section-label">
-SELECTED WORK / 2022—2026
-</div>
 
+    /* ===============================
+       RENDERER
+    ================================ */
 
-<div class="project">
+    const renderer =
+      new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+      });
 
-<div class="project-number">
-01
-</div>
+    renderer.setPixelRatio(
+      Math.min(
+        window.devicePixelRatio,
+        2
+      )
+    );
 
-<div class="project-name">
-LIG D&A 50th Anniversary
-</div>
+    renderer.setClearColor(
+      0x000000,
+      0
+    );
 
-<div class="project-year">
-2026
-</div>
+    el.appendChild(
+      renderer.domElement
+    );
 
-</div>
 
+    /* ===============================
+       GLOBE
+    ================================ */
 
-<div class="project-image">
+    const globe =
+      new ThreeGlobe({
+        waitForGlobeReady: true,
+        animateIn: false
+      });
 
-<img
-src="images/lig.jpg"
-alt="LIG 50th Anniversary"
-/>
+    /* 먼저 씬에 추가 */
+    scene.add(globe);
 
-</div>
 
+    /* ===============================
+       GLOBE MATERIAL
+    ================================ */
 
+    globe.globeMaterial(
+      new THREE.MeshPhysicalMaterial({
+        color: 0xf1f1ec,
 
-<div class="project">
+        roughness: 0.5,
+        metalness: 0,
 
-<div class="project-number">
-02
-</div>
+        transparent: true,
+        opacity: 0.96
+      })
+    );
 
-<div class="project-name">
-Langmuir
-</div>
 
-<div class="project-year">
-2022
-</div>
+    /* ===============================
+       CONTINENTS
+    ================================ */
 
-</div>
+    try {
 
+      const countries =
+        await fetch(
+          "https://raw.githubusercontent.com/vasturiano/three-globe/master/example/datasets/ne_110m_admin_0_countries.geojson"
+        )
+        .then(
+          response => response.json()
+        );
 
-<div class="project-image">
 
-<img
-src="images/langmuir.jpg"
-alt="Langmuir"
-/>
+      globe
+        .polygonsData(
+          countries.features
+        )
 
-</div>
+        .polygonAltitude(
+          0.006
+        )
 
+        .polygonCapColor(
+          () =>
+          "rgba(20,20,20,0.52)"
+        )
 
+        .polygonSideColor(
+          () =>
+          "rgba(0,0,0,0.05)"
+        )
 
-<div class="project">
+        .polygonStrokeColor(
+          () =>
+          "rgba(255,255,255,0.3)"
+        );
 
-<div class="project-number">
-03
-</div>
+    }
 
-<div class="project-name">
-KES LG Electronics
-</div>
+    catch (error) {
 
-<div class="project-year">
-2025
-</div>
+      console.log(
+        "대륙 데이터를 불러오지 못했습니다.",
+        error
+      );
 
-</div>
+    }
 
-</section>
 
+    /* ===============================
+       DOTS
+    ================================ */
 
+    const dots = [];
 
-<!-- =====================
-     ABOUT
-===================== -->
 
-<section class="about">
+    for (
+      let lat = -80;
+      lat <= 80;
+      lat += 6
+    ) {
 
-<div class="about-grid">
+      for (
+        let lng = -180;
+        lng < 180;
+        lng += 6
+      ) {
 
-<div class="about-title">
-ABOUT
-</div>
+        dots.push({
 
+          lat:
+            lat +
+            (Math.random() - 0.5) *
+            1.5,
 
-<div class="about-text">
+          lng:
+            lng +
+            (Math.random() - 0.5) *
+            1.5,
 
-scientistsroom is a
-visual design practice
-exploring branding,
-editorial, exhibition
-and printed matter.
+          size:
+            Math.random() *
+            0.16 +
+            0.04
 
-</div>
+        });
 
-</div>
+      }
 
-</section>
+    }
 
 
+    globe
+      .pointsData(dots)
 
-<!-- =====================
-     CONTACT
-===================== -->
+      .pointLat(
+        d => d.lat
+      )
 
-<section class="contact">
+      .pointLng(
+        d => d.lng
+      )
 
-<div class="contact-title">
+      .pointAltitude(
+        0.01
+      )
 
-LET'S<br>
-WORK<br>
-TOGETHER.
+      .pointRadius(
+        d => d.size
+      )
 
-</div>
+      .pointColor(
+        () =>
+        "rgba(0,0,0,0.16)"
+      );
 
 
-<div class="contact-bottom">
+    /* ===============================
+       ATMOSPHERE
+    ================================ */
 
-<div>
-scientistsroom
-</div>
+    globe
+      .showAtmosphere(true)
 
-<div>
-CONTACT
-</div>
+      .atmosphereColor(
+        "#d5d5d0"
+      )
 
-<div>
-© 2026
-</div>
+      .atmosphereAltitude(
+        0.1
+      );
 
-</div>
 
-</section>
+    /* ===============================
+       SCALE
+    ================================ */
 
+    globe.scale.set(
+      1.35,
+      1.35,
+      1.35
+    );
 
 
-<script type="module">
+    /* ===============================
+       LIGHT
+    ================================ */
 
-import * as THREE from
-"https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
+    const light1 =
+      new THREE.DirectionalLight(
+        0xffffff,
+        3.2
+      );
 
+    light1.position.set(
+      2,
+      3,
+      4
+    );
 
-import ThreeGlobe from
-"https://cdn.jsdelivr.net/npm/three-globe/+esm";
+    scene.add(light1);
 
 
-/* =============================
-   SCENE
-============================= */
+    const light2 =
+      new THREE.DirectionalLight(
+        0x7895ff,
+        1.4
+      );
 
-const el =
-document.getElementById("globe");
+    light2.position.set(
+      -3,
+      0,
+      2
+    );
 
+    scene.add(light2);
 
-const scene =
-new THREE.Scene();
 
+    const ambient =
+      new THREE.AmbientLight(
+        0xffffff,
+        1.5
+      );
 
-const camera =
-new THREE.PerspectiveCamera(
-38,
-1,
-0.1,
-100
-);
+    scene.add(ambient);
 
 
-camera.position.z =
-320;
+    /* ===============================
+       INITIAL ROTATION
+    ================================ */
 
+    globe.rotation.x =
+      THREE.MathUtils.degToRad(
+        -10
+      );
 
-/* renderer */
+    globe.rotation.z =
+      THREE.MathUtils.degToRad(
+        -7
+      );
 
-const renderer =
-new THREE.WebGLRenderer({
 
-alpha:true,
+    /* ===============================
+       MOUSE
+    ================================ */
 
-antialias:true
+    let mouseX = 0;
+    let mouseY = 0;
 
-});
 
+    window.addEventListener(
+      "mousemove",
+      event => {
 
-renderer.setPixelRatio(
+        mouseX =
+          event.clientX /
+          window.innerWidth -
+          0.5;
 
-Math.min(
-window.devicePixelRatio,
-2
-)
+        mouseY =
+          event.clientY /
+          window.innerHeight -
+          0.5;
 
-);
+      }
+    );
 
 
-el.appendChild(
-renderer.domElement
-);
+    /* ===============================
+       RESIZE
+    ================================ */
 
+    function resize() {
 
-/* =============================
-   GLOBE
-============================= */
+      const width =
+        el.clientWidth;
 
-const globe =
-new ThreeGlobe({
+      const height =
+        el.clientHeight;
 
-waitForGlobeReady:true,
 
-animateIn:true
+      renderer.setSize(
+        width,
+        height
+      );
 
-});
 
+      camera.aspect =
+        width /
+        height;
 
-/* 지구 표면 */
+      camera.updateProjectionMatrix();
 
-globe.globeMaterial(
-new THREE.MeshPhysicalMaterial({
+    }
 
-color:
-0xf2f2ec,
 
-roughness:
-.32,
+    window.addEventListener(
+      "resize",
+      resize
+    );
 
-metalness:
-0,
+    resize();
 
-transparent:
-true,
 
-opacity:
-.88
+    /* ===============================
+       ANIMATION
+    ================================ */
 
-})
-);
+    let targetX =
+      globe.rotation.x;
 
 
-/* =============================
-   ACTUAL CONTINENTS
-============================= */
+    function animate() {
 
-const countries =
-await fetch(
+      requestAnimationFrame(
+        animate
+      );
 
-"https://raw.githubusercontent.com/vasturiano/three-globe/master/example/datasets/ne_110m_admin_0_countries.geojson"
 
-)
-.then(
-res => res.json()
-);
+      /* 자동 회전 */
 
+      globe.rotation.y +=
+        0.0015;
 
-globe
-.polygonsData(
-countries.features
-)
 
-.polygonAltitude(
-0.008
-)
+      /* 마우스에 따라 아주 살짝 움직임 */
 
-.polygonCapColor(
-() =>
-"rgba(20,20,20,.55)"
-)
+      targetX =
+        THREE.MathUtils.degToRad(-10)
+        +
+        mouseY *
+        0.07;
 
-.polygonSideColor(
-() =>
-"rgba(0,0,0,.08)"
-)
 
-.polygonStrokeColor(
-() =>
-"rgba(255,255,255,.18)"
-);
+      globe.rotation.x +=
+        (
+          targetX -
+          globe.rotation.x
+        )
+        *
+        0.02;
 
 
-/* =============================
-   DOT EFFECT
-============================= */
+      renderer.render(
+        scene,
+        camera
+      );
 
-const dots = [];
+    }
 
-for(
-let lat = -80;
-lat <= 80;
-lat += 5
-){
 
-for(
-let lng = -180;
-lng < 180;
-lng += 5
-){
+    animate();
 
-dots.push({
-
-lat:
-lat +
-(Math.random()-.5)*2,
-
-lng:
-lng +
-(Math.random()-.5)*2,
-
-size:
-Math.random()
-*.22
-+.05
-
-});
-
-}
-
-}
-
-
-globe
-.pointsData(dots)
-
-.pointLat(
-d => d.lat
-)
-
-.pointLng(
-d => d.lng
-)
-
-.pointAltitude(
-.012
-)
-
-.pointRadius(
-d => d.size
-)
-
-.pointColor(
-() =>
-"rgba(20,20,20,.18)"
-);
-
-
-/* atmosphere */
-
-globe
-.showAtmosphere(true)
-
-.atmosphereColor(
-"#cccccc"
-)
-
-.atmosphereAltitude(
-.12
-);
-
-
-/* =============================
-   SCALE
-============================= */
-
-globe.scale.set(
-1.45,
-1.45,
-1.45
-);
-
-
-scene.add(
-globe
-);
-
-
-/* =============================
-   LIGHT
-============================= */
-
-const light1 =
-new THREE.DirectionalLight(
-0xffffff,
-4
-);
-
-
-light1.position.set(
-1,
-1,
-2
-);
-
-
-scene.add(
-light1
-);
-
-
-
-const light2 =
-new THREE.DirectionalLight(
-0x6688ff,
-2
-);
-
-
-light2.position.set(
--2,
-0,
-2
-);
-
-
-scene.add(
-light2
-);
-
-
-
-const ambient =
-new THREE.AmbientLight(
-0xffffff,
-1.3
-);
-
-
-scene.add(
-ambient
-);
-
-
-/* initial position */
-
-globe.rotation.x =
--.12;
-
-globe.rotation.z =
--.08;
-
-
-/* =============================
-   MOUSE
-============================= */
-
-let mouseX = 0;
-let mouseY = 0;
-
-
-window.addEventListener(
-
-"mousemove",
-
-e => {
-
-mouseX =
-(
-e.clientX /
-innerWidth
--
-.5
-);
-
-mouseY =
-(
-e.clientY /
-innerHeight
--
-.5
-);
-
-}
-
-);
-
-
-/* =============================
-   RESIZE
-============================= */
-
-function resize(){
-
-const w =
-el.clientWidth;
-
-const h =
-el.clientHeight;
-
-
-renderer.setSize(
-w,
-h
-);
-
-
-camera.aspect =
-w/h;
-
-
-camera.updateProjectionMatrix();
-
-}
-
-
-window.addEventListener(
-"resize",
-resize
-);
-
-
-resize();
-
-
-/* =============================
-   ANIMATION
-============================= */
-
-function animate(){
-
-requestAnimationFrame(
-animate
-);
-
-
-/* 계속 회전 */
-
-globe.rotation.y +=
-.0017;
-
-
-/* mouse interaction */
-
-globe.rotation.x +=
-(
-mouseY*.12
--
-globe.rotation.x
-)
-*.015;
-
-
-renderer.render(
-scene,
-camera
-);
-
-}
-
-
-animate();
-
-</script>
-
+  </script>
 
 </body>
 </html>
