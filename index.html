@@ -26,13 +26,17 @@
       color: #111;
     }
 
-    /* HOME */
+
+    /* =====================================
+       HOME
+    ===================================== */
 
     .hero {
       position: relative;
 
       width: 100vw;
       height: 100vh;
+
       min-height: 700px;
 
       background: #efefe9;
@@ -40,7 +44,10 @@
       overflow: hidden;
     }
 
-    /* TOP */
+
+    /* =====================================
+       TOP
+    ===================================== */
 
     .top {
       position: absolute;
@@ -50,25 +57,29 @@
       right: 40px;
 
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
 
       font-size: 12px;
       font-weight: 600;
 
-      z-index: 10;
+      z-index: 30;
     }
 
     .top-center {
       position: absolute;
 
       left: 50%;
+
       transform: translateX(-50%);
 
       opacity: 0.22;
     }
 
-    /* TITLE */
+
+    /* =====================================
+       TITLE
+    ===================================== */
 
     .title {
       position: absolute;
@@ -79,11 +90,13 @@
       transform: translateX(-50%);
 
       font-size: clamp(38px, 4.2vw, 72px);
-      line-height: 0.88;
+
+      line-height: 0.9;
 
       letter-spacing: -0.065em;
 
       text-align: center;
+
       font-weight: 600;
 
       white-space: nowrap;
@@ -91,7 +104,10 @@
       z-index: 10;
     }
 
-    /* GUIDE */
+
+    /* =====================================
+       GUIDE CIRCLE
+    ===================================== */
 
     .guide-circle {
       position: absolute;
@@ -113,6 +129,7 @@
       pointer-events: none;
     }
 
+
     .guide-circle::before,
     .guide-circle::after {
       content: "";
@@ -123,6 +140,7 @@
         rgba(0, 0, 0, 0.06);
     }
 
+
     .guide-circle::before {
       width: 140%;
       height: 1px;
@@ -130,6 +148,7 @@
       left: -20%;
       top: 50%;
     }
+
 
     .guide-circle::after {
       height: 140%;
@@ -139,7 +158,8 @@
       left: 50%;
     }
 
-    /* DIAGONAL */
+
+    /* diagonal guide */
 
     .line {
       position: absolute;
@@ -156,11 +176,13 @@
       transform-origin: center;
     }
 
+
     .line.one {
       transform:
         translate(-50%, -50%)
         rotate(32deg);
     }
+
 
     .line.two {
       transform:
@@ -168,7 +190,10 @@
         rotate(-32deg);
     }
 
-    /* EARTH */
+
+    /* =====================================
+       EARTH
+    ===================================== */
 
     #earthWrap {
       position: absolute;
@@ -189,24 +214,82 @@
         filter 0.5s ease;
     }
 
-    #earthWrap:hover {
-      transform:
-        translate(-50%, -48%)
-        scale(1.06);
 
+    #earthWrap:hover {
       filter:
         drop-shadow(
           0 30px 50px
-          rgba(0, 0, 0, 0.1)
+          rgba(0, 0, 0, 0.08)
         );
     }
+
 
     #earth {
       width: 100%;
       height: 100%;
+
+      cursor: grab;
     }
 
-    /* SIDE LINE */
+
+    #earth:active {
+      cursor: grabbing;
+    }
+
+
+    /* =====================================
+       HOVER LABEL
+    ===================================== */
+
+    #projectLabel {
+      position: fixed;
+
+      left: 0;
+      top: 0;
+
+      padding:
+        9px 12px;
+
+      background: #111;
+
+      color: #efefe9;
+
+      font-size: 11px;
+      line-height: 1.3;
+
+      letter-spacing: -0.02em;
+
+      pointer-events: none;
+
+      opacity: 0;
+
+      transform:
+        translate(14px, 14px);
+
+      transition:
+        opacity 0.18s ease;
+
+      z-index: 100;
+
+      white-space: nowrap;
+    }
+
+
+    #projectLabel.active {
+      opacity: 1;
+    }
+
+
+    #projectLabel .label-number {
+      opacity: 0.45;
+
+      margin-right: 8px;
+    }
+
+
+    /* =====================================
+       SIDE LINE
+    ===================================== */
 
     .side-line {
       position: absolute;
@@ -220,15 +303,20 @@
         rgba(0, 0, 0, .12);
     }
 
+
     .side-line.left {
       left: 3.5%;
     }
+
 
     .side-line.right {
       right: 3.5%;
     }
 
-    /* BOTTOM */
+
+    /* =====================================
+       BOTTOM
+    ===================================== */
 
     .bottom {
       position: absolute;
@@ -248,8 +336,9 @@
 
       align-items: end;
 
-      z-index: 10;
+      z-index: 20;
     }
+
 
     .item h3 {
       font-size: 13px;
@@ -258,6 +347,7 @@
 
       font-weight: 600;
     }
+
 
     .item p {
       max-width: 300px;
@@ -269,23 +359,256 @@
         rgba(0, 0, 0, .36);
     }
 
+
     .center-item {
       text-align: center;
     }
+
 
     .center-item p {
       margin: 0 auto;
     }
 
+
     .right-item {
       text-align: right;
     }
+
 
     .right-item p {
       margin-left: auto;
     }
 
-    /* MOBILE */
+
+    /* =====================================
+       PROJECT PANEL
+    ===================================== */
+
+    .panel-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(0, 0, 0, 0.08);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.5s ease;
+
+      z-index: 80;
+    }
+
+
+    .panel-overlay.active {
+      opacity: 1;
+
+      pointer-events: auto;
+    }
+
+
+    #projectPanel {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+
+      width: min(470px, 92vw);
+      height: 100vh;
+
+      background: #111;
+
+      color: #f1f1eb;
+
+      padding:
+        38px 38px 42px;
+
+      transform:
+        translateX(100%);
+
+      transition:
+        transform
+        0.7s
+        cubic-bezier(.16, 1, .3, 1);
+
+      z-index: 90;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    #projectPanel.active {
+      transform:
+        translateX(0);
+    }
+
+
+    /* panel top */
+
+    .panel-top {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 55px;
+    }
+
+
+    .panel-index {
+      font-size: 11px;
+
+      color:
+        rgba(255, 255, 255, 0.45);
+    }
+
+
+    #closePanel {
+      appearance: none;
+
+      background: none;
+
+      border: 0;
+
+      color: white;
+
+      font-size: 28px;
+      font-weight: 300;
+
+      cursor: pointer;
+
+      line-height: 1;
+    }
+
+
+    /* panel content */
+
+    .panel-year {
+      font-size: 11px;
+
+      color:
+        rgba(255, 255, 255, 0.42);
+
+      margin-bottom: 12px;
+    }
+
+
+    .panel-title {
+      font-size:
+        clamp(34px, 4vw, 55px);
+
+      line-height: 0.95;
+
+      letter-spacing:
+        -0.055em;
+
+      font-weight: 500;
+
+      margin-bottom: 20px;
+    }
+
+
+    .panel-category {
+      font-size: 11px;
+
+      color:
+        rgba(255, 255, 255, 0.48);
+
+      margin-bottom: 38px;
+    }
+
+
+    /* image */
+
+    .panel-image-wrap {
+      position: relative;
+
+      width: 100%;
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+
+      background: #242424;
+
+      margin-bottom: 30px;
+    }
+
+
+    #panelImage {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+    }
+
+
+    .image-placeholder {
+      position: absolute;
+
+      inset: 0;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      color:
+        rgba(255, 255, 255, 0.3);
+
+      font-size: 11px;
+
+      text-align: center;
+    }
+
+
+    .image-placeholder.active {
+      display: flex;
+    }
+
+
+    .panel-description {
+      font-size: 12px;
+
+      line-height: 1.7;
+
+      color:
+        rgba(255, 255, 255, 0.58);
+
+      max-width: 360px;
+    }
+
+
+    .view-project {
+      margin-top: auto;
+
+      padding-top: 30px;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 12px;
+    }
+
+
+    .view-project span:last-child {
+      opacity: 0.45;
+    }
+
+
+    /* =====================================
+       MOBILE
+    ===================================== */
 
     @media (max-width: 900px) {
 
@@ -293,11 +616,14 @@
         min-height: 100svh;
       }
 
+
       .top {
         top: 22px;
+
         left: 20px;
         right: 20px;
       }
+
 
       .title {
         top: 13%;
@@ -306,12 +632,14 @@
           clamp(38px, 11vw, 52px);
       }
 
+
       #earthWrap {
-        width: 70vw;
-        height: 70vw;
+        width: 72vw;
+        height: 72vw;
 
         top: 49%;
       }
+
 
       .guide-circle {
         width: 90vw;
@@ -319,9 +647,11 @@
         top: 49%;
       }
 
+
       .side-line {
         display: none;
       }
+
 
       .bottom {
         left: 20px;
@@ -334,23 +664,39 @@
         gap: 22px;
       }
 
+
       .bottom .center-item {
         display: none;
       }
 
+
       .item p {
         font-size: 9px;
       }
+
+
+      #projectPanel {
+        width: 100vw;
+
+        padding:
+          25px 24px 32px;
+      }
+
     }
+
   </style>
 </head>
 
 
 <body>
 
+
   <main class="hero">
 
-    <!-- TOP -->
+
+    <!-- =====================================
+         TOP
+    ====================================== -->
 
     <header class="top">
 
@@ -358,9 +704,11 @@
         scientistsroom
       </div>
 
+
       <div class="top-center">
         PORTFOLIO
       </div>
+
 
       <div>
         2026
@@ -369,14 +717,20 @@
     </header>
 
 
-    <!-- TITLE -->
+
+    <!-- =====================================
+         TITLE
+    ====================================== -->
 
     <div class="title">
       scientistsroom
     </div>
 
 
-    <!-- GUIDE -->
+
+    <!-- =====================================
+         GUIDE
+    ====================================== -->
 
     <div class="guide-circle">
 
@@ -392,7 +746,10 @@
     <div class="side-line right"></div>
 
 
-    <!-- EARTH -->
+
+    <!-- =====================================
+         EARTH
+    ====================================== -->
 
     <div id="earthWrap">
 
@@ -401,7 +758,10 @@
     </div>
 
 
-    <!-- BOTTOM -->
+
+    <!-- =====================================
+         BOTTOM
+    ====================================== -->
 
     <section class="bottom">
 
@@ -443,9 +803,9 @@
         </h3>
 
         <p>
-          Brand / Editorial /
-          Exhibition / Package /
-          Art Direction
+          Click the points on
+          the globe to explore
+          selected projects.
         </p>
 
       </div>
@@ -457,15 +817,287 @@
 
 
 
-  <!-- THREE JS -->
+  <!-- =====================================
+       HOVER LABEL
+  ====================================== -->
+
+  <div id="projectLabel"></div>
+
+
+
+  <!-- =====================================
+       PANEL OVERLAY
+  ====================================== -->
+
+  <div
+    class="panel-overlay"
+    id="panelOverlay">
+  </div>
+
+
+
+  <!-- =====================================
+       PROJECT PANEL
+  ====================================== -->
+
+  <aside id="projectPanel">
+
+
+    <div class="panel-top">
+
+      <div
+        class="panel-index"
+        id="panelIndex">
+
+        01 / PROJECT
+
+      </div>
+
+
+      <button
+        id="closePanel"
+        aria-label="Close project">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+
+    <div
+      class="panel-year"
+      id="panelYear">
+
+      2026
+
+    </div>
+
+
+    <h2
+      class="panel-title"
+      id="panelTitle">
+
+      LIG D&A
+
+    </h2>
+
+
+    <div
+      class="panel-category"
+      id="panelCategory">
+
+      PACKAGE / GRAPHIC DESIGN
+
+    </div>
+
+
+
+    <div class="panel-image-wrap">
+
+      <img
+        id="panelImage"
+        src=""
+        alt=""
+      />
+
+
+      <div
+        class="image-placeholder"
+        id="imagePlaceholder">
+
+        PROJECT IMAGE
+
+      </div>
+
+    </div>
+
+
+
+    <p
+      class="panel-description"
+      id="panelDescription">
+
+    </p>
+
+
+
+    <div class="view-project">
+
+      <span>
+        SELECTED PROJECT
+      </span>
+
+      <span>
+        scientistsroom
+      </span>
+
+    </div>
+
+
+  </aside>
+
+
+
+  <!-- =====================================
+       THREE JS
+  ====================================== -->
 
   <script type="module">
+
 
     import * as THREE
     from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
 
-    /* SCENE */
+
+    /* =====================================
+       PROJECT DATA
+
+       ★ 여기만 바꾸면 작품 수정 가능
+    ====================================== */
+
+
+    const projects = [
+
+      {
+
+        number: "01",
+
+        title:
+          "LIG D&A 50th Anniversary",
+
+        year:
+          "2026",
+
+        category:
+          "PACKAGE / GRAPHIC DESIGN",
+
+        description:
+          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.",
+
+        image:
+          "images/lig.jpg",
+
+        lat: 37,
+
+        lng: 127
+
+      },
+
+
+      {
+
+        number: "02",
+
+        title:
+          "Langmuir",
+
+        year:
+          "2022",
+
+        category:
+          "COVER ARTWORK",
+
+        description:
+          "미국화학회 ACS 학술지 Langmuir 논문 표지 그래픽 디자인을 진행하였습니다.",
+
+        image:
+          "images/langmuir.jpg",
+
+        lat: 42,
+
+        lng: -74
+
+      },
+
+
+      {
+
+        number: "03",
+
+        title:
+          "KES LG Electronics",
+
+        year:
+          "2025",
+
+        category:
+          "EXHIBITION / EDITORIAL",
+
+        description:
+          "KES 한국전자전 LG 전시 프로젝트의 리플렛, POP, 스펙보드 및 시안 합성 디자인을 진행하였습니다.",
+
+        image:
+          "images/lg.jpg",
+
+        lat: 8,
+
+        lng: 15
+
+      },
+
+
+      {
+
+        number: "04",
+
+        title:
+          "Culture Delivery",
+
+        year:
+          "2025",
+
+        category:
+          "CULTURE / GRAPHIC DESIGN",
+
+        description:
+          "구석구석 문화배달 프로젝트의 포스터, 배너, 리플렛 등 다양한 홍보 디자인을 진행하였습니다.",
+
+        image:
+          "images/culture.jpg",
+
+        lat: -25,
+
+        lng: -45
+
+      },
+
+
+      {
+
+        number: "05",
+
+        title:
+          "Gwangju Eupseong",
+
+        year:
+          "2025",
+
+        category:
+          "EXHIBITION / GRAPHIC DESIGN",
+
+        description:
+          "광주읍성 : 사라진 기억 전시의 포스터, 배너 및 상세페이지 디자인을 진행하였습니다.",
+
+        image:
+          "images/gwangju.jpg",
+
+        lat: -20,
+
+        lng: 80
+
+      }
+
+    ];
+
+
+
+    /* =====================================
+       SCENE
+    ====================================== */
+
 
     const container =
       document.getElementById(
@@ -477,14 +1109,23 @@
       new THREE.Scene();
 
 
-    /* CAMERA */
+
+    /* =====================================
+       CAMERA
+    ====================================== */
+
 
     const camera =
       new THREE.PerspectiveCamera(
+
         38,
+
         1,
+
         0.1,
+
         100
+
       );
 
 
@@ -492,7 +1133,11 @@
       4.8;
 
 
-    /* RENDERER */
+
+    /* =====================================
+       RENDERER
+    ====================================== */
+
 
     const renderer =
       new THREE.WebGLRenderer({
@@ -524,7 +1169,11 @@
     );
 
 
-    /* GLOBE GROUP */
+
+    /* =====================================
+       GLOBE GROUP
+    ====================================== */
+
 
     const globe =
       new THREE.Group();
@@ -535,7 +1184,11 @@
     );
 
 
-    /* GLOBE BODY */
+
+    /* =====================================
+       GLOBE BODY
+    ====================================== */
+
 
     const globeGeometry =
       new THREE.SphereGeometry(
@@ -600,13 +1253,17 @@
     );
 
 
-    /* DOTS */
+
+    /* =====================================
+       SMALL DOTS
+    ====================================== */
+
 
     const dotGeometry =
       new THREE.BufferGeometry();
 
 
-    const points =
+    const dotPoints =
       [];
 
 
@@ -623,6 +1280,7 @@
       i++
 
     ) {
+
 
       const phi =
 
@@ -677,7 +1335,7 @@
         Math.cos(phi);
 
 
-      points.push(
+      dotPoints.push(
 
         x,
 
@@ -690,19 +1348,21 @@
     }
 
 
+
     dotGeometry.setAttribute(
 
       "position",
 
       new THREE.Float32BufferAttribute(
 
-        points,
+        dotPoints,
 
         3
 
       )
 
     );
+
 
 
     const dotMaterial =
@@ -718,12 +1378,13 @@
           true,
 
         opacity:
-          0.52,
+          0.45,
 
         sizeAttenuation:
           true
 
       });
+
 
 
     const dots =
@@ -741,7 +1402,11 @@
     );
 
 
-    /* WIREFRAME */
+
+    /* =====================================
+       WIREFRAME
+    ====================================== */
+
 
     const wireGeometry =
       new THREE.SphereGeometry(
@@ -788,7 +1453,308 @@
     );
 
 
-    /* LIGHT */
+
+    /* =====================================
+       LAT / LNG → 3D POSITION
+    ====================================== */
+
+
+    function latLngToVector3(
+
+      lat,
+
+      lng,
+
+      radius
+
+    ) {
+
+
+      const phi =
+
+        THREE.MathUtils.degToRad(
+
+          90 - lat
+
+        );
+
+
+      const theta =
+
+        THREE.MathUtils.degToRad(
+
+          lng + 180
+
+        );
+
+
+      return new THREE.Vector3(
+
+        -radius *
+
+        Math.sin(phi) *
+
+        Math.cos(theta),
+
+
+        radius *
+
+        Math.cos(phi),
+
+
+        radius *
+
+        Math.sin(phi) *
+
+        Math.sin(theta)
+
+      );
+
+    }
+
+
+
+    /* =====================================
+       PROJECT HOTSPOTS
+    ====================================== */
+
+
+    const projectPoints =
+      [];
+
+
+    projects.forEach(
+
+      (project, index) => {
+
+
+        /*
+        --------------------
+        CLICK AREA
+        --------------------
+        */
+
+
+        const hitGeometry =
+          new THREE.SphereGeometry(
+
+            0.09,
+
+            18,
+
+            18
+
+          );
+
+
+        const hitMaterial =
+          new THREE.MeshBasicMaterial({
+
+            transparent: true,
+
+            opacity: 0
+
+          });
+
+
+        const hitPoint =
+          new THREE.Mesh(
+
+            hitGeometry,
+
+            hitMaterial
+
+          );
+
+
+
+        /*
+        --------------------
+        VISIBLE POINT
+        --------------------
+        */
+
+
+        const visibleGeometry =
+          new THREE.SphereGeometry(
+
+            0.035,
+
+            24,
+
+            24
+
+          );
+
+
+        const visibleMaterial =
+          new THREE.MeshBasicMaterial({
+
+            color:
+              0x111111
+
+          });
+
+
+        const visiblePoint =
+          new THREE.Mesh(
+
+            visibleGeometry,
+
+            visibleMaterial
+
+          );
+
+
+
+        /*
+        --------------------
+        HALO
+        --------------------
+        */
+
+
+        const haloGeometry =
+          new THREE.RingGeometry(
+
+            0.055,
+
+            0.07,
+
+            40
+
+          );
+
+
+        const haloMaterial =
+          new THREE.MeshBasicMaterial({
+
+            color:
+              0x111111,
+
+            transparent:
+              true,
+
+            opacity:
+              0.25,
+
+            side:
+              THREE.DoubleSide
+
+          });
+
+
+        const halo =
+          new THREE.Mesh(
+
+            haloGeometry,
+
+            haloMaterial
+
+          );
+
+
+
+        /*
+        --------------------
+        POSITION
+        --------------------
+        */
+
+
+        const position =
+          latLngToVector3(
+
+            project.lat,
+
+            project.lng,
+
+            1.42
+
+          );
+
+
+        hitPoint.position.copy(
+          position
+        );
+
+
+        visiblePoint.position.copy(
+          position
+        );
+
+
+        halo.position.copy(
+          position
+        );
+
+
+        /*
+        halo가 지구 바깥을
+        향하도록 설정
+        */
+
+
+        halo.lookAt(
+
+          position
+          .clone()
+          .multiplyScalar(2)
+
+        );
+
+
+
+        /*
+        --------------------
+        DATA
+        --------------------
+        */
+
+
+        hitPoint.userData = {
+
+          projectIndex:
+            index,
+
+          visiblePoint:
+            visiblePoint,
+
+          halo:
+            halo
+
+        };
+
+
+        globe.add(
+          hitPoint
+        );
+
+
+        globe.add(
+          visiblePoint
+        );
+
+
+        globe.add(
+          halo
+        );
+
+
+        projectPoints.push(
+          hitPoint
+        );
+
+      }
+
+    );
+
+
+
+    /* =====================================
+       LIGHT
+    ====================================== */
+
 
     const lightA =
       new THREE.DirectionalLight(
@@ -814,6 +1780,7 @@
     scene.add(
       lightA
     );
+
 
 
     const lightB =
@@ -842,6 +1809,7 @@
     );
 
 
+
     const lightC =
       new THREE.DirectionalLight(
 
@@ -868,7 +1836,11 @@
     );
 
 
-    /* ORIENTATION */
+
+    /* =====================================
+       INITIAL ORIENTATION
+    ====================================== */
+
 
     globe.rotation.x =
 
@@ -884,7 +1856,650 @@
       );
 
 
-    /* MOUSE */
+
+    /* =====================================
+       RAYCASTER
+    ====================================== */
+
+
+    const raycaster =
+      new THREE.Raycaster();
+
+
+    const mouse =
+      new THREE.Vector2();
+
+
+
+    /* =====================================
+       HOVER
+    ====================================== */
+
+
+    const label =
+      document.getElementById(
+        "projectLabel"
+      );
+
+
+    let hoveredPoint =
+      null;
+
+
+
+    renderer.domElement
+      .addEventListener(
+
+        "pointermove",
+
+        event => {
+
+
+          const rect =
+
+            renderer
+              .domElement
+              .getBoundingClientRect();
+
+
+
+          mouse.x =
+
+            (
+
+              (
+                event.clientX -
+                rect.left
+              )
+
+              /
+
+              rect.width
+
+            )
+
+            * 2
+
+            - 1;
+
+
+
+          mouse.y =
+
+            -(
+
+              (
+
+                event.clientY -
+                rect.top
+
+              )
+
+              /
+
+              rect.height
+
+            )
+
+            * 2
+
+            + 1;
+
+
+
+          raycaster.setFromCamera(
+
+            mouse,
+
+            camera
+
+          );
+
+
+          const intersects =
+
+            raycaster
+              .intersectObjects(
+
+                projectPoints,
+
+                false
+
+              );
+
+
+          /*
+          --------------------
+          RESET PREVIOUS
+          --------------------
+          */
+
+
+          if (
+            hoveredPoint
+          ) {
+
+
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1);
+
+
+            hoveredPoint
+              .userData
+              .halo
+              .material
+              .opacity =
+              0.25;
+
+
+            hoveredPoint =
+              null;
+
+          }
+
+
+
+          /*
+          --------------------
+          HOVER FOUND
+          --------------------
+          */
+
+
+          if (
+            intersects.length > 0
+          ) {
+
+
+            hoveredPoint =
+              intersects[0]
+              .object;
+
+
+            const project =
+
+              projects[
+
+                hoveredPoint
+                  .userData
+                  .projectIndex
+
+              ];
+
+
+
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1.7);
+
+
+
+            hoveredPoint
+              .userData
+              .halo
+              .material
+              .opacity =
+              0.7;
+
+
+
+            label.innerHTML =
+
+              '<span class="label-number">'
+
+              +
+
+              project.number
+
+              +
+
+              '</span>'
+
+              +
+
+              project.title;
+
+
+
+            label.style.left =
+
+              event.clientX
+              +
+              "px";
+
+
+            label.style.top =
+
+              event.clientY
+              +
+              "px";
+
+
+            label.classList.add(
+              "active"
+            );
+
+
+            renderer
+              .domElement
+              .style
+              .cursor =
+              "pointer";
+
+          }
+
+
+          else {
+
+
+            label.classList.remove(
+              "active"
+            );
+
+
+            renderer
+              .domElement
+              .style
+              .cursor =
+              "grab";
+
+          }
+
+
+        }
+
+      );
+
+
+
+    renderer.domElement
+      .addEventListener(
+
+        "pointerleave",
+
+        () => {
+
+
+          label
+            .classList
+            .remove(
+              "active"
+            );
+
+
+          if (
+            hoveredPoint
+          ) {
+
+
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1);
+
+
+            hoveredPoint =
+              null;
+
+          }
+
+
+        }
+
+      );
+
+
+
+    /* =====================================
+       PANEL
+    ====================================== */
+
+
+    const panel =
+      document.getElementById(
+        "projectPanel"
+      );
+
+
+    const panelOverlay =
+      document.getElementById(
+        "panelOverlay"
+      );
+
+
+    const panelIndex =
+      document.getElementById(
+        "panelIndex"
+      );
+
+
+    const panelYear =
+      document.getElementById(
+        "panelYear"
+      );
+
+
+    const panelTitle =
+      document.getElementById(
+        "panelTitle"
+      );
+
+
+    const panelCategory =
+      document.getElementById(
+        "panelCategory"
+      );
+
+
+    const panelDescription =
+      document.getElementById(
+        "panelDescription"
+      );
+
+
+    const panelImage =
+      document.getElementById(
+        "panelImage"
+      );
+
+
+    const imagePlaceholder =
+      document.getElementById(
+        "imagePlaceholder"
+      );
+
+
+    const closePanel =
+      document.getElementById(
+        "closePanel"
+      );
+
+
+
+    let panelOpen =
+      false;
+
+
+
+    function openProject(
+
+      project
+
+    ) {
+
+
+      panelIndex.textContent =
+
+        project.number
+        +
+        " / PROJECT";
+
+
+      panelYear.textContent =
+        project.year;
+
+
+      panelTitle.textContent =
+        project.title;
+
+
+      panelCategory.textContent =
+        project.category;
+
+
+      panelDescription.textContent =
+        project.description;
+
+
+
+      /*
+      --------------------
+      IMAGE
+      --------------------
+      */
+
+
+      imagePlaceholder
+        .classList
+        .remove(
+          "active"
+        );
+
+
+      panelImage.style.display =
+        "block";
+
+
+      panelImage.src =
+        project.image;
+
+
+      panelImage.alt =
+        project.title;
+
+
+
+      panel
+        .classList
+        .add(
+          "active"
+        );
+
+
+      panelOverlay
+        .classList
+        .add(
+          "active"
+        );
+
+
+      label
+        .classList
+        .remove(
+          "active"
+        );
+
+
+      panelOpen =
+        true;
+
+    }
+
+
+
+    panelImage
+      .addEventListener(
+
+        "error",
+
+        () => {
+
+
+          panelImage.style.display =
+            "none";
+
+
+          imagePlaceholder
+            .classList
+            .add(
+              "active"
+            );
+
+        }
+
+      );
+
+
+
+    function hidePanel() {
+
+
+      panel
+        .classList
+        .remove(
+          "active"
+        );
+
+
+      panelOverlay
+        .classList
+        .remove(
+          "active"
+        );
+
+
+      panelOpen =
+        false;
+
+    }
+
+
+
+    closePanel
+      .addEventListener(
+
+        "click",
+
+        hidePanel
+
+      );
+
+
+    panelOverlay
+      .addEventListener(
+
+        "click",
+
+        hidePanel
+
+      );
+
+
+
+    /* =====================================
+       CLICK PROJECT POINT
+    ====================================== */
+
+
+    renderer.domElement
+      .addEventListener(
+
+        "click",
+
+        event => {
+
+
+          const rect =
+
+            renderer
+              .domElement
+              .getBoundingClientRect();
+
+
+
+          mouse.x =
+
+            (
+
+              (
+                event.clientX -
+                rect.left
+              )
+
+              /
+
+              rect.width
+
+            )
+
+            * 2
+
+            - 1;
+
+
+
+          mouse.y =
+
+            -(
+
+              (
+
+                event.clientY -
+                rect.top
+
+              )
+
+              /
+
+              rect.height
+
+            )
+
+            * 2
+
+            + 1;
+
+
+
+          raycaster.setFromCamera(
+
+            mouse,
+
+            camera
+
+          );
+
+
+          const intersects =
+
+            raycaster
+              .intersectObjects(
+
+                projectPoints,
+
+                false
+
+              );
+
+
+          if (
+            intersects.length > 0
+          ) {
+
+
+            const index =
+
+              intersects[0]
+              .object
+              .userData
+              .projectIndex;
+
+
+            openProject(
+
+              projects[index]
+
+            );
+
+          }
+
+
+        }
+
+      );
+
+
+
+    /* =====================================
+       MOUSE MOVEMENT
+    ====================================== */
+
 
     let mouseX =
       0;
@@ -894,40 +2509,45 @@
       0;
 
 
+
     document.addEventListener(
 
       "mousemove",
 
-      (e) => {
+      event => {
 
 
         mouseX =
 
-          (
-            e.clientX /
+          event.clientX /
 
-            window.innerWidth
+          window.innerWidth
 
-            - 0.5
-          );
+          -
+
+          0.5;
 
 
         mouseY =
 
-          (
-            e.clientY /
+          event.clientY /
 
-            window.innerHeight
+          window.innerHeight
 
-            - 0.5
-          );
+          -
+
+          0.5;
 
       }
 
     );
 
 
-    /* RESIZE */
+
+    /* =====================================
+       RESIZE
+    ====================================== */
+
 
     function resize() {
 
@@ -956,9 +2576,11 @@
         height;
 
 
-      camera.updateProjectionMatrix();
+      camera
+        .updateProjectionMatrix();
 
     }
+
 
 
     window.addEventListener(
@@ -973,7 +2595,11 @@
     resize();
 
 
-    /* ANIMATION */
+
+    /* =====================================
+       ANIMATION
+    ====================================== */
+
 
     function animate() {
 
@@ -983,48 +2609,103 @@
       );
 
 
-      /* 자동 회전 */
 
-      globe.rotation.y +=
-        0.0024;
-
-
-      /* 마우스 반응 */
-
-      globe.rotation.x +=
-
-        (
-
-          mouseY *
-          0.18
-
-          -
-
-          globe.rotation.x
-
-        )
-
-        *
-
-        0.012;
+      /*
+      패널 열려있지 않을 때만
+      자동회전
+      */
 
 
-      globe.rotation.z +=
+      if (
+        !panelOpen
+      ) {
 
-        (
 
-          -mouseX *
-          0.1
+        globe.rotation.y +=
+          0.0022;
 
-          -
+      }
 
-          globe.rotation.z
 
-        )
 
-        *
+      /*
+      마우스 움직임
+      */
 
-        0.008;
+
+      if (
+        !panelOpen
+      ) {
+
+
+        globe.rotation.x +=
+
+          (
+
+            mouseY *
+            0.18
+
+            -
+
+            globe.rotation.x
+
+          )
+
+          *
+
+          0.012;
+
+
+
+        globe.rotation.z +=
+
+          (
+
+            -mouseX *
+            0.1
+
+            -
+
+            globe.rotation.z
+
+          )
+
+          *
+
+          0.008;
+
+      }
+
+
+
+      /*
+      HALO를 카메라 방향으로
+      계속 정렬
+      */
+
+
+      projectPoints.forEach(
+
+        point => {
+
+
+          const halo =
+
+            point
+              .userData
+              .halo;
+
+
+          halo.quaternion.copy(
+
+            camera.quaternion
+
+          );
+
+        }
+
+      );
+
 
 
       renderer.render(
@@ -1040,7 +2721,9 @@
 
     animate();
 
+
   </script>
+
 
 </body>
 
