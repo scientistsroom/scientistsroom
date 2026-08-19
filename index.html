@@ -167,8 +167,7 @@
 
       z-index: 5;
 
-      transition:
-        filter 0.5s ease;
+      transition: filter 0.5s ease;
     }
 
     #earthWrap:hover {
@@ -325,7 +324,6 @@
       background: rgba(0, 0, 0, 0.08);
 
       opacity: 0;
-
       pointer-events: none;
 
       transition: opacity 0.5s ease;
@@ -348,7 +346,7 @@
       top: 0;
       right: 0;
 
-      width: min(470px, 92vw);
+      width: min(500px, 92vw);
       height: 100vh;
 
       background: #111;
@@ -379,7 +377,7 @@
       justify-content: space-between;
       align-items: center;
 
-      margin-bottom: 55px;
+      margin-bottom: 45px;
     }
 
     .panel-index {
@@ -389,7 +387,6 @@
 
     #closePanel {
       appearance: none;
-
       background: none;
       border: 0;
 
@@ -414,14 +411,14 @@
     }
 
     .panel-title {
-      font-size: clamp(34px, 4vw, 55px);
+      font-size: clamp(32px, 4vw, 52px);
 
-      line-height: 0.95;
+      line-height: 0.98;
       letter-spacing: -0.055em;
 
       font-weight: 500;
 
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .panel-category {
@@ -429,10 +426,14 @@
 
       color: rgba(255, 255, 255, 0.48);
 
-      margin-bottom: 38px;
+      margin-bottom: 30px;
     }
 
-    .panel-image-wrap {
+    /* ==========================
+       IMAGE SLIDER
+    ========================== */
+
+    .slider {
       position: relative;
 
       width: 100%;
@@ -442,7 +443,7 @@
 
       background: #242424;
 
-      margin-bottom: 30px;
+      margin-bottom: 18px;
     }
 
     #panelImage {
@@ -452,6 +453,8 @@
       display: block;
 
       object-fit: cover;
+
+      transition: opacity 0.25s ease;
     }
 
     .image-placeholder {
@@ -475,13 +478,101 @@
       display: flex;
     }
 
+    .slider-button {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 42px;
+      height: 42px;
+
+      border: 0;
+
+      background: rgba(0, 0, 0, 0.42);
+
+      color: white;
+
+      font-size: 18px;
+
+      cursor: pointer;
+
+      z-index: 10;
+
+      transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .slider-button:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    #prevImage {
+      left: 12px;
+    }
+
+    #nextImage {
+      right: 12px;
+    }
+
+    .slider-button.hidden {
+      display: none;
+    }
+
+    /* slider information */
+
+    .slider-info {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 26px;
+
+      font-size: 10px;
+
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    #sliderCounter {
+      letter-spacing: 0.05em;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .slider-dot {
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.25);
+
+      transition: background 0.2s ease;
+    }
+
+    .slider-dot.active {
+      background: white;
+    }
+
+    /* ==========================
+       DESCRIPTION
+    ========================== */
+
     .panel-description {
       font-size: 12px;
       line-height: 1.7;
 
       color: rgba(255, 255, 255, 0.58);
 
-      max-width: 360px;
+      max-width: 390px;
+
+      white-space: pre-line;
     }
 
     .view-project {
@@ -497,7 +588,7 @@
 
       justify-content: space-between;
 
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .view-project span:last-child {
@@ -567,7 +658,7 @@
         width: 100vw;
 
         padding:
-          25px 24px 32px;
+          25px 24px 30px;
       }
 
     }
@@ -580,9 +671,6 @@
 
 
   <main class="hero">
-
-
-    <!-- HEADER -->
 
     <header class="top">
 
@@ -601,14 +689,10 @@
     </header>
 
 
-    <!-- TITLE -->
-
     <div class="title">
       scientistsroom
     </div>
 
-
-    <!-- GUIDE -->
 
     <div class="guide-circle">
 
@@ -622,16 +706,12 @@
     <div class="side-line right"></div>
 
 
-    <!-- EARTH -->
-
     <div id="earthWrap">
 
       <div id="earth"></div>
 
     </div>
 
-
-    <!-- BOTTOM -->
 
     <section class="bottom">
 
@@ -681,16 +761,15 @@
 
     </section>
 
-
   </main>
 
 
-  <!-- HOVER LABEL -->
+  <!-- hover -->
 
   <div id="projectLabel"></div>
 
 
-  <!-- OVERLAY -->
+  <!-- overlay -->
 
   <div
     class="panel-overlay"
@@ -708,9 +787,6 @@
       <div
         class="panel-index"
         id="panelIndex">
-
-        01 / PROJECT
-
       </div>
 
 
@@ -743,7 +819,9 @@
     </div>
 
 
-    <div class="panel-image-wrap">
+    <!-- SLIDER -->
+
+    <div class="slider">
 
       <img
         id="panelImage"
@@ -760,8 +838,45 @@
 
       </div>
 
+
+      <button
+        class="slider-button"
+        id="prevImage"
+        aria-label="Previous image">
+
+        ←
+
+      </button>
+
+
+      <button
+        class="slider-button"
+        id="nextImage"
+        aria-label="Next image">
+
+        →
+
+      </button>
+
     </div>
 
+
+    <div class="slider-info">
+
+      <div id="sliderCounter">
+        01 / 01
+      </div>
+
+
+      <div
+        class="slider-dots"
+        id="sliderDots">
+      </div>
+
+    </div>
+
+
+    <!-- 작품 설명 -->
 
     <p
       class="panel-description"
@@ -785,416 +900,370 @@
   </aside>
 
 
-  <!-- THREE JS -->
-
   <script type="module">
 
     import * as THREE
     from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
 
-    /* =====================================
-       PROJECTS
-    ===================================== */
+    /* ===================================================
+       ★★★★★ 프로젝트 수정은 여기서 하면 됩니다 ★★★★★
+    =================================================== */
+
 
     const projects = [
 
 
-      /* 01 */
-
       {
         number: "01",
 
-        title:
-          "Orv",
+        title: "Orv",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "BRANDING",
+        category: "BRANDING",
+
+
+        /* ★ 작품 설명 */
 
         description:
-          "Orv 브랜드의 아이덴티티와 그래픽 디자인을 진행하였습니다.",
+          "Orv의 브랜드 아이덴티티 구축을 위해 로고와 그래픽 시스템을 개발하였습니다.",
 
-        image:
-          "images/orv.jpg",
+
+        /* ★ 슬라이드 이미지 */
+
+        images: [
+          "images/orv-01.jpg",
+          "images/orv-02.jpg",
+          "images/orv-03.jpg"
+        ],
+
 
         lat: 48,
-
         lng: 125
       },
 
 
-      /* 02 */
-
       {
         number: "02",
 
-        title:
-          "Advent Calendar",
+        title: "Advent Calendar",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "PACKAGE",
+        category: "PACKAGE",
 
         description:
           "Advent Calendar 패키지 디자인 프로젝트를 진행하였습니다.",
 
-        image:
-          "images/advent-calendar.jpg",
+        images: [
+          "images/advent-01.jpg",
+          "images/advent-02.jpg",
+          "images/advent-03.jpg"
+        ],
 
         lat: 23,
-
         lng: 145
       },
 
 
-      /* 03 */
-
       {
         number: "03",
 
-        title:
-          "Dream Cat Shelter",
+        title: "Dream Cat Shelter",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "BRANDING",
+        category: "BRANDING",
 
         description:
-          "Dream Cat Shelter의 브랜드 아이덴티티와 그래픽 디자인을 진행하였습니다.",
+          "Dream Cat Shelter의 브랜드 아이덴티티와 다양한 홍보 디자인을 진행하였습니다.",
 
-        image:
-          "images/dream-cat.jpg",
+        images: [
+          "images/dreamcat-01.jpg",
+          "images/dreamcat-02.jpg",
+          "images/dreamcat-03.jpg"
+        ],
 
         lat: -5,
-
         lng: 126
       },
 
 
-      /* 04 */
-
       {
         number: "04",
 
-        title:
-          "Logo",
+        title: "Logo",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "LOGO / BRANDING",
+        category: "BRANDING",
 
         description:
-          "다양한 브랜드와 프로젝트의 로고 및 아이덴티티 디자인을 진행하였습니다.",
+          "다양한 브랜드 및 프로젝트를 위해 제작한 로고 디자인 작업입니다.",
 
-        image:
-          "images/logo.jpg",
+        images: [
+          "images/logo-01.jpg",
+          "images/logo-02.jpg",
+          "images/logo-03.jpg"
+        ],
 
         lat: -34,
-
         lng: 148
       },
 
 
-      /* 05 */
-
       {
         number: "05",
 
-        title:
-          "Book",
+        title: "Book",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "EDITORIAL",
+        category: "EDITORIAL",
 
         description:
-          "책자 및 출판물을 중심으로 편집디자인을 진행하였습니다.",
+          "다양한 책자와 출판물을 대상으로 편집디자인 및 인쇄 디자인을 진행하였습니다.",
 
-        image:
-          "images/book.jpg",
+        images: [
+          "images/book-01.jpg",
+          "images/book-02.jpg",
+          "images/book-03.jpg"
+        ],
 
         lat: 53,
-
         lng: 57
       },
 
 
-      /* 06 */
-
       {
         number: "06",
 
-        title:
-          "Poster",
+        title: "Poster",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "EDITORIAL",
+        category: "EDITORIAL",
 
         description:
-          "문화예술 및 다양한 프로젝트의 포스터 디자인을 진행하였습니다.",
+          "문화예술 행사 및 다양한 프로젝트의 포스터 디자인 작업입니다.",
 
-        image:
-          "images/poster.jpg",
+        images: [
+          "images/poster-01.jpg",
+          "images/poster-02.jpg",
+          "images/poster-03.jpg"
+        ],
 
         lat: 25,
-
         lng: 67
       },
 
 
-      /* 07 */
-
       {
         number: "07",
 
-        title:
-          "Banner",
+        title: "Banner",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "EDITORIAL",
+        category: "EDITORIAL",
 
         description:
-          "행사 및 홍보를 위한 다양한 배너 디자인을 진행하였습니다.",
+          "행사와 브랜드 홍보를 위한 다양한 온·오프라인 배너 디자인을 진행하였습니다.",
 
-        image:
-          "images/banner.jpg",
+        images: [
+          "images/banner-01.jpg",
+          "images/banner-02.jpg",
+          "images/banner-03.jpg"
+        ],
 
         lat: -9,
-
         lng: 52
       },
 
 
-      /* 08 */
-
       {
         number: "08",
 
-        title:
-          "Wandy",
+        title: "Wandy",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "UX / UI",
+        category: "UX / UI",
 
         description:
-          "Wandy 프로젝트의 UX / UI 디자인을 진행하였습니다.",
+          "Wandy 서비스의 사용자 경험과 인터페이스 디자인을 진행하였습니다.",
 
-        image:
-          "images/wandy.jpg",
+        images: [
+          "images/wandy-01.jpg",
+          "images/wandy-02.jpg",
+          "images/wandy-03.jpg"
+        ],
 
         lat: -40,
-
         lng: 30
       },
 
 
-      /* 09 */
-
       {
         number: "09",
 
-        title:
-          "Langmuir",
+        title: "Langmuir",
 
-        year:
-          "2022",
+        year: "2022",
 
-        category:
-          "COVER ARTWORK",
+        category: "COVER ARTWORK",
 
         description:
-          "미국화학회 ACS 학술지 Langmuir 논문 표지 그래픽 디자인을 진행하였습니다.",
+          "미국화학회 ACS 학술지 Langmuir 논문 표지 제작을 의뢰받아 그래픽 디자인을 진행하였습니다.",
 
-        image:
-          "images/langmuir.jpg",
+        images: [
+          "images/langmuir-01.jpg",
+          "images/langmuir-02.jpg"
+        ],
 
         lat: 45,
-
         lng: -72
       },
 
 
-      /* 10 */
-
       {
         number: "10",
 
-        title:
-          "Office of Education",
+        title: "Office of Education",
 
-        year:
-          "",
+        year: "2025 — 2026",
 
-        category:
-          "PM SAFETY EDUCATION",
+        category: "PM SAFETY EDUCATION",
 
         description:
-          "유치원부터 고등학교까지 연령별 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
+          "유치원 / 초등학교 / 중학교 / 고등학교를 대상으로 한 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
 
-        image:
-          "images/office-education.jpg",
+        images: [
+          "images/education-01.jpg",
+          "images/education-02.jpg",
+          "images/education-03.jpg"
+        ],
 
         lat: 18,
-
         lng: -52
       },
 
 
-      /* 11 */
-
       {
         number: "11",
 
-        title:
-          "Dongguk University",
+        title: "Dongguk University",
 
-        year:
-          "",
+        year: "2025 — 2026",
 
-        category:
-          "RESEARCH PROJECT",
+        category: "RESEARCH PROJECT",
 
         description:
-          "동국대학교 연구 프로젝트의 연구보고서 및 출판 디자인을 진행하였습니다.",
+          "동국대학교와 교육청의 연구보고서 및 성과보고서 편집 / 출판 디자인을 진행하였습니다.",
 
-        image:
-          "images/dongguk.jpg",
+        images: [
+          "images/dongguk-01.jpg",
+          "images/dongguk-02.jpg",
+          "images/dongguk-03.jpg"
+        ],
 
         lat: -13,
-
         lng: -67
       },
 
 
-      /* 12 */
-
       {
         number: "12",
 
-        title:
-          "Hongik University",
+        title: "Hongik University",
 
-        year:
-          "",
+        year: "",
 
-        category:
-          "HOMEPAGE",
+        category: "HOMEPAGE",
 
         description:
-          "홍익대학교 관련 홈페이지 콘텐츠 및 디지털 디자인을 진행하였습니다.",
+          "홍익대학교 관련 웹 콘텐츠 및 홈페이지 디자인을 진행하였습니다.",
 
-        image:
-          "images/hongik.jpg",
+        images: [
+          "images/hongik-01.jpg",
+          "images/hongik-02.jpg",
+          "images/hongik-03.jpg"
+        ],
 
         lat: -42,
-
         lng: -40
       },
 
 
-      /* 13 */
-
       {
         number: "13",
 
-        title:
-          "spacehaeso : 조용한 형상들의 엄습",
+        title: "spacehaeso : 조용한 형상들의 엄습",
 
-        year:
-          "2025",
+        year: "2025",
 
-        category:
-          "PHOTO",
+        category: "PHOTO",
 
         description:
           "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
 
-        image:
-          "images/spacehaeso.jpg",
+        images: [
+          "images/spacehaeso-01.jpg",
+          "images/spacehaeso-02.jpg",
+          "images/spacehaeso-03.jpg"
+        ],
 
         lat: 57,
-
         lng: -143
       },
 
 
-      /* 14 */
-
       {
         number: "14",
 
-        title:
-          "LIG D&A 50th Anniversary",
+        title: "LIG D&A 50th Anniversary",
 
-        year:
-          "2026",
+        year: "2026",
 
-        category:
-          "PACKAGE / GRAPHIC DESIGN",
+        category: "PACKAGE / GRAPHIC DESIGN",
 
         description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.",
+          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드의 프리미엄 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 통일감 있게 구성하였습니다.",
 
-        image:
-          "images/lig.jpg",
+        images: [
+          "images/lig-01.jpg",
+          "images/lig-02.jpg",
+          "images/lig-03.jpg",
+          "images/lig-04.jpg"
+        ],
 
         lat: 5,
-
         lng: -125
       }
 
     ];
 
 
-    /* =====================================
-       SCENE
-    ===================================== */
+    /* ===================================================
+       THREE JS
+    =================================================== */
+
 
     const container =
-      document.getElementById(
-        "earth"
-      );
+      document.getElementById("earth");
 
 
     const scene =
       new THREE.Scene();
 
 
-    /* =====================================
-       CAMERA
-    ===================================== */
-
     const camera =
       new THREE.PerspectiveCamera(
-
         38,
-
         1,
-
         0.1,
-
         100
-
       );
 
 
@@ -1202,43 +1271,27 @@
       4.8;
 
 
-    /* =====================================
-       RENDERER
-    ===================================== */
-
     const renderer =
       new THREE.WebGLRenderer({
-
         alpha: true,
-
         antialias: true
-
       });
 
 
     renderer.setPixelRatio(
-
       Math.min(
-
         window.devicePixelRatio,
-
         2
-
       )
-
     );
 
 
     container.appendChild(
-
       renderer.domElement
-
     );
 
 
-    /* =====================================
-       GLOBE
-    ===================================== */
+    /* globe */
 
     const globe =
       new THREE.Group();
@@ -1249,65 +1302,42 @@
     );
 
 
-    /* =====================================
-       GLOBE BODY
-    ===================================== */
+    /* body */
 
     const globeGeometry =
       new THREE.SphereGeometry(
-
         1.35,
-
         128,
-
         128
-
       );
 
 
     const globeMaterial =
       new THREE.MeshPhysicalMaterial({
 
-        color:
-          0xf5f5f0,
+        color: 0xf5f5f0,
 
-        transparent:
-          true,
+        transparent: true,
+        opacity: 0.18,
 
-        opacity:
-          0.18,
+        roughness: 0.05,
+        metalness: 0.02,
 
-        roughness:
-          0.05,
+        transmission: 0.85,
+        thickness: 1,
 
-        metalness:
-          0.02,
+        ior: 1.35,
 
-        transmission:
-          0.85,
-
-        thickness:
-          1,
-
-        ior:
-          1.35,
-
-        clearcoat:
-          1,
-
-        clearcoatRoughness:
-          0.06
+        clearcoat: 1,
+        clearcoatRoughness: 0.06
 
       });
 
 
     const sphere =
       new THREE.Mesh(
-
         globeGeometry,
-
         globeMaterial
-
       );
 
 
@@ -1316,9 +1346,7 @@
     );
 
 
-    /* =====================================
-       SMALL DOTS
-    ===================================== */
+    /* dots */
 
     const dotGeometry =
       new THREE.BufferGeometry();
@@ -1333,37 +1361,24 @@
 
 
     for (
-
       let i = 0;
-
       i < DOT_COUNT;
-
       i++
-
     ) {
 
 
       const phi =
-
         Math.acos(
-
           -1 +
-
           (2 * i) /
-
           DOT_COUNT
-
         );
 
 
       const theta =
-
         Math.sqrt(
-
           DOT_COUNT *
-
           Math.PI
-
         ) * phi;
 
 
@@ -1372,86 +1387,61 @@
 
 
       const x =
-
         radius *
-
         Math.cos(theta) *
-
         Math.sin(phi);
 
 
       const y =
-
         radius *
-
         Math.sin(theta) *
-
         Math.sin(phi);
 
 
       const z =
-
         radius *
-
         Math.cos(phi);
 
 
       dotPoints.push(
-
         x,
-
         y,
-
         z
-
       );
 
     }
 
 
     dotGeometry.setAttribute(
-
       "position",
 
       new THREE.Float32BufferAttribute(
-
         dotPoints,
-
         3
-
       )
-
     );
 
 
     const dotMaterial =
       new THREE.PointsMaterial({
 
-        color:
-          0x111111,
+        color: 0x111111,
 
-        size:
-          0.013,
+        size: 0.013,
 
-        transparent:
-          true,
+        transparent: true,
 
-        opacity:
-          0.42,
+        opacity: 0.42,
 
-        sizeAttenuation:
-          true
+        sizeAttenuation: true
 
       });
 
 
     const dots =
       new THREE.Points(
-
         dotGeometry,
-
         dotMaterial
-
       );
 
 
@@ -1460,47 +1450,34 @@
     );
 
 
-    /* =====================================
-       WIREFRAME
-    ===================================== */
+    /* wire */
 
     const wireGeometry =
       new THREE.SphereGeometry(
-
         1.36,
-
         30,
-
         20
-
       );
 
 
     const wireMaterial =
       new THREE.MeshBasicMaterial({
 
-        color:
-          0x111111,
+        color: 0x111111,
 
-        wireframe:
-          true,
+        wireframe: true,
 
-        transparent:
-          true,
+        transparent: true,
 
-        opacity:
-          0.025
+        opacity: 0.025
 
       });
 
 
     const wire =
       new THREE.Mesh(
-
         wireGeometry,
-
         wireMaterial
-
       );
 
 
@@ -1509,57 +1486,38 @@
     );
 
 
-    /* =====================================
-       LAT LNG → VECTOR
-    ===================================== */
+    /* lat lng */
 
     function latLngToVector3(
-
       lat,
-
       lng,
-
       radius
-
     ) {
 
 
       const phi =
-
         THREE.MathUtils.degToRad(
-
           90 - lat
-
         );
 
 
       const theta =
-
         THREE.MathUtils.degToRad(
-
           lng + 180
-
         );
 
 
       return new THREE.Vector3(
 
         -radius *
-
         Math.sin(phi) *
-
         Math.cos(theta),
 
-
         radius *
-
         Math.cos(phi),
 
-
         radius *
-
         Math.sin(phi) *
-
         Math.sin(theta)
 
       );
@@ -1567,139 +1525,93 @@
     }
 
 
-    /* =====================================
-       PROJECT POINTS
-    ===================================== */
+    /* project points */
 
     const projectPoints =
       [];
 
 
     projects.forEach(
-
       (project, index) => {
 
 
-        /* CLICK AREA */
-
         const hitGeometry =
           new THREE.SphereGeometry(
-
             0.095,
-
             18,
-
             18
-
           );
 
 
         const hitMaterial =
           new THREE.MeshBasicMaterial({
-
             transparent: true,
-
             opacity: 0
-
           });
 
 
         const hitPoint =
           new THREE.Mesh(
-
             hitGeometry,
-
             hitMaterial
-
           );
 
 
-        /* VISIBLE POINT */
-
         const visibleGeometry =
           new THREE.SphereGeometry(
-
             0.034,
-
             24,
-
             24
-
           );
 
 
         const visibleMaterial =
           new THREE.MeshBasicMaterial({
-
-            color:
-              0x111111
-
+            color: 0x111111
           });
 
 
         const visiblePoint =
           new THREE.Mesh(
-
             visibleGeometry,
-
             visibleMaterial
-
           );
 
 
-        /* HALO */
-
         const haloGeometry =
           new THREE.RingGeometry(
-
             0.052,
-
             0.068,
-
             40
-
           );
 
 
         const haloMaterial =
           new THREE.MeshBasicMaterial({
 
-            color:
-              0x111111,
+            color: 0x111111,
 
-            transparent:
-              true,
+            transparent: true,
 
-            opacity:
-              0.22,
+            opacity: 0.22,
 
-            side:
-              THREE.DoubleSide
+            side: THREE.DoubleSide
 
           });
 
 
         const halo =
           new THREE.Mesh(
-
             haloGeometry,
-
             haloMaterial
-
           );
 
 
-        /* POSITION */
-
         const position =
           latLngToVector3(
-
             project.lat,
-
             project.lng,
-
             1.42
-
           );
 
 
@@ -1718,18 +1630,13 @@
         );
 
 
-        /* DATA */
-
         hitPoint.userData = {
 
-          projectIndex:
-            index,
+          projectIndex: index,
 
-          visiblePoint:
-            visiblePoint,
+          visiblePoint: visiblePoint,
 
-          halo:
-            halo
+          halo: halo
 
         };
 
@@ -1754,32 +1661,22 @@
         );
 
       }
-
     );
 
 
-    /* =====================================
-       LIGHT
-    ===================================== */
+    /* light */
 
     const lightA =
       new THREE.DirectionalLight(
-
         0xffffff,
-
         4
-
       );
 
 
     lightA.position.set(
-
       2,
-
       3,
-
       4
-
     );
 
 
@@ -1790,22 +1687,15 @@
 
     const lightB =
       new THREE.DirectionalLight(
-
         0x7ea1ff,
-
         3
-
       );
 
 
     lightB.position.set(
-
       -3,
-
       -1,
-
       2
-
     );
 
 
@@ -1816,22 +1706,15 @@
 
     const lightC =
       new THREE.DirectionalLight(
-
         0xffaa88,
-
         2
-
       );
 
 
     lightC.position.set(
-
       3,
-
       -2,
-
       -1
-
     );
 
 
@@ -1840,27 +1723,18 @@
     );
 
 
-    /* =====================================
-       ROTATION
-    ===================================== */
-
     globe.rotation.x =
-
-      THREE.MathUtils.degToRad(
-        -14
-      );
+      THREE.MathUtils.degToRad(-14);
 
 
     globe.rotation.z =
-
-      THREE.MathUtils.degToRad(
-        -8
-      );
+      THREE.MathUtils.degToRad(-8);
 
 
-    /* =====================================
-       RAYCASTER
-    ===================================== */
+    /* ===================================================
+       HOVER / CLICK
+    =================================================== */
+
 
     const raycaster =
       new THREE.Raycaster();
@@ -1869,10 +1743,6 @@
     const mouse =
       new THREE.Vector2();
 
-
-    /* =====================================
-       HOVER
-    ===================================== */
 
     const label =
       document.getElementById(
@@ -1884,262 +1754,177 @@
       null;
 
 
-    renderer.domElement.addEventListener(
-
-      "pointermove",
-
-      event => {
+    function updateMouse(event) {
 
 
-        const rect =
+      const rect =
+        renderer
+          .domElement
+          .getBoundingClientRect();
 
-          renderer
-            .domElement
-            .getBoundingClientRect();
 
-
-        mouse.x =
-
+      mouse.x =
+        (
           (
-
-            (
-              event.clientX -
-              rect.left
-            )
-
-            /
-
-            rect.width
-
+            event.clientX -
+            rect.left
           )
+          /
+          rect.width
+        )
+        * 2 - 1;
 
-          * 2
 
-          - 1;
-
-
-        mouse.y =
-
-          -(
-
-            (
-
-              event.clientY -
-              rect.top
-
-            )
-
-            /
-
-            rect.height
-
+      mouse.y =
+        -(
+          (
+            event.clientY -
+            rect.top
           )
-
-          * 2
-
-          + 1;
-
-
-        raycaster.setFromCamera(
-
-          mouse,
-
-          camera
-
-        );
+          /
+          rect.height
+        )
+        * 2 + 1;
 
 
-        const intersects =
+      raycaster.setFromCamera(
+        mouse,
+        camera
+      );
 
-          raycaster.intersectObjects(
-
-            projectPoints,
-
-            false
-
-          );
+    }
 
 
-        /* reset */
-
-        if (
-          hoveredPoint
-        ) {
-
-
-          hoveredPoint
-            .userData
-            .visiblePoint
-            .scale
-            .setScalar(1);
+    renderer.domElement
+      .addEventListener(
+        "pointermove",
+        event => {
 
 
-          hoveredPoint
-            .userData
-            .halo
-            .material
-            .opacity =
-            0.22;
+          updateMouse(event);
 
 
-          hoveredPoint =
-            null;
-
-        }
-
-
-        /* hover */
-
-        if (
-          intersects.length > 0
-        ) {
+          const intersects =
+            raycaster.intersectObjects(
+              projectPoints,
+              false
+            );
 
 
-          hoveredPoint =
-            intersects[0]
-              .object;
+          if (
+            hoveredPoint
+          ) {
 
 
-          const project =
-
-            projects[
-
-              hoveredPoint
-                .userData
-                .projectIndex
-
-            ];
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1);
 
 
-          hoveredPoint
-            .userData
-            .visiblePoint
-            .scale
-            .setScalar(1.8);
+            hoveredPoint
+              .userData
+              .halo
+              .material
+              .opacity =
+              0.22;
 
 
-          hoveredPoint
-            .userData
-            .halo
-            .material
-            .opacity =
-            0.7;
+            hoveredPoint =
+              null;
+
+          }
 
 
-          label.innerHTML =
-
-            '<span class="label-number">'
-
-            +
-
-            project.number
-
-            +
-
-            '</span>'
-
-            +
-
-            project.title
-
-            +
-
-            '<span class="label-category">'
-
-            +
-
-            project.category
-
-            +
-
-            '</span>';
+          if (
+            intersects.length > 0
+          ) {
 
 
-          label.style.left =
-
-            event.clientX
-            +
-            "px";
+            hoveredPoint =
+              intersects[0].object;
 
 
-          label.style.top =
-
-            event.clientY
-            +
-            "px";
-
-
-          label.classList.add(
-            "active"
-          );
+            const project =
+              projects[
+                hoveredPoint
+                  .userData
+                  .projectIndex
+              ];
 
 
-          renderer
-            .domElement
-            .style
-            .cursor =
-            "pointer";
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1.8);
+
+
+            hoveredPoint
+              .userData
+              .halo
+              .material
+              .opacity =
+              0.7;
+
+
+            label.innerHTML =
+
+              '<span class="label-number">' +
+
+              project.number +
+
+              '</span>' +
+
+              project.title +
+
+              '<span class="label-category">' +
+
+              project.category +
+
+              '</span>';
+
+
+            label.style.left =
+              event.clientX + "px";
+
+
+            label.style.top =
+              event.clientY + "px";
+
+
+            label.classList.add(
+              "active"
+            );
+
+
+            renderer.domElement.style.cursor =
+              "pointer";
+
+          }
+
+          else {
+
+
+            label.classList.remove(
+              "active"
+            );
+
+
+            renderer.domElement.style.cursor =
+              "grab";
+
+          }
 
         }
-
-        else {
-
-
-          label.classList.remove(
-            "active"
-          );
+      );
 
 
-          renderer
-            .domElement
-            .style
-            .cursor =
-            "grab";
-
-        }
-
-      }
-
-    );
-
-
-    renderer.domElement.addEventListener(
-
-      "pointerleave",
-
-      () => {
-
-
-        label.classList.remove(
-          "active"
-        );
-
-
-        if (
-          hoveredPoint
-        ) {
-
-
-          hoveredPoint
-            .userData
-            .visiblePoint
-            .scale
-            .setScalar(1);
-
-
-          hoveredPoint =
-            null;
-
-        }
-
-      }
-
-    );
-
-
-    /* =====================================
+    /* ===================================================
        PANEL
-    ===================================== */
+    =================================================== */
+
 
     const panel =
       document.getElementById(
@@ -2195,6 +1980,30 @@
       );
 
 
+    const prevImage =
+      document.getElementById(
+        "prevImage"
+      );
+
+
+    const nextImage =
+      document.getElementById(
+        "nextImage"
+      );
+
+
+    const sliderCounter =
+      document.getElementById(
+        "sliderCounter"
+      );
+
+
+    const sliderDots =
+      document.getElementById(
+        "sliderDots"
+      );
+
+
     const closePanel =
       document.getElementById(
         "closePanel"
@@ -2205,15 +2014,354 @@
       false;
 
 
+    let activeProject =
+      null;
+
+
+    let activeImageIndex =
+      0;
+
+
+    /* ===================================================
+       SLIDER
+    =================================================== */
+
+
+    function updateSlider() {
+
+
+      if (
+        !activeProject
+      ) {
+        return;
+      }
+
+
+      const images =
+        activeProject.images || [];
+
+
+      if (
+        images.length === 0
+      ) {
+
+
+        panelImage.style.display =
+          "none";
+
+
+        imagePlaceholder
+          .classList
+          .add("active");
+
+
+        prevImage
+          .classList
+          .add("hidden");
+
+
+        nextImage
+          .classList
+          .add("hidden");
+
+
+        sliderCounter.textContent =
+          "00 / 00";
+
+
+        sliderDots.innerHTML =
+          "";
+
+
+        return;
+
+      }
+
+
+      panelImage.style.display =
+        "block";
+
+
+      imagePlaceholder
+        .classList
+        .remove("active");
+
+
+      panelImage.src =
+        images[activeImageIndex];
+
+
+      panelImage.alt =
+        activeProject.title;
+
+
+      sliderCounter.textContent =
+
+        String(
+          activeImageIndex + 1
+        ).padStart(2, "0")
+
+        +
+
+        " / "
+
+        +
+
+        String(
+          images.length
+        ).padStart(2, "0");
+
+
+      /* dots */
+
+
+      sliderDots.innerHTML =
+        "";
+
+
+      images.forEach(
+        (image, index) => {
+
+
+          const dot =
+            document.createElement(
+              "span"
+            );
+
+
+          dot.className =
+            "slider-dot";
+
+
+          if (
+            index ===
+            activeImageIndex
+          ) {
+
+
+            dot.classList.add(
+              "active"
+            );
+
+          }
+
+
+          sliderDots.appendChild(
+            dot
+          );
+
+        }
+      );
+
+
+      /* 한 장이면 화살표 숨기기 */
+
+
+      if (
+        images.length <= 1
+      ) {
+
+
+        prevImage
+          .classList
+          .add("hidden");
+
+
+        nextImage
+          .classList
+          .add("hidden");
+
+      }
+
+      else {
+
+
+        prevImage
+          .classList
+          .remove("hidden");
+
+
+        nextImage
+          .classList
+          .remove("hidden");
+
+      }
+
+    }
+
+
+    function nextSlide() {
+
+
+      if (
+        !activeProject
+      ) {
+        return;
+      }
+
+
+      const images =
+        activeProject.images;
+
+
+      activeImageIndex =
+
+        (
+          activeImageIndex + 1
+        )
+
+        %
+
+        images.length;
+
+
+      updateSlider();
+
+    }
+
+
+    function previousSlide() {
+
+
+      if (
+        !activeProject
+      ) {
+        return;
+      }
+
+
+      const images =
+        activeProject.images;
+
+
+      activeImageIndex =
+
+        (
+          activeImageIndex - 1
+          +
+          images.length
+        )
+
+        %
+
+        images.length;
+
+
+      updateSlider();
+
+    }
+
+
+    nextImage.addEventListener(
+      "click",
+      nextSlide
+    );
+
+
+    prevImage.addEventListener(
+      "click",
+      previousSlide
+    );
+
+
+    /* ===================================================
+       TOUCH SWIPE
+    =================================================== */
+
+
+    let touchStartX =
+      0;
+
+
+    const slider =
+      document.querySelector(
+        ".slider"
+      );
+
+
+    slider.addEventListener(
+      "touchstart",
+      event => {
+
+
+        touchStartX =
+          event.touches[0].clientX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    slider.addEventListener(
+      "touchend",
+      event => {
+
+
+        const touchEndX =
+          event.changedTouches[0]
+            .clientX;
+
+
+        const difference =
+          touchStartX -
+          touchEndX;
+
+
+        if (
+          Math.abs(difference) <
+          40
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          difference > 0
+        ) {
+
+          nextSlide();
+
+        }
+
+        else {
+
+          previousSlide();
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* ===================================================
+       OPEN PROJECT
+    =================================================== */
+
+
     function openProject(
       project
     ) {
 
 
+      activeProject =
+        project;
+
+
+      activeImageIndex =
+        0;
+
+
       panelIndex.textContent =
 
-        project.number
-        +
+        project.number +
+
         " / PROJECT";
 
 
@@ -2233,44 +2381,22 @@
         project.description;
 
 
-      imagePlaceholder
-        .classList
-        .remove(
-          "active"
-        );
-
-
-      panelImage.style.display =
-        "block";
-
-
-      panelImage.src =
-        project.image;
-
-
-      panelImage.alt =
-        project.title;
+      updateSlider();
 
 
       panel
         .classList
-        .add(
-          "active"
-        );
+        .add("active");
 
 
       panelOverlay
         .classList
-        .add(
-          "active"
-        );
+        .add("active");
 
 
       label
         .classList
-        .remove(
-          "active"
-        );
+        .remove("active");
 
 
       panelOpen =
@@ -2280,9 +2406,7 @@
 
 
     panelImage.addEventListener(
-
       "error",
-
       () => {
 
 
@@ -2292,13 +2416,56 @@
 
         imagePlaceholder
           .classList
-          .add(
-            "active"
-          );
+          .add("active");
 
       }
-
     );
+
+
+    /* click point */
+
+
+    renderer.domElement
+      .addEventListener(
+        "click",
+        event => {
+
+
+          updateMouse(event);
+
+
+          const intersects =
+            raycaster.intersectObjects(
+              projectPoints,
+              false
+            );
+
+
+          if (
+            intersects.length >
+            0
+          ) {
+
+
+            const index =
+
+              intersects[0]
+                .object
+                .userData
+                .projectIndex;
+
+
+            openProject(
+              projects[index]
+            );
+
+          }
+
+        }
+      );
+
+
+    /* close */
 
 
     function hidePanel() {
@@ -2306,151 +2473,40 @@
 
       panel
         .classList
-        .remove(
-          "active"
-        );
+        .remove("active");
 
 
       panelOverlay
         .classList
-        .remove(
-          "active"
-        );
+        .remove("active");
 
 
       panelOpen =
         false;
 
+
+      activeProject =
+        null;
+
     }
 
 
     closePanel.addEventListener(
-
       "click",
-
       hidePanel
-
     );
 
 
     panelOverlay.addEventListener(
-
       "click",
-
       hidePanel
-
     );
 
 
-    /* =====================================
-       CLICK
-    ===================================== */
+    /* ===================================================
+       MOUSE
+    =================================================== */
 
-    renderer.domElement.addEventListener(
-
-      "click",
-
-      event => {
-
-
-        const rect =
-
-          renderer
-            .domElement
-            .getBoundingClientRect();
-
-
-        mouse.x =
-
-          (
-
-            (
-              event.clientX -
-              rect.left
-            )
-
-            /
-
-            rect.width
-
-          )
-
-          * 2
-
-          - 1;
-
-
-        mouse.y =
-
-          -(
-
-            (
-
-              event.clientY -
-              rect.top
-
-            )
-
-            /
-
-            rect.height
-
-          )
-
-          * 2
-
-          + 1;
-
-
-        raycaster.setFromCamera(
-
-          mouse,
-
-          camera
-
-        );
-
-
-        const intersects =
-
-          raycaster.intersectObjects(
-
-            projectPoints,
-
-            false
-
-          );
-
-
-        if (
-          intersects.length > 0
-        ) {
-
-
-          const index =
-
-            intersects[0]
-              .object
-              .userData
-              .projectIndex;
-
-
-          openProject(
-
-            projects[index]
-
-          );
-
-        }
-
-      }
-
-    );
-
-
-    /* =====================================
-       MOUSE MOVEMENT
-    ===================================== */
 
     let mouseX =
       0;
@@ -2461,16 +2517,13 @@
 
 
     document.addEventListener(
-
       "mousemove",
-
       event => {
 
 
         mouseX =
 
-          event.clientX
-          /
+          event.clientX /
           window.innerWidth
 
           -
@@ -2480,8 +2533,7 @@
 
         mouseY =
 
-          event.clientY
-          /
+          event.clientY /
           window.innerHeight
 
           -
@@ -2489,13 +2541,13 @@
           0.5;
 
       }
-
     );
 
 
-    /* =====================================
+    /* ===================================================
        RESIZE
-    ===================================== */
+    =================================================== */
+
 
     function resize() {
 
@@ -2509,19 +2561,13 @@
 
 
       renderer.setSize(
-
         width,
-
         height
-
       );
 
 
       camera.aspect =
-
-        width
-        /
-        height;
+        width / height;
 
 
       camera.updateProjectionMatrix();
@@ -2530,20 +2576,18 @@
 
 
     window.addEventListener(
-
       "resize",
-
       resize
-
     );
 
 
     resize();
 
 
-    /* =====================================
+    /* ===================================================
        ANIMATION
-    ===================================== */
+    =================================================== */
+
 
     function animate() {
 
@@ -2552,8 +2596,6 @@
         animate
       );
 
-
-      /* panel 닫혔을 때 회전 */
 
       if (
         !panelOpen
@@ -2568,8 +2610,7 @@
 
           (
 
-            mouseY
-            *
+            mouseY *
             0.18
 
             -
@@ -2587,8 +2628,7 @@
 
           (
 
-            -mouseX
-            *
+            -mouseX *
             0.1
 
             -
@@ -2604,37 +2644,25 @@
       }
 
 
-      /* halo */
-
       projectPoints.forEach(
-
         point => {
 
 
-          const halo =
-
-            point
-              .userData
-              .halo;
-
-
-          halo.quaternion.copy(
-
-            camera.quaternion
-
-          );
+          point
+            .userData
+            .halo
+            .quaternion
+            .copy(
+              camera.quaternion
+            );
 
         }
-
       );
 
 
       renderer.render(
-
         scene,
-
         camera
-
       );
 
     }
