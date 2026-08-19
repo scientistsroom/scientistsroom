@@ -19,39 +19,30 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-
       background: #efefe9;
-
       font-family: Arial, Helvetica, sans-serif;
       color: #111;
     }
 
-
-    /* =====================================
+    /* ==========================
        HOME
-    ===================================== */
+    ========================== */
 
     .hero {
       position: relative;
-
       width: 100vw;
       height: 100vh;
-
       min-height: 700px;
-
-      background: #efefe9;
-
       overflow: hidden;
+      background: #efefe9;
     }
 
-
-    /* =====================================
+    /* ==========================
        TOP
-    ===================================== */
+    ========================== */
 
     .top {
       position: absolute;
-
       top: 36px;
       left: 40px;
       right: 40px;
@@ -68,35 +59,26 @@
 
     .top-center {
       position: absolute;
-
       left: 50%;
-
       transform: translateX(-50%);
-
       opacity: 0.22;
     }
 
-
-    /* =====================================
+    /* ==========================
        TITLE
-    ===================================== */
+    ========================== */
 
     .title {
       position: absolute;
-
       top: 10%;
       left: 50%;
 
       transform: translateX(-50%);
 
       font-size: clamp(38px, 4.2vw, 72px);
-
       line-height: 0.9;
-
       letter-spacing: -0.065em;
-
       text-align: center;
-
       font-weight: 600;
 
       white-space: nowrap;
@@ -104,10 +86,9 @@
       z-index: 10;
     }
 
-
-    /* =====================================
-       GUIDE CIRCLE
-    ===================================== */
+    /* ==========================
+       GUIDE
+    ========================== */
 
     .guide-circle {
       position: absolute;
@@ -120,46 +101,32 @@
 
       transform: translate(-50%, -50%);
 
-      border:
-        1px solid
-        rgba(0, 0, 0, 0.055);
-
+      border: 1px solid rgba(0, 0, 0, 0.055);
       border-radius: 50%;
 
       pointer-events: none;
     }
 
-
     .guide-circle::before,
     .guide-circle::after {
       content: "";
-
       position: absolute;
-
-      background:
-        rgba(0, 0, 0, 0.06);
+      background: rgba(0, 0, 0, 0.06);
     }
-
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
-
       left: -20%;
       top: 50%;
     }
 
-
     .guide-circle::after {
-      height: 140%;
       width: 1px;
-
+      height: 140%;
       top: -20%;
       left: 50%;
     }
-
-
-    /* diagonal guide */
 
     .line {
       position: absolute;
@@ -170,30 +137,22 @@
       width: 118%;
       height: 1px;
 
-      background:
-        rgba(0, 0, 0, 0.045);
+      background: rgba(0, 0, 0, 0.045);
 
       transform-origin: center;
     }
 
-
     .line.one {
-      transform:
-        translate(-50%, -50%)
-        rotate(32deg);
+      transform: translate(-50%, -50%) rotate(32deg);
     }
-
 
     .line.two {
-      transform:
-        translate(-50%, -50%)
-        rotate(-32deg);
+      transform: translate(-50%, -50%) rotate(-32deg);
     }
 
-
-    /* =====================================
+    /* ==========================
        EARTH
-    ===================================== */
+    ========================== */
 
     #earthWrap {
       position: absolute;
@@ -204,16 +163,13 @@
       width: min(36vw, 500px);
       height: min(36vw, 500px);
 
-      transform:
-        translate(-50%, -48%);
+      transform: translate(-50%, -48%);
 
       z-index: 5;
 
       transition:
-        transform 0.7s cubic-bezier(.16, 1, .3, 1),
         filter 0.5s ease;
     }
-
 
     #earthWrap:hover {
       filter:
@@ -223,23 +179,19 @@
         );
     }
 
-
     #earth {
       width: 100%;
       height: 100%;
-
       cursor: grab;
     }
-
 
     #earth:active {
       cursor: grabbing;
     }
 
-
-    /* =====================================
+    /* ==========================
        HOVER LABEL
-    ===================================== */
+    ========================== */
 
     #projectLabel {
       position: fixed;
@@ -247,49 +199,44 @@
       left: 0;
       top: 0;
 
-      padding:
-        9px 12px;
+      padding: 9px 12px;
 
       background: #111;
-
       color: #efefe9;
 
       font-size: 11px;
       line-height: 1.3;
 
-      letter-spacing: -0.02em;
-
       pointer-events: none;
 
       opacity: 0;
 
-      transform:
-        translate(14px, 14px);
+      transform: translate(14px, 14px);
 
-      transition:
-        opacity 0.18s ease;
+      transition: opacity 0.18s ease;
 
       z-index: 100;
 
       white-space: nowrap;
     }
 
-
     #projectLabel.active {
       opacity: 1;
     }
 
-
     #projectLabel .label-number {
       opacity: 0.45;
-
       margin-right: 8px;
     }
 
+    #projectLabel .label-category {
+      opacity: 0.45;
+      margin-left: 8px;
+    }
 
-    /* =====================================
+    /* ==========================
        SIDE LINE
-    ===================================== */
+    ========================== */
 
     .side-line {
       position: absolute;
@@ -299,24 +246,20 @@
       width: 12%;
       height: 1px;
 
-      background:
-        rgba(0, 0, 0, .12);
+      background: rgba(0, 0, 0, 0.12);
     }
-
 
     .side-line.left {
       left: 3.5%;
     }
 
-
     .side-line.right {
       right: 3.5%;
     }
 
-
-    /* =====================================
+    /* ==========================
        BOTTOM
-    ===================================== */
+    ========================== */
 
     .bottom {
       position: absolute;
@@ -339,15 +282,11 @@
       z-index: 20;
     }
 
-
     .item h3 {
       font-size: 13px;
-
       margin-bottom: 9px;
-
       font-weight: 600;
     }
-
 
     .item p {
       max-width: 300px;
@@ -355,60 +294,53 @@
       font-size: 10px;
       line-height: 1.35;
 
-      color:
-        rgba(0, 0, 0, .36);
+      color: rgba(0, 0, 0, 0.36);
     }
-
 
     .center-item {
       text-align: center;
     }
 
-
     .center-item p {
       margin: 0 auto;
     }
-
 
     .right-item {
       text-align: right;
     }
 
-
     .right-item p {
       margin-left: auto;
     }
 
-
-    /* =====================================
-       PROJECT PANEL
-    ===================================== */
+    /* ==========================
+       OVERLAY
+    ========================== */
 
     .panel-overlay {
       position: fixed;
 
       inset: 0;
 
-      background:
-        rgba(0, 0, 0, 0.08);
+      background: rgba(0, 0, 0, 0.08);
 
       opacity: 0;
 
       pointer-events: none;
 
-      transition:
-        opacity 0.5s ease;
+      transition: opacity 0.5s ease;
 
       z-index: 80;
     }
 
-
     .panel-overlay.active {
       opacity: 1;
-
       pointer-events: auto;
     }
 
+    /* ==========================
+       PROJECT PANEL
+    ========================== */
 
     #projectPanel {
       position: fixed;
@@ -420,14 +352,11 @@
       height: 100vh;
 
       background: #111;
-
       color: #f1f1eb;
 
-      padding:
-        38px 38px 42px;
+      padding: 38px 38px 42px;
 
-      transform:
-        translateX(100%);
+      transform: translateX(100%);
 
       transition:
         transform
@@ -440,14 +369,9 @@
       flex-direction: column;
     }
 
-
     #projectPanel.active {
-      transform:
-        translateX(0);
+      transform: translateX(0);
     }
-
-
-    /* panel top */
 
     .panel-top {
       display: flex;
@@ -458,20 +382,15 @@
       margin-bottom: 55px;
     }
 
-
     .panel-index {
       font-size: 11px;
-
-      color:
-        rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.45);
     }
-
 
     #closePanel {
       appearance: none;
 
       background: none;
-
       border: 0;
 
       color: white;
@@ -484,45 +403,34 @@
       line-height: 1;
     }
 
-
-    /* panel content */
-
     .panel-year {
+      min-height: 14px;
+
       font-size: 11px;
 
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255, 255, 255, 0.42);
 
       margin-bottom: 12px;
     }
 
-
     .panel-title {
-      font-size:
-        clamp(34px, 4vw, 55px);
+      font-size: clamp(34px, 4vw, 55px);
 
       line-height: 0.95;
-
-      letter-spacing:
-        -0.055em;
+      letter-spacing: -0.055em;
 
       font-weight: 500;
 
       margin-bottom: 20px;
     }
 
-
     .panel-category {
       font-size: 11px;
 
-      color:
-        rgba(255, 255, 255, 0.48);
+      color: rgba(255, 255, 255, 0.48);
 
       margin-bottom: 38px;
     }
-
-
-    /* image */
 
     .panel-image-wrap {
       position: relative;
@@ -537,7 +445,6 @@
       margin-bottom: 30px;
     }
 
-
     #panelImage {
       width: 100%;
       height: 100%;
@@ -546,7 +453,6 @@
 
       object-fit: cover;
     }
-
 
     .image-placeholder {
       position: absolute;
@@ -558,31 +464,25 @@
       align-items: center;
       justify-content: center;
 
-      color:
-        rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.3);
 
       font-size: 11px;
 
       text-align: center;
     }
 
-
     .image-placeholder.active {
       display: flex;
     }
 
-
     .panel-description {
       font-size: 12px;
-
       line-height: 1.7;
 
-      color:
-        rgba(255, 255, 255, 0.58);
+      color: rgba(255, 255, 255, 0.58);
 
       max-width: 360px;
     }
-
 
     .view-project {
       margin-top: auto;
@@ -600,15 +500,13 @@
       font-size: 12px;
     }
 
-
     .view-project span:last-child {
       opacity: 0.45;
     }
 
-
-    /* =====================================
+    /* ==========================
        MOBILE
-    ===================================== */
+    ========================== */
 
     @media (max-width: 900px) {
 
@@ -616,14 +514,11 @@
         min-height: 100svh;
       }
 
-
       .top {
         top: 22px;
-
         left: 20px;
         right: 20px;
       }
-
 
       .title {
         top: 13%;
@@ -632,7 +527,6 @@
           clamp(38px, 11vw, 52px);
       }
 
-
       #earthWrap {
         width: 72vw;
         height: 72vw;
@@ -640,18 +534,14 @@
         top: 49%;
       }
 
-
       .guide-circle {
         width: 90vw;
-
         top: 49%;
       }
-
 
       .side-line {
         display: none;
       }
-
 
       .bottom {
         left: 20px;
@@ -659,21 +549,19 @@
         bottom: 20px;
 
         grid-template-columns:
-          1fr 1fr;
+          1fr
+          1fr;
 
         gap: 22px;
       }
-
 
       .bottom .center-item {
         display: none;
       }
 
-
       .item p {
         font-size: 9px;
       }
-
 
       #projectPanel {
         width: 100vw;
@@ -694,9 +582,7 @@
   <main class="hero">
 
 
-    <!-- =====================================
-         TOP
-    ====================================== -->
+    <!-- HEADER -->
 
     <header class="top">
 
@@ -704,11 +590,9 @@
         scientistsroom
       </div>
 
-
       <div class="top-center">
         PORTFOLIO
       </div>
-
 
       <div>
         2026
@@ -717,39 +601,28 @@
     </header>
 
 
-
-    <!-- =====================================
-         TITLE
-    ====================================== -->
+    <!-- TITLE -->
 
     <div class="title">
       scientistsroom
     </div>
 
 
-
-    <!-- =====================================
-         GUIDE
-    ====================================== -->
+    <!-- GUIDE -->
 
     <div class="guide-circle">
 
       <div class="line one"></div>
-
       <div class="line two"></div>
 
     </div>
 
 
     <div class="side-line left"></div>
-
     <div class="side-line right"></div>
 
 
-
-    <!-- =====================================
-         EARTH
-    ====================================== -->
+    <!-- EARTH -->
 
     <div id="earthWrap">
 
@@ -758,13 +631,9 @@
     </div>
 
 
-
-    <!-- =====================================
-         BOTTOM
-    ====================================== -->
+    <!-- BOTTOM -->
 
     <section class="bottom">
-
 
       <div class="item">
 
@@ -774,8 +643,8 @@
 
         <p>
           Graphic / Editorial /
-          Branding / Exhibition /
-          Digital Experience
+          Branding / UX UI /
+          Photography
         </p>
 
       </div>
@@ -810,24 +679,18 @@
 
       </div>
 
-
     </section>
+
 
   </main>
 
 
-
-  <!-- =====================================
-       HOVER LABEL
-  ====================================== -->
+  <!-- HOVER LABEL -->
 
   <div id="projectLabel"></div>
 
 
-
-  <!-- =====================================
-       PANEL OVERLAY
-  ====================================== -->
+  <!-- OVERLAY -->
 
   <div
     class="panel-overlay"
@@ -835,10 +698,7 @@
   </div>
 
 
-
-  <!-- =====================================
-       PROJECT PANEL
-  ====================================== -->
+  <!-- PROJECT PANEL -->
 
   <aside id="projectPanel">
 
@@ -865,33 +725,22 @@
     </div>
 
 
-
     <div
       class="panel-year"
       id="panelYear">
-
-      2026
-
     </div>
 
 
     <h2
       class="panel-title"
       id="panelTitle">
-
-      LIG D&A
-
     </h2>
 
 
     <div
       class="panel-category"
       id="panelCategory">
-
-      PACKAGE / GRAPHIC DESIGN
-
     </div>
-
 
 
     <div class="panel-image-wrap">
@@ -914,13 +763,10 @@
     </div>
 
 
-
     <p
       class="panel-description"
       id="panelDescription">
-
     </p>
-
 
 
     <div class="view-project">
@@ -939,57 +785,233 @@
   </aside>
 
 
-
-  <!-- =====================================
-       THREE JS
-  ====================================== -->
+  <!-- THREE JS -->
 
   <script type="module">
-
 
     import * as THREE
     from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
 
-
     /* =====================================
-       PROJECT DATA
-
-       ★ 여기만 바꾸면 작품 수정 가능
-    ====================================== */
-
+       PROJECTS
+    ===================================== */
 
     const projects = [
 
-      {
 
+      /* 01 */
+
+      {
         number: "01",
 
         title:
-          "LIG D&A 50th Anniversary",
+          "Orv",
 
         year:
-          "2026",
+          "",
 
         category:
-          "PACKAGE / GRAPHIC DESIGN",
+          "BRANDING",
 
         description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.",
+          "Orv 브랜드의 아이덴티티와 그래픽 디자인을 진행하였습니다.",
 
         image:
-          "images/lig.jpg",
+          "images/orv.jpg",
 
-        lat: 37,
+        lat: 48,
 
-        lng: 127
-
+        lng: 125
       },
 
 
-      {
+      /* 02 */
 
+      {
         number: "02",
+
+        title:
+          "Advent Calendar",
+
+        year:
+          "",
+
+        category:
+          "PACKAGE",
+
+        description:
+          "Advent Calendar 패키지 디자인 프로젝트를 진행하였습니다.",
+
+        image:
+          "images/advent-calendar.jpg",
+
+        lat: 23,
+
+        lng: 145
+      },
+
+
+      /* 03 */
+
+      {
+        number: "03",
+
+        title:
+          "Dream Cat Shelter",
+
+        year:
+          "",
+
+        category:
+          "BRANDING",
+
+        description:
+          "Dream Cat Shelter의 브랜드 아이덴티티와 그래픽 디자인을 진행하였습니다.",
+
+        image:
+          "images/dream-cat.jpg",
+
+        lat: -5,
+
+        lng: 126
+      },
+
+
+      /* 04 */
+
+      {
+        number: "04",
+
+        title:
+          "Logo",
+
+        year:
+          "",
+
+        category:
+          "LOGO / BRANDING",
+
+        description:
+          "다양한 브랜드와 프로젝트의 로고 및 아이덴티티 디자인을 진행하였습니다.",
+
+        image:
+          "images/logo.jpg",
+
+        lat: -34,
+
+        lng: 148
+      },
+
+
+      /* 05 */
+
+      {
+        number: "05",
+
+        title:
+          "Book",
+
+        year:
+          "",
+
+        category:
+          "EDITORIAL",
+
+        description:
+          "책자 및 출판물을 중심으로 편집디자인을 진행하였습니다.",
+
+        image:
+          "images/book.jpg",
+
+        lat: 53,
+
+        lng: 57
+      },
+
+
+      /* 06 */
+
+      {
+        number: "06",
+
+        title:
+          "Poster",
+
+        year:
+          "",
+
+        category:
+          "EDITORIAL",
+
+        description:
+          "문화예술 및 다양한 프로젝트의 포스터 디자인을 진행하였습니다.",
+
+        image:
+          "images/poster.jpg",
+
+        lat: 25,
+
+        lng: 67
+      },
+
+
+      /* 07 */
+
+      {
+        number: "07",
+
+        title:
+          "Banner",
+
+        year:
+          "",
+
+        category:
+          "EDITORIAL",
+
+        description:
+          "행사 및 홍보를 위한 다양한 배너 디자인을 진행하였습니다.",
+
+        image:
+          "images/banner.jpg",
+
+        lat: -9,
+
+        lng: 52
+      },
+
+
+      /* 08 */
+
+      {
+        number: "08",
+
+        title:
+          "Wandy",
+
+        year:
+          "",
+
+        category:
+          "UX / UI",
+
+        description:
+          "Wandy 프로젝트의 UX / UI 디자인을 진행하였습니다.",
+
+        image:
+          "images/wandy.jpg",
+
+        lat: -40,
+
+        lng: 30
+      },
+
+
+      /* 09 */
+
+      {
+        number: "09",
 
         title:
           "Langmuir",
@@ -1006,98 +1028,147 @@
         image:
           "images/langmuir.jpg",
 
-        lat: 42,
+        lat: 45,
 
-        lng: -74
-
+        lng: -72
       },
 
 
-      {
+      /* 10 */
 
-        number: "03",
+      {
+        number: "10",
 
         title:
-          "KES LG Electronics",
+          "Office of Education",
+
+        year:
+          "",
+
+        category:
+          "PM SAFETY EDUCATION",
+
+        description:
+          "유치원부터 고등학교까지 연령별 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
+
+        image:
+          "images/office-education.jpg",
+
+        lat: 18,
+
+        lng: -52
+      },
+
+
+      /* 11 */
+
+      {
+        number: "11",
+
+        title:
+          "Dongguk University",
+
+        year:
+          "",
+
+        category:
+          "RESEARCH PROJECT",
+
+        description:
+          "동국대학교 연구 프로젝트의 연구보고서 및 출판 디자인을 진행하였습니다.",
+
+        image:
+          "images/dongguk.jpg",
+
+        lat: -13,
+
+        lng: -67
+      },
+
+
+      /* 12 */
+
+      {
+        number: "12",
+
+        title:
+          "Hongik University",
+
+        year:
+          "",
+
+        category:
+          "HOMEPAGE",
+
+        description:
+          "홍익대학교 관련 홈페이지 콘텐츠 및 디지털 디자인을 진행하였습니다.",
+
+        image:
+          "images/hongik.jpg",
+
+        lat: -42,
+
+        lng: -40
+      },
+
+
+      /* 13 */
+
+      {
+        number: "13",
+
+        title:
+          "spacehaeso : 조용한 형상들의 엄습",
 
         year:
           "2025",
 
         category:
-          "EXHIBITION / EDITORIAL",
+          "PHOTO",
 
         description:
-          "KES 한국전자전 LG 전시 프로젝트의 리플렛, POP, 스펙보드 및 시안 합성 디자인을 진행하였습니다.",
+          "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
 
         image:
-          "images/lg.jpg",
+          "images/spacehaeso.jpg",
 
-        lat: 8,
+        lat: 57,
 
-        lng: 15
-
+        lng: -143
       },
 
 
-      {
-
-        number: "04",
-
-        title:
-          "Culture Delivery",
-
-        year:
-          "2025",
-
-        category:
-          "CULTURE / GRAPHIC DESIGN",
-
-        description:
-          "구석구석 문화배달 프로젝트의 포스터, 배너, 리플렛 등 다양한 홍보 디자인을 진행하였습니다.",
-
-        image:
-          "images/culture.jpg",
-
-        lat: -25,
-
-        lng: -45
-
-      },
-
+      /* 14 */
 
       {
-
-        number: "05",
+        number: "14",
 
         title:
-          "Gwangju Eupseong",
+          "LIG D&A 50th Anniversary",
 
         year:
-          "2025",
+          "2026",
 
         category:
-          "EXHIBITION / GRAPHIC DESIGN",
+          "PACKAGE / GRAPHIC DESIGN",
 
         description:
-          "광주읍성 : 사라진 기억 전시의 포스터, 배너 및 상세페이지 디자인을 진행하였습니다.",
+          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.",
 
         image:
-          "images/gwangju.jpg",
+          "images/lig.jpg",
 
-        lat: -20,
+        lat: 5,
 
-        lng: 80
-
+        lng: -125
       }
 
     ];
 
 
-
     /* =====================================
        SCENE
-    ====================================== */
-
+    ===================================== */
 
     const container =
       document.getElementById(
@@ -1109,11 +1180,9 @@
       new THREE.Scene();
 
 
-
     /* =====================================
        CAMERA
-    ====================================== */
-
+    ===================================== */
 
     const camera =
       new THREE.PerspectiveCamera(
@@ -1133,11 +1202,9 @@
       4.8;
 
 
-
     /* =====================================
        RENDERER
-    ====================================== */
-
+    ===================================== */
 
     const renderer =
       new THREE.WebGLRenderer({
@@ -1169,11 +1236,9 @@
     );
 
 
-
     /* =====================================
-       GLOBE GROUP
-    ====================================== */
-
+       GLOBE
+    ===================================== */
 
     const globe =
       new THREE.Group();
@@ -1184,11 +1249,9 @@
     );
 
 
-
     /* =====================================
        GLOBE BODY
-    ====================================== */
-
+    ===================================== */
 
     const globeGeometry =
       new THREE.SphereGeometry(
@@ -1253,11 +1316,9 @@
     );
 
 
-
     /* =====================================
        SMALL DOTS
-    ====================================== */
-
+    ===================================== */
 
     const dotGeometry =
       new THREE.BufferGeometry();
@@ -1348,7 +1409,6 @@
     }
 
 
-
     dotGeometry.setAttribute(
 
       "position",
@@ -1364,7 +1424,6 @@
     );
 
 
-
     const dotMaterial =
       new THREE.PointsMaterial({
 
@@ -1378,13 +1437,12 @@
           true,
 
         opacity:
-          0.45,
+          0.42,
 
         sizeAttenuation:
           true
 
       });
-
 
 
     const dots =
@@ -1402,11 +1460,9 @@
     );
 
 
-
     /* =====================================
        WIREFRAME
-    ====================================== */
-
+    ===================================== */
 
     const wireGeometry =
       new THREE.SphereGeometry(
@@ -1453,11 +1509,9 @@
     );
 
 
-
     /* =====================================
-       LAT / LNG → 3D POSITION
-    ====================================== */
-
+       LAT LNG → VECTOR
+    ===================================== */
 
     function latLngToVector3(
 
@@ -1513,11 +1567,9 @@
     }
 
 
-
     /* =====================================
-       PROJECT HOTSPOTS
-    ====================================== */
-
+       PROJECT POINTS
+    ===================================== */
 
     const projectPoints =
       [];
@@ -1528,17 +1580,12 @@
       (project, index) => {
 
 
-        /*
-        --------------------
-        CLICK AREA
-        --------------------
-        */
-
+        /* CLICK AREA */
 
         const hitGeometry =
           new THREE.SphereGeometry(
 
-            0.09,
+            0.095,
 
             18,
 
@@ -1567,18 +1614,12 @@
           );
 
 
-
-        /*
-        --------------------
-        VISIBLE POINT
-        --------------------
-        */
-
+        /* VISIBLE POINT */
 
         const visibleGeometry =
           new THREE.SphereGeometry(
 
-            0.035,
+            0.034,
 
             24,
 
@@ -1606,20 +1647,14 @@
           );
 
 
-
-        /*
-        --------------------
-        HALO
-        --------------------
-        */
-
+        /* HALO */
 
         const haloGeometry =
           new THREE.RingGeometry(
 
-            0.055,
+            0.052,
 
-            0.07,
+            0.068,
 
             40
 
@@ -1636,7 +1671,7 @@
               true,
 
             opacity:
-              0.25,
+              0.22,
 
             side:
               THREE.DoubleSide
@@ -1654,13 +1689,7 @@
           );
 
 
-
-        /*
-        --------------------
-        POSITION
-        --------------------
-        */
-
+        /* POSITION */
 
         const position =
           latLngToVector3(
@@ -1689,28 +1718,7 @@
         );
 
 
-        /*
-        halo가 지구 바깥을
-        향하도록 설정
-        */
-
-
-        halo.lookAt(
-
-          position
-          .clone()
-          .multiplyScalar(2)
-
-        );
-
-
-
-        /*
-        --------------------
-        DATA
-        --------------------
-        */
-
+        /* DATA */
 
         hitPoint.userData = {
 
@@ -1750,11 +1758,9 @@
     );
 
 
-
     /* =====================================
        LIGHT
-    ====================================== */
-
+    ===================================== */
 
     const lightA =
       new THREE.DirectionalLight(
@@ -1780,7 +1786,6 @@
     scene.add(
       lightA
     );
-
 
 
     const lightB =
@@ -1809,7 +1814,6 @@
     );
 
 
-
     const lightC =
       new THREE.DirectionalLight(
 
@@ -1836,11 +1840,9 @@
     );
 
 
-
     /* =====================================
-       INITIAL ORIENTATION
-    ====================================== */
-
+       ROTATION
+    ===================================== */
 
     globe.rotation.x =
 
@@ -1856,11 +1858,9 @@
       );
 
 
-
     /* =====================================
        RAYCASTER
-    ====================================== */
-
+    ===================================== */
 
     const raycaster =
       new THREE.Raycaster();
@@ -1870,11 +1870,9 @@
       new THREE.Vector2();
 
 
-
     /* =====================================
        HOVER
-    ====================================== */
-
+    ===================================== */
 
     const label =
       document.getElementById(
@@ -1886,280 +1884,262 @@
       null;
 
 
+    renderer.domElement.addEventListener(
 
-    renderer.domElement
-      .addEventListener(
+      "pointermove",
 
-        "pointermove",
-
-        event => {
+      event => {
 
 
-          const rect =
+        const rect =
 
-            renderer
-              .domElement
-              .getBoundingClientRect();
+          renderer
+            .domElement
+            .getBoundingClientRect();
 
 
+        mouse.x =
 
-          mouse.x =
+          (
+
+            (
+              event.clientX -
+              rect.left
+            )
+
+            /
+
+            rect.width
+
+          )
+
+          * 2
+
+          - 1;
+
+
+        mouse.y =
+
+          -(
 
             (
 
-              (
-                event.clientX -
-                rect.left
-              )
-
-              /
-
-              rect.width
+              event.clientY -
+              rect.top
 
             )
 
-            * 2
+            /
 
-            - 1;
+            rect.height
 
+          )
 
+          * 2
 
-          mouse.y =
-
-            -(
-
-              (
-
-                event.clientY -
-                rect.top
-
-              )
-
-              /
-
-              rect.height
-
-            )
-
-            * 2
-
-            + 1;
+          + 1;
 
 
+        raycaster.setFromCamera(
 
-          raycaster.setFromCamera(
+          mouse,
 
-            mouse,
+          camera
 
-            camera
+        );
+
+
+        const intersects =
+
+          raycaster.intersectObjects(
+
+            projectPoints,
+
+            false
 
           );
 
 
-          const intersects =
+        /* reset */
 
-            raycaster
-              .intersectObjects(
-
-                projectPoints,
-
-                false
-
-              );
+        if (
+          hoveredPoint
+        ) {
 
 
-          /*
-          --------------------
-          RESET PREVIOUS
-          --------------------
-          */
+          hoveredPoint
+            .userData
+            .visiblePoint
+            .scale
+            .setScalar(1);
 
 
-          if (
-            hoveredPoint
-          ) {
+          hoveredPoint
+            .userData
+            .halo
+            .material
+            .opacity =
+            0.22;
 
 
-            hoveredPoint
-              .userData
-              .visiblePoint
-              .scale
-              .setScalar(1);
+          hoveredPoint =
+            null;
+
+        }
 
 
-            hoveredPoint
-              .userData
-              .halo
-              .material
-              .opacity =
-              0.25;
+        /* hover */
+
+        if (
+          intersects.length > 0
+        ) {
 
 
-            hoveredPoint =
-              null;
-
-          }
-
-
-
-          /*
-          --------------------
-          HOVER FOUND
-          --------------------
-          */
-
-
-          if (
-            intersects.length > 0
-          ) {
-
-
-            hoveredPoint =
-              intersects[0]
+          hoveredPoint =
+            intersects[0]
               .object;
 
 
-            const project =
+          const project =
 
-              projects[
+            projects[
 
-                hoveredPoint
-                  .userData
-                  .projectIndex
+              hoveredPoint
+                .userData
+                .projectIndex
 
-              ];
-
-
-
-            hoveredPoint
-              .userData
-              .visiblePoint
-              .scale
-              .setScalar(1.7);
+            ];
 
 
-
-            hoveredPoint
-              .userData
-              .halo
-              .material
-              .opacity =
-              0.7;
+          hoveredPoint
+            .userData
+            .visiblePoint
+            .scale
+            .setScalar(1.8);
 
 
-
-            label.innerHTML =
-
-              '<span class="label-number">'
-
-              +
-
-              project.number
-
-              +
-
-              '</span>'
-
-              +
-
-              project.title;
+          hoveredPoint
+            .userData
+            .halo
+            .material
+            .opacity =
+            0.7;
 
 
+          label.innerHTML =
 
-            label.style.left =
+            '<span class="label-number">'
 
-              event.clientX
-              +
-              "px";
+            +
 
+            project.number
 
-            label.style.top =
+            +
 
-              event.clientY
-              +
-              "px";
+            '</span>'
 
+            +
 
-            label.classList.add(
-              "active"
-            );
+            project.title
 
+            +
 
-            renderer
-              .domElement
-              .style
-              .cursor =
-              "pointer";
+            '<span class="label-category">'
 
-          }
+            +
 
+            project.category
 
-          else {
+            +
+
+            '</span>';
 
 
-            label.classList.remove(
-              "active"
-            );
+          label.style.left =
+
+            event.clientX
+            +
+            "px";
 
 
-            renderer
-              .domElement
-              .style
-              .cursor =
-              "grab";
+          label.style.top =
 
-          }
+            event.clientY
+            +
+            "px";
 
+
+          label.classList.add(
+            "active"
+          );
+
+
+          renderer
+            .domElement
+            .style
+            .cursor =
+            "pointer";
 
         }
 
-      );
+        else {
 
 
-
-    renderer.domElement
-      .addEventListener(
-
-        "pointerleave",
-
-        () => {
+          label.classList.remove(
+            "active"
+          );
 
 
-          label
-            .classList
-            .remove(
-              "active"
-            );
-
-
-          if (
-            hoveredPoint
-          ) {
-
-
-            hoveredPoint
-              .userData
-              .visiblePoint
-              .scale
-              .setScalar(1);
-
-
-            hoveredPoint =
-              null;
-
-          }
-
+          renderer
+            .domElement
+            .style
+            .cursor =
+            "grab";
 
         }
 
-      );
+      }
 
+    );
+
+
+    renderer.domElement.addEventListener(
+
+      "pointerleave",
+
+      () => {
+
+
+        label.classList.remove(
+          "active"
+        );
+
+
+        if (
+          hoveredPoint
+        ) {
+
+
+          hoveredPoint
+            .userData
+            .visiblePoint
+            .scale
+            .setScalar(1);
+
+
+          hoveredPoint =
+            null;
+
+        }
+
+      }
+
+    );
 
 
     /* =====================================
        PANEL
-    ====================================== */
-
+    ===================================== */
 
     const panel =
       document.getElementById(
@@ -2221,16 +2201,12 @@
       );
 
 
-
     let panelOpen =
       false;
 
 
-
     function openProject(
-
       project
-
     ) {
 
 
@@ -2257,14 +2233,6 @@
         project.description;
 
 
-
-      /*
-      --------------------
-      IMAGE
-      --------------------
-      */
-
-
       imagePlaceholder
         .classList
         .remove(
@@ -2282,7 +2250,6 @@
 
       panelImage.alt =
         project.title;
-
 
 
       panel
@@ -2312,29 +2279,26 @@
     }
 
 
+    panelImage.addEventListener(
 
-    panelImage
-      .addEventListener(
+      "error",
 
-        "error",
-
-        () => {
+      () => {
 
 
-          panelImage.style.display =
-            "none";
+        panelImage.style.display =
+          "none";
 
 
-          imagePlaceholder
-            .classList
-            .add(
-              "active"
-            );
+        imagePlaceholder
+          .classList
+          .add(
+            "active"
+          );
 
-        }
+      }
 
-      );
-
+    );
 
 
     function hidePanel() {
@@ -2360,146 +2324,133 @@
     }
 
 
+    closePanel.addEventListener(
 
-    closePanel
-      .addEventListener(
+      "click",
 
-        "click",
+      hidePanel
 
-        hidePanel
-
-      );
+    );
 
 
-    panelOverlay
-      .addEventListener(
+    panelOverlay.addEventListener(
 
-        "click",
+      "click",
 
-        hidePanel
+      hidePanel
 
-      );
-
+    );
 
 
     /* =====================================
-       CLICK PROJECT POINT
-    ====================================== */
+       CLICK
+    ===================================== */
+
+    renderer.domElement.addEventListener(
+
+      "click",
+
+      event => {
 
 
-    renderer.domElement
-      .addEventListener(
+        const rect =
 
-        "click",
-
-        event => {
-
-
-          const rect =
-
-            renderer
-              .domElement
-              .getBoundingClientRect();
+          renderer
+            .domElement
+            .getBoundingClientRect();
 
 
+        mouse.x =
 
-          mouse.x =
+          (
+
+            (
+              event.clientX -
+              rect.left
+            )
+
+            /
+
+            rect.width
+
+          )
+
+          * 2
+
+          - 1;
+
+
+        mouse.y =
+
+          -(
 
             (
 
-              (
-                event.clientX -
-                rect.left
-              )
-
-              /
-
-              rect.width
+              event.clientY -
+              rect.top
 
             )
 
-            * 2
+            /
 
-            - 1;
+            rect.height
 
+          )
 
+          * 2
 
-          mouse.y =
-
-            -(
-
-              (
-
-                event.clientY -
-                rect.top
-
-              )
-
-              /
-
-              rect.height
-
-            )
-
-            * 2
-
-            + 1;
+          + 1;
 
 
+        raycaster.setFromCamera(
 
-          raycaster.setFromCamera(
+          mouse,
 
-            mouse,
+          camera
 
-            camera
+        );
+
+
+        const intersects =
+
+          raycaster.intersectObjects(
+
+            projectPoints,
+
+            false
 
           );
 
 
-          const intersects =
-
-            raycaster
-              .intersectObjects(
-
-                projectPoints,
-
-                false
-
-              );
+        if (
+          intersects.length > 0
+        ) {
 
 
-          if (
-            intersects.length > 0
-          ) {
+          const index =
 
-
-            const index =
-
-              intersects[0]
+            intersects[0]
               .object
               .userData
               .projectIndex;
 
 
-            openProject(
+          openProject(
 
-              projects[index]
+            projects[index]
 
-            );
-
-          }
-
+          );
 
         }
 
-      );
+      }
 
+    );
 
 
     /* =====================================
        MOUSE MOVEMENT
-    ====================================== */
-
+    ===================================== */
 
     let mouseX =
       0;
@@ -2507,7 +2458,6 @@
 
     let mouseY =
       0;
-
 
 
     document.addEventListener(
@@ -2519,8 +2469,8 @@
 
         mouseX =
 
-          event.clientX /
-
+          event.clientX
+          /
           window.innerWidth
 
           -
@@ -2530,8 +2480,8 @@
 
         mouseY =
 
-          event.clientY /
-
+          event.clientY
+          /
           window.innerHeight
 
           -
@@ -2543,11 +2493,9 @@
     );
 
 
-
     /* =====================================
        RESIZE
-    ====================================== */
-
+    ===================================== */
 
     function resize() {
 
@@ -2571,16 +2519,14 @@
 
       camera.aspect =
 
-        width /
-
+        width
+        /
         height;
 
 
-      camera
-        .updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
     }
-
 
 
     window.addEventListener(
@@ -2595,11 +2541,9 @@
     resize();
 
 
-
     /* =====================================
        ANIMATION
-    ====================================== */
-
+    ===================================== */
 
     function animate() {
 
@@ -2609,12 +2553,7 @@
       );
 
 
-
-      /*
-      패널 열려있지 않을 때만
-      자동회전
-      */
-
+      /* panel 닫혔을 때 회전 */
 
       if (
         !panelOpen
@@ -2624,25 +2563,13 @@
         globe.rotation.y +=
           0.0022;
 
-      }
-
-
-
-      /*
-      마우스 움직임
-      */
-
-
-      if (
-        !panelOpen
-      ) {
-
 
         globe.rotation.x +=
 
           (
 
-            mouseY *
+            mouseY
+            *
             0.18
 
             -
@@ -2656,12 +2583,12 @@
           0.012;
 
 
-
         globe.rotation.z +=
 
           (
 
-            -mouseX *
+            -mouseX
+            *
             0.1
 
             -
@@ -2677,12 +2604,7 @@
       }
 
 
-
-      /*
-      HALO를 카메라 방향으로
-      계속 정렬
-      */
-
+      /* halo */
 
       projectPoints.forEach(
 
@@ -2707,7 +2629,6 @@
       );
 
 
-
       renderer.render(
 
         scene,
@@ -2720,7 +2641,6 @@
 
 
     animate();
-
 
   </script>
 
