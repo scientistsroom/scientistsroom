@@ -24,9 +24,9 @@
       color: #111;
     }
 
-    /* ==========================
+    /* =========================================
        HOME
-    ========================== */
+    ========================================= */
 
     .hero {
       position: relative;
@@ -37,9 +37,9 @@
       background: #efefe9;
     }
 
-    /* ==========================
+    /* =========================================
        TOP
-    ========================== */
+    ========================================= */
 
     .top {
       position: absolute;
@@ -64,9 +64,9 @@
       opacity: 0.22;
     }
 
-    /* ==========================
+    /* =========================================
        TITLE
-    ========================== */
+    ========================================= */
 
     .title {
       position: absolute;
@@ -86,9 +86,9 @@
       z-index: 10;
     }
 
-    /* ==========================
+    /* =========================================
        GUIDE
-    ========================== */
+    ========================================= */
 
     .guide-circle {
       position: absolute;
@@ -130,7 +130,6 @@
 
     .line {
       position: absolute;
-
       left: 50%;
       top: 50%;
 
@@ -138,7 +137,6 @@
       height: 1px;
 
       background: rgba(0, 0, 0, 0.045);
-
       transform-origin: center;
     }
 
@@ -150,9 +148,9 @@
       transform: translate(-50%, -50%) rotate(-32deg);
     }
 
-    /* ==========================
+    /* =========================================
        EARTH
-    ========================== */
+    ========================================= */
 
     #earthWrap {
       position: absolute;
@@ -188,13 +186,12 @@
       cursor: grabbing;
     }
 
-    /* ==========================
+    /* =========================================
        HOVER LABEL
-    ========================== */
+    ========================================= */
 
     #projectLabel {
       position: fixed;
-
       left: 0;
       top: 0;
 
@@ -211,7 +208,6 @@
       opacity: 0;
 
       transform: translate(14px, 14px);
-
       transition: opacity 0.18s ease;
 
       z-index: 100;
@@ -233,13 +229,12 @@
       margin-left: 8px;
     }
 
-    /* ==========================
+    /* =========================================
        SIDE LINE
-    ========================== */
+    ========================================= */
 
     .side-line {
       position: absolute;
-
       top: 45%;
 
       width: 12%;
@@ -256,9 +251,9 @@
       right: 3.5%;
     }
 
-    /* ==========================
+    /* =========================================
        BOTTOM
-    ========================== */
+    ========================================= */
 
     .bottom {
       position: absolute;
@@ -275,7 +270,6 @@
         1fr;
 
       gap: 50px;
-
       align-items: end;
 
       z-index: 20;
@@ -312,13 +306,12 @@
       margin-left: auto;
     }
 
-    /* ==========================
+    /* =========================================
        OVERLAY
-    ========================== */
+    ========================================= */
 
     .panel-overlay {
       position: fixed;
-
       inset: 0;
 
       background: rgba(0, 0, 0, 0.08);
@@ -336,17 +329,16 @@
       pointer-events: auto;
     }
 
-    /* ==========================
+    /* =========================================
        PROJECT PANEL
-    ========================== */
+    ========================================= */
 
     #projectPanel {
       position: fixed;
-
       top: 0;
       right: 0;
 
-      width: min(500px, 92vw);
+      width: min(520px, 92vw);
       height: 100vh;
 
       background: #111;
@@ -365,6 +357,8 @@
 
       display: flex;
       flex-direction: column;
+
+      overflow-y: auto;
     }
 
     #projectPanel.active {
@@ -373,7 +367,6 @@
 
     .panel-top {
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
@@ -387,6 +380,7 @@
 
     #closePanel {
       appearance: none;
+
       background: none;
       border: 0;
 
@@ -396,7 +390,6 @@
       font-weight: 300;
 
       cursor: pointer;
-
       line-height: 1;
     }
 
@@ -411,7 +404,7 @@
     }
 
     .panel-title {
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(30px, 3.7vw, 52px);
 
       line-height: 0.98;
       letter-spacing: -0.055em;
@@ -429,9 +422,9 @@
       margin-bottom: 30px;
     }
 
-    /* ==========================
-       IMAGE SLIDER
-    ========================== */
+    /* =========================================
+       SLIDER
+    ========================================= */
 
     .slider {
       position: relative;
@@ -459,7 +452,6 @@
 
     .image-placeholder {
       position: absolute;
-
       inset: 0;
 
       display: none;
@@ -470,6 +462,7 @@
       color: rgba(255, 255, 255, 0.3);
 
       font-size: 11px;
+      letter-spacing: 0.08em;
 
       text-align: center;
     }
@@ -506,7 +499,7 @@
     }
 
     .slider-button:hover {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.72);
     }
 
     #prevImage {
@@ -520,8 +513,6 @@
     .slider-button.hidden {
       display: none;
     }
-
-    /* slider information */
 
     .slider-info {
       display: flex;
@@ -542,7 +533,7 @@
 
     .slider-dots {
       display: flex;
-      gap: 5px;
+      gap: 6px;
     }
 
     .slider-dot {
@@ -552,25 +543,25 @@
       border-radius: 50%;
 
       background: rgba(255, 255, 255, 0.25);
-
-      transition: background 0.2s ease;
     }
 
     .slider-dot.active {
       background: white;
     }
 
-    /* ==========================
+    /* =========================================
        DESCRIPTION
-    ========================== */
+    ========================================= */
 
     .panel-description {
+      max-width: 410px;
+
+      margin-bottom: 40px;
+
       font-size: 12px;
-      line-height: 1.7;
+      line-height: 1.8;
 
-      color: rgba(255, 255, 255, 0.58);
-
-      max-width: 390px;
+      color: rgba(255, 255, 255, 0.64);
 
       white-space: pre-line;
     }
@@ -578,14 +569,13 @@
     .view-project {
       margin-top: auto;
 
-      padding-top: 30px;
+      padding-top: 24px;
 
       border-top:
         1px solid
         rgba(255, 255, 255, 0.16);
 
       display: flex;
-
       justify-content: space-between;
 
       font-size: 11px;
@@ -595,9 +585,9 @@
       opacity: 0.45;
     }
 
-    /* ==========================
+    /* =========================================
        MOBILE
-    ========================== */
+    ========================================= */
 
     @media (max-width: 900px) {
 
@@ -672,6 +662,9 @@
 
   <main class="hero">
 
+
+    <!-- HEADER -->
+
     <header class="top">
 
       <div>
@@ -689,10 +682,14 @@
     </header>
 
 
+    <!-- TITLE -->
+
     <div class="title">
       scientistsroom
     </div>
 
+
+    <!-- GUIDE -->
 
     <div class="guide-circle">
 
@@ -706,12 +703,14 @@
     <div class="side-line right"></div>
 
 
+    <!-- EARTH -->
+
     <div id="earthWrap">
-
       <div id="earth"></div>
-
     </div>
 
+
+    <!-- BOTTOM -->
 
     <section class="bottom">
 
@@ -761,15 +760,16 @@
 
     </section>
 
+
   </main>
 
 
-  <!-- hover -->
+  <!-- HOVER LABEL -->
 
   <div id="projectLabel"></div>
 
 
-  <!-- overlay -->
+  <!-- OVERLAY -->
 
   <div
     class="panel-overlay"
@@ -864,7 +864,7 @@
     <div class="slider-info">
 
       <div id="sliderCounter">
-        01 / 01
+        00 / 00
       </div>
 
 
@@ -876,7 +876,7 @@
     </div>
 
 
-    <!-- 작품 설명 -->
+    <!-- DESCRIPTION -->
 
     <p
       class="panel-description"
@@ -900,49 +900,56 @@
   </aside>
 
 
+  <!-- THREE JS -->
+
   <script type="module">
 
     import * as THREE
     from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
 
-    /* ===================================================
-       ★★★★★ 프로젝트 수정은 여기서 하면 됩니다 ★★★★★
-    =================================================== */
+    /* ====================================================
+       PROJECT DATA
+
+       앞으로 작품 설명 / 이미지 추가는
+       이 부분만 수정하면 됩니다.
+    ==================================================== */
 
 
     const projects = [
 
 
+      /* =====================================
+         01. ORV
+      ===================================== */
+
       {
         number: "01",
 
-        title: "Orv",
+        title: "OrV",
 
         year: "",
 
         category: "BRANDING",
 
-
-        /* ★ 작품 설명 */
-
         description:
-          "Orv의 브랜드 아이덴티티 구축을 위해 로고와 그래픽 시스템을 개발하였습니다.",
-
-
-        /* ★ 슬라이드 이미지 */
+          "OrV는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
 
         images: [
           "images/orv-01.jpg",
           "images/orv-02.jpg",
-          "images/orv-03.jpg"
+          "images/orv-03.jpg",
+          "images/orv-04.jpg"
         ],
-
 
         lat: 48,
         lng: 125
       },
 
+
+      /* =====================================
+         02. ADVENT CALENDAR
+      ===================================== */
 
       {
         number: "02",
@@ -954,44 +961,43 @@
         category: "PACKAGE",
 
         description:
-          "Advent Calendar 패키지 디자인 프로젝트를 진행하였습니다.",
+          "",
 
-        images: [
-          "images/advent-01.jpg",
-          "images/advent-02.jpg",
-          "images/advent-03.jpg"
-        ],
+        images: [],
 
         lat: 23,
         lng: 145
       },
 
 
+      /* =====================================
+         03. DREAM CAT SHELTER
+      ===================================== */
+
       {
         number: "03",
 
-  title: "Dream Cat Shelter",
+        title: "Dream Cat Shelter",
 
-  year: "",
+        year: "",
 
-  category: "BRANDING",
+        category: "BRANDING",
 
-  description:
-    "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함을써 조금더 나은 삶을 살게하기 위해 노력하는 고양이 입양센터 입니다.
-브랜딩을 진행하여 팔로워 2.3k 달성하였습니다.",
+        description:
+          "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
 
-  images: [
-    "images/dream-cat.jpg"
-  ],
-
-  lat: -5,
-  lng: 126
+        images: [
+          "images/dream-cat.jpg"
         ],
 
         lat: -5,
         lng: 126
       },
 
+
+      /* =====================================
+         04. LOGO
+      ===================================== */
 
       {
         number: "04",
@@ -1003,18 +1009,18 @@
         category: "BRANDING",
 
         description:
-          "다양한 브랜드 및 프로젝트를 위해 제작한 로고 디자인 작업입니다.",
+          "",
 
-        images: [
-          "images/logo-01.jpg",
-          "images/logo-02.jpg",
-          "images/logo-03.jpg"
-        ],
+        images: [],
 
         lat: -34,
         lng: 148
       },
 
+
+      /* =====================================
+         05. BOOK
+      ===================================== */
 
       {
         number: "05",
@@ -1026,18 +1032,18 @@
         category: "EDITORIAL",
 
         description:
-          "다양한 책자와 출판물을 대상으로 편집디자인 및 인쇄 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/book-01.jpg",
-          "images/book-02.jpg",
-          "images/book-03.jpg"
-        ],
+        images: [],
 
         lat: 53,
         lng: 57
       },
 
+
+      /* =====================================
+         06. POSTER
+      ===================================== */
 
       {
         number: "06",
@@ -1049,18 +1055,18 @@
         category: "EDITORIAL",
 
         description:
-          "문화예술 행사 및 다양한 프로젝트의 포스터 디자인 작업입니다.",
+          "",
 
-        images: [
-          "images/poster-01.jpg",
-          "images/poster-02.jpg",
-          "images/poster-03.jpg"
-        ],
+        images: [],
 
         lat: 25,
         lng: 67
       },
 
+
+      /* =====================================
+         07. BANNER
+      ===================================== */
 
       {
         number: "07",
@@ -1072,18 +1078,18 @@
         category: "EDITORIAL",
 
         description:
-          "행사와 브랜드 홍보를 위한 다양한 온·오프라인 배너 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/banner-01.jpg",
-          "images/banner-02.jpg",
-          "images/banner-03.jpg"
-        ],
+        images: [],
 
         lat: -9,
         lng: 52
       },
 
+
+      /* =====================================
+         08. WANDY
+      ===================================== */
 
       {
         number: "08",
@@ -1095,18 +1101,18 @@
         category: "UX / UI",
 
         description:
-          "Wandy 서비스의 사용자 경험과 인터페이스 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/wandy-01.jpg",
-          "images/wandy-02.jpg",
-          "images/wandy-03.jpg"
-        ],
+        images: [],
 
         lat: -40,
         lng: 30
       },
 
+
+      /* =====================================
+         09. LANGMUIR
+      ===================================== */
 
       {
         number: "09",
@@ -1118,63 +1124,64 @@
         category: "COVER ARTWORK",
 
         description:
-          "미국화학회 ACS 학술지 Langmuir 논문 표지 제작을 의뢰받아 그래픽 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/langmuir-01.jpg",
-          "images/langmuir-02.jpg"
-        ],
+        images: [],
 
         lat: 45,
         lng: -72
       },
 
 
+      /* =====================================
+         10. OFFICE OF EDUCATION
+      ===================================== */
+
       {
         number: "10",
 
         title: "Office of Education",
 
-        year: "2025 — 2026",
+        year: "",
 
         category: "PM SAFETY EDUCATION",
 
         description:
-          "유치원 / 초등학교 / 중학교 / 고등학교를 대상으로 한 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/education-01.jpg",
-          "images/education-02.jpg",
-          "images/education-03.jpg"
-        ],
+        images: [],
 
         lat: 18,
         lng: -52
       },
 
 
+      /* =====================================
+         11. DONGGUK UNIVERSITY
+      ===================================== */
+
       {
         number: "11",
 
         title: "Dongguk University",
 
-        year: "2025 — 2026",
+        year: "",
 
         category: "RESEARCH PROJECT",
 
         description:
-          "동국대학교와 교육청의 연구보고서 및 성과보고서 편집 / 출판 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/dongguk-01.jpg",
-          "images/dongguk-02.jpg",
-          "images/dongguk-03.jpg"
-        ],
+        images: [],
 
         lat: -13,
         lng: -67
       },
 
+
+      /* =====================================
+         12. HONGIK UNIVERSITY
+      ===================================== */
 
       {
         number: "12",
@@ -1186,18 +1193,18 @@
         category: "HOMEPAGE",
 
         description:
-          "홍익대학교 관련 웹 콘텐츠 및 홈페이지 디자인을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/hongik-01.jpg",
-          "images/hongik-02.jpg",
-          "images/hongik-03.jpg"
-        ],
+        images: [],
 
         lat: -42,
         lng: -40
       },
 
+
+      /* =====================================
+         13. SPACEHAESO
+      ===================================== */
 
       {
         number: "13",
@@ -1209,18 +1216,18 @@
         category: "PHOTO",
 
         description:
-          "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
+          "",
 
-        images: [
-          "images/spacehaeso-01.jpg",
-          "images/spacehaeso-02.jpg",
-          "images/spacehaeso-03.jpg"
-        ],
+        images: [],
 
         lat: 57,
         lng: -143
       },
 
+
+      /* =====================================
+         14. LIG D&A
+      ===================================== */
 
       {
         number: "14",
@@ -1232,14 +1239,9 @@
         category: "PACKAGE / GRAPHIC DESIGN",
 
         description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드의 프리미엄 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 통일감 있게 구성하였습니다.",
+          "",
 
-        images: [
-          "images/lig-01.jpg",
-          "images/lig-02.jpg",
-          "images/lig-03.jpg",
-          "images/lig-04.jpg"
-        ],
+        images: [],
 
         lat: 5,
         lng: -125
@@ -1248,9 +1250,9 @@
     ];
 
 
-    /* ===================================================
+    /* ====================================================
        THREE JS
-    =================================================== */
+    ==================================================== */
 
 
     const container =
@@ -1260,6 +1262,8 @@
     const scene =
       new THREE.Scene();
 
+
+    /* CAMERA */
 
     const camera =
       new THREE.PerspectiveCamera(
@@ -1274,18 +1278,25 @@
       4.8;
 
 
+    /* RENDERER */
+
     const renderer =
       new THREE.WebGLRenderer({
+
         alpha: true,
+
         antialias: true
+
       });
 
 
     renderer.setPixelRatio(
+
       Math.min(
         window.devicePixelRatio,
         2
       )
+
     );
 
 
@@ -1294,7 +1305,10 @@
     );
 
 
-    /* globe */
+    /* ====================================================
+       GLOBE
+    ==================================================== */
+
 
     const globe =
       new THREE.Group();
@@ -1305,7 +1319,7 @@
     );
 
 
-    /* body */
+    /* globe body */
 
     const globeGeometry =
       new THREE.SphereGeometry(
@@ -1321,17 +1335,21 @@
         color: 0xf5f5f0,
 
         transparent: true,
+
         opacity: 0.18,
 
         roughness: 0.05,
+
         metalness: 0.02,
 
         transmission: 0.85,
+
         thickness: 1,
 
         ior: 1.35,
 
         clearcoat: 1,
+
         clearcoatRoughness: 0.06
 
       });
@@ -1349,7 +1367,10 @@
     );
 
 
-    /* dots */
+    /* ====================================================
+       SMALL DOTS
+    ==================================================== */
+
 
     const dotGeometry =
       new THREE.BufferGeometry();
@@ -1372,9 +1393,13 @@
 
       const phi =
         Math.acos(
+
           -1 +
+
           (2 * i) /
+
           DOT_COUNT
+
         );
 
 
@@ -1416,12 +1441,14 @@
 
 
     dotGeometry.setAttribute(
+
       "position",
 
       new THREE.Float32BufferAttribute(
         dotPoints,
         3
       )
+
     );
 
 
@@ -1453,7 +1480,10 @@
     );
 
 
-    /* wire */
+    /* ====================================================
+       WIREFRAME
+    ==================================================== */
+
 
     const wireGeometry =
       new THREE.SphereGeometry(
@@ -1489,7 +1519,10 @@
     );
 
 
-    /* lat lng */
+    /* ====================================================
+       LAT / LNG → POSITION
+    ==================================================== */
+
 
     function latLngToVector3(
       lat,
@@ -1528,7 +1561,10 @@
     }
 
 
-    /* project points */
+    /* ====================================================
+       PROJECT POINTS
+    ==================================================== */
+
 
     const projectPoints =
       [];
@@ -1537,6 +1573,8 @@
     projects.forEach(
       (project, index) => {
 
+
+        /* invisible click area */
 
         const hitGeometry =
           new THREE.SphereGeometry(
@@ -1548,8 +1586,11 @@
 
         const hitMaterial =
           new THREE.MeshBasicMaterial({
+
             transparent: true,
+
             opacity: 0
+
           });
 
 
@@ -1559,6 +1600,8 @@
             hitMaterial
           );
 
+
+        /* visible point */
 
         const visibleGeometry =
           new THREE.SphereGeometry(
@@ -1580,6 +1623,8 @@
             visibleMaterial
           );
 
+
+        /* halo */
 
         const haloGeometry =
           new THREE.RingGeometry(
@@ -1612,9 +1657,13 @@
 
         const position =
           latLngToVector3(
+
             project.lat,
+
             project.lng,
+
             1.42
+
           );
 
 
@@ -1664,10 +1713,14 @@
         );
 
       }
+
     );
 
 
-    /* light */
+    /* ====================================================
+       LIGHT
+    ==================================================== */
+
 
     const lightA =
       new THREE.DirectionalLight(
@@ -1734,9 +1787,9 @@
       THREE.MathUtils.degToRad(-8);
 
 
-    /* ===================================================
-       HOVER / CLICK
-    =================================================== */
+    /* ====================================================
+       RAYCASTER
+    ==================================================== */
 
 
     const raycaster =
@@ -1745,6 +1798,56 @@
 
     const mouse =
       new THREE.Vector2();
+
+
+    function updateRaycaster(event) {
+
+
+      const rect =
+        renderer
+          .domElement
+          .getBoundingClientRect();
+
+
+      mouse.x =
+
+        (
+          (
+            event.clientX -
+            rect.left
+          )
+          /
+          rect.width
+        )
+
+        * 2 - 1;
+
+
+      mouse.y =
+
+        -(
+          (
+            event.clientY -
+            rect.top
+          )
+          /
+          rect.height
+        )
+
+        * 2 + 1;
+
+
+      raycaster.setFromCamera(
+        mouse,
+        camera
+      );
+
+    }
+
+
+    /* ====================================================
+       HOVER
+    ==================================================== */
 
 
     const label =
@@ -1757,54 +1860,15 @@
       null;
 
 
-    function updateMouse(event) {
-
-
-      const rect =
-        renderer
-          .domElement
-          .getBoundingClientRect();
-
-
-      mouse.x =
-        (
-          (
-            event.clientX -
-            rect.left
-          )
-          /
-          rect.width
-        )
-        * 2 - 1;
-
-
-      mouse.y =
-        -(
-          (
-            event.clientY -
-            rect.top
-          )
-          /
-          rect.height
-        )
-        * 2 + 1;
-
-
-      raycaster.setFromCamera(
-        mouse,
-        camera
-      );
-
-    }
-
-
     renderer.domElement
       .addEventListener(
         "pointermove",
         event => {
 
 
-          updateMouse(event);
+          updateRaycaster(
+            event
+          );
 
 
           const intersects =
@@ -1897,12 +1961,15 @@
               event.clientY + "px";
 
 
-            label.classList.add(
-              "active"
-            );
+            label
+              .classList
+              .add("active");
 
 
-            renderer.domElement.style.cursor =
+            renderer
+              .domElement
+              .style
+              .cursor =
               "pointer";
 
           }
@@ -1910,12 +1977,15 @@
           else {
 
 
-            label.classList.remove(
-              "active"
-            );
+            label
+              .classList
+              .remove("active");
 
 
-            renderer.domElement.style.cursor =
+            renderer
+              .domElement
+              .style
+              .cursor =
               "grab";
 
           }
@@ -1924,9 +1994,49 @@
       );
 
 
-    /* ===================================================
-       PANEL
-    =================================================== */
+    renderer.domElement
+      .addEventListener(
+        "pointerleave",
+        () => {
+
+
+          label
+            .classList
+            .remove("active");
+
+
+          if (
+            hoveredPoint
+          ) {
+
+
+            hoveredPoint
+              .userData
+              .visiblePoint
+              .scale
+              .setScalar(1);
+
+
+            hoveredPoint
+              .userData
+              .halo
+              .material
+              .opacity =
+              0.22;
+
+
+            hoveredPoint =
+              null;
+
+          }
+
+        }
+      );
+
+
+    /* ====================================================
+       PANEL ELEMENTS
+    ==================================================== */
 
 
     const panel =
@@ -2025,9 +2135,9 @@
       0;
 
 
-    /* ===================================================
+    /* ====================================================
        SLIDER
-    =================================================== */
+    ==================================================== */
 
 
     function updateSlider() {
@@ -2043,6 +2153,8 @@
       const images =
         activeProject.images || [];
 
+
+      /* no image */
 
       if (
         images.length === 0
@@ -2081,6 +2193,8 @@
       }
 
 
+      /* image */
+
       panelImage.style.display =
         "block";
 
@@ -2091,12 +2205,16 @@
 
 
       panelImage.src =
-        images[activeImageIndex];
+        images[
+          activeImageIndex
+        ];
 
 
       panelImage.alt =
         activeProject.title;
 
+
+      /* counter */
 
       sliderCounter.textContent =
 
@@ -2116,7 +2234,6 @@
 
 
       /* dots */
-
 
       sliderDots.innerHTML =
         "";
@@ -2142,9 +2259,9 @@
           ) {
 
 
-            dot.classList.add(
-              "active"
-            );
+            dot
+              .classList
+              .add("active");
 
           }
 
@@ -2157,8 +2274,7 @@
       );
 
 
-      /* 한 장이면 화살표 숨기기 */
-
+      /* single image */
 
       if (
         images.length <= 1
@@ -2197,14 +2313,13 @@
 
 
       if (
-        !activeProject
+        !activeProject ||
+        activeProject.images.length <= 1
       ) {
+
         return;
+
       }
-
-
-      const images =
-        activeProject.images;
 
 
       activeImageIndex =
@@ -2215,7 +2330,7 @@
 
         %
 
-        images.length;
+        activeProject.images.length;
 
 
       updateSlider();
@@ -2227,14 +2342,13 @@
 
 
       if (
-        !activeProject
+        !activeProject ||
+        activeProject.images.length <= 1
       ) {
+
         return;
+
       }
-
-
-      const images =
-        activeProject.images;
 
 
       activeImageIndex =
@@ -2242,12 +2356,12 @@
         (
           activeImageIndex - 1
           +
-          images.length
+          activeProject.images.length
         )
 
         %
 
-        images.length;
+        activeProject.images.length;
 
 
       updateSlider();
@@ -2255,21 +2369,23 @@
     }
 
 
-    nextImage.addEventListener(
-      "click",
-      nextSlide
-    );
+    nextImage
+      .addEventListener(
+        "click",
+        nextSlide
+      );
 
 
-    prevImage.addEventListener(
-      "click",
-      previousSlide
-    );
+    prevImage
+      .addEventListener(
+        "click",
+        previousSlide
+      );
 
 
-    /* ===================================================
-       TOUCH SWIPE
-    =================================================== */
+    /* ====================================================
+       MOBILE SWIPE
+    ==================================================== */
 
 
     let touchStartX =
@@ -2282,70 +2398,78 @@
       );
 
 
-    slider.addEventListener(
-      "touchstart",
-      event => {
+    slider
+      .addEventListener(
+        "touchstart",
+        event => {
 
 
-        touchStartX =
-          event.touches[0].clientX;
+          touchStartX =
+            event
+              .touches[0]
+              .clientX;
 
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    slider.addEventListener(
-      "touchend",
-      event => {
-
-
-        const touchEndX =
-          event.changedTouches[0]
-            .clientX;
-
-
-        const difference =
-          touchStartX -
-          touchEndX;
-
-
-        if (
-          Math.abs(difference) <
-          40
-        ) {
-
-          return;
-
+        },
+        {
+          passive: true
         }
+      );
 
 
-        if (
-          difference > 0
-        ) {
+    slider
+      .addEventListener(
+        "touchend",
+        event => {
 
-          nextSlide();
 
+          const touchEndX =
+            event
+              .changedTouches[0]
+              .clientX;
+
+
+          const difference =
+            touchStartX -
+            touchEndX;
+
+
+          if (
+            Math.abs(
+              difference
+            ) < 40
+          ) {
+
+            return;
+
+          }
+
+
+          if (
+            difference > 0
+          ) {
+
+
+            nextSlide();
+
+          }
+
+          else {
+
+
+            previousSlide();
+
+          }
+
+        },
+        {
+          passive: true
         }
-
-        else {
-
-          previousSlide();
-
-        }
-
-      },
-      {
-        passive: true
-      }
-    );
+      );
 
 
-    /* ===================================================
+    /* ====================================================
        OPEN PROJECT
-    =================================================== */
+    ==================================================== */
 
 
     function openProject(
@@ -2408,24 +2532,29 @@
     }
 
 
-    panelImage.addEventListener(
-      "error",
-      () => {
+    /* broken image fallback */
+
+    panelImage
+      .addEventListener(
+        "error",
+        () => {
 
 
-        panelImage.style.display =
-          "none";
+          panelImage.style.display =
+            "none";
 
 
-        imagePlaceholder
-          .classList
-          .add("active");
+          imagePlaceholder
+            .classList
+            .add("active");
 
-      }
-    );
+        }
+      );
 
 
-    /* click point */
+    /* ====================================================
+       CLICK POINT
+    ==================================================== */
 
 
     renderer.domElement
@@ -2434,7 +2563,9 @@
         event => {
 
 
-          updateMouse(event);
+          updateRaycaster(
+            event
+          );
 
 
           const intersects =
@@ -2445,8 +2576,7 @@
 
 
           if (
-            intersects.length >
-            0
+            intersects.length > 0
           ) {
 
 
@@ -2468,7 +2598,9 @@
       );
 
 
-    /* close */
+    /* ====================================================
+       CLOSE
+    ==================================================== */
 
 
     function hidePanel() {
@@ -2494,21 +2626,72 @@
     }
 
 
-    closePanel.addEventListener(
-      "click",
-      hidePanel
-    );
+    closePanel
+      .addEventListener(
+        "click",
+        hidePanel
+      );
 
 
-    panelOverlay.addEventListener(
-      "click",
-      hidePanel
-    );
+    panelOverlay
+      .addEventListener(
+        "click",
+        hidePanel
+      );
 
 
-    /* ===================================================
+    document
+      .addEventListener(
+        "keydown",
+        event => {
+
+
+          if (
+            event.key === "Escape" &&
+            panelOpen
+          ) {
+
+
+            hidePanel();
+
+          }
+
+
+          if (
+            !panelOpen
+          ) {
+
+            return;
+
+          }
+
+
+          if (
+            event.key === "ArrowRight"
+          ) {
+
+
+            nextSlide();
+
+          }
+
+
+          if (
+            event.key === "ArrowLeft"
+          ) {
+
+
+            previousSlide();
+
+          }
+
+        }
+      );
+
+
+    /* ====================================================
        MOUSE
-    =================================================== */
+    ==================================================== */
 
 
     let mouseX =
@@ -2519,37 +2702,38 @@
       0;
 
 
-    document.addEventListener(
-      "mousemove",
-      event => {
+    document
+      .addEventListener(
+        "mousemove",
+        event => {
 
 
-        mouseX =
+          mouseX =
 
-          event.clientX /
-          window.innerWidth
+            event.clientX /
+            window.innerWidth
 
-          -
+            -
 
-          0.5;
-
-
-        mouseY =
-
-          event.clientY /
-          window.innerHeight
-
-          -
-
-          0.5;
-
-      }
-    );
+            0.5;
 
 
-    /* ===================================================
+          mouseY =
+
+            event.clientY /
+            window.innerHeight
+
+            -
+
+            0.5;
+
+        }
+      );
+
+
+    /* ====================================================
        RESIZE
-    =================================================== */
+    ==================================================== */
 
 
     function resize() {
@@ -2578,18 +2762,19 @@
     }
 
 
-    window.addEventListener(
-      "resize",
-      resize
-    );
+    window
+      .addEventListener(
+        "resize",
+        resize
+      );
 
 
     resize();
 
 
-    /* ===================================================
+    /* ====================================================
        ANIMATION
-    =================================================== */
+    ==================================================== */
 
 
     function animate() {
@@ -2605,9 +2790,13 @@
       ) {
 
 
+        /* automatic rotation */
+
         globe.rotation.y +=
           0.0022;
 
+
+        /* subtle mouse movement */
 
         globe.rotation.x +=
 
@@ -2646,6 +2835,8 @@
 
       }
 
+
+      /* halo faces camera */
 
       projectPoints.forEach(
         point => {
