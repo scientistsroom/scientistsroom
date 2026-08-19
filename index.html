@@ -19,17 +19,14 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-
       background: #050505;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       color: #f5f5f5;
     }
 
+    button {
+      font: inherit;
+    }
 
     /* =========================================
        HOME
@@ -37,17 +34,12 @@
 
     .hero {
       position: relative;
-
       width: 100vw;
       height: 100vh;
-
       min-height: 700px;
-
       overflow: hidden;
-
       background: #050505;
     }
-
 
     /* =========================================
        HEADER
@@ -55,35 +47,45 @@
 
     .top {
       position: absolute;
-
       top: 36px;
       left: 40px;
       right: 40px;
 
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
       font-size: 12px;
       font-weight: 600;
 
-      color: #f5f5f5;
-
       z-index: 30;
     }
 
-
     .top-center {
       position: absolute;
-
       left: 50%;
-
       transform: translateX(-50%);
-
       opacity: 0.35;
     }
 
+    .top-menu-button {
+      appearance: none;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: #f5f5f5;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .top-menu-button:hover {
+      opacity: 0.5;
+    }
 
     /* =========================================
        TITLE
@@ -91,144 +93,84 @@
 
     .title {
       position: absolute;
-
       top: 10%;
       left: 50%;
 
       transform: translateX(-50%);
 
-      font-size:
-        clamp(
-          38px,
-          4.2vw,
-          72px
-        );
-
+      font-size: clamp(38px, 4.2vw, 72px);
       line-height: 0.9;
-
       letter-spacing: -0.065em;
-
       text-align: center;
-
       font-weight: 600;
-
-      color: #f5f5f5;
 
       white-space: nowrap;
 
       z-index: 10;
     }
 
-
     /* =========================================
-       GUIDE CIRCLE
+       GUIDE
     ========================================= */
 
     .guide-circle {
       position: absolute;
 
       width: min(58vw, 720px);
-
       aspect-ratio: 1 / 1;
 
       left: 50%;
       top: 48%;
 
-      transform:
-        translate(
-          -50%,
-          -50%
-        );
+      transform: translate(-50%, -50%);
 
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.10
-        );
-
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 50%;
 
       pointer-events: none;
     }
 
-
     .guide-circle::before,
     .guide-circle::after {
       content: "";
-
       position: absolute;
-
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.09
-        );
+      background: rgba(255, 255, 255, 0.09);
     }
-
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
-
       left: -20%;
       top: 50%;
     }
 
-
     .guide-circle::after {
       width: 1px;
       height: 140%;
-
       top: -20%;
       left: 50%;
     }
 
-
     .line {
       position: absolute;
-
       left: 50%;
       top: 50%;
 
       width: 118%;
       height: 1px;
 
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.07
-        );
+      background: rgba(255, 255, 255, 0.07);
 
       transform-origin: center;
     }
 
-
     .line.one {
-      transform:
-        translate(
-          -50%,
-          -50%
-        )
-        rotate(32deg);
+      transform: translate(-50%, -50%) rotate(32deg);
     }
-
 
     .line.two {
-      transform:
-        translate(
-          -50%,
-          -50%
-        )
-        rotate(-32deg);
+      transform: translate(-50%, -50%) rotate(-32deg);
     }
-
 
     /* =========================================
        EARTH
@@ -243,59 +185,39 @@
       width: min(36vw, 500px);
       height: min(36vw, 500px);
 
-      transform:
-        translate(
-          -50%,
-          -48%
-        );
+      transform: translate(-50%, -48%);
 
       z-index: 5;
 
-      transition:
-        filter
-        0.5s ease;
+      transition: filter 0.5s ease;
     }
-
 
     #earthWrap:hover {
-      filter:
-        drop-shadow(
-          0 0 45px
-          rgba(
-            255,
-            255,
-            255,
-            0.08
-          )
-        );
+      filter: drop-shadow(
+        0 0 45px rgba(255, 255, 255, 0.08)
+      );
     }
-
 
     #earth {
       width: 100%;
       height: 100%;
-
       cursor: grab;
     }
-
 
     #earth:active {
       cursor: grabbing;
     }
 
-
     /* =========================================
-       HOVER PROJECT LABEL
+       HOVER LABEL
     ========================================= */
 
     #projectLabel {
       position: fixed;
-
       left: 0;
       top: 0;
 
-      padding:
-        9px 12px;
+      padding: 9px 12px;
 
       background: #f5f5f5;
       color: #050505;
@@ -307,43 +229,31 @@
 
       opacity: 0;
 
-      transform:
-        translate(
-          14px,
-          14px
-        );
+      transform: translate(14px, 14px);
 
-      transition:
-        opacity
-        0.18s ease;
+      transition: opacity 0.18s ease;
 
       z-index: 100;
 
       white-space: nowrap;
     }
 
-
     #projectLabel.active {
       opacity: 1;
     }
 
-
     #projectLabel .label-number {
       opacity: 0.45;
-
       margin-right: 8px;
     }
 
-
     #projectLabel .label-category {
       opacity: 0.5;
-
       margin-left: 8px;
     }
 
-
     /* =========================================
-       SIDE LINES
+       SIDE LINE
     ========================================= */
 
     .side-line {
@@ -354,28 +264,19 @@
       width: 12%;
       height: 1px;
 
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.15
-        );
+      background: rgba(255, 255, 255, 0.15);
     }
-
 
     .side-line.left {
       left: 3.5%;
     }
 
-
     .side-line.right {
       right: 3.5%;
     }
 
-
     /* =========================================
-       BOTTOM INFORMATION
+       BOTTOM
     ========================================= */
 
     .bottom {
@@ -399,93 +300,62 @@
       z-index: 20;
     }
 
-
     .item h3 {
-      margin-bottom: 9px;
-
       font-size: 13px;
+      margin-bottom: 9px;
       font-weight: 600;
-
-      color: #f5f5f5;
     }
-
 
     .item p {
       max-width: 300px;
 
       font-size: 10px;
-
       line-height: 1.35;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.42
-        );
+      color: rgba(255, 255, 255, 0.42);
     }
-
 
     .center-item {
       text-align: center;
     }
 
-
     .center-item p {
-      margin:
-        0 auto;
+      margin: 0 auto;
     }
-
 
     .right-item {
       text-align: right;
     }
 
-
     .right-item p {
       margin-left: auto;
     }
 
-
     /* =========================================
-       PANEL OVERLAY
+       PROJECT DETAIL OVERLAY
     ========================================= */
 
     .panel-overlay {
       position: fixed;
-
       inset: 0;
 
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.16
-        );
+      background: rgba(0, 0, 0, 0.18);
 
       opacity: 0;
-
       pointer-events: none;
 
-      transition:
-        opacity
-        0.5s ease;
+      transition: opacity 0.5s ease;
 
       z-index: 80;
     }
 
-
     .panel-overlay.active {
       opacity: 1;
-
       pointer-events: auto;
     }
 
-
     /* =========================================
-       PROJECT PANEL
+       PROJECT DETAIL PANEL
     ========================================= */
 
     #projectPanel {
@@ -494,102 +364,63 @@
       top: 0;
       right: 0;
 
-      width:
-        min(
-          540px,
-          92vw
-        );
-
+      width: min(540px, 92vw);
       height: 100vh;
 
       background: #0b0b0b;
-
       color: #f5f5f5;
 
       border-left:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.08
-        );
+        1px solid rgba(255, 255, 255, 0.08);
 
-      padding:
-        38px
-        38px
-        42px;
+      padding: 38px 38px 42px;
 
-      transform:
-        translateX(100%);
+      transform: translateX(100%);
 
       transition:
         transform
         0.7s
-        cubic-bezier(
-          .16,
-          1,
-          .3,
-          1
-        );
+        cubic-bezier(.16, 1, .3, 1);
 
       z-index: 90;
 
       display: flex;
-
       flex-direction: column;
 
       overflow-y: auto;
     }
 
-
     #projectPanel.active {
-      transform:
-        translateX(0);
+      transform: translateX(0);
     }
-
 
     .panel-top {
       display: flex;
-
       justify-content: space-between;
       align-items: center;
 
       margin-bottom: 42px;
     }
 
-
     .panel-index {
       font-size: 11px;
-
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.42
-        );
+      color: rgba(255, 255, 255, 0.42);
     }
-
 
     #closePanel {
       appearance: none;
 
       border: 0;
-
       background: none;
 
-      color: #ffffff;
+      color: #fff;
 
       font-size: 28px;
-
       font-weight: 300;
 
       cursor: pointer;
-
       line-height: 1;
     }
-
 
     .panel-year {
       min-height: 14px;
@@ -598,50 +429,27 @@
 
       font-size: 11px;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.42
-        );
+      color: rgba(255, 255, 255, 0.42);
     }
-
 
     .panel-title {
       margin-bottom: 18px;
 
-      font-size:
-        clamp(
-          30px,
-          3.7vw,
-          52px
-        );
+      font-size: clamp(30px, 3.7vw, 52px);
 
       line-height: 0.98;
-
       letter-spacing: -0.055em;
 
       font-weight: 500;
-
-      color: #f5f5f5;
     }
-
 
     .panel-category {
       margin-bottom: 30px;
 
       font-size: 11px;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.48
-        );
+      color: rgba(255, 255, 255, 0.48);
     }
-
 
     /* =========================================
        IMAGE SLIDER
@@ -651,9 +459,7 @@
       position: relative;
 
       width: 100%;
-
-      aspect-ratio:
-        16 / 9;
+      aspect-ratio: 16 / 9;
 
       overflow: hidden;
 
@@ -661,7 +467,6 @@
 
       margin-bottom: 16px;
     }
-
 
     #panelImage {
       width: 100%;
@@ -678,16 +483,12 @@
         transform 0.3s ease;
     }
 
-
     #panelImage:hover {
-      transform:
-        scale(1.012);
+      transform: scale(1.012);
     }
-
 
     .image-placeholder {
       position: absolute;
-
       inset: 0;
 
       display: none;
@@ -696,111 +497,56 @@
       justify-content: center;
 
       font-size: 11px;
-
       letter-spacing: 0.08em;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.28
-        );
+      color: rgba(255, 255, 255, 0.28);
 
       text-align: center;
     }
 
-
     .image-placeholder.active {
       display: flex;
     }
-
-
-    /* =========================================
-       SLIDER ARROWS
-    ========================================= */
 
     .slider-button {
       position: absolute;
 
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       width: 42px;
       height: 42px;
 
       border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.15
-        );
+        1px solid rgba(255, 255, 255, 0.15);
 
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.52
-        );
+      background: rgba(0, 0, 0, 0.52);
 
-      color: #ffffff;
+      color: #fff;
 
       font-size: 18px;
 
       cursor: pointer;
 
       z-index: 10;
-
-      transition:
-        background
-        0.2s ease,
-        border-color
-        0.2s ease;
     }
-
 
     .slider-button:hover {
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.13
-        );
-
-      border-color:
-        rgba(
-          255,
-          255,
-          255,
-          0.4
-        );
+      background: rgba(255, 255, 255, 0.13);
     }
-
 
     #prevImage {
       left: 12px;
     }
 
-
     #nextImage {
       right: 12px;
     }
 
-
     .slider-button.hidden {
       display: none;
     }
-
-
-    /* =========================================
-       SLIDER INFO
-    ========================================= */
 
     .slider-info {
       display: flex;
@@ -812,27 +558,17 @@
 
       font-size: 10px;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.42
-        );
+      color: rgba(255, 255, 255, 0.42);
     }
-
 
     #sliderCounter {
       letter-spacing: 0.05em;
     }
 
-
     .slider-dots {
       display: flex;
-
       gap: 6px;
     }
-
 
     .slider-dot {
       width: 4px;
@@ -840,20 +576,12 @@
 
       border-radius: 50%;
 
-      background:
-        rgba(
-          255,
-          255,
-          255,
-          0.22
-        );
+      background: rgba(255, 255, 255, 0.22);
     }
-
 
     .slider-dot.active {
-      background: #ffffff;
+      background: #fff;
     }
-
 
     /* =========================================
        DESCRIPTION
@@ -865,20 +593,12 @@
       margin-bottom: 40px;
 
       font-size: 12px;
-
       line-height: 1.8;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.65
-        );
+      color: rgba(255, 255, 255, 0.65);
 
       white-space: pre-line;
     }
-
 
     .view-project {
       margin-top: auto;
@@ -886,34 +606,302 @@
       padding-top: 24px;
 
       border-top:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.14
-        );
+        1px solid rgba(255, 255, 255, 0.14);
 
       display: flex;
-
       justify-content: space-between;
 
       font-size: 11px;
     }
 
-
     .view-project span:last-child {
       opacity: 0.45;
     }
 
+    /* ====================================================
+       PROJECT INDEX OVERLAY
+    ==================================================== */
+
+    #projectIndexOverlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.35);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+
+      z-index: 110;
+    }
+
+    #projectIndexOverlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ====================================================
+       PROJECT INDEX PANEL
+    ==================================================== */
+
+    #projectIndexPanel {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+
+      width: min(820px, 100vw);
+      height: 100vh;
+
+      background: #080808;
+
+      border-left:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      transform: translateX(100%);
+
+      transition:
+        transform
+        0.75s
+        cubic-bezier(.16, 1, .3, 1);
+
+      z-index: 120;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    #projectIndexPanel.active {
+      transform: translateX(0);
+    }
+
+    .project-index-header {
+      padding:
+        36px
+        40px
+        30px;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .project-index-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      margin-bottom: 56px;
+    }
+
+    .project-index-heading {
+      font-size: clamp(42px, 6vw, 82px);
+
+      line-height: 0.9;
+
+      letter-spacing: -0.065em;
+
+      font-weight: 500;
+    }
+
+    #closeProjectIndex {
+      appearance: none;
+
+      border: 0;
+      background: none;
+
+      color: #fff;
+
+      font-size: 32px;
+      font-weight: 300;
+
+      cursor: pointer;
+
+      line-height: 1;
+    }
+
+    .project-index-meta {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .project-count {
+      font-size: 10px;
+      letter-spacing: 0.05em;
+
+      color: rgba(255, 255, 255, 0.35);
+    }
 
     /* =========================================
-       IMAGE LIGHTBOX
+       PROJECT SORT
+    ========================================= */
+
+    .project-sort {
+      display: flex;
+      gap: 22px;
+    }
+
+    .project-sort-button {
+      appearance: none;
+
+      padding: 0 0 5px;
+
+      border: 0;
+      border-bottom:
+        1px solid transparent;
+
+      background: none;
+
+      color: rgba(255, 255, 255, 0.35);
+
+      font-size: 10px;
+      letter-spacing: 0.05em;
+
+      cursor: pointer;
+
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .project-sort-button:hover {
+      color: #fff;
+    }
+
+    .project-sort-button.active {
+      color: #fff;
+
+      border-bottom-color: #fff;
+    }
+
+    /* =========================================
+       PROJECT LIST
+    ========================================= */
+
+    .project-index-scroll {
+      flex: 1;
+
+      overflow-y: auto;
+
+      padding:
+        0
+        40px
+        60px;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        rgba(255, 255, 255, 0.2)
+        transparent;
+    }
+
+    .project-group-title {
+      padding:
+        42px
+        0
+        14px;
+
+      font-size: 10px;
+      letter-spacing: 0.06em;
+
+      color: rgba(255, 255, 255, 0.35);
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .project-list-row {
+      appearance: none;
+
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        54px
+        minmax(0, 1fr)
+        190px
+        80px;
+
+      gap: 18px;
+
+      align-items: center;
+
+      padding:
+        22px
+        0;
+
+      border: 0;
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      background: transparent;
+
+      color: #fff;
+
+      text-align: left;
+
+      cursor: pointer;
+
+      transition:
+        padding-left 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .project-list-row:hover {
+      padding-left: 10px;
+
+      background:
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .project-row-number {
+      font-size: 10px;
+
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .project-row-title {
+      min-width: 0;
+
+      font-size: clamp(17px, 2vw, 24px);
+
+      letter-spacing: -0.035em;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+
+    .project-row-category {
+      font-size: 9px;
+      line-height: 1.3;
+
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    .project-row-year {
+      text-align: right;
+
+      font-size: 10px;
+
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    /* =========================================
+       LIGHTBOX
     ========================================= */
 
     #imageLightbox {
       position: fixed;
-
       inset: 0;
 
       display: flex;
@@ -921,36 +909,24 @@
       align-items: center;
       justify-content: center;
 
-      padding:
-        55px
-        80px;
+      padding: 55px 80px;
 
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.98
-        );
+      background: rgba(0, 0, 0, 0.98);
 
       opacity: 0;
       visibility: hidden;
 
       transition:
-        opacity
-        0.35s ease,
-        visibility
-        0.35s ease;
+        opacity 0.35s ease,
+        visibility 0.35s ease;
 
       z-index: 300;
     }
-
 
     #imageLightbox.active {
       opacity: 1;
       visibility: visible;
     }
-
 
     #lightboxImage {
       display: block;
@@ -964,7 +940,6 @@
       object-fit: contain;
     }
 
-
     #closeLightbox {
       position: absolute;
 
@@ -972,13 +947,11 @@
       right: 34px;
 
       border: 0;
-
       background: none;
 
-      color: #ffffff;
+      color: #fff;
 
       font-size: 34px;
-
       font-weight: 300;
 
       cursor: pointer;
@@ -988,65 +961,43 @@
       z-index: 10;
     }
 
-
-    /* =========================================
-       LIGHTBOX ARROWS
-    ========================================= */
-
     .lightbox-arrow {
       position: absolute;
 
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       width: 55px;
       height: 55px;
 
       border: 0;
-
       background: none;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.65
-        );
+      color: rgba(255, 255, 255, 0.65);
 
       font-size: 27px;
 
       cursor: pointer;
 
       z-index: 10;
-
-      transition:
-        color
-        0.2s ease;
     }
-
 
     .lightbox-arrow:hover {
-      color: #ffffff;
+      color: #fff;
     }
-
 
     #lightboxPrev {
       left: 24px;
     }
 
-
     #lightboxNext {
       right: 24px;
     }
 
-
     .lightbox-arrow.hidden {
       display: none;
     }
-
 
     #lightboxCounter {
       position: absolute;
@@ -1054,22 +1005,13 @@
       left: 50%;
       bottom: 22px;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.55
-        );
+      color: rgba(255, 255, 255, 0.55);
 
       font-size: 10px;
-
       letter-spacing: 0.08em;
     }
-
 
     /* =========================================
        MOBILE
@@ -1081,26 +1023,18 @@
         min-height: 100svh;
       }
 
-
       .top {
         top: 22px;
-
         left: 20px;
         right: 20px;
       }
-
 
       .title {
         top: 13%;
 
         font-size:
-          clamp(
-            38px,
-            11vw,
-            52px
-          );
+          clamp(38px, 11vw, 52px);
       }
-
 
       #earthWrap {
         width: 72vw;
@@ -1109,18 +1043,14 @@
         top: 49%;
       }
 
-
       .guide-circle {
         width: 90vw;
-
         top: 49%;
       }
-
 
       .side-line {
         display: none;
       }
-
 
       .bottom {
         left: 20px;
@@ -1134,16 +1064,13 @@
         gap: 22px;
       }
 
-
       .bottom .center-item {
         display: none;
       }
 
-
       .item p {
         font-size: 9px;
       }
-
 
       #projectPanel {
         width: 100vw;
@@ -1154,28 +1081,73 @@
           30px;
       }
 
+      .project-index-header {
+        padding:
+          24px
+          22px
+          24px;
+      }
+
+      .project-index-top {
+        margin-bottom: 42px;
+      }
+
+      .project-index-heading {
+        font-size: 50px;
+      }
+
+      .project-index-meta {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 18px;
+      }
+
+      .project-index-scroll {
+        padding:
+          0
+          22px
+          40px;
+      }
+
+      .project-list-row {
+        grid-template-columns:
+          36px
+          minmax(0, 1fr)
+          52px;
+
+        gap: 10px;
+
+        padding:
+          18px
+          0;
+      }
+
+      .project-row-category {
+        display: none;
+      }
+
+      .project-row-title {
+        font-size: 17px;
+      }
 
       #imageLightbox {
         padding: 20px;
       }
-
 
       #lightboxImage {
         max-width: 96vw;
         max-height: 82vh;
       }
 
-
       #closeLightbox {
         top: 18px;
         right: 20px;
       }
 
-
       #lightboxPrev {
         left: 6px;
       }
-
 
       #lightboxNext {
         right: 6px;
@@ -1184,7 +1156,6 @@
     }
 
   </style>
-
 </head>
 
 
@@ -1193,10 +1164,7 @@
 
   <main class="hero">
 
-
-    <!-- =====================================
-         HEADER
-    ====================================== -->
+    <!-- HEADER -->
 
     <header class="top">
 
@@ -1204,49 +1172,42 @@
         scientistsroom
       </div>
 
-
       <div class="top-center">
         PORTFOLIO
       </div>
 
-
-      <div>
-        2026
-      </div>
+      <button
+        class="top-menu-button"
+        id="projectsMenuButton"
+        type="button">
+        PROJECTS
+      </button>
 
     </header>
 
 
-    <!-- =====================================
-         TITLE
-    ====================================== -->
+    <!-- TITLE -->
 
     <div class="title">
       scientistsroom
     </div>
 
 
-    <!-- =====================================
-         GUIDE
-    ====================================== -->
+    <!-- GUIDE -->
 
     <div class="guide-circle">
 
       <div class="line one"></div>
-
       <div class="line two"></div>
 
     </div>
 
 
     <div class="side-line left"></div>
-
     <div class="side-line right"></div>
 
 
-    <!-- =====================================
-         EARTH
-    ====================================== -->
+    <!-- EARTH -->
 
     <div id="earthWrap">
 
@@ -1255,12 +1216,9 @@
     </div>
 
 
-    <!-- =====================================
-         BOTTOM
-    ====================================== -->
+    <!-- BOTTOM -->
 
     <section class="bottom">
-
 
       <div class="item">
 
@@ -1300,29 +1258,25 @@
 
         <p>
           Click the points on
-          the globe to explore
-          selected projects.
+          the globe or open
+          the project index.
         </p>
 
       </div>
 
-
     </section>
-
 
   </main>
 
 
-  <!-- =====================================
-       HOVER LABEL
-  ====================================== -->
+  <!-- HOVER LABEL -->
 
   <div id="projectLabel"></div>
 
 
-  <!-- =====================================
-       PROJECT PANEL OVERLAY
-  ====================================== -->
+  <!-- ===================================================
+       PROJECT DETAIL
+  ==================================================== -->
 
   <div
     class="panel-overlay"
@@ -1330,30 +1284,20 @@
   </div>
 
 
-  <!-- =====================================
-       PROJECT PANEL
-  ====================================== -->
-
   <aside id="projectPanel">
 
-
     <div class="panel-top">
-
 
       <div
         class="panel-index"
         id="panelIndex">
       </div>
 
-
       <button
         id="closePanel"
         aria-label="Close project">
-
         ×
-
       </button>
-
 
     </div>
 
@@ -1376,12 +1320,9 @@
     </div>
 
 
-    <!-- =====================================
-         IMAGE SLIDER
-    ====================================== -->
+    <!-- IMAGE SLIDER -->
 
     <div class="slider">
-
 
       <img
         id="panelImage"
@@ -1418,17 +1359,13 @@
 
       </button>
 
-
     </div>
 
 
     <div class="slider-info">
 
-
       <div id="sliderCounter">
-
         00 / 00
-
       </div>
 
 
@@ -1437,13 +1374,8 @@
         id="sliderDots">
       </div>
 
-
     </div>
 
-
-    <!-- =====================================
-         DESCRIPTION
-    ====================================== -->
 
     <p
       class="panel-description"
@@ -1457,23 +1389,103 @@
         SELECTED PROJECT
       </span>
 
-
       <span>
         scientistsroom
       </span>
 
     </div>
 
-
   </aside>
 
 
-  <!-- =====================================
+  <!-- ===================================================
+       PROJECT INDEX
+  ==================================================== -->
+
+  <div id="projectIndexOverlay"></div>
+
+
+  <section id="projectIndexPanel">
+
+    <div class="project-index-header">
+
+      <div class="project-index-top">
+
+        <h2 class="project-index-heading">
+          Projects
+        </h2>
+
+
+        <button
+          id="closeProjectIndex"
+          aria-label="Close projects">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="project-index-meta">
+
+        <div
+          class="project-count"
+          id="projectCount">
+
+          14 PROJECTS
+
+        </div>
+
+
+        <div class="project-sort">
+
+          <button
+            class="project-sort-button active"
+            data-sort="all">
+
+            ALL
+
+          </button>
+
+
+          <button
+            class="project-sort-button"
+            data-sort="year">
+
+            YEAR
+
+          </button>
+
+
+          <button
+            class="project-sort-button"
+            data-sort="name">
+
+            NAME
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="project-index-scroll"
+      id="projectIndexList">
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
        FULL SCREEN IMAGE
-  ====================================== -->
+  ==================================================== -->
 
   <div id="imageLightbox">
-
 
     <button
       id="closeLightbox"
@@ -1512,21 +1524,17 @@
 
 
     <div id="lightboxCounter">
-
       01 / 01
-
     </div>
-
 
   </div>
 
 
-  <!-- =====================================
+  <!-- ===================================================
        THREE JS
-  ====================================== -->
+  ==================================================== -->
 
   <script type="module">
-
 
     import * as THREE
     from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
@@ -1535,617 +1543,324 @@
     /* ====================================================
        PROJECT DATA
 
-       ★ 앞으로 작품 이미지 / 설명 수정은
-         여기서 하면 됩니다.
+       ★ 앞으로 작품 정보 수정은 여기서만 하면 됩니다.
+       ★ YEAR에 연도를 적으면 YEAR 메뉴도 자동으로 바뀝니다.
     ==================================================== */
 
 
     const projects = [
 
 
-      /* =====================================
-         01 ORV
-      ===================================== */
+      /* 01 ORV */
 
       {
+        number: "01",
 
-        number:
-          "01",
+        title: "OrV",
 
+        year: "",
 
-        title:
-          "OrV",
-
-
-        year:
-          "",
-
-
-        category:
-          "BRANDING",
-
+        category: "BRANDING",
 
         description:
           "OrV는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
 
-
         images: [
-
           "images/orv-01.jpg",
-
           "images/orv-02.jpg",
-
           "images/orv-03.jpg",
-
           "images/orv-04.jpg"
-
         ],
 
-
-        lat:
-          48,
-
-
-        lng:
-          125
-
+        lat: 48,
+        lng: 125
       },
 
 
-      /* =====================================
-         02 ADVENT CALENDAR
-      ===================================== */
+      /* 02 ADVENT CALENDAR */
 
       {
+        number: "02",
 
-        number:
-          "02",
+        title: "Advent Calendar",
 
+        year: "",
 
-        title:
-          "Advent Calendar",
+        category: "PACKAGE",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "PACKAGE",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          23,
-
-
-        lng:
-          145
-
+        lat: 23,
+        lng: 145
       },
 
 
-      /* =====================================
-         03 DREAM CAT SHELTER
-      ===================================== */
+      /* 03 DREAM CAT SHELTER */
 
       {
+        number: "03",
 
-        number:
-          "03",
+        title: "Dream Cat Shelter",
 
+        year: "",
 
-        title:
-          "Dream Cat Shelter",
-
-
-        year:
-          "",
-
-
-        category:
-          "BRANDING",
-
+        category: "BRANDING",
 
         description:
           "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
 
-
         images: [
-
           "images/dream-cat.jpg"
-
         ],
 
-
-        lat:
-          -5,
-
-
-        lng:
-          126
-
+        lat: -5,
+        lng: 126
       },
 
 
-      /* =====================================
-         04 LOGO
-      ===================================== */
+      /* 04 LOGO */
 
       {
+        number: "04",
 
-        number:
-          "04",
+        title: "Logo",
 
+        year: "",
 
-        title:
-          "Logo",
+        category: "BRANDING",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "BRANDING",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          -34,
-
-
-        lng:
-          148
-
+        lat: -34,
+        lng: 148
       },
 
 
-      /* =====================================
-         05 BOOK
-      ===================================== */
+      /* 05 BOOK */
 
       {
+        number: "05",
 
-        number:
-          "05",
+        title: "Book",
 
+        year: "",
 
-        title:
-          "Book",
+        category: "EDITORIAL",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "EDITORIAL",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          53,
-
-
-        lng:
-          57
-
+        lat: 53,
+        lng: 57
       },
 
 
-      /* =====================================
-         06 POSTER
-      ===================================== */
+      /* 06 POSTER */
 
       {
+        number: "06",
 
-        number:
-          "06",
+        title: "Poster",
 
+        year: "",
 
-        title:
-          "Poster",
+        category: "EDITORIAL",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "EDITORIAL",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          25,
-
-
-        lng:
-          67
-
+        lat: 25,
+        lng: 67
       },
 
 
-      /* =====================================
-         07 BANNER
-      ===================================== */
+      /* 07 BANNER */
 
       {
+        number: "07",
 
-        number:
-          "07",
+        title: "Banner",
 
+        year: "",
 
-        title:
-          "Banner",
+        category: "EDITORIAL",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "EDITORIAL",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          -9,
-
-
-        lng:
-          52
-
+        lat: -9,
+        lng: 52
       },
 
 
-      /* =====================================
-         08 WANDY
-      ===================================== */
+      /* 08 WANDY */
 
       {
+        number: "08",
 
-        number:
-          "08",
+        title: "Wandy",
 
+        year: "",
 
-        title:
-          "Wandy",
+        category: "UX / UI",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "UX / UI",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          -40,
-
-
-        lng:
-          30
-
+        lat: -40,
+        lng: 30
       },
 
 
-      /* =====================================
-         09 LANGMUIR
-      ===================================== */
+      /* 09 LANGMUIR */
 
       {
+        number: "09",
 
-        number:
-          "09",
+        title: "Langmuir",
 
+        year: "2022",
 
-        title:
-          "Langmuir",
+        category: "COVER ARTWORK",
 
+        description: "",
 
-        year:
-          "2022",
+        images: [],
 
-
-        category:
-          "COVER ARTWORK",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          45,
-
-
-        lng:
-          -72
-
+        lat: 45,
+        lng: -72
       },
 
 
-      /* =====================================
-         10 OFFICE OF EDUCATION
-      ===================================== */
+      /* 10 OFFICE OF EDUCATION */
 
       {
+        number: "10",
 
-        number:
-          "10",
+        title: "Office of Education",
 
+        year: "",
 
-        title:
-          "Office of Education",
+        category: "PM SAFETY EDUCATION",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "PM SAFETY EDUCATION",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          18,
-
-
-        lng:
-          -52
-
+        lat: 18,
+        lng: -52
       },
 
 
-      /* =====================================
-         11 DONGGUK UNIVERSITY
-      ===================================== */
+      /* 11 DONGGUK UNIVERSITY */
 
       {
+        number: "11",
 
-        number:
-          "11",
+        title: "Dongguk University",
 
+        year: "",
 
-        title:
-          "Dongguk University",
+        category: "RESEARCH PROJECT",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "RESEARCH PROJECT",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          -13,
-
-
-        lng:
-          -67
-
+        lat: -13,
+        lng: -67
       },
 
 
-      /* =====================================
-         12 HONGIK UNIVERSITY
-      ===================================== */
+      /* 12 HONGIK UNIVERSITY */
 
       {
+        number: "12",
 
-        number:
-          "12",
+        title: "Hongik University",
 
+        year: "",
 
-        title:
-          "Hongik University",
+        category: "HOMEPAGE",
 
+        description: "",
 
-        year:
-          "",
+        images: [],
 
-
-        category:
-          "HOMEPAGE",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          -42,
-
-
-        lng:
-          -40
-
+        lat: -42,
+        lng: -40
       },
 
 
-      /* =====================================
-         13 SPACEHAESO
-      ===================================== */
+      /* 13 SPACEHAESO */
 
       {
+        number: "13",
 
-        number:
-          "13",
+        title: "spacehaeso : 조용한 형상들의 엄습",
 
+        year: "2025",
 
-        title:
-          "spacehaeso : 조용한 형상들의 엄습",
+        category: "PHOTO",
 
+        description: "",
 
-        year:
-          "2025",
+        images: [],
 
-
-        category:
-          "PHOTO",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          57,
-
-
-        lng:
-          -143
-
+        lat: 57,
+        lng: -143
       },
 
 
-      /* =====================================
-         14 LIG
-      ===================================== */
+      /* 14 LIG */
 
       {
+        number: "14",
 
-        number:
-          "14",
+        title: "LIG D&A 50th Anniversary",
 
+        year: "2026",
 
-        title:
-          "LIG D&A 50th Anniversary",
+        category: "PACKAGE / GRAPHIC DESIGN",
 
+        description: "",
 
-        year:
-          "2026",
+        images: [],
 
-
-        category:
-          "PACKAGE / GRAPHIC DESIGN",
-
-
-        description:
-          "",
-
-
-        images:
-          [],
-
-
-        lat:
-          5,
-
-
-        lng:
-          -125
-
+        lat: 5,
+        lng: -125
       }
 
     ];
 
 
     /* ====================================================
-       THREE JS SETUP
+       THREE JS
     ==================================================== */
 
 
     const container =
-      document.getElementById(
-        "earth"
-      );
+      document.getElementById("earth");
 
 
     const scene =
       new THREE.Scene();
 
 
-    /* CAMERA */
-
-
     const camera =
       new THREE.PerspectiveCamera(
-
         38,
-
         1,
-
         0.1,
-
         100
-
       );
 
 
@@ -2153,126 +1868,81 @@
       4.8;
 
 
-    /* RENDERER */
-
-
     const renderer =
       new THREE.WebGLRenderer({
-
-        alpha:
-          true,
-
-        antialias:
-          true
-
+        alpha: true,
+        antialias: true
       });
 
 
     renderer.setPixelRatio(
-
       Math.min(
-
         window.devicePixelRatio,
-
         2
-
       )
-
     );
 
 
     container.appendChild(
-
       renderer.domElement
-
     );
 
 
-    /* ====================================================
+    /* =========================================
        GLOBE
-    ==================================================== */
+    ========================================= */
 
 
     const globe =
       new THREE.Group();
 
 
-    scene.add(
-      globe
-    );
-
-
-    /* =====================================
-       GLOBE BODY
-    ===================================== */
+    scene.add(globe);
 
 
     const globeGeometry =
       new THREE.SphereGeometry(
-
         1.35,
-
         128,
-
         128
-
       );
 
 
     const globeMaterial =
       new THREE.MeshPhysicalMaterial({
 
-        color:
-          0xffffff,
+        color: 0xffffff,
 
-        transparent:
-          true,
+        transparent: true,
+        opacity: 0.10,
 
-        opacity:
-          0.10,
+        roughness: 0.08,
+        metalness: 0.02,
 
-        roughness:
-          0.08,
+        transmission: 0.5,
+        thickness: 1,
 
-        metalness:
-          0.02,
+        ior: 1.35,
 
-        transmission:
-          0.5,
-
-        thickness:
-          1,
-
-        ior:
-          1.35,
-
-        clearcoat:
-          1,
-
-        clearcoatRoughness:
-          0.08
+        clearcoat: 1,
+        clearcoatRoughness: 0.08
 
       });
 
 
     const sphere =
       new THREE.Mesh(
-
         globeGeometry,
-
         globeMaterial
-
       );
 
 
-    globe.add(
-      sphere
-    );
+    globe.add(sphere);
 
 
-    /* ====================================================
-       SMALL WHITE DOTS
-    ==================================================== */
+    /* =========================================
+       SMALL DOTS
+    ========================================= */
 
 
     const dotGeometry =
@@ -2288,42 +1958,24 @@
 
 
     for (
-
       let i = 0;
-
       i < DOT_COUNT;
-
       i++
-
     ) {
 
-
       const phi =
-
         Math.acos(
-
           -1 +
-
           (2 * i) /
-
           DOT_COUNT
-
         );
 
 
       const theta =
-
         Math.sqrt(
-
           DOT_COUNT *
-
           Math.PI
-
-        )
-
-        *
-
-        phi;
+        ) * phi;
 
 
       const radius =
@@ -2331,210 +1983,147 @@
 
 
       const x =
-
         radius *
-
         Math.cos(theta) *
-
         Math.sin(phi);
 
 
       const y =
-
         radius *
-
         Math.sin(theta) *
-
         Math.sin(phi);
 
 
       const z =
-
         radius *
-
         Math.cos(phi);
 
 
       dotPoints.push(
-
         x,
-
         y,
-
         z
-
       );
 
     }
 
 
     dotGeometry.setAttribute(
-
       "position",
-
       new THREE.Float32BufferAttribute(
-
         dotPoints,
-
         3
-
       )
-
     );
 
 
     const dotMaterial =
       new THREE.PointsMaterial({
 
-        color:
-          0xffffff,
+        color: 0xffffff,
 
-        size:
-          0.013,
+        size: 0.013,
 
-        transparent:
-          true,
+        transparent: true,
 
-        opacity:
-          0.55,
+        opacity: 0.55,
 
-        sizeAttenuation:
-          true
+        sizeAttenuation: true
 
       });
 
 
     const dots =
       new THREE.Points(
-
         dotGeometry,
-
         dotMaterial
-
       );
 
 
-    globe.add(
-      dots
-    );
+    globe.add(dots);
 
 
-    /* ====================================================
-       WHITE WIREFRAME
-    ==================================================== */
+    /* =========================================
+       WIREFRAME
+    ========================================= */
 
 
     const wireGeometry =
       new THREE.SphereGeometry(
-
         1.36,
-
         30,
-
         20
-
       );
 
 
     const wireMaterial =
       new THREE.MeshBasicMaterial({
 
-        color:
-          0xffffff,
+        color: 0xffffff,
 
-        wireframe:
-          true,
+        wireframe: true,
 
-        transparent:
-          true,
+        transparent: true,
 
-        opacity:
-          0.05
+        opacity: 0.05
 
       });
 
 
     const wire =
       new THREE.Mesh(
-
         wireGeometry,
-
         wireMaterial
-
       );
 
 
-    globe.add(
-      wire
-    );
+    globe.add(wire);
 
 
-    /* ====================================================
+    /* =========================================
        LAT / LNG
-    ==================================================== */
+    ========================================= */
 
 
     function latLngToVector3(
-
       lat,
-
       lng,
-
       radius
-
     ) {
 
-
       const phi =
-
-        THREE.MathUtils
-          .degToRad(
-
-            90 - lat
-
-          );
+        THREE.MathUtils.degToRad(
+          90 - lat
+        );
 
 
       const theta =
-
-        THREE.MathUtils
-          .degToRad(
-
-            lng + 180
-
-          );
+        THREE.MathUtils.degToRad(
+          lng + 180
+        );
 
 
       return new THREE.Vector3(
 
-
         -radius *
-
         Math.sin(phi) *
-
         Math.cos(theta),
 
-
         radius *
-
         Math.cos(phi),
 
-
         radius *
-
         Math.sin(phi) *
-
         Math.sin(theta)
-
 
       );
 
     }
 
 
-    /* ====================================================
+    /* =========================================
        PROJECT POINTS
-    ==================================================== */
+    ========================================= */
 
 
     const projectPoints =
@@ -2542,297 +2131,183 @@
 
 
     projects.forEach(
-
       (project, index) => {
-
-
-        /* invisible click area */
 
 
         const hitGeometry =
           new THREE.SphereGeometry(
-
             0.095,
-
             18,
-
             18
-
           );
 
 
         const hitMaterial =
           new THREE.MeshBasicMaterial({
-
-            transparent:
-              true,
-
-            opacity:
-              0
-
+            transparent: true,
+            opacity: 0
           });
 
 
         const hitPoint =
           new THREE.Mesh(
-
             hitGeometry,
-
             hitMaterial
-
           );
-
-
-        /* visible white point */
 
 
         const visibleGeometry =
           new THREE.SphereGeometry(
-
             0.034,
-
             24,
-
             24
-
           );
 
 
         const visibleMaterial =
           new THREE.MeshBasicMaterial({
-
-            color:
-              0xffffff
-
+            color: 0xffffff
           });
 
 
         const visiblePoint =
           new THREE.Mesh(
-
             visibleGeometry,
-
             visibleMaterial
-
           );
-
-
-        /* white halo */
 
 
         const haloGeometry =
           new THREE.RingGeometry(
-
             0.052,
-
             0.068,
-
             40
-
           );
 
 
         const haloMaterial =
           new THREE.MeshBasicMaterial({
 
-            color:
-              0xffffff,
+            color: 0xffffff,
 
-            transparent:
-              true,
+            transparent: true,
 
-            opacity:
-              0.28,
+            opacity: 0.28,
 
-            side:
-              THREE.DoubleSide
+            side: THREE.DoubleSide
 
           });
 
 
         const halo =
           new THREE.Mesh(
-
             haloGeometry,
-
             haloMaterial
-
           );
-
-
-        /* position */
 
 
         const position =
           latLngToVector3(
-
             project.lat,
-
             project.lng,
-
             1.42
-
           );
 
 
-        hitPoint.position.copy(
-          position
-        );
-
-
-        visiblePoint.position.copy(
-          position
-        );
-
-
-        halo.position.copy(
-          position
-        );
+        hitPoint.position.copy(position);
+        visiblePoint.position.copy(position);
+        halo.position.copy(position);
 
 
         hitPoint.userData = {
 
-          projectIndex:
-            index,
+          projectIndex: index,
 
-          visiblePoint:
-            visiblePoint,
+          visiblePoint: visiblePoint,
 
-          halo:
-            halo
+          halo: halo
 
         };
 
 
-        globe.add(
-          hitPoint
-        );
+        globe.add(hitPoint);
+        globe.add(visiblePoint);
+        globe.add(halo);
 
 
-        globe.add(
-          visiblePoint
-        );
-
-
-        globe.add(
-          halo
-        );
-
-
-        projectPoints.push(
-          hitPoint
-        );
+        projectPoints.push(hitPoint);
 
       }
-
     );
 
 
-    /* ====================================================
+    /* =========================================
        LIGHT
-    ==================================================== */
+    ========================================= */
 
 
     const lightA =
       new THREE.DirectionalLight(
-
         0xffffff,
-
         4
-
       );
 
 
     lightA.position.set(
-
       2,
-
       3,
-
       4
-
     );
 
 
-    scene.add(
-      lightA
-    );
+    scene.add(lightA);
 
 
     const lightB =
       new THREE.DirectionalLight(
-
         0xffffff,
-
         2
-
       );
 
 
     lightB.position.set(
-
       -3,
-
       -1,
-
       2
-
     );
 
 
-    scene.add(
-      lightB
-    );
+    scene.add(lightB);
 
 
     const lightC =
       new THREE.DirectionalLight(
-
         0xffffff,
-
         1
-
       );
 
 
     lightC.position.set(
-
       3,
-
       -2,
-
       -1
-
     );
 
 
-    scene.add(
-      lightC
-    );
-
-
-    /* initial rotation */
+    scene.add(lightC);
 
 
     globe.rotation.x =
-
-      THREE.MathUtils
-        .degToRad(
-          -14
-        );
+      THREE.MathUtils.degToRad(-14);
 
 
     globe.rotation.z =
-
-      THREE.MathUtils
-        .degToRad(
-          -8
-        );
+      THREE.MathUtils.degToRad(-8);
 
 
-    /* ====================================================
+    /* =========================================
        RAYCASTER
-    ==================================================== */
+    ========================================= */
 
 
     const raycaster =
@@ -2843,82 +2318,49 @@
       new THREE.Vector2();
 
 
-    function updateRaycaster(
-      event
-    ) {
-
+    function updateRaycaster(event) {
 
       const rect =
-
         renderer
           .domElement
           .getBoundingClientRect();
 
 
       mouse.x =
-
         (
-
           (
             event.clientX -
             rect.left
           )
-
           /
-
           rect.width
-
         )
-
-        *
-
-        2
-
-        -
-
-        1;
+        * 2 - 1;
 
 
       mouse.y =
-
         -(
-
           (
-
             event.clientY -
             rect.top
-
           )
-
           /
-
           rect.height
-
         )
-
-        *
-
-        2
-
-        +
-
-        1;
+        * 2 + 1;
 
 
       raycaster.setFromCamera(
-
         mouse,
-
         camera
-
       );
 
     }
 
 
-    /* ====================================================
+    /* =========================================
        HOVER
-    ==================================================== */
+    ========================================= */
 
 
     const label =
@@ -2931,44 +2373,29 @@
       null;
 
 
-    renderer
-      .domElement
+    renderer.domElement
       .addEventListener(
-
         "pointermove",
-
         event => {
 
 
-          updateRaycaster(
-            event
-          );
+          updateRaycaster(event);
 
 
           const intersects =
-
-            raycaster
-              .intersectObjects(
-
-                projectPoints,
-
-                false
-
-              );
+            raycaster.intersectObjects(
+              projectPoints,
+              false
+            );
 
 
-          if (
-            hoveredPoint
-          ) {
-
+          if (hoveredPoint) {
 
             hoveredPoint
               .userData
               .visiblePoint
               .scale
-              .setScalar(
-                1
-              );
+              .setScalar(1);
 
 
             hoveredPoint
@@ -2979,8 +2406,7 @@
               0.28;
 
 
-            hoveredPoint =
-              null;
+            hoveredPoint = null;
 
           }
 
@@ -2989,20 +2415,15 @@
             intersects.length > 0
           ) {
 
-
             hoveredPoint =
-              intersects[0]
-                .object;
+              intersects[0].object;
 
 
             const project =
-
               projects[
-
                 hoveredPoint
                   .userData
                   .projectIndex
-
               ];
 
 
@@ -3010,9 +2431,7 @@
               .userData
               .visiblePoint
               .scale
-              .setScalar(
-                1.8
-              );
+              .setScalar(1.8);
 
 
             hoveredPoint
@@ -3025,52 +2444,28 @@
 
             label.innerHTML =
 
-              '<span class="label-number">'
+              '<span class="label-number">' +
+              project.number +
+              '</span>' +
 
-              +
+              project.title +
 
-              project.number
-
-              +
-
-              '</span>'
-
-              +
-
-              project.title
-
-              +
-
-              '<span class="label-category">'
-
-              +
-
-              project.category
-
-              +
-
+              '<span class="label-category">' +
+              project.category +
               '</span>';
 
 
             label.style.left =
-
-              event.clientX
-              +
-              "px";
+              event.clientX + "px";
 
 
             label.style.top =
-
-              event.clientY
-              +
-              "px";
+              event.clientY + "px";
 
 
-            label
-              .classList
-              .add(
-                "active"
-              );
+            label.classList.add(
+              "active"
+            );
 
 
             renderer
@@ -3083,12 +2478,9 @@
 
           else {
 
-
-            label
-              .classList
-              .remove(
-                "active"
-              );
+            label.classList.remove(
+              "active"
+            );
 
 
             renderer
@@ -3100,38 +2492,27 @@
           }
 
         }
-
       );
 
 
-    renderer
-      .domElement
+    renderer.domElement
       .addEventListener(
-
         "pointerleave",
-
         () => {
 
 
-          label
-            .classList
-            .remove(
-              "active"
-            );
+          label.classList.remove(
+            "active"
+          );
 
 
-          if (
-            hoveredPoint
-          ) {
-
+          if (hoveredPoint) {
 
             hoveredPoint
               .userData
               .visiblePoint
               .scale
-              .setScalar(
-                1
-              );
+              .setScalar(1);
 
 
             hoveredPoint
@@ -3142,18 +2523,16 @@
               0.28;
 
 
-            hoveredPoint =
-              null;
+            hoveredPoint = null;
 
           }
 
         }
-
       );
 
 
     /* ====================================================
-       PANEL ELEMENTS
+       PROJECT DETAIL ELEMENTS
     ==================================================== */
 
 
@@ -3250,6 +2629,748 @@
 
 
     /* ====================================================
+       PROJECT INDEX ELEMENTS
+    ==================================================== */
+
+
+    const projectsMenuButton =
+      document.getElementById(
+        "projectsMenuButton"
+      );
+
+
+    const projectIndexPanel =
+      document.getElementById(
+        "projectIndexPanel"
+      );
+
+
+    const projectIndexOverlay =
+      document.getElementById(
+        "projectIndexOverlay"
+      );
+
+
+    const closeProjectIndex =
+      document.getElementById(
+        "closeProjectIndex"
+      );
+
+
+    const projectIndexList =
+      document.getElementById(
+        "projectIndexList"
+      );
+
+
+    const projectCount =
+      document.getElementById(
+        "projectCount"
+      );
+
+
+    const sortButtons =
+      document.querySelectorAll(
+        ".project-sort-button"
+      );
+
+
+    let projectSortMode =
+      "all";
+
+
+    /* ====================================================
+       PROJECT LIST ROW
+    ==================================================== */
+
+
+    function createProjectRow(
+      project,
+      realIndex
+    ) {
+
+      const row =
+        document.createElement(
+          "button"
+        );
+
+
+      row.type =
+        "button";
+
+
+      row.className =
+        "project-list-row";
+
+
+      const number =
+        document.createElement(
+          "span"
+        );
+
+
+      number.className =
+        "project-row-number";
+
+
+      number.textContent =
+        project.number;
+
+
+      const title =
+        document.createElement(
+          "span"
+        );
+
+
+      title.className =
+        "project-row-title";
+
+
+      title.textContent =
+        project.title;
+
+
+      const category =
+        document.createElement(
+          "span"
+        );
+
+
+      category.className =
+        "project-row-category";
+
+
+      category.textContent =
+        project.category;
+
+
+      const year =
+        document.createElement(
+          "span"
+        );
+
+
+      year.className =
+        "project-row-year";
+
+
+      year.textContent =
+        project.year || "—";
+
+
+      row.append(
+        number,
+        title,
+        category,
+        year
+      );
+
+
+      row.addEventListener(
+        "click",
+        () => {
+
+
+          hideProjectIndex();
+
+
+          openProject(
+            projects[realIndex]
+          );
+
+        }
+      );
+
+
+      return row;
+
+    }
+
+
+    /* ====================================================
+       GROUP TITLE
+    ==================================================== */
+
+
+    function createGroupTitle(
+      text
+    ) {
+
+      const title =
+        document.createElement(
+          "div"
+        );
+
+
+      title.className =
+        "project-group-title";
+
+
+      title.textContent =
+        text;
+
+
+      return title;
+
+    }
+
+
+    /* ====================================================
+       YEAR SORT VALUE
+    ==================================================== */
+
+
+    function getYearValue(
+      project
+    ) {
+
+      const matches =
+        String(project.year)
+          .match(/\d{4}/g);
+
+
+      if (
+        !matches ||
+        matches.length === 0
+      ) {
+
+        return -1;
+
+      }
+
+
+      return Math.max(
+        ...matches.map(Number)
+      );
+
+    }
+
+
+    /* ====================================================
+       RENDER PROJECT INDEX
+    ==================================================== */
+
+
+    function renderProjectIndex(
+      mode = "all"
+    ) {
+
+      projectSortMode =
+        mode;
+
+
+      projectIndexList
+        .innerHTML =
+        "";
+
+
+      const indexedProjects =
+        projects.map(
+          (project, index) => ({
+            project,
+            index
+          })
+        );
+
+
+      /* -----------------------
+         ALL
+      ----------------------- */
+
+      if (
+        mode === "all"
+      ) {
+
+        indexedProjects.forEach(
+          item => {
+
+            projectIndexList
+              .appendChild(
+                createProjectRow(
+                  item.project,
+                  item.index
+                )
+              );
+
+          }
+        );
+
+      }
+
+
+      /* -----------------------
+         YEAR
+      ----------------------- */
+
+      if (
+        mode === "year"
+      ) {
+
+        const groups =
+          new Map();
+
+
+        indexedProjects
+          .sort(
+            (a, b) => {
+
+              const yearDifference =
+                getYearValue(
+                  b.project
+                )
+                -
+                getYearValue(
+                  a.project
+                );
+
+
+              if (
+                yearDifference !== 0
+              ) {
+
+                return yearDifference;
+
+              }
+
+
+              return a.project.title
+                .localeCompare(
+                  b.project.title,
+                  "en",
+                  {
+                    sensitivity:
+                      "base"
+                  }
+                );
+
+            }
+          )
+          .forEach(
+            item => {
+
+
+              const key =
+                item.project.year
+                  .trim()
+                ||
+                "YEAR NOT SET";
+
+
+              if (
+                !groups.has(key)
+              ) {
+
+                groups.set(
+                  key,
+                  []
+                );
+
+              }
+
+
+              groups
+                .get(key)
+                .push(item);
+
+            }
+          );
+
+
+        groups.forEach(
+          (items, year) => {
+
+
+            projectIndexList
+              .appendChild(
+                createGroupTitle(
+                  year
+                )
+              );
+
+
+            items.forEach(
+              item => {
+
+
+                projectIndexList
+                  .appendChild(
+                    createProjectRow(
+                      item.project,
+                      item.index
+                    )
+                  );
+
+              }
+            );
+
+          }
+        );
+
+      }
+
+
+      /* -----------------------
+         NAME
+      ----------------------- */
+
+      if (
+        mode === "name"
+      ) {
+
+        const sorted =
+          [...indexedProjects]
+            .sort(
+              (a, b) =>
+                a.project.title
+                  .localeCompare(
+                    b.project.title,
+                    "en",
+                    {
+                      sensitivity:
+                        "base"
+                    }
+                  )
+            );
+
+
+        let currentLetter =
+          "";
+
+
+        sorted.forEach(
+          item => {
+
+
+            const firstLetter =
+              item.project.title
+                .trim()
+                .charAt(0)
+                .toUpperCase();
+
+
+            if (
+              firstLetter !==
+              currentLetter
+            ) {
+
+              currentLetter =
+                firstLetter;
+
+
+              projectIndexList
+                .appendChild(
+                  createGroupTitle(
+                    currentLetter
+                  )
+                );
+
+            }
+
+
+            projectIndexList
+              .appendChild(
+                createProjectRow(
+                  item.project,
+                  item.index
+                )
+              );
+
+          }
+        );
+
+      }
+
+    }
+
+
+    /* ====================================================
+       OPEN PROJECT INDEX
+    ==================================================== */
+
+
+    function openProjectIndex() {
+
+
+      hidePanel();
+
+
+      projectIndexOverlay
+        .classList
+        .add(
+          "active"
+        );
+
+
+      projectIndexPanel
+        .classList
+        .add(
+          "active"
+        );
+
+
+      renderProjectIndex(
+        projectSortMode
+      );
+
+    }
+
+
+    /* ====================================================
+       CLOSE PROJECT INDEX
+    ==================================================== */
+
+
+    function hideProjectIndex() {
+
+
+      projectIndexOverlay
+        .classList
+        .remove(
+          "active"
+        );
+
+
+      projectIndexPanel
+        .classList
+        .remove(
+          "active"
+        );
+
+    }
+
+
+    projectsMenuButton
+      .addEventListener(
+        "click",
+        openProjectIndex
+      );
+
+
+    closeProjectIndex
+      .addEventListener(
+        "click",
+        hideProjectIndex
+      );
+
+
+    projectIndexOverlay
+      .addEventListener(
+        "click",
+        hideProjectIndex
+      );
+
+
+    /* ====================================================
+       SORT BUTTONS
+    ==================================================== */
+
+
+    sortButtons.forEach(
+      button => {
+
+
+        button.addEventListener(
+          "click",
+          () => {
+
+
+            sortButtons.forEach(
+              item =>
+                item.classList
+                  .remove("active")
+            );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            renderProjectIndex(
+              button.dataset.sort
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    projectCount.textContent =
+      projects.length +
+      " PROJECTS";
+
+
+    /* ====================================================
+       IMAGE SLIDER
+    ==================================================== */
+
+
+    function updateSlider() {
+
+
+      if (
+        !activeProject
+      ) {
+
+        return;
+
+      }
+
+
+      const images =
+        activeProject.images || [];
+
+
+      if (
+        images.length === 0
+      ) {
+
+        panelImage.style.display =
+          "none";
+
+
+        panelImage.removeAttribute(
+          "src"
+        );
+
+
+        imagePlaceholder
+          .classList
+          .add("active");
+
+
+        prevImage
+          .classList
+          .add("hidden");
+
+
+        nextImage
+          .classList
+          .add("hidden");
+
+
+        sliderCounter.textContent =
+          "00 / 00";
+
+
+        sliderDots.innerHTML =
+          "";
+
+
+        return;
+
+      }
+
+
+      panelImage.style.display =
+        "block";
+
+
+      imagePlaceholder
+        .classList
+        .remove("active");
+
+
+      panelImage.src =
+        images[
+          activeImageIndex
+        ];
+
+
+      panelImage.alt =
+        activeProject.title;
+
+
+      sliderCounter.textContent =
+
+        String(
+          activeImageIndex + 1
+        ).padStart(2, "0")
+
+        +
+
+        " / "
+
+        +
+
+        String(
+          images.length
+        ).padStart(2, "0");
+
+
+      sliderDots.innerHTML =
+        "";
+
+
+      images.forEach(
+        (image, index) => {
+
+
+          const dot =
+            document.createElement(
+              "span"
+            );
+
+
+          dot.className =
+            "slider-dot";
+
+
+          if (
+            index ===
+            activeImageIndex
+          ) {
+
+            dot.classList.add(
+              "active"
+            );
+
+          }
+
+
+          sliderDots.appendChild(
+            dot
+          );
+
+        }
+      );
+
+
+      if (
+        images.length <= 1
+      ) {
+
+        prevImage
+          .classList
+          .add("hidden");
+
+
+        nextImage
+          .classList
+          .add("hidden");
+
+      }
+
+      else {
+
+        prevImage
+          .classList
+          .remove("hidden");
+
+
+        nextImage
+          .classList
+          .remove("hidden");
+
+      }
+
+    }
+
+
+    /* ====================================================
        LIGHTBOX ELEMENTS
     ==================================================== */
 
@@ -3291,237 +3412,7 @@
 
 
     /* ====================================================
-       PANEL IMAGE SLIDER
-    ==================================================== */
-
-
-    function updateSlider() {
-
-
-      if (
-        !activeProject
-      ) {
-
-        return;
-
-      }
-
-
-      const images =
-
-        activeProject.images
-        ||
-        [];
-
-
-      /* no image */
-
-
-      if (
-        images.length === 0
-      ) {
-
-
-        panelImage
-          .style
-          .display =
-          "none";
-
-
-        imagePlaceholder
-          .classList
-          .add(
-            "active"
-          );
-
-
-        prevImage
-          .classList
-          .add(
-            "hidden"
-          );
-
-
-        nextImage
-          .classList
-          .add(
-            "hidden"
-          );
-
-
-        sliderCounter
-          .textContent =
-          "00 / 00";
-
-
-        sliderDots
-          .innerHTML =
-          "";
-
-
-        return;
-
-      }
-
-
-      /* image exists */
-
-
-      panelImage
-        .style
-        .display =
-        "block";
-
-
-      imagePlaceholder
-        .classList
-        .remove(
-          "active"
-        );
-
-
-      panelImage.src =
-
-        images[
-          activeImageIndex
-        ];
-
-
-      panelImage.alt =
-        activeProject.title;
-
-
-      /* counter */
-
-
-      sliderCounter
-        .textContent =
-
-        String(
-
-          activeImageIndex
-          +
-          1
-
-        )
-        .padStart(
-          2,
-          "0"
-        )
-
-        +
-
-        " / "
-
-        +
-
-        String(
-
-          images.length
-
-        )
-        .padStart(
-          2,
-          "0"
-        );
-
-
-      /* dots */
-
-
-      sliderDots
-        .innerHTML =
-        "";
-
-
-      images.forEach(
-
-        (image, index) => {
-
-
-          const dot =
-
-            document
-              .createElement(
-                "span"
-              );
-
-
-          dot.className =
-            "slider-dot";
-
-
-          if (
-            index ===
-            activeImageIndex
-          ) {
-
-
-            dot
-              .classList
-              .add(
-                "active"
-              );
-
-          }
-
-
-          sliderDots
-            .appendChild(
-              dot
-            );
-
-        }
-
-      );
-
-
-      /* one image = hide arrows */
-
-
-      if (
-        images.length <= 1
-      ) {
-
-
-        prevImage
-          .classList
-          .add(
-            "hidden"
-          );
-
-
-        nextImage
-          .classList
-          .add(
-            "hidden"
-          );
-
-      }
-
-      else {
-
-
-        prevImage
-          .classList
-          .remove(
-            "hidden"
-          );
-
-
-        nextImage
-          .classList
-          .remove(
-            "hidden"
-          );
-
-      }
-
-    }
-
-
-    /* ====================================================
-       LIGHTBOX UPDATE
+       UPDATE LIGHTBOX
     ==================================================== */
 
 
@@ -3529,10 +3420,8 @@
 
 
       if (
-        !activeProject
-        ||
-        !activeProject.images
-        ||
+        !activeProject ||
+        !activeProject.images ||
         activeProject.images.length === 0
       ) {
 
@@ -3542,31 +3431,20 @@
 
 
       lightboxImage.src =
-
-        activeProject
-          .images[
-            activeImageIndex
-          ];
+        activeProject.images[
+          activeImageIndex
+        ];
 
 
       lightboxImage.alt =
         activeProject.title;
 
 
-      lightboxCounter
-        .textContent =
+      lightboxCounter.textContent =
 
         String(
-
-          activeImageIndex
-          +
-          1
-
-        )
-        .padStart(
-          2,
-          "0"
-        )
+          activeImageIndex + 1
+        ).padStart(2, "0")
 
         +
 
@@ -3575,57 +3453,35 @@
         +
 
         String(
-
-          activeProject
-            .images
-            .length
-
-        )
-        .padStart(
-          2,
-          "0"
-        );
+          activeProject.images.length
+        ).padStart(2, "0");
 
 
       if (
-        activeProject
-          .images
-          .length
-        <=
-        1
+        activeProject.images.length <= 1
       ) {
-
 
         lightboxPrev
           .classList
-          .add(
-            "hidden"
-          );
+          .add("hidden");
 
 
         lightboxNext
           .classList
-          .add(
-            "hidden"
-          );
+          .add("hidden");
 
       }
 
       else {
 
-
         lightboxPrev
           .classList
-          .remove(
-            "hidden"
-          );
+          .remove("hidden");
 
 
         lightboxNext
           .classList
-          .remove(
-            "hidden"
-          );
+          .remove("hidden");
 
       }
 
@@ -3633,7 +3489,7 @@
 
 
     /* ====================================================
-       NEXT IMAGE
+       NEXT / PREVIOUS
     ==================================================== */
 
 
@@ -3641,10 +3497,8 @@
 
 
       if (
-        !activeProject
-        ||
-        !activeProject.images
-        ||
+        !activeProject ||
+        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
@@ -3654,20 +3508,11 @@
 
 
       activeImageIndex =
-
         (
-
-          activeImageIndex
-          +
-          1
-
+          activeImageIndex + 1
         )
-
         %
-
-        activeProject
-          .images
-          .length;
+        activeProject.images.length;
 
 
       updateSlider();
@@ -3676,32 +3521,22 @@
       if (
         imageLightbox
           .classList
-          .contains(
-            "active"
-          )
+          .contains("active")
       ) {
-
 
         updateLightbox();
 
       }
 
     }
-
-
-    /* ====================================================
-       PREVIOUS IMAGE
-    ==================================================== */
 
 
     function previousSlide() {
 
 
       if (
-        !activeProject
-        ||
-        !activeProject.images
-        ||
+        !activeProject ||
+        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
@@ -3711,26 +3546,13 @@
 
 
       activeImageIndex =
-
         (
-
-          activeImageIndex
-          -
-          1
-
+          activeImageIndex - 1
           +
-
-          activeProject
-            .images
-            .length
-
+          activeProject.images.length
         )
-
         %
-
-        activeProject
-          .images
-          .length;
+        activeProject.images.length;
 
 
       updateSlider();
@@ -3739,11 +3561,8 @@
       if (
         imageLightbox
           .classList
-          .contains(
-            "active"
-          )
+          .contains("active")
       ) {
-
 
         updateLightbox();
 
@@ -3752,28 +3571,20 @@
     }
 
 
-    nextImage
-      .addEventListener(
-
-        "click",
-
-        nextSlide
-
-      );
+    nextImage.addEventListener(
+      "click",
+      nextSlide
+    );
 
 
-    prevImage
-      .addEventListener(
-
-        "click",
-
-        previousSlide
-
-      );
+    prevImage.addEventListener(
+      "click",
+      previousSlide
+    );
 
 
     /* ====================================================
-       MOBILE SWIPE
+       PANEL SWIPE
     ==================================================== */
 
 
@@ -3787,97 +3598,68 @@
       );
 
 
-    slider
-      .addEventListener(
+    slider.addEventListener(
+      "touchstart",
+      event => {
 
-        "touchstart",
+        touchStartX =
+          event.touches[0].clientX;
 
-        event => {
+      },
+      {
+        passive: true
+      }
+    );
 
 
-          touchStartX =
+    slider.addEventListener(
+      "touchend",
+      event => {
 
-            event
-              .touches[0]
-              .clientX;
 
-        },
+        const touchEndX =
+          event
+            .changedTouches[0]
+            .clientX;
 
-        {
-          passive:
-            true
+
+        const difference =
+          touchStartX -
+          touchEndX;
+
+
+        if (
+          Math.abs(difference) < 40
+        ) {
+
+          return;
+
         }
 
-      );
 
+        if (
+          difference > 0
+        ) {
 
-    slider
-      .addEventListener(
+          nextSlide();
 
-        "touchend",
-
-        event => {
-
-
-          const touchEndX =
-
-            event
-              .changedTouches[0]
-              .clientX;
-
-
-          const difference =
-
-            touchStartX
-            -
-            touchEndX;
-
-
-          if (
-
-            Math.abs(
-              difference
-            )
-
-            <
-
-            40
-
-          ) {
-
-            return;
-
-          }
-
-
-          if (
-            difference > 0
-          ) {
-
-
-            nextSlide();
-
-          }
-
-          else {
-
-
-            previousSlide();
-
-          }
-
-        },
-
-        {
-          passive:
-            true
         }
 
-      );
+        else {
+
+          previousSlide();
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
 
 
     /* ====================================================
-       OPEN PROJECT
+       OPEN DETAIL
     ==================================================== */
 
 
@@ -3894,171 +3676,63 @@
         0;
 
 
-      panelIndex
-        .textContent =
-
-        project.number
-
-        +
-
+      panelIndex.textContent =
+        project.number +
         " / PROJECT";
 
 
-      panelYear
-        .textContent =
-
+      panelYear.textContent =
         project.year;
 
 
-      panelTitle
-        .textContent =
-
+      panelTitle.textContent =
         project.title;
 
 
-      panelCategory
-        .textContent =
-
+      panelCategory.textContent =
         project.category;
 
 
-      panelDescription
-        .textContent =
-
+      panelDescription.textContent =
         project.description;
 
 
       updateSlider();
 
 
-      panel
-        .classList
-        .add(
-          "active"
-        );
+      panel.classList.add(
+        "active"
+      );
 
 
-      panelOverlay
-        .classList
-        .add(
-          "active"
-        );
+      panelOverlay.classList.add(
+        "active"
+      );
 
 
-      label
-        .classList
-        .remove(
-          "active"
-        );
+      label.classList.remove(
+        "active"
+      );
 
     }
 
 
-    /* broken image */
-
-
-    panelImage
-      .addEventListener(
-
-        "error",
-
-        () => {
-
-
-          panelImage
-            .style
-            .display =
-            "none";
-
-
-          imagePlaceholder
-            .classList
-            .add(
-              "active"
-            );
-
-        }
-
-      );
-
-
     /* ====================================================
-       CLICK PROJECT POINT
-    ==================================================== */
-
-
-    renderer
-      .domElement
-      .addEventListener(
-
-        "click",
-
-        event => {
-
-
-          updateRaycaster(
-            event
-          );
-
-
-          const intersects =
-
-            raycaster
-              .intersectObjects(
-
-                projectPoints,
-
-                false
-
-              );
-
-
-          if (
-            intersects.length > 0
-          ) {
-
-
-            const index =
-
-              intersects[0]
-                .object
-                .userData
-                .projectIndex;
-
-
-            openProject(
-
-              projects[index]
-
-            );
-
-          }
-
-        }
-
-      );
-
-
-    /* ====================================================
-       CLOSE PANEL
+       CLOSE DETAIL
     ==================================================== */
 
 
     function hidePanel() {
 
 
-      panel
-        .classList
-        .remove(
-          "active"
-        );
+      panel.classList.remove(
+        "active"
+      );
 
 
-      panelOverlay
-        .classList
-        .remove(
-          "active"
-        );
+      panelOverlay.classList.remove(
+        "active"
+      );
 
 
       activeProject =
@@ -4067,23 +3741,79 @@
     }
 
 
-    closePanel
+    closePanel.addEventListener(
+      "click",
+      hidePanel
+    );
+
+
+    panelOverlay.addEventListener(
+      "click",
+      hidePanel
+    );
+
+
+    /* =========================================
+       BROKEN IMAGE
+    ========================================= */
+
+
+    panelImage.addEventListener(
+      "error",
+      () => {
+
+
+        panelImage.style.display =
+          "none";
+
+
+        imagePlaceholder
+          .classList
+          .add("active");
+
+      }
+    );
+
+
+    /* ====================================================
+       CLICK GLOBE POINT
+    ==================================================== */
+
+
+    renderer.domElement
       .addEventListener(
-
         "click",
-
-        hidePanel
-
-      );
+        event => {
 
 
-    panelOverlay
-      .addEventListener(
+          updateRaycaster(event);
 
-        "click",
 
-        hidePanel
+          const intersects =
+            raycaster.intersectObjects(
+              projectPoints,
+              false
+            );
 
+
+          if (
+            intersects.length > 0
+          ) {
+
+            const index =
+              intersects[0]
+                .object
+                .userData
+                .projectIndex;
+
+
+            openProject(
+              projects[index]
+            );
+
+          }
+
+        }
       );
 
 
@@ -4092,127 +3822,88 @@
     ==================================================== */
 
 
-    panelImage
-      .addEventListener(
-
-        "click",
-
-        () => {
+    panelImage.addEventListener(
+      "click",
+      () => {
 
 
-          if (
-            !activeProject
-            ||
-            !activeProject.images
-            ||
-            activeProject.images.length === 0
-          ) {
+        if (
+          !activeProject ||
+          !activeProject.images ||
+          activeProject.images.length === 0
+        ) {
 
-            return;
-
-          }
-
-
-          updateLightbox();
-
-
-          imageLightbox
-            .classList
-            .add(
-              "active"
-            );
+          return;
 
         }
 
-      );
+
+        updateLightbox();
 
 
-    /* ====================================================
-       LIGHTBOX CONTROLS
-    ==================================================== */
+        imageLightbox
+          .classList
+          .add("active");
+
+      }
+    );
 
 
-    lightboxPrev
-      .addEventListener(
+    lightboxPrev.addEventListener(
+      "click",
+      event => {
 
-        "click",
+        event.stopPropagation();
 
-        event => {
+        previousSlide();
 
-
-          event
-            .stopPropagation();
-
-
-          previousSlide();
-
-        }
-
-      );
+      }
+    );
 
 
-    lightboxNext
-      .addEventListener(
+    lightboxNext.addEventListener(
+      "click",
+      event => {
 
-        "click",
+        event.stopPropagation();
 
-        event => {
+        nextSlide();
 
-
-          event
-            .stopPropagation();
-
-
-          nextSlide();
-
-        }
-
-      );
+      }
+    );
 
 
     function hideLightbox() {
 
-
       imageLightbox
         .classList
-        .remove(
-          "active"
-        );
+        .remove("active");
 
     }
 
 
-    closeLightbox
-      .addEventListener(
-
-        "click",
-
-        hideLightbox
-
-      );
+    closeLightbox.addEventListener(
+      "click",
+      hideLightbox
+    );
 
 
-    imageLightbox
-      .addEventListener(
-
-        "click",
-
-        event => {
+    imageLightbox.addEventListener(
+      "click",
+      event => {
 
 
-          if (
-            event.target ===
-            imageLightbox
-          ) {
+        if (
+          event.target ===
+          imageLightbox
+        ) {
 
-
-            hideLightbox();
-
-          }
+          hideLightbox();
 
         }
 
-      );
+      }
+    );
 
 
     /* ====================================================
@@ -4220,80 +3911,85 @@
     ==================================================== */
 
 
-    document
-      .addEventListener(
-
-        "keydown",
-
-        event => {
+    document.addEventListener(
+      "keydown",
+      event => {
 
 
-          /* lightbox open */
+        /* 이미지 확대 */
 
+        if (
+          imageLightbox
+            .classList
+            .contains("active")
+        ) {
 
           if (
-            imageLightbox
-              .classList
-              .contains(
-                "active"
-              )
+            event.key === "Escape"
           ) {
 
-
-            if (
-              event.key ===
-              "Escape"
-            ) {
-
-
-              hideLightbox();
-
-            }
-
-
-            if (
-              event.key ===
-              "ArrowRight"
-            ) {
-
-
-              nextSlide();
-
-            }
-
-
-            if (
-              event.key ===
-              "ArrowLeft"
-            ) {
-
-
-              previousSlide();
-
-            }
-
-
-            return;
+            hideLightbox();
 
           }
 
 
-          /* project panel */
+          if (
+            event.key === "ArrowRight"
+          ) {
+
+            nextSlide();
+
+          }
 
 
           if (
-            event.key ===
-            "Escape"
+            event.key === "ArrowLeft"
           ) {
 
-
-            hidePanel();
+            previousSlide();
 
           }
+
+
+          return;
 
         }
 
-      );
+
+        /* 프로젝트 목록 */
+
+        if (
+          projectIndexPanel
+            .classList
+            .contains("active")
+        ) {
+
+          if (
+            event.key === "Escape"
+          ) {
+
+            hideProjectIndex();
+
+          }
+
+
+          return;
+
+        }
+
+
+        /* 상세 패널 */
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          hidePanel();
+
+        }
+
+      }
+    );
 
 
     /* ====================================================
@@ -4309,42 +4005,26 @@
       0;
 
 
-    document
-      .addEventListener(
-
-        "mousemove",
-
-        event => {
+    document.addEventListener(
+      "mousemove",
+      event => {
 
 
-          mouseX =
-
-            event.clientX
-
-            /
-
-            window.innerWidth
-
-            -
-
-            0.5;
+        mouseX =
+          event.clientX /
+          window.innerWidth
+          -
+          0.5;
 
 
-          mouseY =
+        mouseY =
+          event.clientY /
+          window.innerHeight
+          -
+          0.5;
 
-            event.clientY
-
-            /
-
-            window.innerHeight
-
-            -
-
-            0.5;
-
-        }
-
-      );
+      }
+    );
 
 
     /* ====================================================
@@ -4364,37 +4044,25 @@
 
 
       renderer.setSize(
-
         width,
-
         height
-
       );
 
 
       camera.aspect =
-
-        width
-
-        /
-
+        width /
         height;
 
 
-      camera
-        .updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
     }
 
 
-    window
-      .addEventListener(
-
-        "resize",
-
-        resize
-
-      );
+    window.addEventListener(
+      "resize",
+      resize
+    );
 
 
     resize();
@@ -4403,8 +4071,7 @@
     /* ====================================================
        ANIMATION
 
-       ★ 프로젝트 창이 열려 있어도
-         지구는 계속 회전합니다.
+       ★ 어떤 패널이 열려 있어도 지구 계속 회전
     ==================================================== */
 
 
@@ -4416,28 +4083,17 @@
       );
 
 
-      /* 항상 자동 회전 */
-
-
       globe.rotation.y +=
         0.0022;
-
-
-      /* mouse reaction */
 
 
       globe.rotation.x +=
 
         (
-
-          mouseY
-          *
+          mouseY *
           0.18
-
           -
-
           globe.rotation.x
-
         )
 
         *
@@ -4448,15 +4104,10 @@
       globe.rotation.z +=
 
         (
-
-          -mouseX
-          *
+          -mouseX *
           0.10
-
           -
-
           globe.rotation.z
-
         )
 
         *
@@ -4464,11 +4115,7 @@
         0.008;
 
 
-      /* project halos */
-
-
       projectPoints.forEach(
-
         point => {
 
 
@@ -4477,29 +4124,27 @@
             .halo
             .quaternion
             .copy(
-
               camera.quaternion
-
             );
 
         }
-
       );
 
 
       renderer.render(
-
         scene,
-
         camera
-
       );
 
     }
 
 
-    animate();
+    /* 첫 프로젝트 목록 생성 */
 
+    renderProjectIndex("all");
+
+
+    animate();
 
   </script>
 
