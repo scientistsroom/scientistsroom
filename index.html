@@ -3,9 +3,39 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>scientistsroom</title>
+
+
+  <!-- ==================================================
+       KAKAO / SNS OPEN GRAPH
+  ================================================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Scientistsroom - KIM MIN U"
+  >
+
+  <meta
+    property="og:image"
+    content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg"
+  >
+
+  <meta
+    property="og:url"
+    content="https://scientistsroom.github.io/scientistsroom/"
+  >
+
 
   <style>
     * {
@@ -33,6 +63,7 @@
       color: inherit;
     }
 
+
     /* ==================================================
        HOME
     ================================================== */
@@ -46,12 +77,14 @@
       background: #050505;
     }
 
+
     /* ==================================================
        HEADER
     ================================================== */
 
     .top {
       position: absolute;
+
       top: 36px;
       left: 40px;
       right: 40px;
@@ -68,15 +101,21 @@
 
     .top-center {
       position: absolute;
+
       left: 50%;
+
       transform: translateX(-50%);
+
       opacity: 0.35;
     }
 
     .top-menu-button {
       appearance: none;
+
       border: 0;
+
       background: none;
+
       padding: 0;
 
       color: #f5f5f5;
@@ -93,6 +132,7 @@
       opacity: 0.5;
     }
 
+
     /* ==================================================
        MAIN TITLE
     ================================================== */
@@ -106,16 +146,20 @@
       transform: translateX(-50%);
 
       font-size: clamp(38px, 4.2vw, 72px);
+
       line-height: 0.9;
+
       letter-spacing: -0.065em;
 
       text-align: center;
+
       font-weight: 600;
 
       white-space: nowrap;
 
       z-index: 10;
     }
+
 
     /* ==================================================
        GUIDE LINES
@@ -125,6 +169,7 @@
       position: absolute;
 
       width: min(58vw, 720px);
+
       aspect-ratio: 1 / 1;
 
       left: 50%;
@@ -132,7 +177,10 @@
 
       transform: translate(-50%, -50%);
 
-      border: 1px solid rgba(255, 255, 255, 0.10);
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
       border-radius: 50%;
 
       pointer-events: none;
@@ -141,13 +189,17 @@
     .guide-circle::before,
     .guide-circle::after {
       content: "";
+
       position: absolute;
-      background: rgba(255, 255, 255, 0.09);
+
+      background:
+        rgba(255, 255, 255, 0.09);
     }
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
+
       left: -20%;
       top: 50%;
     }
@@ -155,6 +207,7 @@
     .guide-circle::after {
       width: 1px;
       height: 140%;
+
       left: 50%;
       top: -20%;
     }
@@ -168,7 +221,8 @@
       width: 118%;
       height: 1px;
 
-      background: rgba(255, 255, 255, 0.07);
+      background:
+        rgba(255, 255, 255, 0.07);
 
       transform-origin: center;
     }
@@ -187,12 +241,14 @@
 
     .side-line {
       position: absolute;
+
       top: 45%;
 
       width: 12%;
       height: 1px;
 
-      background: rgba(255, 255, 255, 0.15);
+      background:
+        rgba(255, 255, 255, 0.15);
     }
 
     .side-line.left {
@@ -202,6 +258,7 @@
     .side-line.right {
       right: 3.5%;
     }
+
 
     /* ==================================================
        EARTH
@@ -223,11 +280,13 @@
 
     #earth {
       position: absolute;
+
       inset: 0;
 
       width: 100%;
       height: 100%;
     }
+
 
     /* ==================================================
        PROJECT MARKERS
@@ -235,6 +294,7 @@
 
     #projectMarkers {
       position: absolute;
+
       inset: 0;
 
       pointer-events: none;
@@ -252,13 +312,15 @@
       height: 34px;
 
       padding: 0;
+
       border: 0;
 
       border-radius: 50%;
 
       background: transparent;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
 
       pointer-events: auto;
 
@@ -275,7 +337,8 @@
         opacity;
     }
 
-    /* 큰 흰색 프로젝트 점 */
+
+    /* 중심 흰색 점 */
 
     .project-marker::before {
       content: "";
@@ -292,10 +355,12 @@
 
       background: #fff;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
 
       box-shadow:
-        0 0 7px rgba(255, 255, 255, 0.48);
+        0 0 7px
+        rgba(255, 255, 255, 0.48);
 
       animation:
         projectPointPulse
@@ -307,7 +372,8 @@
         var(--pulse-delay);
     }
 
-    /* 프로젝트 점 바깥 링 */
+
+    /* 바깥 링 */
 
     .project-marker::after {
       content: "";
@@ -321,11 +387,13 @@
       height: 19px;
 
       border:
-        1px solid rgba(255, 255, 255, 0.42);
+        1px solid
+        rgba(255, 255, 255, 0.42);
 
       border-radius: 50%;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
 
       animation:
         projectHaloPulse
@@ -338,6 +406,7 @@
     }
 
     @keyframes projectPointPulse {
+
       0%,
       100% {
         opacity: 0.76;
@@ -347,7 +416,8 @@
           scale(0.92);
 
         box-shadow:
-          0 0 4px rgba(255, 255, 255, 0.35);
+          0 0 4px
+          rgba(255, 255, 255, 0.35);
       }
 
       50% {
@@ -358,11 +428,14 @@
           scale(1.25);
 
         box-shadow:
-          0 0 12px rgba(255, 255, 255, 0.85);
+          0 0 12px
+          rgba(255, 255, 255, 0.85);
       }
+
     }
 
     @keyframes projectHaloPulse {
+
       0%,
       100% {
         opacity: 0.20;
@@ -379,6 +452,7 @@
           translate(-50%, -50%)
           scale(1.12);
       }
+
     }
 
     .project-marker:hover::before {
@@ -391,7 +465,8 @@
         scale(1.62);
 
       box-shadow:
-        0 0 16px rgba(255, 255, 255, 1);
+        0 0 16px
+        rgba(255, 255, 255, 1);
     }
 
     .project-marker:hover::after {
@@ -403,6 +478,7 @@
         translate(-50%, -50%)
         scale(1.28);
     }
+
 
     /* ==================================================
        HOVER LABEL
@@ -417,6 +493,7 @@
       padding: 9px 12px;
 
       background: #f5f5f5;
+
       color: #050505;
 
       font-size: 11px;
@@ -426,9 +503,11 @@
 
       opacity: 0;
 
-      transform: translate(14px, 14px);
+      transform:
+        translate(14px, 14px);
 
-      transition: opacity 0.18s ease;
+      transition:
+        opacity 0.18s ease;
 
       z-index: 200;
 
@@ -441,13 +520,16 @@
 
     #projectLabel .label-number {
       opacity: 0.45;
+
       margin-right: 8px;
     }
 
     #projectLabel .label-category {
       opacity: 0.5;
+
       margin-left: 8px;
     }
+
 
     /* ==================================================
        BOTTOM
@@ -478,6 +560,7 @@
       margin-bottom: 9px;
 
       font-size: 13px;
+
       font-weight: 600;
     }
 
@@ -485,9 +568,11 @@
       max-width: 300px;
 
       font-size: 10px;
+
       line-height: 1.35;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .center-item {
@@ -506,29 +591,35 @@
       margin-left: auto;
     }
 
+
     /* ==================================================
        DETAIL OVERLAY
     ================================================== */
 
     .panel-overlay {
       position: fixed;
+
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.18);
+      background:
+        rgba(0, 0, 0, 0.18);
 
       opacity: 0;
 
       pointer-events: none;
 
-      transition: opacity 0.5s ease;
+      transition:
+        opacity 0.5s ease;
 
       z-index: 80;
     }
 
     .panel-overlay.active {
       opacity: 1;
+
       pointer-events: auto;
     }
+
 
     /* ==================================================
        PROJECT DETAIL PANEL
@@ -540,21 +631,26 @@
       top: 0;
       right: 0;
 
-      width: min(540px, 92vw);
+      width:
+        min(540px, 92vw);
+
       height: 100vh;
 
       background: #0b0b0b;
+
       color: #f5f5f5;
 
       border-left:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
       padding:
         38px
         38px
         42px;
 
-      transform: translateX(100%);
+      transform:
+        translateX(100%);
 
       transition:
         transform
@@ -564,18 +660,22 @@
       z-index: 90;
 
       display: flex;
+
       flex-direction: column;
 
       overflow-y: auto;
     }
 
     #projectPanel.active {
-      transform: translateX(0);
+      transform:
+        translateX(0);
     }
 
     .panel-top {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
       margin-bottom: 42px;
@@ -584,12 +684,15 @@
     .panel-index {
       font-size: 11px;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .panel-actions {
       display: flex;
+
       align-items: center;
+
       gap: 18px;
     }
 
@@ -606,7 +709,8 @@
 
       line-height: 1;
 
-      transition: opacity 0.2s ease;
+      transition:
+        opacity 0.2s ease;
     }
 
     .panel-action-button:hover {
@@ -615,6 +719,7 @@
 
     #backPanel {
       font-size: 23px;
+
       font-weight: 300;
     }
 
@@ -624,6 +729,7 @@
 
     #closePanel {
       font-size: 28px;
+
       font-weight: 300;
     }
 
@@ -634,15 +740,18 @@
 
       font-size: 11px;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .panel-title {
       margin-bottom: 18px;
 
-      font-size: clamp(30px, 3.7vw, 52px);
+      font-size:
+        clamp(30px, 3.7vw, 52px);
 
       line-height: 0.98;
+
       letter-spacing: -0.055em;
 
       font-weight: 500;
@@ -653,8 +762,10 @@
 
       font-size: 11px;
 
-      color: rgba(255, 255, 255, 0.48);
+      color:
+        rgba(255, 255, 255, 0.48);
     }
+
 
     /* ==================================================
        IMAGE SLIDER
@@ -664,6 +775,7 @@
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
@@ -689,21 +801,26 @@
     }
 
     #panelImage:hover {
-      transform: scale(1.012);
+      transform:
+        scale(1.012);
     }
 
     .image-placeholder {
       position: absolute;
+
       inset: 0;
 
       display: none;
 
       align-items: center;
+
       justify-content: center;
 
-      color: rgba(255, 255, 255, 0.28);
+      color:
+        rgba(255, 255, 255, 0.28);
 
       font-size: 11px;
+
       letter-spacing: 0.08em;
     }
 
@@ -716,15 +833,18 @@
 
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       width: 42px;
       height: 42px;
 
       border:
-        1px solid rgba(255, 255, 255, 0.15);
+        1px solid
+        rgba(255, 255, 255, 0.15);
 
-      background: rgba(0, 0, 0, 0.52);
+      background:
+        rgba(0, 0, 0, 0.52);
 
       color: #fff;
 
@@ -736,7 +856,8 @@
     }
 
     .slider-button:hover {
-      background: rgba(255, 255, 255, 0.13);
+      background:
+        rgba(255, 255, 255, 0.13);
     }
 
     #prevImage {
@@ -755,17 +876,20 @@
       display: flex;
 
       justify-content: space-between;
+
       align-items: center;
 
       margin-bottom: 26px;
 
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .slider-dots {
       display: flex;
+
       gap: 6px;
     }
 
@@ -775,12 +899,14 @@
 
       border-radius: 50%;
 
-      background: rgba(255, 255, 255, 0.22);
+      background:
+        rgba(255, 255, 255, 0.22);
     }
 
     .slider-dot.active {
       background: #fff;
     }
+
 
     /* ==================================================
        DESCRIPTION
@@ -792,12 +918,15 @@
       margin-bottom: 20px;
 
       font-size: 12px;
+
       line-height: 1.8;
 
-      color: rgba(255, 255, 255, 0.65);
+      color:
+        rgba(255, 255, 255, 0.65);
 
       white-space: pre-line;
     }
+
 
     /* ==================================================
        PROJECT LINK
@@ -813,18 +942,22 @@
       padding-top: 14px;
 
       border-top:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      color: rgba(255, 255, 255, 0.45);
+      color:
+        rgba(255, 255, 255, 0.45);
 
       font-size: 10px;
+
       line-height: 1.55;
 
       text-decoration: none;
 
       word-break: break-all;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
 
     .panel-link.active {
@@ -841,9 +974,11 @@
       padding-top: 24px;
 
       border-top:
-        1px solid rgba(255, 255, 255, 0.14);
+        1px solid
+        rgba(255, 255, 255, 0.14);
 
       display: flex;
+
       justify-content: space-between;
 
       font-size: 11px;
@@ -853,17 +988,21 @@
       opacity: 0.45;
     }
 
+
     /* ==================================================
        PROJECT INDEX
     ================================================== */
 
     #projectIndexOverlay {
       position: fixed;
+
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.35);
+      background:
+        rgba(0, 0, 0, 0.35);
 
       opacity: 0;
+
       visibility: hidden;
 
       transition:
@@ -875,6 +1014,7 @@
 
     #projectIndexOverlay.active {
       opacity: 1;
+
       visibility: visible;
     }
 
@@ -884,15 +1024,19 @@
       top: 0;
       right: 0;
 
-      width: min(820px, 100vw);
+      width:
+        min(820px, 100vw);
+
       height: 100vh;
 
       background: #080808;
 
       border-left:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      transform: translateX(100%);
+      transform:
+        translateX(100%);
 
       transition:
         transform
@@ -902,32 +1046,42 @@
       z-index: 120;
 
       display: flex;
+
       flex-direction: column;
     }
 
     #projectIndexPanel.active {
-      transform: translateX(0);
+      transform:
+        translateX(0);
     }
 
     .project-index-header {
-      padding: 36px 40px 30px;
+      padding:
+        36px
+        40px
+        30px;
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.10);
+        1px solid
+        rgba(255, 255, 255, 0.10);
     }
 
     .project-index-top {
       display: flex;
+
       justify-content: space-between;
+
       align-items: flex-start;
 
       margin-bottom: 56px;
     }
 
     .project-index-heading {
-      font-size: clamp(42px, 6vw, 82px);
+      font-size:
+        clamp(42px, 6vw, 82px);
 
       line-height: 0.9;
+
       letter-spacing: -0.065em;
 
       font-weight: 500;
@@ -937,11 +1091,13 @@
       appearance: none;
 
       border: 0;
+
       background: none;
 
       color: #fff;
 
       font-size: 32px;
+
       font-weight: 300;
 
       cursor: pointer;
@@ -953,6 +1109,7 @@
       display: flex;
 
       align-items: flex-end;
+
       justify-content: space-between;
 
       gap: 30px;
@@ -960,29 +1117,37 @@
 
     .project-count {
       font-size: 10px;
+
       letter-spacing: 0.05em;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
     }
 
     .project-sort {
       display: flex;
+
       gap: 22px;
     }
 
     .project-sort-button {
       appearance: none;
 
-      padding: 0 0 5px;
+      padding:
+        0 0 5px;
 
       border: 0;
-      border-bottom: 1px solid transparent;
+
+      border-bottom:
+        1px solid transparent;
 
       background: none;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
 
       font-size: 10px;
+
       letter-spacing: 0.05em;
 
       cursor: pointer;
@@ -1020,15 +1185,21 @@
     }
 
     .project-group-title {
-      padding: 42px 0 14px;
+      padding:
+        42px
+        0
+        14px;
 
       font-size: 10px;
+
       letter-spacing: 0.06em;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
     }
 
     .project-list-row {
@@ -1048,12 +1219,14 @@
 
       align-items: center;
 
-      padding: 22px 0;
+      padding:
+        22px 0;
 
       border: 0;
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
       background: transparent;
 
@@ -1071,19 +1244,22 @@
     .project-list-row:hover {
       padding-left: 10px;
 
-      background: rgba(255, 255, 255, 0.025);
+      background:
+        rgba(255, 255, 255, 0.025);
     }
 
     .project-row-number {
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.30);
+      color:
+        rgba(255, 255, 255, 0.30);
     }
 
     .project-row-title {
       min-width: 0;
 
-      font-size: clamp(17px, 2vw, 24px);
+      font-size:
+        clamp(17px, 2vw, 24px);
 
       letter-spacing: -0.035em;
 
@@ -1097,7 +1273,8 @@
     .project-row-category {
       font-size: 9px;
 
-      color: rgba(255, 255, 255, 0.38);
+      color:
+        rgba(255, 255, 255, 0.38);
     }
 
     .project-row-year {
@@ -1105,8 +1282,10 @@
 
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.38);
+      color:
+        rgba(255, 255, 255, 0.38);
     }
+
 
     /* ==================================================
        LIGHTBOX
@@ -1114,18 +1293,24 @@
 
     #imageLightbox {
       position: fixed;
+
       inset: 0;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
-      padding: 55px 80px;
+      padding:
+        55px
+        80px;
 
-      background: rgba(0, 0, 0, 0.98);
+      background:
+        rgba(0, 0, 0, 0.98);
 
       opacity: 0;
+
       visibility: hidden;
 
       transition:
@@ -1137,6 +1322,7 @@
 
     #imageLightbox.active {
       opacity: 1;
+
       visibility: visible;
     }
 
@@ -1144,6 +1330,7 @@
       display: block;
 
       max-width: 92vw;
+
       max-height: 86vh;
 
       width: auto;
@@ -1159,6 +1346,7 @@
       right: 34px;
 
       border: 0;
+
       background: none;
 
       color: #fff;
@@ -1173,15 +1361,18 @@
 
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       width: 55px;
       height: 55px;
 
       border: 0;
+
       background: none;
 
-      color: rgba(255, 255, 255, 0.65);
+      color:
+        rgba(255, 255, 255, 0.65);
 
       font-size: 27px;
 
@@ -1210,13 +1401,17 @@
       left: 50%;
       bottom: 22px;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      color: rgba(255, 255, 255, 0.55);
+      color:
+        rgba(255, 255, 255, 0.55);
 
       font-size: 10px;
+
       letter-spacing: 0.08em;
     }
+
 
     /* ==================================================
        MOBILE
@@ -1299,6 +1494,7 @@
 
       .project-index-meta {
         flex-direction: column;
+
         align-items: flex-start;
 
         gap: 18px;
@@ -1342,9 +1538,11 @@
       #lightboxNext {
         right: 5px;
       }
+
     }
 
   </style>
+
 </head>
 
 
@@ -1358,15 +1556,19 @@
         KIM MIN U
       </div>
 
+
       <div class="top-center">
         PORTFOLIO
       </div>
+
 
       <button
         class="top-menu-button"
         id="projectsMenuButton"
         type="button">
+
         PROJECTS
+
       </button>
 
     </header>
@@ -1378,12 +1580,16 @@
 
 
     <div class="guide-circle">
+
       <div class="line one"></div>
+
       <div class="line two"></div>
+
     </div>
 
 
     <div class="side-line left"></div>
+
     <div class="side-line right"></div>
 
 
@@ -1478,14 +1684,19 @@
           class="panel-action-button hidden"
           id="backPanel"
           aria-label="Back to projects">
+
           ←
+
         </button>
+
 
         <button
           class="panel-action-button"
           id="closePanel"
           aria-label="Close project">
+
           ×
+
         </button>
 
       </div>
@@ -1523,7 +1734,9 @@
       <div
         class="image-placeholder"
         id="imagePlaceholder">
+
         PROJECT IMAGE
+
       </div>
 
 
@@ -1531,7 +1744,9 @@
         class="slider-button"
         id="prevImage"
         aria-label="Previous image">
+
         ←
+
       </button>
 
 
@@ -1539,7 +1754,9 @@
         class="slider-button"
         id="nextImage"
         aria-label="Next image">
+
         →
+
       </button>
 
     </div>
@@ -1550,6 +1767,7 @@
       <div id="sliderCounter">
         00 / 00
       </div>
+
 
       <div
         class="slider-dots"
@@ -1580,6 +1798,7 @@
         SELECTED PROJECT
       </span>
 
+
       <span>
         scientistsroom
       </span>
@@ -1608,7 +1827,9 @@
         <button
           id="closeProjectIndex"
           aria-label="Close projects">
+
           ×
+
         </button>
 
       </div>
@@ -1627,21 +1848,27 @@
           <button
             class="project-sort-button active"
             data-sort="all">
+
             ALL
+
           </button>
 
 
           <button
             class="project-sort-button"
             data-sort="year">
+
             YEAR
+
           </button>
 
 
           <button
             class="project-sort-button"
             data-sort="name">
+
             NAME
+
           </button>
 
         </div>
@@ -1666,7 +1893,9 @@
     <button
       id="closeLightbox"
       aria-label="Close image">
+
       ×
+
     </button>
 
 
@@ -1674,7 +1903,9 @@
       class="lightbox-arrow"
       id="lightboxPrev"
       aria-label="Previous image">
+
       ←
+
     </button>
 
 
@@ -1689,7 +1920,9 @@
       class="lightbox-arrow"
       id="lightboxNext"
       aria-label="Next image">
+
       →
+
     </button>
 
 
@@ -1711,6 +1944,7 @@
     ==================================================== */
 
     const projects = [
+
 
       /* ==================================================
          01 ORV
@@ -1736,6 +1970,7 @@
         ],
 
         lat: 48,
+
         lng: 125
       },
 
@@ -1747,11 +1982,14 @@
       {
         number: "02",
 
-        title: "Advent Calendar",
+        title:
+          "Advent Calendar",
 
-        year: "2024",
+        year:
+          "2024",
 
-        category: "PACKAGE",
+        category:
+          "PACKAGE",
 
         description:
           "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
@@ -1762,6 +2000,7 @@
         ],
 
         lat: 23,
+
         lng: 145
       },
 
@@ -1771,13 +2010,17 @@
       ================================================== */
 
       {
-        number: "03",
+        number:
+          "03",
 
-        title: "Dream Cat Shelter",
+        title:
+          "Dream Cat Shelter",
 
-        year: "2023",
+        year:
+          "2023",
 
-        category: "BRANDING",
+        category:
+          "BRANDING",
 
         description:
           "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
@@ -1786,8 +2029,11 @@
           "images/dream-cat.jpg"
         ],
 
-        lat: -5,
-        lng: 126
+        lat:
+          -5,
+
+        lng:
+          126
       },
 
 
@@ -1796,20 +2042,29 @@
       ================================================== */
 
       {
-        number: "04",
+        number:
+          "04",
 
-        title: "Logo",
+        title:
+          "Logo",
 
-        year: "",
+        year:
+          "",
 
-        category: "BRANDING",
+        category:
+          "BRANDING",
 
-        description: "",
+        description:
+          "",
 
-        images: [],
+        images:
+          [],
 
-        lat: -34,
-        lng: 148
+        lat:
+          -34,
+
+        lng:
+          148
       },
 
 
@@ -1818,14 +2073,17 @@
       ================================================== */
 
       {
-        number: "05",
+        number:
+          "05",
 
         title:
           "Ministry of Education Report",
 
-        year: "2025",
+        year:
+          "2025",
 
-        category: "EDITORIAL",
+        category:
+          "EDITORIAL",
 
         description:
           "교육부 인문사회연구소 지원사업 2023 선정 실적 및 연구계획서 제작하였습니다.",
@@ -1834,8 +2092,11 @@
           "images/ministry of education report-01.jpg"
         ],
 
-        lat: 53,
-        lng: 57
+        lat:
+          53,
+
+        lng:
+          57
       },
 
 
@@ -1844,15 +2105,20 @@
       ================================================== */
 
       {
-        number: "06",
+        number:
+          "06",
 
-        title: "Poster",
+        title:
+          "Poster",
 
-        year: "",
+        year:
+          "",
 
-        category: "EDITORIAL",
+        category:
+          "EDITORIAL",
 
-        description: "",
+        description:
+          "",
 
         images: [
 
@@ -1874,8 +2140,11 @@
 
         ],
 
-        lat: 25,
-        lng: 67
+        lat:
+          25,
+
+        lng:
+          67
       },
 
 
@@ -1884,13 +2153,17 @@
       ================================================== */
 
       {
-        number: "07",
+        number:
+          "07",
 
-        title: "Wandy",
+        title:
+          "Wandy",
 
-        year: "2024",
+        year:
+          "2024",
 
-        category: "UX / UI",
+        category:
+          "UX / UI",
 
         description:
           "당신의 진로 파트너 Wandy!",
@@ -1906,8 +2179,11 @@
           "images/wandy-08.jpg"
         ],
 
-        lat: -40,
-        lng: 30
+        lat:
+          -40,
+
+        lng:
+          30
       },
 
 
@@ -1916,13 +2192,17 @@
       ================================================== */
 
       {
-        number: "08",
+        number:
+          "08",
 
-        title: "Langmuir",
+        title:
+          "Langmuir",
 
-        year: "2022",
+        year:
+          "2022",
 
-        category: "COVER ARTWORK",
+        category:
+          "COVER ARTWORK",
 
         description:
           "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
@@ -1934,8 +2214,11 @@
           "images/langmuir-01.jpg"
         ],
 
-        lat: 45,
-        lng: -72
+        lat:
+          45,
+
+        lng:
+          -72
       },
 
 
@@ -1944,11 +2227,14 @@
       ================================================== */
 
       {
-        number: "09",
+        number:
+          "09",
 
-        title: "Office of Education",
+        title:
+          "Office of Education",
 
-        year: "2025 — 2026",
+        year:
+          "2025 — 2026",
 
         category:
           "PM SAFETY EDUCATION",
@@ -1959,10 +2245,14 @@
         link:
           "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
 
-        images: [],
+        images:
+          [],
 
-        lat: 18,
-        lng: -52
+        lat:
+          18,
+
+        lng:
+          -52
       },
 
 
@@ -1971,11 +2261,14 @@
       ================================================== */
 
       {
-        number: "10",
+        number:
+          "10",
 
-        title: "Dongguk University",
+        title:
+          "Dongguk University",
 
-        year: "2025 — 2026",
+        year:
+          "2025 — 2026",
 
         category:
           "EDITORIAL / PUBLISHING",
@@ -1987,8 +2280,11 @@
           "images/dongguk university-01.jpg"
         ],
 
-        lat: -13,
-        lng: -67
+        lat:
+          -13,
+
+        lng:
+          -67
       },
 
 
@@ -1997,13 +2293,17 @@
       ================================================== */
 
       {
-        number: "11",
+        number:
+          "11",
 
-        title: "Hongik University",
+        title:
+          "Hongik University",
 
-        year: "2026 —",
+        year:
+          "2026 —",
 
-        category: "HOMEPAGE",
+        category:
+          "HOMEPAGE",
 
         description:
           "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
@@ -2015,8 +2315,11 @@
           "images/hongik university-01.jpg"
         ],
 
-        lat: -42,
-        lng: -40
+        lat:
+          -42,
+
+        lng:
+          -40
       },
 
 
@@ -2025,14 +2328,17 @@
       ================================================== */
 
       {
-        number: "12",
+        number:
+          "12",
 
         title:
           "spacehaeso : 조용한 형상들의 엄습",
 
-        year: "2025",
+        year:
+          "2025",
 
-        category: "PHOTO",
+        category:
+          "PHOTO",
 
         description:
           "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
@@ -2048,22 +2354,27 @@
           "images/spacehaeso-05.jpg"
         ],
 
-        lat: 57,
-        lng: -143
+        lat:
+          57,
+
+        lng:
+          -143
       },
 
 
       /* ==================================================
-         13 LIG D&A 50TH ANNIVERSARY
+         13 LIG D&A
       ================================================== */
 
       {
-        number: "13",
+        number:
+          "13",
 
         title:
           "LIG D&A 50th Anniversary",
 
-        year: "2026",
+        year:
+          "2026",
 
         category:
           "PACKAGE / GRAPHIC DESIGN",
@@ -2075,8 +2386,11 @@
           "images/LIG D&A-01.jpg"
         ],
 
-        lat: 5,
-        lng: -125
+        lat:
+          5,
+
+        lng:
+          -125
       },
 
 
@@ -2085,12 +2399,14 @@
       ================================================== */
 
       {
-        number: "14",
+        number:
+          "14",
 
         title:
           "LG KES AI Gallery",
 
-        year: "2025",
+        year:
+          "2025",
 
         category:
           "EXHIBITION / GRAPHIC DESIGN",
@@ -2102,8 +2418,11 @@
           "images/kes lg-01.jpg"
         ],
 
-        lat: 32,
-        lng: -105
+        lat:
+          32,
+
+        lng:
+          -105
       }
 
     ];
@@ -2180,25 +2499,35 @@
     const globeMaterial =
       new THREE.MeshPhysicalMaterial({
 
-        color: 0xffffff,
+        color:
+          0xffffff,
 
-        transparent: true,
+        transparent:
+          true,
 
-        opacity: 0.10,
+        opacity:
+          0.10,
 
-        roughness: 0.08,
+        roughness:
+          0.08,
 
-        metalness: 0.02,
+        metalness:
+          0.02,
 
-        transmission: 0.5,
+        transmission:
+          0.5,
 
-        thickness: 1,
+        thickness:
+          1,
 
-        ior: 1.35,
+        ior:
+          1.35,
 
-        clearcoat: 1,
+        clearcoat:
+          1,
 
-        clearcoatRoughness: 0.08
+        clearcoatRoughness:
+          0.08
 
       });
 
@@ -2291,15 +2620,20 @@
     const dotMaterial =
       new THREE.PointsMaterial({
 
-        color: 0xffffff,
+        color:
+          0xffffff,
 
-        size: 0.013,
+        size:
+          0.013,
 
-        transparent: true,
+        transparent:
+          true,
 
-        opacity: 0.55,
+        opacity:
+          0.55,
 
-        sizeAttenuation: true
+        sizeAttenuation:
+          true
 
       });
 
@@ -2331,13 +2665,17 @@
 
         new THREE.MeshBasicMaterial({
 
-          color: 0xffffff,
+          color:
+            0xffffff,
 
-          wireframe: true,
+          wireframe:
+            true,
 
-          transparent: true,
+          transparent:
+            true,
 
-          opacity: 0.05
+          opacity:
+            0.05
 
         })
 
@@ -2912,7 +3250,7 @@
 
 
     /* ====================================================
-       LINK
+       PROJECT LINK
     ==================================================== */
 
     function updateProjectLink() {
@@ -2957,7 +3295,7 @@
 
 
     /* ====================================================
-       SLIDER
+       IMAGE SLIDER
     ==================================================== */
 
     function updateSlider() {
@@ -2976,8 +3314,6 @@
           activeProject
         );
 
-
-      /* 이미지 없음 */
 
       if (
         images.length === 0
@@ -3024,8 +3360,6 @@
       }
 
 
-      /* 이미지 있음 */
-
       const currentImage =
         images[
           activeImageIndex
@@ -3050,11 +3384,6 @@
       panelImage.alt =
         activeProject.title;
 
-
-      /*
-        Poster처럼 이미지별 설명이 있다면
-        이미지 넘길 때 설명도 같이 변경
-      */
 
       panelDescription.textContent =
         getCurrentDescription();
@@ -3351,11 +3680,6 @@
         source === "index";
 
 
-      /*
-        PROJECTS 목록을 통해 들어온 경우만
-        뒤로가기 표시
-      */
-
       backPanel.classList.toggle(
         "hidden",
         !projectOpenedFromIndex
@@ -3434,7 +3758,7 @@
 
 
     /* ====================================================
-       BACK TO PROJECT LIST
+       BACK TO PROJECT INDEX
     ==================================================== */
 
     function backToProjectIndex() {
@@ -3470,10 +3794,6 @@
         .classList
         .add("hidden");
 
-
-      /*
-        다시 PROJECTS 목록 열기
-      */
 
       projectIndexOverlay
         .classList
@@ -3511,7 +3831,7 @@
 
 
     /* ====================================================
-       PROJECT INDEX
+       PROJECT INDEX ROW
     ==================================================== */
 
     function createProjectRow(
@@ -3674,6 +3994,10 @@
     }
 
 
+    /* ====================================================
+       PROJECT INDEX RENDER
+    ==================================================== */
+
     function renderProjectIndex(
       mode = "all"
     ) {
@@ -3695,9 +4019,7 @@
         );
 
 
-      /* ==================================================
-         ALL
-      ================================================== */
+      /* ALL */
 
       if (
         mode === "all"
@@ -3722,9 +4044,7 @@
       }
 
 
-      /* ==================================================
-         YEAR
-      ================================================== */
+      /* YEAR */
 
       if (
         mode === "year"
@@ -3843,9 +4163,7 @@
       }
 
 
-      /* ==================================================
-         NAME
-      ================================================== */
+      /* NAME */
 
       if (
         mode === "name"
@@ -3996,17 +4314,13 @@
               item =>
                 item
                   .classList
-                  .remove(
-                    "active"
-                  )
+                  .remove("active")
             );
 
 
             button
               .classList
-              .add(
-                "active"
-              );
+              .add("active");
 
 
             renderProjectIndex(
@@ -4232,10 +4546,6 @@
       event => {
 
 
-        /*
-          LIGHTBOX
-        */
-
         if (
           imageLightbox
             .classList
@@ -4277,10 +4587,6 @@
         }
 
 
-        /*
-          PROJECT INDEX
-        */
-
         if (
           projectIndexPanel
             .classList
@@ -4301,10 +4607,6 @@
 
         }
 
-
-        /*
-          DETAIL
-        */
 
         if (
           panel
@@ -4329,12 +4631,6 @@
 
     /* ====================================================
        PROJECT MARKER POSITION
-
-       FRONT  = 100%
-       SIDE   = 약 59%
-       BACK   = 약 18%
-
-       뒤쪽이어도 클릭 가능
     ==================================================== */
 
     const markerWorld =
@@ -4405,10 +4701,6 @@
           );
 
 
-          /* ================================
-             FRONT / BACK CALCULATION
-          ================================ */
-
           markerNormal
             .copy(
               markerWorld
@@ -4434,10 +4726,6 @@
               markerToCamera
             );
 
-
-          /* ================================
-             3D → 2D
-          ================================ */
 
           markerProjected
             .copy(
@@ -4484,14 +4772,6 @@
             "px";
 
 
-          /* ================================
-             NATURAL FADE
-
-             -1 ~ 1
-             ↓
-             0 ~ 1
-          ================================ */
-
           const normalizedFacing =
             THREE.MathUtils.clamp(
 
@@ -4510,8 +4790,11 @@
 
 
           /*
-            완전히 뒷면이어도
-            18% 남음
+            정면 → 선명
+            측면 → 흐려짐
+            뒷면 → 약 18%
+
+            완전히 사라지지 않음
           */
 
           const visibility =
@@ -4525,7 +4808,7 @@
 
 
           /*
-            흐려져도 클릭 가능
+            뒷면에서도 클릭 가능
           */
 
           marker.element.style.pointerEvents =
@@ -4533,7 +4816,7 @@
 
 
           /*
-            정면 점일수록 위로
+            정면 점을 위쪽 레이어로
           */
 
           marker.element.style.zIndex =
@@ -4636,17 +4919,13 @@
       );
 
 
-      /*
-        자동 회전
-      */
+      /* 자동 회전 */
 
       globe.rotation.y +=
         0.0022;
 
 
-      /*
-        마우스 움직임 반응
-      */
+      /* 마우스 반응 */
 
       globe.rotation.x +=
 
@@ -4676,10 +4955,7 @@
         0.008;
 
 
-      /*
-        프로젝트 포인트 위치 /
-        투명도 업데이트
-      */
+      /* 프로젝트 점 위치 */
 
       updateProjectMarkers();
 
