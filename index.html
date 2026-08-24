@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +19,10 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+
       background: #050505;
       color: #f5f5f5;
+
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -33,10 +36,14 @@
 
     .hero {
       position: relative;
+
       width: 100vw;
       height: 100vh;
+
       min-height: 700px;
+
       overflow: hidden;
+
       background: #050505;
     }
 
@@ -46,6 +53,7 @@
 
     .top {
       position: absolute;
+
       top: 36px;
       left: 40px;
       right: 40px;
@@ -62,15 +70,21 @@
 
     .top-center {
       position: absolute;
+
       left: 50%;
+
       transform: translateX(-50%);
+
       opacity: 0.35;
     }
 
     .top-menu-button {
       appearance: none;
+
       border: 0;
+
       background: none;
+
       padding: 0;
 
       color: #f5f5f5;
@@ -93,16 +107,19 @@
 
     .title {
       position: absolute;
+
       top: 10%;
       left: 50%;
 
       transform: translateX(-50%);
 
       font-size: clamp(38px, 4.2vw, 72px);
+
       line-height: 0.9;
       letter-spacing: -0.065em;
 
       text-align: center;
+
       font-weight: 600;
 
       white-space: nowrap;
@@ -118,6 +135,7 @@
       position: absolute;
 
       width: min(58vw, 720px);
+
       aspect-ratio: 1 / 1;
 
       left: 50%;
@@ -125,7 +143,10 @@
 
       transform: translate(-50%, -50%);
 
-      border: 1px solid rgba(255, 255, 255, 0.10);
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
       border-radius: 50%;
 
       pointer-events: none;
@@ -134,13 +155,17 @@
     .guide-circle::before,
     .guide-circle::after {
       content: "";
+
       position: absolute;
-      background: rgba(255, 255, 255, 0.09);
+
+      background:
+        rgba(255, 255, 255, 0.09);
     }
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
+
       left: -20%;
       top: 50%;
     }
@@ -148,39 +173,48 @@
     .guide-circle::after {
       width: 1px;
       height: 140%;
+
       left: 50%;
       top: -20%;
     }
 
     .line {
       position: absolute;
+
       left: 50%;
       top: 50%;
 
       width: 118%;
       height: 1px;
 
-      background: rgba(255, 255, 255, 0.07);
+      background:
+        rgba(255, 255, 255, 0.07);
 
       transform-origin: center;
     }
 
     .line.one {
-      transform: translate(-50%, -50%) rotate(32deg);
+      transform:
+        translate(-50%, -50%)
+        rotate(32deg);
     }
 
     .line.two {
-      transform: translate(-50%, -50%) rotate(-32deg);
+      transform:
+        translate(-50%, -50%)
+        rotate(-32deg);
     }
 
     .side-line {
       position: absolute;
+
       top: 45%;
 
       width: 12%;
       height: 1px;
 
-      background: rgba(255, 255, 255, 0.15);
+      background:
+        rgba(255, 255, 255, 0.15);
     }
 
     .side-line.left {
@@ -197,6 +231,7 @@
 
     #earthWrap {
       position: absolute;
+
       left: 50%;
       top: 50%;
 
@@ -206,54 +241,234 @@
       transform: translate(-50%, -48%);
 
       z-index: 5;
-
-      transition: filter 0.5s ease;
-    }
-
-    #earthWrap:hover {
-      filter:
-        drop-shadow(
-          0 0 45px
-          rgba(255, 255, 255, 0.08)
-        );
     }
 
     #earth {
+      position: absolute;
+
+      inset: 0;
+
       width: 100%;
       height: 100%;
-      cursor: grab;
-    }
-
-    #earth:active {
-      cursor: grabbing;
     }
 
     /* ==================================================
-       PROJECT HOVER LABEL
+       PROJECT MARKERS
+
+       실제 클릭하는 큰 프로젝트 점
+    ================================================== */
+
+    #projectMarkers {
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: 30;
+    }
+
+    .project-marker {
+      --pulse-duration: 3s;
+      --pulse-delay: 0s;
+
+      position: absolute;
+
+      width: 34px;
+      height: 34px;
+
+      border: 0;
+
+      padding: 0;
+
+      border-radius: 50%;
+
+      background: transparent;
+
+      transform:
+        translate(-50%, -50%);
+
+      pointer-events: auto;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      transition:
+        opacity 0.15s ease;
+    }
+
+    /* 흰색 중심점 */
+
+    .project-marker::before {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      transform:
+        translate(-50%, -50%);
+
+      box-shadow:
+        0 0 7px
+        rgba(255, 255, 255, 0.48);
+
+      animation:
+        projectPointPulse
+        var(--pulse-duration)
+        ease-in-out
+        infinite;
+
+      animation-delay:
+        var(--pulse-delay);
+    }
+
+    /* 바깥 링 */
+
+    .project-marker::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 19px;
+      height: 19px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.42);
+
+      border-radius: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      animation:
+        projectHaloPulse
+        var(--pulse-duration)
+        ease-in-out
+        infinite;
+
+      animation-delay:
+        var(--pulse-delay);
+    }
+
+    @keyframes projectPointPulse {
+
+      0%,
+      100% {
+        opacity: 0.75;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.92);
+
+        box-shadow:
+          0 0 4px
+          rgba(255, 255, 255, 0.35);
+      }
+
+      50% {
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%)
+          scale(1.25);
+
+        box-shadow:
+          0 0 12px
+          rgba(255, 255, 255, 0.85);
+      }
+
+    }
+
+    @keyframes projectHaloPulse {
+
+      0%,
+      100% {
+        opacity: 0.2;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.9);
+      }
+
+      50% {
+        opacity: 0.68;
+
+        transform:
+          translate(-50%, -50%)
+          scale(1.12);
+      }
+
+    }
+
+    .project-marker:hover::before {
+      animation-play-state: paused;
+
+      opacity: 1;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1.6);
+
+      box-shadow:
+        0 0 16px
+        rgba(255, 255, 255, 1);
+    }
+
+    .project-marker:hover::after {
+      animation-play-state: paused;
+
+      opacity: 0.95;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1.28);
+    }
+
+    /* ==================================================
+       HOVER LABEL
     ================================================== */
 
     #projectLabel {
       position: fixed;
+
       left: 0;
       top: 0;
 
       padding: 9px 12px;
 
       background: #f5f5f5;
+
       color: #050505;
 
       font-size: 11px;
+
       line-height: 1.3;
 
       pointer-events: none;
 
       opacity: 0;
 
-      transform: translate(14px, 14px);
+      transform:
+        translate(14px, 14px);
 
-      transition: opacity 0.18s ease;
+      transition:
+        opacity 0.18s ease;
 
-      z-index: 150;
+      z-index: 200;
 
       white-space: nowrap;
     }
@@ -264,11 +479,13 @@
 
     #projectLabel .label-number {
       opacity: 0.45;
+
       margin-right: 8px;
     }
 
     #projectLabel .label-category {
       opacity: 0.5;
+
       margin-left: 8px;
     }
 
@@ -284,9 +501,14 @@
       bottom: 34px;
 
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+
+      grid-template-columns:
+        1fr
+        1fr
+        1fr;
 
       gap: 50px;
+
       align-items: end;
 
       z-index: 20;
@@ -294,7 +516,9 @@
 
     .item h3 {
       margin-bottom: 9px;
+
       font-size: 13px;
+
       font-weight: 600;
     }
 
@@ -302,9 +526,11 @@
       max-width: 300px;
 
       font-size: 10px;
+
       line-height: 1.35;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .center-item {
@@ -324,49 +550,63 @@
     }
 
     /* ==================================================
-       DETAIL OVERLAY
+       PROJECT DETAIL OVERLAY
     ================================================== */
 
     .panel-overlay {
       position: fixed;
+
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.18);
+      background:
+        rgba(0, 0, 0, 0.18);
 
       opacity: 0;
+
       pointer-events: none;
 
-      transition: opacity 0.5s ease;
+      transition:
+        opacity 0.5s ease;
 
       z-index: 80;
     }
 
     .panel-overlay.active {
       opacity: 1;
+
       pointer-events: auto;
     }
 
     /* ==================================================
-       PROJECT DETAIL
+       PROJECT DETAIL PANEL
     ================================================== */
 
     #projectPanel {
       position: fixed;
+
       top: 0;
       right: 0;
 
-      width: min(540px, 92vw);
+      width:
+        min(540px, 92vw);
+
       height: 100vh;
 
       background: #0b0b0b;
+
       color: #f5f5f5;
 
       border-left:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      padding: 38px 38px 42px;
+      padding:
+        38px
+        38px
+        42px;
 
-      transform: translateX(100%);
+      transform:
+        translateX(100%);
 
       transition:
         transform
@@ -376,18 +616,22 @@
       z-index: 90;
 
       display: flex;
+
       flex-direction: column;
 
       overflow-y: auto;
     }
 
     #projectPanel.active {
-      transform: translateX(0);
+      transform:
+        translateX(0);
     }
 
     .panel-top {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
       margin-bottom: 42px;
@@ -395,18 +639,22 @@
 
     .panel-index {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.42);
+
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     #closePanel {
       appearance: none;
 
       border: 0;
+
       background: none;
 
       color: #fff;
 
       font-size: 28px;
+
       font-weight: 300;
 
       cursor: pointer;
@@ -421,15 +669,18 @@
 
       font-size: 11px;
 
-      color: rgba(255, 255, 255, 0.42);
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .panel-title {
       margin-bottom: 18px;
 
-      font-size: clamp(30px, 3.7vw, 52px);
+      font-size:
+        clamp(30px, 3.7vw, 52px);
 
       line-height: 0.98;
+
       letter-spacing: -0.055em;
 
       font-weight: 500;
@@ -440,7 +691,8 @@
 
       font-size: 11px;
 
-      color: rgba(255, 255, 255, 0.48);
+      color:
+        rgba(255, 255, 255, 0.48);
     }
 
     /* ==================================================
@@ -451,6 +703,7 @@
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
@@ -476,11 +729,13 @@
     }
 
     #panelImage:hover {
-      transform: scale(1.012);
+      transform:
+        scale(1.012);
     }
 
     .image-placeholder {
       position: absolute;
+
       inset: 0;
 
       display: none;
@@ -488,12 +743,12 @@
       align-items: center;
       justify-content: center;
 
-      color: rgba(255, 255, 255, 0.28);
+      color:
+        rgba(255, 255, 255, 0.28);
 
       font-size: 11px;
-      letter-spacing: 0.08em;
 
-      text-align: center;
+      letter-spacing: 0.08em;
     }
 
     .image-placeholder.active {
@@ -505,15 +760,18 @@
 
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       width: 42px;
       height: 42px;
 
       border:
-        1px solid rgba(255, 255, 255, 0.15);
+        1px solid
+        rgba(255, 255, 255, 0.15);
 
-      background: rgba(0, 0, 0, 0.52);
+      background:
+        rgba(0, 0, 0, 0.52);
 
       color: #fff;
 
@@ -525,7 +783,8 @@
     }
 
     .slider-button:hover {
-      background: rgba(255, 255, 255, 0.13);
+      background:
+        rgba(255, 255, 255, 0.13);
     }
 
     #prevImage {
@@ -544,21 +803,20 @@
       display: flex;
 
       justify-content: space-between;
+
       align-items: center;
 
       margin-bottom: 26px;
 
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.42);
-    }
-
-    #sliderCounter {
-      letter-spacing: 0.05em;
+      color:
+        rgba(255, 255, 255, 0.42);
     }
 
     .slider-dots {
       display: flex;
+
       gap: 6px;
     }
 
@@ -568,7 +826,8 @@
 
       border-radius: 50%;
 
-      background: rgba(255, 255, 255, 0.22);
+      background:
+        rgba(255, 255, 255, 0.22);
     }
 
     .slider-dot.active {
@@ -585,9 +844,11 @@
       margin-bottom: 40px;
 
       font-size: 12px;
+
       line-height: 1.8;
 
-      color: rgba(255, 255, 255, 0.65);
+      color:
+        rgba(255, 255, 255, 0.65);
 
       white-space: pre-line;
     }
@@ -598,9 +859,11 @@
       padding-top: 24px;
 
       border-top:
-        1px solid rgba(255, 255, 255, 0.14);
+        1px solid
+        rgba(255, 255, 255, 0.14);
 
       display: flex;
+
       justify-content: space-between;
 
       font-size: 11px;
@@ -611,16 +874,19 @@
     }
 
     /* ==================================================
-       PROJECT INDEX OVERLAY
+       PROJECT INDEX
     ================================================== */
 
     #projectIndexOverlay {
       position: fixed;
+
       inset: 0;
 
-      background: rgba(0, 0, 0, 0.35);
+      background:
+        rgba(0, 0, 0, 0.35);
 
       opacity: 0;
+
       visibility: hidden;
 
       transition:
@@ -632,27 +898,29 @@
 
     #projectIndexOverlay.active {
       opacity: 1;
+
       visibility: visible;
     }
 
-    /* ==================================================
-       PROJECT INDEX PANEL
-    ================================================== */
-
     #projectIndexPanel {
       position: fixed;
+
       top: 0;
       right: 0;
 
-      width: min(820px, 100vw);
+      width:
+        min(820px, 100vw);
+
       height: 100vh;
 
       background: #080808;
 
       border-left:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-      transform: translateX(100%);
+      transform:
+        translateX(100%);
 
       transition:
         transform
@@ -662,32 +930,42 @@
       z-index: 120;
 
       display: flex;
+
       flex-direction: column;
     }
 
     #projectIndexPanel.active {
-      transform: translateX(0);
+      transform:
+        translateX(0);
     }
 
     .project-index-header {
-      padding: 36px 40px 30px;
+      padding:
+        36px
+        40px
+        30px;
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.10);
+        1px solid
+        rgba(255, 255, 255, 0.10);
     }
 
     .project-index-top {
       display: flex;
+
       justify-content: space-between;
+
       align-items: flex-start;
 
       margin-bottom: 56px;
     }
 
     .project-index-heading {
-      font-size: clamp(42px, 6vw, 82px);
+      font-size:
+        clamp(42px, 6vw, 82px);
 
       line-height: 0.9;
+
       letter-spacing: -0.065em;
 
       font-weight: 500;
@@ -697,22 +975,23 @@
       appearance: none;
 
       border: 0;
+
       background: none;
 
       color: #fff;
 
       font-size: 32px;
+
       font-weight: 300;
 
       cursor: pointer;
-
-      line-height: 1;
     }
 
     .project-index-meta {
       display: flex;
 
       align-items: flex-end;
+
       justify-content: space-between;
 
       gap: 30px;
@@ -720,45 +999,40 @@
 
     .project-count {
       font-size: 10px;
+
       letter-spacing: 0.05em;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
     }
-
-    /* ==================================================
-       SORT
-    ================================================== */
 
     .project-sort {
       display: flex;
+
       gap: 22px;
     }
 
     .project-sort-button {
       appearance: none;
 
-      padding: 0 0 5px;
+      padding:
+        0 0 5px;
 
       border: 0;
+
       border-bottom:
         1px solid transparent;
 
       background: none;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
 
       font-size: 10px;
+
       letter-spacing: 0.05em;
 
       cursor: pointer;
-
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .project-sort-button:hover {
-      color: #fff;
     }
 
     .project-sort-button.active {
@@ -767,34 +1041,31 @@
       border-bottom-color: #fff;
     }
 
-    /* ==================================================
-       PROJECT LIST
-    ================================================== */
-
     .project-index-scroll {
       flex: 1;
 
       overflow-y: auto;
 
-      padding: 0 40px 60px;
-
-      scrollbar-width: thin;
-
-      scrollbar-color:
-        rgba(255, 255, 255, 0.2)
-        transparent;
+      padding:
+        0 40px 60px;
     }
 
     .project-group-title {
-      padding: 42px 0 14px;
+      padding:
+        42px
+        0
+        14px;
 
       font-size: 10px;
+
       letter-spacing: 0.06em;
 
-      color: rgba(255, 255, 255, 0.35);
+      color:
+        rgba(255, 255, 255, 0.35);
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
     }
 
     .project-list-row {
@@ -814,12 +1085,14 @@
 
       align-items: center;
 
-      padding: 22px 0;
+      padding:
+        22px 0;
 
       border: 0;
 
       border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
       background: transparent;
 
@@ -837,32 +1110,37 @@
     .project-list-row:hover {
       padding-left: 10px;
 
-      background: rgba(255, 255, 255, 0.025);
+      background:
+        rgba(255, 255, 255, 0.025);
     }
 
     .project-row-number {
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.3);
+      color:
+        rgba(255, 255, 255, 0.3);
     }
 
     .project-row-title {
       min-width: 0;
 
-      font-size: clamp(17px, 2vw, 24px);
+      font-size:
+        clamp(17px, 2vw, 24px);
 
       letter-spacing: -0.035em;
 
       white-space: nowrap;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
     }
 
     .project-row-category {
       font-size: 9px;
-      line-height: 1.3;
 
-      color: rgba(255, 255, 255, 0.38);
+      color:
+        rgba(255, 255, 255, 0.38);
     }
 
     .project-row-year {
@@ -870,7 +1148,8 @@
 
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.38);
+      color:
+        rgba(255, 255, 255, 0.38);
     }
 
     /* ==================================================
@@ -879,28 +1158,32 @@
 
     #imageLightbox {
       position: fixed;
+
       inset: 0;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      padding: 55px 80px;
+      padding:
+        55px
+        80px;
 
-      background: rgba(0, 0, 0, 0.98);
+      background:
+        rgba(0, 0, 0, 0.98);
 
       opacity: 0;
-      visibility: hidden;
 
-      transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+      visibility: hidden;
 
       z-index: 300;
     }
 
     #imageLightbox.active {
       opacity: 1;
+
       visibility: visible;
     }
 
@@ -908,6 +1191,7 @@
       display: block;
 
       max-width: 92vw;
+
       max-height: 86vh;
 
       width: auto;
@@ -923,18 +1207,14 @@
       right: 34px;
 
       border: 0;
+
       background: none;
 
       color: #fff;
 
       font-size: 34px;
-      font-weight: 300;
 
       cursor: pointer;
-
-      line-height: 1;
-
-      z-index: 10;
     }
 
     .lightbox-arrow {
@@ -942,25 +1222,22 @@
 
       top: 50%;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
       width: 55px;
       height: 55px;
 
       border: 0;
+
       background: none;
 
-      color: rgba(255, 255, 255, 0.65);
+      color:
+        rgba(255, 255, 255, 0.65);
 
       font-size: 27px;
 
       cursor: pointer;
-
-      z-index: 10;
-    }
-
-    .lightbox-arrow:hover {
-      color: #fff;
     }
 
     #lightboxPrev {
@@ -981,12 +1258,13 @@
       left: 50%;
       bottom: 22px;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
-      color: rgba(255, 255, 255, 0.55);
+      color:
+        rgba(255, 255, 255, 0.55);
 
       font-size: 10px;
-      letter-spacing: 0.08em;
     }
 
     /* ==================================================
@@ -1044,10 +1322,6 @@
         display: none;
       }
 
-      .item p {
-        font-size: 9px;
-      }
-
       #projectPanel {
         width: 100vw;
 
@@ -1058,7 +1332,9 @@
       }
 
       .project-index-header {
-        padding: 24px 22px;
+        padding:
+          24px
+          22px;
       }
 
       .project-index-top {
@@ -1071,13 +1347,17 @@
 
       .project-index-meta {
         flex-direction: column;
+
         align-items: flex-start;
 
         gap: 18px;
       }
 
       .project-index-scroll {
-        padding: 0 22px 40px;
+        padding:
+          0
+          22px
+          40px;
       }
 
       .project-list-row {
@@ -1087,39 +1367,12 @@
           90px;
 
         gap: 10px;
-
-        padding: 18px 0;
       }
 
       .project-row-category {
         display: none;
       }
 
-      .project-row-title {
-        font-size: 17px;
-      }
-
-      #imageLightbox {
-        padding: 20px;
-      }
-
-      #lightboxImage {
-        max-width: 96vw;
-        max-height: 82vh;
-      }
-
-      #closeLightbox {
-        top: 18px;
-        right: 20px;
-      }
-
-      #lightboxPrev {
-        left: 6px;
-      }
-
-      #lightboxNext {
-        right: 6px;
-      }
     }
   </style>
 </head>
@@ -1128,8 +1381,6 @@
 <body>
 
   <main class="hero">
-
-    <!-- HEADER -->
 
     <header class="top">
 
@@ -1143,22 +1394,19 @@
 
       <button
         class="top-menu-button"
-        id="projectsMenuButton"
-        type="button">
+        id="projectsMenuButton">
+
         PROJECTS
+
       </button>
 
     </header>
 
 
-    <!-- TITLE -->
-
     <div class="title">
       scientistsroom
     </div>
 
-
-    <!-- GUIDE -->
 
     <div class="guide-circle">
       <div class="line one"></div>
@@ -1172,11 +1420,15 @@
     <!-- EARTH -->
 
     <div id="earthWrap">
+
       <div id="earth"></div>
+
+      <!-- 프로젝트 점은 여기 표시됨 -->
+
+      <div id="projectMarkers"></div>
+
     </div>
 
-
-    <!-- BOTTOM -->
 
     <section class="bottom">
 
@@ -1229,20 +1481,16 @@
   </main>
 
 
-  <!-- HOVER LABEL -->
-
   <div id="projectLabel"></div>
 
 
-  <!-- DETAIL OVERLAY -->
+  <!-- DETAIL -->
 
   <div
     class="panel-overlay"
     id="panelOverlay">
   </div>
 
-
-  <!-- PROJECT DETAIL -->
 
   <aside id="projectPanel">
 
@@ -1253,9 +1501,7 @@
         id="panelIndex">
       </div>
 
-      <button
-        id="closePanel"
-        aria-label="Close project">
+      <button id="closePanel">
         ×
       </button>
 
@@ -1280,8 +1526,6 @@
     </div>
 
 
-    <!-- IMAGE SLIDER -->
-
     <div class="slider">
 
       <img
@@ -1294,23 +1538,27 @@
       <div
         class="image-placeholder"
         id="imagePlaceholder">
+
         PROJECT IMAGE
+
       </div>
 
 
       <button
         class="slider-button"
-        id="prevImage"
-        aria-label="Previous image">
+        id="prevImage">
+
         ←
+
       </button>
 
 
       <button
         class="slider-button"
-        id="nextImage"
-        aria-label="Next image">
+        id="nextImage">
+
         →
+
       </button>
 
     </div>
@@ -1351,12 +1599,10 @@
   </aside>
 
 
-  <!-- PROJECT INDEX OVERLAY -->
+  <!-- PROJECT INDEX -->
 
   <div id="projectIndexOverlay"></div>
 
-
-  <!-- PROJECT INDEX -->
 
   <section id="projectIndexPanel">
 
@@ -1368,9 +1614,7 @@
           Projects
         </h2>
 
-        <button
-          id="closeProjectIndex"
-          aria-label="Close projects">
+        <button id="closeProjectIndex">
           ×
         </button>
 
@@ -1382,7 +1626,6 @@
         <div
           class="project-count"
           id="projectCount">
-          15 PROJECTS
         </div>
 
 
@@ -1391,19 +1634,27 @@
           <button
             class="project-sort-button active"
             data-sort="all">
+
             ALL
+
           </button>
+
 
           <button
             class="project-sort-button"
             data-sort="year">
+
             YEAR
+
           </button>
+
 
           <button
             class="project-sort-button"
             data-sort="name">
+
             NAME
+
           </button>
 
         </div>
@@ -1421,20 +1672,17 @@
   </section>
 
 
-  <!-- IMAGE LIGHTBOX -->
+  <!-- LIGHTBOX -->
 
   <div id="imageLightbox">
 
-    <button
-      id="closeLightbox"
-      aria-label="Close image">
+    <button id="closeLightbox">
       ×
     </button>
 
     <button
       class="lightbox-arrow"
-      id="lightboxPrev"
-      aria-label="Previous image">
+      id="lightboxPrev">
       ←
     </button>
 
@@ -1446,8 +1694,7 @@
 
     <button
       class="lightbox-arrow"
-      id="lightboxNext"
-      aria-label="Next image">
+      id="lightboxNext">
       →
     </button>
 
@@ -1470,10 +1717,16 @@
 
     const projects = [
 
+
+      /* 01 ORV */
+
       {
         number: "01",
+
         title: "Orv",
+
         year: "",
+
         category: "BRANDING",
 
         description:
@@ -1491,10 +1744,15 @@
       },
 
 
+      /* 02 ADVENT CALENDAR */
+
       {
         number: "02",
+
         title: "Advent Calendar",
+
         year: "",
+
         category: "PACKAGE",
 
         description:
@@ -1510,10 +1768,15 @@
       },
 
 
+      /* 03 DREAM CAT */
+
       {
         number: "03",
+
         title: "Dream Cat Shelter",
+
         year: "",
+
         category: "BRANDING",
 
         description:
@@ -1528,70 +1791,128 @@
       },
 
 
+      /* 04 LOGO */
+
       {
         number: "04",
+
         title: "Logo",
+
         year: "",
+
         category: "BRANDING",
+
         description: "",
+
         images: [],
+
         lat: -34,
         lng: 148
       },
 
 
+      /* 05 BOOK */
+
       {
         number: "05",
+
         title: "Book",
+
         year: "",
+
         category: "EDITORIAL",
+
         description: "",
+
         images: [],
+
         lat: 53,
         lng: 57
       },
 
 
+      /* 06 POSTER */
+
       {
         number: "06",
+
         title: "Poster",
+
         year: "",
+
         category: "EDITORIAL",
+
         description: "",
+
         images: [],
+
         lat: 25,
         lng: 67
       },
 
 
+      /* 07 BANNER */
+
       {
         number: "07",
+
         title: "Banner",
+
         year: "",
+
         category: "EDITORIAL",
+
         description: "",
+
         images: [],
+
         lat: -9,
         lng: 52
       },
 
 
+      /* ==================================================
+         08 WANDY
+         이미지 8장 추가
+      ================================================== */
+
       {
         number: "08",
+
         title: "Wandy",
+
         year: "",
+
         category: "UX / UI",
-        description: "",
-        images: [],
+
+        description:
+          "당신의 진로 파트너 Wandy!",
+
+        images: [
+          "images/wandy-01.jpg",
+          "images/wandy-02.jpg",
+          "images/wandy-03.jpg",
+          "images/wandy-04.jpg",
+          "images/wandy-05.jpg",
+          "images/wandy-06.jpg",
+          "images/wandy-07.jpg",
+          "images/wandy-08.jpg"
+        ],
+
         lat: -40,
         lng: 30
       },
 
 
+      /* 09 LANGMUIR */
+
       {
         number: "09",
+
         title: "Langmuir",
+
         year: "2022",
+
         category: "COVER ARTWORK",
 
         description:
@@ -1604,11 +1925,17 @@
       },
 
 
+      /* 10 OFFICE OF EDUCATION */
+
       {
         number: "10",
+
         title: "Office of Education",
+
         year: "2025 — 2026",
-        category: "PM SAFETY EDUCATION",
+
+        category:
+          "PM SAFETY EDUCATION",
 
         description:
           "유치원 / 초등학교 / 중학교 / 고등학교를 대상으로 한 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
@@ -1620,11 +1947,19 @@
       },
 
 
+      /* 11 DONGGUK UNIVERSITY */
+
       {
         number: "11",
-        title: "Dongguk University",
-        year: "2025 — 2026",
-        category: "RESEARCH PROJECT",
+
+        title:
+          "Dongguk University",
+
+        year:
+          "2025 — 2026",
+
+        category:
+          "RESEARCH PROJECT",
 
         description:
           "동국대학교와 교육청의 연구보고서 및 성과보고서 편집 / 출판 디자인을 진행하였습니다.",
@@ -1636,11 +1971,19 @@
       },
 
 
+      /* 12 HONGIK UNIVERSITY */
+
       {
         number: "12",
-        title: "Hongik University",
-        year: "2026 —",
-        category: "HOMEPAGE",
+
+        title:
+          "Hongik University",
+
+        year:
+          "2026 —",
+
+        category:
+          "HOMEPAGE",
 
         description:
           "온라인커뮤니케이션실 부편집장으로 홈페이지 뉴스 콘텐츠 관리 및 관련 디자인 업무를 진행하고 있습니다.",
@@ -1652,11 +1995,19 @@
       },
 
 
+      /* 13 SPACEHAESO */
+
       {
         number: "13",
-        title: "spacehaeso : 조용한 형상들의 엄습",
-        year: "2025",
-        category: "PHOTO",
+
+        title:
+          "spacehaeso : 조용한 형상들의 엄습",
+
+        year:
+          "2025",
+
+        category:
+          "PHOTO",
 
         description:
           "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
@@ -1668,27 +2019,48 @@
       },
 
 
+      /* ==================================================
+         14 LIG D&A
+         이미지 + 새 설명 적용
+      ================================================== */
+
       {
         number: "14",
-        title: "LIG D&A 50th Anniversary",
-        year: "2026",
-        category: "PACKAGE / GRAPHIC DESIGN",
+
+        title:
+          "LIG D&A 50th Anniversary",
+
+        year:
+          "2026",
+
+        category:
+          "PACKAGE / GRAPHIC DESIGN",
 
         description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP 고객을 위한 소서세트 패키지 디자인을 진행하였습니다.",
+          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여\n\nVIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
 
-        images: [],
+        images: [
+          "images/LIG D&A-01.jpg"
+        ],
 
         lat: 5,
         lng: -125
       },
 
 
+      /* 15 LG KES */
+
       {
         number: "15",
-        title: "LG KES AI Gallery",
-        year: "2025",
-        category: "EXHIBITION / GRAPHIC DESIGN",
+
+        title:
+          "LG KES AI Gallery",
+
+        year:
+          "2025",
+
+        category:
+          "EXHIBITION / GRAPHIC DESIGN",
 
         description:
           "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
@@ -1709,7 +2081,9 @@
     ==================================================== */
 
     const container =
-      document.getElementById("earth");
+      document.getElementById(
+        "earth"
+      );
 
 
     const scene =
@@ -1757,7 +2131,9 @@
       new THREE.Group();
 
 
-    scene.add(globe);
+    scene.add(
+      globe
+    );
 
 
     const globeGeometry =
@@ -1801,12 +2177,15 @@
       );
 
 
-    globe.add(sphere);
+    globe.add(
+      sphere
+    );
 
 
     /* ====================================================
        SMALL DOTS
-       작은 점은 반짝이지 않고 고정
+
+       작은 점은 고정
     ==================================================== */
 
     const dotGeometry =
@@ -1848,28 +2227,21 @@
         1.37;
 
 
-      const x =
+      dotPoints.push(
+
         radius *
         Math.cos(theta) *
-        Math.sin(phi);
+        Math.sin(phi),
 
-
-      const y =
         radius *
         Math.sin(theta) *
-        Math.sin(phi);
+        Math.sin(phi),
 
-
-      const z =
         radius *
-        Math.cos(phi);
+        Math.cos(phi)
 
-
-      dotPoints.push(
-        x,
-        y,
-        z
       );
+
     }
 
 
@@ -1908,7 +2280,9 @@
       );
 
 
-    globe.add(dots);
+    globe.add(
+      dots
+    );
 
 
     /* ====================================================
@@ -1939,7 +2313,61 @@
       );
 
 
-    globe.add(wire);
+    globe.add(
+      wire
+    );
+
+
+    /* ====================================================
+       LIGHT
+    ==================================================== */
+
+    const lightA =
+      new THREE.DirectionalLight(
+        0xffffff,
+        4
+      );
+
+
+    lightA.position.set(
+      2,
+      3,
+      4
+    );
+
+
+    scene.add(
+      lightA
+    );
+
+
+    const lightB =
+      new THREE.DirectionalLight(
+        0xffffff,
+        2
+      );
+
+
+    lightB.position.set(
+      -3,
+      -1,
+      2
+    );
+
+
+    scene.add(
+      lightB
+    );
+
+
+    globe.rotation.x =
+      THREE.MathUtils
+        .degToRad(-14);
+
+
+    globe.rotation.z =
+      THREE.MathUtils
+        .degToRad(-8);
 
 
     /* ====================================================
@@ -1978,246 +2406,12 @@
         Math.sin(theta)
 
       );
-    }
 
-
-   /* ====================================================
-   PROJECT POINTS
-   큰 프로젝트 점만 은은하게 반짝임
-==================================================== */
-
-const projectPoints = [];
-
-
-projects.forEach(
-  (project, index) => {
-
-    /* 클릭 영역 */
-
-    const hitPoint =
-      new THREE.Mesh(
-
-        new THREE.SphereGeometry(
-          0.13,
-          20,
-          20
-        ),
-
-        new THREE.MeshBasicMaterial({
-          transparent: true,
-          opacity: 0,
-          depthWrite: false
-        })
-
-      );
-
-
-    /* 실제 프로젝트 점 */
-
-    const visiblePoint =
-      new THREE.Mesh(
-
-        new THREE.SphereGeometry(
-          0.052,
-          28,
-          28
-        ),
-
-        new THREE.MeshBasicMaterial({
-
-          color: 0xffffff,
-
-          transparent: true,
-
-          opacity: 1,
-
-          depthTest: true,
-
-          depthWrite: false
-
-        })
-
-      );
-
-
-    /*
-      프로젝트 점 바깥 링
-    */
-
-    const halo =
-      new THREE.Mesh(
-
-        new THREE.RingGeometry(
-          0.075,
-          0.105,
-          48
-        ),
-
-        new THREE.MeshBasicMaterial({
-
-          color: 0xffffff,
-
-          transparent: true,
-
-          opacity: 0.35,
-
-          side: THREE.DoubleSide,
-
-          depthWrite: false
-
-        })
-
-      );
-
-
-    /*
-      지구 표면보다 조금 더 바깥에 배치
-    */
-
-    const position =
-      latLngToVector3(
-        project.lat,
-        project.lng,
-        1.47
-      );
-
-
-    hitPoint.position.copy(
-      position
-    );
-
-
-    visiblePoint.position.copy(
-      position
-    );
-
-
-    halo.position.copy(
-      position
-    );
-
-
-    /*
-      다른 오브젝트보다 나중에 렌더링
-    */
-
-    visiblePoint.renderOrder = 10;
-
-    halo.renderOrder = 9;
-
-
-    hitPoint.userData = {
-
-      projectIndex:
-        index,
-
-      visiblePoint:
-        visiblePoint,
-
-      halo:
-        halo,
-
-      /*
-        각각 다른 시점에 반짝임
-      */
-
-      twinklePhase:
-        Math.random() *
-        Math.PI *
-        2,
-
-      twinkleSpeed:
-        0.55 +
-        Math.random() *
-        0.45
-
-    };
-
-
-    globe.add(
-      hitPoint
-    );
-
-
-    globe.add(
-      visiblePoint
-    );
-
-
-    globe.add(
-      halo
-    );
-
-
-    projectPoints.push(
-      hitPoint
-    );
-
-  }
-);
-
-
-    /* ====================================================
-       RAYCASTER
-    ==================================================== */
-
-    const raycaster =
-      new THREE.Raycaster();
-
-
-    const mouse =
-      new THREE.Vector2();
-
-
-    function updateRaycaster(
-      event
-    ) {
-
-      const rect =
-        renderer
-          .domElement
-          .getBoundingClientRect();
-
-
-      mouse.x =
-        (
-          (
-            event.clientX -
-            rect.left
-          )
-          /
-          rect.width
-        )
-        *
-        2
-        -
-        1;
-
-
-      mouse.y =
-        -(
-          (
-            event.clientY -
-            rect.top
-          )
-          /
-          rect.height
-        )
-        *
-        2
-        +
-        1;
-
-
-      raycaster.setFromCamera(
-        mouse,
-        camera
-      );
     }
 
 
     /* ====================================================
-       HOVER
+       DOM ELEMENTS
     ==================================================== */
 
     const label =
@@ -2225,128 +2419,6 @@ projects.forEach(
         "projectLabel"
       );
 
-
-    let hoveredPoint =
-      null;
-
-
-    renderer.domElement
-      .addEventListener(
-        "pointermove",
-        event => {
-
-
-          updateRaycaster(
-            event
-          );
-
-
-          const intersects =
-            raycaster.intersectObjects(
-              projectPoints,
-              false
-            );
-
-
-          if (
-            intersects.length > 0
-          ) {
-
-            hoveredPoint =
-              intersects[0].object;
-
-
-            const project =
-              projects[
-                hoveredPoint
-                  .userData
-                  .projectIndex
-              ];
-
-
-            label.innerHTML =
-
-              '<span class="label-number">' +
-
-              project.number +
-
-              '</span>' +
-
-              project.title +
-
-              '<span class="label-category">' +
-
-              project.category +
-
-              '</span>';
-
-
-            label.style.left =
-              event.clientX +
-              "px";
-
-
-            label.style.top =
-              event.clientY +
-              "px";
-
-
-            label.classList.add(
-              "active"
-            );
-
-
-            renderer
-              .domElement
-              .style
-              .cursor =
-              "pointer";
-
-          }
-
-          else {
-
-            hoveredPoint =
-              null;
-
-
-            label.classList.remove(
-              "active"
-            );
-
-
-            renderer
-              .domElement
-              .style
-              .cursor =
-              "grab";
-
-          }
-
-        }
-      );
-
-
-    renderer.domElement
-      .addEventListener(
-        "pointerleave",
-        () => {
-
-          hoveredPoint =
-            null;
-
-
-          label.classList.remove(
-            "active"
-          );
-
-        }
-      );
-
-
-    /* ====================================================
-       ELEMENTS
-    ==================================================== */
 
     const panel =
       document.getElementById(
@@ -2432,12 +2504,6 @@ projects.forEach(
       );
 
 
-    const projectsMenuButton =
-      document.getElementById(
-        "projectsMenuButton"
-      );
-
-
     const projectIndexPanel =
       document.getElementById(
         "projectIndexPanel"
@@ -2447,6 +2513,12 @@ projects.forEach(
     const projectIndexOverlay =
       document.getElementById(
         "projectIndexOverlay"
+      );
+
+
+    const projectsMenuButton =
+      document.getElementById(
+        "projectsMenuButton"
       );
 
 
@@ -2486,12 +2558,6 @@ projects.forEach(
       );
 
 
-    const lightboxCounter =
-      document.getElementById(
-        "lightboxCounter"
-      );
-
-
     const lightboxPrev =
       document.getElementById(
         "lightboxPrev"
@@ -2501,6 +2567,12 @@ projects.forEach(
     const lightboxNext =
       document.getElementById(
         "lightboxNext"
+      );
+
+
+    const lightboxCounter =
+      document.getElementById(
+        "lightboxCounter"
       );
 
 
@@ -2523,496 +2595,190 @@ projects.forEach(
 
 
     /* ====================================================
-       PROJECT INDEX ROW
+       PROJECT MARKERS
+
+       HTML 점 생성
     ==================================================== */
 
-    function createProjectRow(
-      project,
-      realIndex
-    ) {
-
-      const row =
-        document.createElement(
-          "button"
-        );
-
-
-      row.type =
-        "button";
-
-
-      row.className =
-        "project-list-row";
-
-
-      const number =
-        document.createElement(
-          "span"
-        );
-
-
-      number.className =
-        "project-row-number";
-
-
-      number.textContent =
-        project.number;
-
-
-      const title =
-        document.createElement(
-          "span"
-        );
-
-
-      title.className =
-        "project-row-title";
-
-
-      title.textContent =
-        project.title;
-
-
-      const category =
-        document.createElement(
-          "span"
-        );
-
-
-      category.className =
-        "project-row-category";
-
-
-      category.textContent =
-        project.category;
-
-
-      const year =
-        document.createElement(
-          "span"
-        );
-
-
-      year.className =
-        "project-row-year";
-
-
-      year.textContent =
-        project.year || "—";
-
-
-      row.append(
-        number,
-        title,
-        category,
-        year
+    const projectMarkersContainer =
+      document.getElementById(
+        "projectMarkers"
       );
 
 
-      row.addEventListener(
-        "click",
-        () => {
+    const projectMarkers =
+      [];
 
-          hideProjectIndex();
 
-          openProject(
-            projects[
-              realIndex
-            ]
-          );
+    projects.forEach(
+      (project, index) => {
 
-        }
-      );
-
-
-      return row;
-    }
-
-
-    function createGroupTitle(
-      text
-    ) {
-
-      const element =
-        document.createElement(
-          "div"
-        );
-
-
-      element.className =
-        "project-group-title";
-
-
-      element.textContent =
-        text;
-
-
-      return element;
-    }
-
-
-    /* ====================================================
-       YEAR SORT
-    ==================================================== */
-
-    function getYearValue(
-      project
-    ) {
-
-      const matches =
-        String(
-          project.year
-        ).match(
-          /\d{4}/g
-        );
-
-
-      if (
-        !matches ||
-        matches.length === 0
-      ) {
-
-        return -1;
-      }
-
-
-      return Math.max(
-        ...matches.map(Number)
-      );
-    }
-
-
-    /* ====================================================
-       RENDER PROJECT INDEX
-    ==================================================== */
-
-    function renderProjectIndex(
-      mode = "all"
-    ) {
-
-      projectSortMode =
-        mode;
-
-
-      projectIndexList.innerHTML =
-        "";
-
-
-      const indexedProjects =
-        projects.map(
-          (project, index) => ({
-            project,
-            index
-          })
-        );
-
-
-      /* ALL */
-
-      if (
-        mode === "all"
-      ) {
-
-        indexedProjects.forEach(
-          item => {
-
-            projectIndexList
-              .appendChild(
-
-                createProjectRow(
-                  item.project,
-                  item.index
-                )
-
-              );
-
-          }
-        );
-
-      }
-
-
-      /* YEAR */
-
-      if (
-        mode === "year"
-      ) {
-
-        const groups =
-          new Map();
-
-
-        indexedProjects
-          .sort(
-            (a, b) => {
-
-              const difference =
-
-                getYearValue(
-                  b.project
-                )
-
-                -
-
-                getYearValue(
-                  a.project
-                );
-
-
-              if (
-                difference !== 0
-              ) {
-
-                return difference;
-              }
-
-
-              return a.project.title
-                .localeCompare(
-                  b.project.title,
-                  "en",
-                  {
-                    sensitivity:
-                      "base"
-                  }
-                );
-            }
-          )
-          .forEach(
-            item => {
-
-              const key =
-
-                item.project.year.trim()
-
-                ||
-
-                "YEAR NOT SET";
-
-
-              if (
-                !groups.has(key)
-              ) {
-
-                groups.set(
-                  key,
-                  []
-                );
-              }
-
-
-              groups
-                .get(key)
-                .push(item);
-
-            }
+        const marker =
+          document.createElement(
+            "button"
           );
 
 
-        groups.forEach(
-          (items, year) => {
-
-            projectIndexList
-              .appendChild(
-
-                createGroupTitle(
-                  year
-                )
-
-              );
+        marker.type =
+          "button";
 
 
-            items.forEach(
-              item => {
+        marker.className =
+          "project-marker";
 
-                projectIndexList
-                  .appendChild(
 
-                    createProjectRow(
-                      item.project,
-                      item.index
-                    )
+        marker.setAttribute(
+          "aria-label",
+          project.title
+        );
 
-                  );
 
-              }
+        /*
+          서로 다른 타이밍으로 반짝이기
+        */
+
+        const duration =
+          2.5 +
+          Math.random() *
+          1.7;
+
+
+        const delay =
+          -Math.random() *
+          4;
+
+
+        marker.style.setProperty(
+
+          "--pulse-duration",
+
+          duration + "s"
+
+        );
+
+
+        marker.style.setProperty(
+
+          "--pulse-delay",
+
+          delay + "s"
+
+        );
+
+
+        const position =
+          latLngToVector3(
+
+            project.lat,
+
+            project.lng,
+
+            1.43
+
+          );
+
+
+        marker.addEventListener(
+          "mouseenter",
+          event => {
+
+            label.innerHTML =
+
+              '<span class="label-number">' +
+
+              project.number +
+
+              '</span>' +
+
+              project.title +
+
+              '<span class="label-category">' +
+
+              project.category +
+
+              '</span>';
+
+
+            label.style.left =
+              event.clientX +
+              "px";
+
+
+            label.style.top =
+              event.clientY +
+              "px";
+
+
+            label.classList.add(
+              "active"
             );
 
           }
         );
 
-      }
+
+        marker.addEventListener(
+          "mousemove",
+          event => {
+
+            label.style.left =
+              event.clientX +
+              "px";
 
 
-      /* NAME */
-
-      if (
-        mode === "name"
-      ) {
-
-        const sorted =
-          [...indexedProjects]
-            .sort(
-              (a, b) =>
-                a.project.title
-                  .localeCompare(
-                    b.project.title,
-                    "en",
-                    {
-                      sensitivity:
-                        "base"
-                    }
-                  )
-            );
-
-
-        let currentLetter =
-          "";
-
-
-        sorted.forEach(
-          item => {
-
-            const firstLetter =
-              item.project.title
-                .trim()
-                .charAt(0)
-                .toUpperCase();
-
-
-            if (
-              firstLetter !==
-              currentLetter
-            ) {
-
-              currentLetter =
-                firstLetter;
-
-
-              projectIndexList
-                .appendChild(
-
-                  createGroupTitle(
-                    currentLetter
-                  )
-
-                );
-
-            }
-
-
-            projectIndexList
-              .appendChild(
-
-                createProjectRow(
-                  item.project,
-                  item.index
-                )
-
-              );
+            label.style.top =
+              event.clientY +
+              "px";
 
           }
         );
 
-      }
 
-    }
-
-
-    /* ====================================================
-       PROJECT INDEX OPEN / CLOSE
-    ==================================================== */
-
-    function openProjectIndex() {
-
-      hidePanel();
-
-
-      projectIndexOverlay
-        .classList
-        .add("active");
-
-
-      projectIndexPanel
-        .classList
-        .add("active");
-
-
-      renderProjectIndex(
-        projectSortMode
-      );
-    }
-
-
-    function hideProjectIndex() {
-
-      projectIndexOverlay
-        .classList
-        .remove("active");
-
-
-      projectIndexPanel
-        .classList
-        .remove("active");
-    }
-
-
-    projectsMenuButton.addEventListener(
-      "click",
-      openProjectIndex
-    );
-
-
-    closeProjectIndex.addEventListener(
-      "click",
-      hideProjectIndex
-    );
-
-
-    projectIndexOverlay.addEventListener(
-      "click",
-      hideProjectIndex
-    );
-
-
-    /* ====================================================
-       SORT BUTTON
-    ==================================================== */
-
-    sortButtons.forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
+        marker.addEventListener(
+          "mouseleave",
           () => {
 
-            sortButtons.forEach(
-              item =>
-                item
-                  .classList
-                  .remove("active")
-            );
-
-
-            button
-              .classList
-              .add("active");
-
-
-            renderProjectIndex(
-              button.dataset.sort
+            label.classList.remove(
+              "active"
             );
 
           }
         );
 
+
+        marker.addEventListener(
+          "click",
+          event => {
+
+            event.stopPropagation();
+
+
+            openProject(
+              project
+            );
+
+          }
+        );
+
+
+        projectMarkersContainer
+          .appendChild(
+            marker
+          );
+
+
+        projectMarkers.push({
+
+          element:
+            marker,
+
+          position:
+            position
+
+        });
+
       }
     );
-
-
-    projectCount.textContent =
-      projects.length +
-      " PROJECTS";
 
 
     /* ====================================================
@@ -3070,6 +2836,7 @@ projects.forEach(
 
 
         return;
+
       }
 
 
@@ -3088,18 +2855,11 @@ projects.forEach(
         ];
 
 
-      panelImage.alt =
-        activeProject.title;
-
-
       sliderCounter.textContent =
 
         String(
           activeImageIndex + 1
-        ).padStart(
-          2,
-          "0"
-        )
+        ).padStart(2, "0")
 
         +
 
@@ -3109,10 +2869,7 @@ projects.forEach(
 
         String(
           images.length
-        ).padStart(
-          2,
-          "0"
-        );
+        ).padStart(2, "0");
 
 
       sliderDots.innerHTML =
@@ -3152,126 +2909,28 @@ projects.forEach(
       );
 
 
-      if (
-        images.length <= 1
-      ) {
-
-        prevImage
-          .classList
-          .add("hidden");
+      const single =
+        images.length <= 1;
 
 
-        nextImage
-          .classList
-          .add("hidden");
-
-      }
-
-      else {
-
-        prevImage
-          .classList
-          .remove("hidden");
+      prevImage.classList.toggle(
+        "hidden",
+        single
+      );
 
 
-        nextImage
-          .classList
-          .remove("hidden");
-
-      }
+      nextImage.classList.toggle(
+        "hidden",
+        single
+      );
 
     }
 
-
-    /* ====================================================
-       LIGHTBOX UPDATE
-    ==================================================== */
-
-    function updateLightbox() {
-
-      if (
-        !activeProject ||
-        !activeProject.images ||
-        activeProject.images.length === 0
-      ) {
-
-        return;
-      }
-
-
-      lightboxImage.src =
-        activeProject.images[
-          activeImageIndex
-        ];
-
-
-      lightboxImage.alt =
-        activeProject.title;
-
-
-      lightboxCounter.textContent =
-
-        String(
-          activeImageIndex + 1
-        ).padStart(
-          2,
-          "0"
-        )
-
-        +
-
-        " / "
-
-        +
-
-        String(
-          activeProject.images.length
-        ).padStart(
-          2,
-          "0"
-        );
-
-
-      if (
-        activeProject.images.length <= 1
-      ) {
-
-        lightboxPrev
-          .classList
-          .add("hidden");
-
-
-        lightboxNext
-          .classList
-          .add("hidden");
-
-      }
-
-      else {
-
-        lightboxPrev
-          .classList
-          .remove("hidden");
-
-
-        lightboxNext
-          .classList
-          .remove("hidden");
-
-      }
-
-    }
-
-
-    /* ====================================================
-       NEXT / PREVIOUS
-    ==================================================== */
 
     function nextSlide() {
 
       if (
         !activeProject ||
-        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
@@ -3307,7 +2966,6 @@ projects.forEach(
 
       if (
         !activeProject ||
-        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
@@ -3317,8 +2975,7 @@ projects.forEach(
 
       activeImageIndex =
         (
-          activeImageIndex - 1
-          +
+          activeImageIndex - 1 +
           activeProject.images.length
         )
         %
@@ -3341,89 +2998,15 @@ projects.forEach(
     }
 
 
-    nextImage.addEventListener(
-      "click",
-      nextSlide
-    );
-
-
     prevImage.addEventListener(
       "click",
       previousSlide
     );
 
 
-    /* ====================================================
-       MOBILE SWIPE
-    ==================================================== */
-
-    let touchStartX =
-      0;
-
-
-    const slider =
-      document.querySelector(
-        ".slider"
-      );
-
-
-    slider.addEventListener(
-      "touchstart",
-      event => {
-
-        touchStartX =
-          event
-            .touches[0]
-            .clientX;
-
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    slider.addEventListener(
-      "touchend",
-      event => {
-
-        const touchEndX =
-          event
-            .changedTouches[0]
-            .clientX;
-
-
-        const difference =
-          touchStartX -
-          touchEndX;
-
-
-        if (
-          Math.abs(difference) < 40
-        ) {
-
-          return;
-        }
-
-
-        if (
-          difference > 0
-        ) {
-
-          nextSlide();
-
-        }
-
-        else {
-
-          previousSlide();
-
-        }
-
-      },
-      {
-        passive: true
-      }
+    nextImage.addEventListener(
+      "click",
+      nextSlide
     );
 
 
@@ -3467,37 +3050,38 @@ projects.forEach(
       updateSlider();
 
 
-      panel
-        .classList
-        .add("active");
+      panel.classList.add(
+        "active"
+      );
 
 
-      panelOverlay
-        .classList
-        .add("active");
+      panelOverlay.classList.add(
+        "active"
+      );
 
 
-      label
-        .classList
-        .remove("active");
+      label.classList.remove(
+        "active"
+      );
 
     }
 
 
     function hidePanel() {
 
-      panel
-        .classList
-        .remove("active");
+      panel.classList.remove(
+        "active"
+      );
 
 
-      panelOverlay
-        .classList
-        .remove("active");
+      panelOverlay.classList.remove(
+        "active"
+      );
 
 
       activeProject =
         null;
+
     }
 
 
@@ -3514,70 +3098,459 @@ projects.forEach(
 
 
     /* ====================================================
-       IMAGE ERROR
+       PROJECT INDEX
     ==================================================== */
 
-    panelImage.addEventListener(
-      "error",
-      () => {
+    function createProjectRow(
+      project,
+      realIndex
+    ) {
 
-        panelImage.style.display =
-          "none";
-
-
-        imagePlaceholder
-          .classList
-          .add("active");
-
-      }
-    );
+      const row =
+        document.createElement(
+          "button"
+        );
 
 
-    /* ====================================================
-       GLOBE CLICK
-    ==================================================== */
+      row.type =
+        "button";
 
-    renderer.domElement
-      .addEventListener(
+
+      row.className =
+        "project-list-row";
+
+
+      row.innerHTML = `
+
+        <span class="project-row-number">
+          ${project.number}
+        </span>
+
+        <span class="project-row-title">
+          ${project.title}
+        </span>
+
+        <span class="project-row-category">
+          ${project.category}
+        </span>
+
+        <span class="project-row-year">
+          ${project.year || "—"}
+        </span>
+
+      `;
+
+
+      row.addEventListener(
         "click",
-        event => {
+        () => {
 
-          updateRaycaster(
-            event
+          hideProjectIndex();
+
+
+          openProject(
+            projects[
+              realIndex
+            ]
           );
-
-
-          const intersects =
-            raycaster.intersectObjects(
-              projectPoints,
-              false
-            );
-
-
-          if (
-            intersects.length > 0
-          ) {
-
-            const index =
-              intersects[0]
-                .object
-                .userData
-                .projectIndex;
-
-
-            openProject(
-              projects[index]
-            );
-
-          }
 
         }
       );
 
 
+      return row;
+
+    }
+
+
+    function createGroupTitle(
+      text
+    ) {
+
+      const title =
+        document.createElement(
+          "div"
+        );
+
+
+      title.className =
+        "project-group-title";
+
+
+      title.textContent =
+        text;
+
+
+      return title;
+
+    }
+
+
+    function getYearValue(
+      project
+    ) {
+
+      const matches =
+        String(
+          project.year
+        ).match(
+          /\d{4}/g
+        );
+
+
+      if (
+        !matches
+      ) {
+
+        return -1;
+      }
+
+
+      return Math.max(
+        ...matches.map(Number)
+      );
+
+    }
+
+
+    function renderProjectIndex(
+      mode = "all"
+    ) {
+
+      projectSortMode =
+        mode;
+
+
+      projectIndexList.innerHTML =
+        "";
+
+
+      const indexedProjects =
+        projects.map(
+          (project, index) => ({
+            project,
+            index
+          })
+        );
+
+
+      if (
+        mode === "all"
+      ) {
+
+        indexedProjects.forEach(
+          item => {
+
+            projectIndexList.appendChild(
+
+              createProjectRow(
+                item.project,
+                item.index
+              )
+
+            );
+
+          }
+        );
+
+      }
+
+
+      if (
+        mode === "year"
+      ) {
+
+        const groups =
+          new Map();
+
+
+        indexedProjects
+          .sort(
+            (a, b) =>
+
+              getYearValue(
+                b.project
+              )
+
+              -
+
+              getYearValue(
+                a.project
+              )
+          )
+          .forEach(
+            item => {
+
+              const key =
+                item.project.year ||
+                "YEAR NOT SET";
+
+
+              if (
+                !groups.has(key)
+              ) {
+
+                groups.set(
+                  key,
+                  []
+                );
+
+              }
+
+
+              groups
+                .get(key)
+                .push(item);
+
+            }
+          );
+
+
+        groups.forEach(
+          (items, year) => {
+
+            projectIndexList.appendChild(
+
+              createGroupTitle(
+                year
+              )
+
+            );
+
+
+            items.forEach(
+              item => {
+
+                projectIndexList.appendChild(
+
+                  createProjectRow(
+                    item.project,
+                    item.index
+                  )
+
+                );
+
+              }
+            );
+
+          }
+        );
+
+      }
+
+
+      if (
+        mode === "name"
+      ) {
+
+        const sorted =
+          [...indexedProjects]
+            .sort(
+              (a, b) =>
+
+                a.project.title
+                  .localeCompare(
+                    b.project.title,
+                    "en"
+                  )
+            );
+
+
+        let currentLetter =
+          "";
+
+
+        sorted.forEach(
+          item => {
+
+            const letter =
+              item.project.title
+                .charAt(0)
+                .toUpperCase();
+
+
+            if (
+              letter !==
+              currentLetter
+            ) {
+
+              currentLetter =
+                letter;
+
+
+              projectIndexList.appendChild(
+
+                createGroupTitle(
+                  letter
+                )
+
+              );
+
+            }
+
+
+            projectIndexList.appendChild(
+
+              createProjectRow(
+                item.project,
+                item.index
+              )
+
+            );
+
+          }
+        );
+
+      }
+
+    }
+
+
+    function openProjectIndex() {
+
+      hidePanel();
+
+
+      projectIndexOverlay
+        .classList
+        .add("active");
+
+
+      projectIndexPanel
+        .classList
+        .add("active");
+
+
+      renderProjectIndex(
+        projectSortMode
+      );
+
+    }
+
+
+    function hideProjectIndex() {
+
+      projectIndexOverlay
+        .classList
+        .remove("active");
+
+
+      projectIndexPanel
+        .classList
+        .remove("active");
+
+    }
+
+
+    projectsMenuButton.addEventListener(
+      "click",
+      openProjectIndex
+    );
+
+
+    closeProjectIndex.addEventListener(
+      "click",
+      hideProjectIndex
+    );
+
+
+    projectIndexOverlay.addEventListener(
+      "click",
+      hideProjectIndex
+    );
+
+
+    sortButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            sortButtons.forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            renderProjectIndex(
+              button.dataset.sort
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    projectCount.textContent =
+      projects.length +
+      " PROJECTS";
+
+
     /* ====================================================
        LIGHTBOX
     ==================================================== */
+
+    function updateLightbox() {
+
+      if (
+        !activeProject ||
+        !activeProject.images.length
+      ) {
+
+        return;
+      }
+
+
+      lightboxImage.src =
+        activeProject.images[
+          activeImageIndex
+        ];
+
+
+      lightboxCounter.textContent =
+
+        String(
+          activeImageIndex + 1
+        ).padStart(2, "0")
+
+        +
+
+        " / "
+
+        +
+
+        String(
+          activeProject.images.length
+        ).padStart(2, "0");
+
+
+      const single =
+        activeProject.images.length <= 1;
+
+
+      lightboxPrev.classList.toggle(
+        "hidden",
+        single
+      );
+
+
+      lightboxNext.classList.toggle(
+        "hidden",
+        single
+      );
+
+    }
+
 
     panelImage.addEventListener(
       "click",
@@ -3585,8 +3558,7 @@ projects.forEach(
 
         if (
           !activeProject ||
-          !activeProject.images ||
-          activeProject.images.length === 0
+          !activeProject.images.length
         ) {
 
           return;
@@ -3596,9 +3568,21 @@ projects.forEach(
         updateLightbox();
 
 
-        imageLightbox
-          .classList
-          .add("active");
+        imageLightbox.classList.add(
+          "active"
+        );
+
+      }
+    );
+
+
+    closeLightbox.addEventListener(
+      "click",
+      () => {
+
+        imageLightbox.classList.remove(
+          "active"
+        );
 
       }
     );
@@ -3606,40 +3590,13 @@ projects.forEach(
 
     lightboxPrev.addEventListener(
       "click",
-      event => {
-
-        event.stopPropagation();
-
-        previousSlide();
-
-      }
+      previousSlide
     );
 
 
     lightboxNext.addEventListener(
       "click",
-      event => {
-
-        event.stopPropagation();
-
-        nextSlide();
-
-      }
-    );
-
-
-    function hideLightbox() {
-
-      imageLightbox
-        .classList
-        .remove("active");
-
-    }
-
-
-    closeLightbox.addEventListener(
-      "click",
-      hideLightbox
+      nextSlide
     );
 
 
@@ -3652,7 +3609,9 @@ projects.forEach(
           imageLightbox
         ) {
 
-          hideLightbox();
+          imageLightbox.classList.remove(
+            "active"
+          );
 
         }
 
@@ -3661,83 +3620,176 @@ projects.forEach(
 
 
     /* ====================================================
-       KEYBOARD
+       PROJECT MARKER POSITION
     ==================================================== */
 
-    document.addEventListener(
-      "keydown",
-      event => {
+    const markerWorld =
+      new THREE.Vector3();
 
-        if (
-          imageLightbox
-            .classList
-            .contains("active")
-        ) {
+
+    const markerProjected =
+      new THREE.Vector3();
+
+
+    const globeCenter =
+      new THREE.Vector3();
+
+
+    const cameraPosition =
+      new THREE.Vector3();
+
+
+    const markerNormal =
+      new THREE.Vector3();
+
+
+    const markerToCamera =
+      new THREE.Vector3();
+
+
+    function updateProjectMarkers() {
+
+      globe.updateMatrixWorld(
+        true
+      );
+
+
+      camera.updateMatrixWorld(
+        true
+      );
+
+
+      globe.getWorldPosition(
+        globeCenter
+      );
+
+
+      camera.getWorldPosition(
+        cameraPosition
+      );
+
+
+      const width =
+        container.clientWidth;
+
+
+      const height =
+        container.clientHeight;
+
+
+      projectMarkers.forEach(
+        marker => {
+
+          markerWorld.copy(
+            marker.position
+          );
+
+
+          globe.localToWorld(
+            markerWorld
+          );
+
+
+          markerNormal
+            .copy(markerWorld)
+            .sub(globeCenter)
+            .normalize();
+
+
+          markerToCamera
+            .copy(cameraPosition)
+            .sub(markerWorld)
+            .normalize();
+
+
+          const facing =
+            markerNormal.dot(
+              markerToCamera
+            );
+
+
+          /*
+            지구 뒷면이면 숨김
+          */
 
           if (
-            event.key === "Escape"
+            facing <= 0.02
           ) {
 
-            hideLightbox();
+            marker.element.style.opacity =
+              "0";
+
+
+            marker.element.style.pointerEvents =
+              "none";
+
+
+            return;
 
           }
 
 
-          if (
-            event.key === "ArrowRight"
-          ) {
-
-            nextSlide();
-
-          }
+          markerProjected
+            .copy(markerWorld)
+            .project(camera);
 
 
-          if (
-            event.key === "ArrowLeft"
-          ) {
+          const x =
+            (
+              markerProjected.x *
+              0.5 +
+              0.5
+            )
+            *
+            width;
 
-            previousSlide();
 
-          }
+          const y =
+            (
+              -markerProjected.y *
+              0.5 +
+              0.5
+            )
+            *
+            height;
 
 
-          return;
+          marker.element.style.left =
+            x + "px";
+
+
+          marker.element.style.top =
+            y + "px";
+
+
+          const visibility =
+            THREE.MathUtils.clamp(
+
+              facing *
+              3,
+
+              0,
+
+              1
+
+            );
+
+
+          marker.element.style.opacity =
+            visibility;
+
+
+          marker.element.style.pointerEvents =
+            "auto";
+
         }
+      );
 
-
-        if (
-          projectIndexPanel
-            .classList
-            .contains("active")
-        ) {
-
-          if (
-            event.key === "Escape"
-          ) {
-
-            hideProjectIndex();
-
-          }
-
-
-          return;
-        }
-
-
-        if (
-          event.key === "Escape"
-        ) {
-
-          hidePanel();
-
-        }
-
-      }
-    );
+    }
 
 
     /* ====================================================
-       MOUSE REACTION
+       MOUSE
     ==================================================== */
 
     let mouseX =
@@ -3754,15 +3806,13 @@ projects.forEach(
 
         mouseX =
           event.clientX /
-          window.innerWidth
-          -
+          window.innerWidth -
           0.5;
 
 
         mouseY =
           event.clientY /
-          window.innerHeight
-          -
+          window.innerHeight -
           0.5;
 
       }
@@ -3794,8 +3844,7 @@ projects.forEach(
         height;
 
 
-      camera
-        .updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
     }
 
@@ -3810,11 +3859,86 @@ projects.forEach(
 
 
     /* ====================================================
-       ANIMATION
+       KEYBOARD
+    ==================================================== */
 
-       작은 점 = 고정
-       큰 프로젝트 점 = 은은하게 반짝임
-       패널이 열려도 지구 계속 회전
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          if (
+            imageLightbox
+              .classList
+              .contains("active")
+          ) {
+
+            imageLightbox
+              .classList
+              .remove("active");
+
+
+            return;
+
+          }
+
+
+          if (
+            projectIndexPanel
+              .classList
+              .contains("active")
+          ) {
+
+            hideProjectIndex();
+
+
+            return;
+
+          }
+
+
+          hidePanel();
+
+        }
+
+
+        if (
+          imageLightbox
+            .classList
+            .contains("active")
+        ) {
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+
+            nextSlide();
+
+          }
+
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+
+            previousSlide();
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* ====================================================
+       ANIMATION
     ==================================================== */
 
     function animate() {
@@ -3824,18 +3948,17 @@ projects.forEach(
       );
 
 
-      const time =
-        performance.now() *
-        0.001;
-
-
-      /* 자동 회전 */
+      /*
+        자동 회전
+      */
 
       globe.rotation.y +=
         0.0022;
 
 
-      /* 마우스 반응 */
+      /*
+        마우스 움직임 반응
+      */
 
       globe.rotation.x +=
 
@@ -3865,161 +3988,11 @@ projects.forEach(
         0.008;
 
 
-      /* ======================================
-         PROJECT POINT TWINKLE
-      ====================================== */
+      /*
+        프로젝트 흰 점 위치 업데이트
+      */
 
-      projectPoints.forEach(
-        point => {
-
-
-          const data =
-            point.userData;
-
-
-          const pulse =
-
-            (
-              Math.sin(
-                time *
-                data.twinkleSpeed
-                +
-                data.twinklePhase
-              )
-              +
-              1
-            )
-
-            /
-
-            2;
-
-
-          /*
-             기본 상태
-             1.00 → 약 1.20배
-
-             점이 아주 은은하게
-             커졌다 작아짐
-          */
-
-          if (
-            point !==
-            hoveredPoint
-          ) {
-
-            const scale =
-              1 +
-              pulse *
-              0.20;
-
-
-            data
-              .visiblePoint
-              .scale
-              .setScalar(
-                scale
-              );
-
-
-            /*
-               점 자체 밝기도
-               미세하게 변화
-            */
-
-            data
-              .visiblePoint
-              .material
-              .opacity =
-
-              0.72 +
-
-              pulse *
-              0.28;
-
-
-            /*
-               주변 링도
-               같이 숨 쉬듯 반짝임
-            */
-
-            data
-              .halo
-              .material
-              .opacity =
-
-              0.13 +
-
-              pulse *
-              0.24;
-
-
-            data
-              .halo
-              .scale
-              .setScalar(
-
-                0.95 +
-
-                pulse *
-                0.16
-
-              );
-
-          }
-
-          else {
-
-            /*
-               마우스 올렸을 때는
-               반짝임보다 훨씬 크게 표시
-            */
-
-            data
-              .visiblePoint
-              .scale
-              .setScalar(
-                1.8
-              );
-
-
-            data
-              .visiblePoint
-              .material
-              .opacity =
-              1;
-
-
-            data
-              .halo
-              .scale
-              .setScalar(
-                1.15
-              );
-
-
-            data
-              .halo
-              .material
-              .opacity =
-              0.85;
-
-          }
-
-
-          /*
-             링이 항상 카메라를 바라보게
-          */
-
-          data
-            .halo
-            .quaternion
-            .copy(
-              camera.quaternion
-            );
-
-        }
-      );
+      updateProjectMarkers();
 
 
       renderer.render(
@@ -4029,10 +4002,6 @@ projects.forEach(
 
     }
 
-
-    /* ====================================================
-       START
-    ==================================================== */
 
     renderProjectIndex(
       "all"
@@ -4044,4 +4013,5 @@ projects.forEach(
   </script>
 
 </body>
+
 </html>
