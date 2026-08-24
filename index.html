@@ -24,8 +24,13 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    button {
+    button,
+    a {
       font: inherit;
+    }
+
+    button {
+      color: inherit;
     }
 
     /* ==================================================
@@ -58,7 +63,7 @@
       font-size: 12px;
       font-weight: 600;
 
-      z-index: 30;
+      z-index: 40;
     }
 
     .top-center {
@@ -198,7 +203,6 @@
 
     #earthWrap {
       position: absolute;
-
       left: 50%;
       top: 50%;
 
@@ -213,7 +217,6 @@
     #earth {
       position: absolute;
       inset: 0;
-
       width: 100%;
       height: 100%;
     }
@@ -240,8 +243,8 @@
       width: 34px;
       height: 34px;
 
-      border: 0;
       padding: 0;
+      border: 0;
 
       border-radius: 50%;
 
@@ -253,10 +256,18 @@
 
       cursor: pointer;
 
-      opacity: 0;
+      opacity: 1;
 
-      transition: opacity 0.15s ease;
+      transition:
+        opacity 0.35s ease;
+
+      will-change:
+        left,
+        top,
+        opacity;
     }
+
+    /* 중심 흰색 점 */
 
     .project-marker::before {
       content: "";
@@ -287,6 +298,8 @@
       animation-delay:
         var(--pulse-delay);
     }
+
+    /* 바깥 링 */
 
     .project-marker::after {
       content: "";
@@ -319,7 +332,7 @@
     @keyframes projectPointPulse {
       0%,
       100% {
-        opacity: 0.75;
+        opacity: 0.76;
 
         transform:
           translate(-50%, -50%)
@@ -344,11 +357,11 @@
     @keyframes projectHaloPulse {
       0%,
       100% {
-        opacity: 0.2;
+        opacity: 0.20;
 
         transform:
           translate(-50%, -50%)
-          scale(0.9);
+          scale(0.90);
       }
 
       50% {
@@ -367,7 +380,7 @@
 
       transform:
         translate(-50%, -50%)
-        scale(1.6);
+        scale(1.62);
 
       box-shadow:
         0 0 16px rgba(255, 255, 255, 1);
@@ -389,7 +402,6 @@
 
     #projectLabel {
       position: fixed;
-
       left: 0;
       top: 0;
 
@@ -487,12 +499,12 @@
 
     .panel-overlay {
       position: fixed;
-
       inset: 0;
 
       background: rgba(0, 0, 0, 0.18);
 
       opacity: 0;
+
       pointer-events: none;
 
       transition: opacity 0.5s ease;
@@ -506,7 +518,7 @@
     }
 
     /* ==================================================
-       PROJECT DETAIL
+       PROJECT PANEL
     ================================================== */
 
     #projectPanel {
@@ -561,7 +573,6 @@
 
     #closePanel {
       appearance: none;
-
       border: 0;
       background: none;
 
@@ -605,7 +616,7 @@
     }
 
     /* ==================================================
-       SLIDER
+       IMAGE SLIDER
     ================================================== */
 
     .slider {
@@ -661,7 +672,6 @@
 
     .slider-button {
       position: absolute;
-
       top: 50%;
 
       transform: translateY(-50%);
@@ -735,9 +745,9 @@
     ================================================== */
 
     .panel-description {
-      max-width: 410px;
+      max-width: 420px;
 
-      margin-bottom: 40px;
+      margin-bottom: 20px;
 
       font-size: 12px;
       line-height: 1.8;
@@ -745,6 +755,42 @@
       color: rgba(255, 255, 255, 0.65);
 
       white-space: pre-line;
+    }
+
+    /* ==================================================
+       PROJECT LINK
+    ================================================== */
+
+    .panel-link {
+      display: none;
+
+      max-width: 420px;
+
+      margin-bottom: 40px;
+
+      padding-top: 14px;
+
+      border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+      color: rgba(255, 255, 255, 0.46);
+
+      font-size: 10px;
+      line-height: 1.55;
+
+      text-decoration: none;
+
+      word-break: break-all;
+
+      transition: color 0.2s ease;
+    }
+
+    .panel-link.active {
+      display: block;
+    }
+
+    .panel-link:hover {
+      color: #fff;
     }
 
     .view-project {
@@ -771,7 +817,6 @@
 
     #projectIndexOverlay {
       position: fixed;
-
       inset: 0;
 
       background: rgba(0, 0, 0, 0.35);
@@ -862,6 +907,7 @@
 
     .project-index-meta {
       display: flex;
+
       align-items: flex-end;
       justify-content: space-between;
 
@@ -913,6 +959,12 @@
       overflow-y: auto;
 
       padding: 0 40px 60px;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        rgba(255, 255, 255, 0.2)
+        transparent;
     }
 
     .project-group-title {
@@ -1081,6 +1133,10 @@
       cursor: pointer;
     }
 
+    .lightbox-arrow:hover {
+      color: #fff;
+    }
+
     #lightboxPrev {
       left: 24px;
     }
@@ -1104,6 +1160,7 @@
       color: rgba(255, 255, 255, 0.55);
 
       font-size: 10px;
+      letter-spacing: 0.08em;
     }
 
     /* ==================================================
@@ -1138,7 +1195,6 @@
 
       .guide-circle {
         width: 90vw;
-
         top: 49%;
       }
 
@@ -1172,9 +1228,7 @@
       }
 
       .project-index-header {
-        padding:
-          24px
-          22px;
+        padding: 24px 22px;
       }
 
       .project-index-top {
@@ -1206,6 +1260,8 @@
           90px;
 
         gap: 10px;
+
+        padding: 18px 0;
       }
 
       .project-row-category {
@@ -1220,6 +1276,15 @@
         max-width: 96vw;
         max-height: 82vh;
       }
+
+      #lightboxPrev {
+        left: 5px;
+      }
+
+      #lightboxNext {
+        right: 5px;
+      }
+
     }
   </style>
 </head>
@@ -1255,16 +1320,12 @@
 
 
     <div class="guide-circle">
-
       <div class="line one"></div>
-
       <div class="line two"></div>
-
     </div>
 
 
     <div class="side-line left"></div>
-
     <div class="side-line right"></div>
 
 
@@ -1328,16 +1389,20 @@
   </main>
 
 
+  <!-- HOVER LABEL -->
+
   <div id="projectLabel"></div>
 
 
-  <!-- PROJECT DETAIL -->
+  <!-- DETAIL OVERLAY -->
 
   <div
     class="panel-overlay"
     id="panelOverlay">
   </div>
 
+
+  <!-- PROJECT DETAIL -->
 
   <aside id="projectPanel">
 
@@ -1415,7 +1480,6 @@
         00 / 00
       </div>
 
-
       <div
         class="slider-dots"
         id="sliderDots">
@@ -1428,6 +1492,15 @@
       class="panel-description"
       id="panelDescription">
     </p>
+
+
+    <a
+      class="panel-link"
+      id="panelLink"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer">
+    </a>
 
 
     <div class="view-project">
@@ -1567,7 +1640,9 @@
 
     const projects = [
 
-      /* 01 ORV */
+      /* ==================================================
+         01 ORV
+      ================================================== */
 
       {
         number: "01",
@@ -1593,7 +1668,9 @@
       },
 
 
-      /* 02 ADVENT CALENDAR */
+      /* ==================================================
+         02 ADVENT CALENDAR
+      ================================================== */
 
       {
         number: "02",
@@ -1617,7 +1694,9 @@
       },
 
 
-      /* 03 DREAM CAT */
+      /* ==================================================
+         03 DREAM CAT SHELTER
+      ================================================== */
 
       {
         number: "03",
@@ -1640,7 +1719,9 @@
       },
 
 
-      /* 04 LOGO */
+      /* ==================================================
+         04 LOGO
+      ================================================== */
 
       {
         number: "04",
@@ -1660,7 +1741,9 @@
       },
 
 
-      /* 05 BOOK */
+      /* ==================================================
+         05 BOOK
+      ================================================== */
 
       {
         number: "05",
@@ -1680,7 +1763,11 @@
       },
 
 
-      /* 06 POSTER */
+      /* ==================================================
+         06 POSTER
+
+         이미지마다 설명 다름
+      ================================================== */
 
       {
         number: "06",
@@ -1693,14 +1780,34 @@
 
         description: "",
 
-        images: [],
+        images: [
+
+          {
+            src:
+              "images/poster-01.jpg",
+
+            description:
+              "3D Poster 작업프로세스"
+          },
+
+          {
+            src:
+              "images/poster-02.jpg",
+
+            description:
+              "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작"
+          }
+
+        ],
 
         lat: 25,
         lng: 67
       },
 
 
-      /* 07 BANNER */
+      /* ==================================================
+         07 BANNER
+      ================================================== */
 
       {
         number: "07",
@@ -1720,7 +1827,9 @@
       },
 
 
-      /* 08 WANDY */
+      /* ==================================================
+         08 WANDY
+      ================================================== */
 
       {
         number: "08",
@@ -1750,7 +1859,9 @@
       },
 
 
-      /* 09 LANGMUIR */
+      /* ==================================================
+         09 LANGMUIR
+      ================================================== */
 
       {
         number: "09",
@@ -1771,7 +1882,9 @@
       },
 
 
-      /* 10 OFFICE OF EDUCATION */
+      /* ==================================================
+         10 OFFICE OF EDUCATION
+      ================================================== */
 
       {
         number: "10",
@@ -1784,7 +1897,10 @@
           "PM SAFETY EDUCATION",
 
         description:
-          "유치원 / 초등학교 / 중학교 / 고등학교를 대상으로 한 PM 안전교육 자료의 그래픽 및 편집디자인을 진행하였습니다.",
+          "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
+
+        link:
+          "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
 
         images: [],
 
@@ -1819,7 +1935,9 @@
       },
 
 
-      /* 12 HONGIK UNIVERSITY */
+      /* ==================================================
+         12 HONGIK UNIVERSITY
+      ================================================== */
 
       {
         number: "12",
@@ -1831,16 +1949,23 @@
         category: "HOMEPAGE",
 
         description:
-          "온라인커뮤니케이션실 부편집장으로 홈페이지 뉴스 콘텐츠 관리 및 관련 디자인 업무를 진행하고 있습니다.",
+          "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
 
-        images: [],
+        link:
+          "https://www.hongik.ac.kr/kr/index.do",
+
+        images: [
+          "images/hongik university-01.jpg"
+        ],
 
         lat: -42,
         lng: -40
       },
 
 
-      /* 13 SPACEHAESO */
+      /* ==================================================
+         13 SPACEHAESO
+      ================================================== */
 
       {
         number: "13",
@@ -1853,16 +1978,27 @@
         category: "PHOTO",
 
         description:
-          "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
+          "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
 
-        images: [],
+        link:
+          "https://spacehaeso.com/53",
+
+        images: [
+          "images/spacehaeso-01.jpg",
+          "images/spacehaeso-02.jpg",
+          "images/spacehaeso-03.jpg",
+          "images/spacehaeso-04.jpg",
+          "images/spacehaeso-05.jpg"
+        ],
 
         lat: 57,
         lng: -143
       },
 
 
-      /* 14 LIG D&A */
+      /* ==================================================
+         14 LIG D&A
+      ================================================== */
 
       {
         number: "14",
@@ -1876,7 +2012,7 @@
           "PACKAGE / GRAPHIC DESIGN",
 
         description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여\n\nVIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
+          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
 
         images: [
           "images/LIG D&A-01.jpg"
@@ -1887,7 +2023,9 @@
       },
 
 
-      /* 15 LG KES */
+      /* ==================================================
+         15 LG KES AI GALLERY
+      ================================================== */
 
       {
         number: "15",
@@ -2209,7 +2347,7 @@
 
 
     /* ====================================================
-       LAT LNG
+       LAT / LNG
     ==================================================== */
 
     function latLngToVector3(
@@ -2249,7 +2387,7 @@
 
 
     /* ====================================================
-       ELEMENTS
+       DOM ELEMENTS
     ==================================================== */
 
     const label =
@@ -2297,6 +2435,12 @@
     const panelDescription =
       document.getElementById(
         "panelDescription"
+      );
+
+
+    const panelLink =
+      document.getElementById(
+        "panelLink"
       );
 
 
@@ -2433,6 +2577,106 @@
 
 
     /* ====================================================
+       IMAGE DATA HELPERS
+
+       문자열 이미지와
+       이미지별 설명 객체 모두 지원
+    ==================================================== */
+
+    function getProjectImages(
+      project
+    ) {
+
+      return project.images || [];
+
+    }
+
+
+    function getImageSource(
+      item
+    ) {
+
+      if (
+        typeof item ===
+        "string"
+      ) {
+
+        return item;
+
+      }
+
+
+      return item.src || "";
+
+    }
+
+
+    function getImageDescription(
+      item
+    ) {
+
+      if (
+        typeof item ===
+        "object" &&
+        item.description
+      ) {
+
+        return item.description;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    function getCurrentDescription() {
+
+      if (
+        !activeProject
+      ) {
+
+        return "";
+
+      }
+
+
+      const images =
+        getProjectImages(
+          activeProject
+        );
+
+
+      if (
+        images.length
+      ) {
+
+        const imageDescription =
+          getImageDescription(
+            images[
+              activeImageIndex
+            ]
+          );
+
+
+        if (
+          imageDescription
+        ) {
+
+          return imageDescription;
+
+        }
+
+      }
+
+
+      return activeProject.description || "";
+
+    }
+
+
+    /* ====================================================
        PROJECT MARKERS
     ==================================================== */
 
@@ -2447,7 +2691,7 @@
 
 
     projects.forEach(
-      (project, index) => {
+      project => {
 
 
         const marker =
@@ -2469,6 +2713,8 @@
           project.title
         );
 
+
+        /* 서로 다른 반짝임 타이밍 */
 
         const duration =
           2.5 +
@@ -2584,9 +2830,10 @@
         );
 
 
-        projectMarkersContainer.appendChild(
-          marker
-        );
+        projectMarkersContainer
+          .appendChild(
+            marker
+          );
 
 
         projectMarkers.push({
@@ -2604,7 +2851,52 @@
 
 
     /* ====================================================
-       SLIDER
+       PROJECT LINK
+    ==================================================== */
+
+    function updateProjectLink() {
+
+      if (
+        !activeProject ||
+        !activeProject.link
+      ) {
+
+        panelLink
+          .classList
+          .remove("active");
+
+
+        panelLink.removeAttribute(
+          "href"
+        );
+
+
+        panelLink.textContent =
+          "";
+
+
+        return;
+
+      }
+
+
+      panelLink.href =
+        activeProject.link;
+
+
+      panelLink.textContent =
+        activeProject.link;
+
+
+      panelLink
+        .classList
+        .add("active");
+
+    }
+
+
+    /* ====================================================
+       IMAGE SLIDER
     ==================================================== */
 
     function updateSlider() {
@@ -2614,12 +2906,19 @@
       ) {
 
         return;
+
       }
 
 
       const images =
-        activeProject.images || [];
+        getProjectImages(
+          activeProject
+        );
 
+
+      /*
+        이미지 없는 프로젝트
+      */
 
       if (
         images.length === 0
@@ -2634,19 +2933,19 @@
         );
 
 
-        imagePlaceholder.classList.add(
-          "active"
-        );
+        imagePlaceholder
+          .classList
+          .add("active");
 
 
-        prevImage.classList.add(
-          "hidden"
-        );
+        prevImage
+          .classList
+          .add("hidden");
 
 
-        nextImage.classList.add(
-          "hidden"
-        );
+        nextImage
+          .classList
+          .add("hidden");
 
 
         sliderCounter.textContent =
@@ -2657,28 +2956,51 @@
           "";
 
 
+        panelDescription.textContent =
+          activeProject.description || "";
+
+
         return;
 
       }
+
+
+      /*
+        이미지 있는 프로젝트
+      */
+
+      const currentImage =
+        images[
+          activeImageIndex
+        ];
 
 
       panelImage.style.display =
         "block";
 
 
-      imagePlaceholder.classList.remove(
-        "active"
-      );
+      imagePlaceholder
+        .classList
+        .remove("active");
 
 
       panelImage.src =
-        images[
-          activeImageIndex
-        ];
+        getImageSource(
+          currentImage
+        );
 
 
       panelImage.alt =
         activeProject.title;
+
+
+      /*
+        Poster처럼 이미지별 설명이 있는 경우
+        이미지와 함께 설명도 변경
+      */
+
+      panelDescription.textContent =
+        getCurrentDescription();
 
 
       sliderCounter.textContent =
@@ -2710,6 +3032,7 @@
 
       images.forEach(
         (image, index) => {
+
 
           const dot =
             document.createElement(
@@ -2759,12 +3082,29 @@
     }
 
 
+    /* ====================================================
+       SLIDE NAVIGATION
+    ==================================================== */
+
     function nextSlide() {
 
       if (
-        !activeProject ||
-        !activeProject.images ||
-        activeProject.images.length <= 1
+        !activeProject
+      ) {
+
+        return;
+
+      }
+
+
+      const images =
+        getProjectImages(
+          activeProject
+        );
+
+
+      if (
+        images.length <= 1
       ) {
 
         return;
@@ -2777,16 +3117,16 @@
           activeImageIndex + 1
         )
         %
-        activeProject.images.length;
+        images.length;
 
 
       updateSlider();
 
 
       if (
-        imageLightbox.classList.contains(
-          "active"
-        )
+        imageLightbox
+          .classList
+          .contains("active")
       ) {
 
         updateLightbox();
@@ -2799,9 +3139,22 @@
     function previousSlide() {
 
       if (
-        !activeProject ||
-        !activeProject.images ||
-        activeProject.images.length <= 1
+        !activeProject
+      ) {
+
+        return;
+
+      }
+
+
+      const images =
+        getProjectImages(
+          activeProject
+        );
+
+
+      if (
+        images.length <= 1
       ) {
 
         return;
@@ -2811,20 +3164,21 @@
 
       activeImageIndex =
         (
-          activeImageIndex - 1 +
-          activeProject.images.length
+          activeImageIndex - 1
+          +
+          images.length
         )
         %
-        activeProject.images.length;
+        images.length;
 
 
       updateSlider();
 
 
       if (
-        imageLightbox.classList.contains(
-          "active"
-        )
+        imageLightbox
+          .classList
+          .contains("active")
       ) {
 
         updateLightbox();
@@ -2843,6 +3197,79 @@
     nextImage.addEventListener(
       "click",
       nextSlide
+    );
+
+
+    /* ====================================================
+       TOUCH SWIPE
+    ==================================================== */
+
+    const slider =
+      document.querySelector(
+        ".slider"
+      );
+
+
+    let touchStartX =
+      0;
+
+
+    slider.addEventListener(
+      "touchstart",
+      event => {
+
+        touchStartX =
+          event.touches[0].clientX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    slider.addEventListener(
+      "touchend",
+      event => {
+
+        const touchEndX =
+          event.changedTouches[0].clientX;
+
+
+        const difference =
+          touchStartX -
+          touchEndX;
+
+
+        if (
+          Math.abs(
+            difference
+          ) < 40
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          difference > 0
+        ) {
+
+          nextSlide();
+
+        }
+
+        else {
+
+          previousSlide();
+
+        }
+
+      },
+      {
+        passive: true
+      }
     );
 
 
@@ -2880,39 +3307,42 @@
 
 
       panelDescription.textContent =
-        project.description;
+        project.description || "";
+
+
+      updateProjectLink();
 
 
       updateSlider();
 
 
-      panel.classList.add(
-        "active"
-      );
+      panel
+        .classList
+        .add("active");
 
 
-      panelOverlay.classList.add(
-        "active"
-      );
+      panelOverlay
+        .classList
+        .add("active");
 
 
-      label.classList.remove(
-        "active"
-      );
+      label
+        .classList
+        .remove("active");
 
     }
 
 
     function hidePanel() {
 
-      panel.classList.remove(
-        "active"
-      );
+      panel
+        .classList
+        .remove("active");
 
 
-      panelOverlay.classList.remove(
-        "active"
-      );
+      panelOverlay
+        .classList
+        .remove("active");
 
 
       activeProject =
@@ -3009,7 +3439,8 @@
 
 
       year.textContent =
-        project.year || "—";
+        project.year ||
+        "—";
 
 
       row.append(
@@ -3046,21 +3477,21 @@
       text
     ) {
 
-      const title =
+      const element =
         document.createElement(
           "div"
         );
 
 
-      title.className =
+      element.className =
         "project-group-title";
 
 
-      title.textContent =
+      element.textContent =
         text;
 
 
-      return title;
+      return element;
 
     }
 
@@ -3124,14 +3555,15 @@
         indexedProjects.forEach(
           item => {
 
-            projectIndexList.appendChild(
+            projectIndexList
+              .appendChild(
 
-              createProjectRow(
-                item.project,
-                item.index
-              )
+                createProjectRow(
+                  item.project,
+                  item.index
+                )
 
-            );
+              );
 
           }
         );
@@ -3176,13 +3608,15 @@
               }
 
 
-              return a.project.title.localeCompare(
-                b.project.title,
-                "en",
-                {
-                  sensitivity: "base"
-                }
-              );
+              return a.project.title
+                .localeCompare(
+                  b.project.title,
+                  "en",
+                  {
+                    sensitivity:
+                      "base"
+                  }
+                );
 
             }
           )
@@ -3191,13 +3625,18 @@
             item => {
 
               const key =
+
                 item.project.year.trim()
+
                 ||
+
                 "YEAR NOT SET";
 
 
               if (
-                !groups.has(key)
+                !groups.has(
+                  key
+                )
               ) {
 
                 groups.set(
@@ -3219,26 +3658,28 @@
         groups.forEach(
           (items, year) => {
 
-            projectIndexList.appendChild(
+            projectIndexList
+              .appendChild(
 
-              createGroupTitle(
-                year
-              )
+                createGroupTitle(
+                  year
+                )
 
-            );
+              );
 
 
             items.forEach(
               item => {
 
-                projectIndexList.appendChild(
+                projectIndexList
+                  .appendChild(
 
-                  createProjectRow(
-                    item.project,
-                    item.index
-                  )
+                    createProjectRow(
+                      item.project,
+                      item.index
+                    )
 
-                );
+                  );
 
               }
             );
@@ -3259,13 +3700,15 @@
           [...indexedProjects]
             .sort(
               (a, b) =>
-                a.project.title.localeCompare(
-                  b.project.title,
-                  "en",
-                  {
-                    sensitivity: "base"
-                  }
-                )
+                a.project.title
+                  .localeCompare(
+                    b.project.title,
+                    "en",
+                    {
+                      sensitivity:
+                        "base"
+                    }
+                  )
             );
 
 
@@ -3292,25 +3735,27 @@
                 letter;
 
 
-              projectIndexList.appendChild(
+              projectIndexList
+                .appendChild(
 
-                createGroupTitle(
-                  letter
-                )
+                  createGroupTitle(
+                    letter
+                  )
 
-              );
+                );
 
             }
 
 
-            projectIndexList.appendChild(
+            projectIndexList
+              .appendChild(
 
-              createProjectRow(
-                item.project,
-                item.index
-              )
+                createProjectRow(
+                  item.project,
+                  item.index
+                )
 
-            );
+              );
 
           }
         );
@@ -3325,14 +3770,14 @@
       hidePanel();
 
 
-      projectIndexOverlay.classList.add(
-        "active"
-      );
+      projectIndexOverlay
+        .classList
+        .add("active");
 
 
-      projectIndexPanel.classList.add(
-        "active"
-      );
+      projectIndexPanel
+        .classList
+        .add("active");
 
 
       renderProjectIndex(
@@ -3344,34 +3789,37 @@
 
     function hideProjectIndex() {
 
-      projectIndexOverlay.classList.remove(
-        "active"
-      );
+      projectIndexOverlay
+        .classList
+        .remove("active");
 
 
-      projectIndexPanel.classList.remove(
-        "active"
-      );
+      projectIndexPanel
+        .classList
+        .remove("active");
 
     }
 
 
-    projectsMenuButton.addEventListener(
-      "click",
-      openProjectIndex
-    );
+    projectsMenuButton
+      .addEventListener(
+        "click",
+        openProjectIndex
+      );
 
 
-    closeProjectIndex.addEventListener(
-      "click",
-      hideProjectIndex
-    );
+    closeProjectIndex
+      .addEventListener(
+        "click",
+        hideProjectIndex
+      );
 
 
-    projectIndexOverlay.addEventListener(
-      "click",
-      hideProjectIndex
-    );
+    projectIndexOverlay
+      .addEventListener(
+        "click",
+        hideProjectIndex
+      );
 
 
     sortButtons.forEach(
@@ -3383,15 +3831,19 @@
 
             sortButtons.forEach(
               item =>
-                item.classList.remove(
-                  "active"
-                )
+                item
+                  .classList
+                  .remove(
+                    "active"
+                  )
             );
 
 
-            button.classList.add(
-              "active"
-            );
+            button
+              .classList
+              .add(
+                "active"
+              );
 
 
             renderProjectIndex(
@@ -3411,15 +3863,48 @@
 
 
     /* ====================================================
+       BROKEN IMAGE
+    ==================================================== */
+
+    panelImage.addEventListener(
+      "error",
+      () => {
+
+        panelImage.style.display =
+          "none";
+
+
+        imagePlaceholder
+          .classList
+          .add("active");
+
+      }
+    );
+
+
+    /* ====================================================
        LIGHTBOX
     ==================================================== */
 
     function updateLightbox() {
 
       if (
-        !activeProject ||
-        !activeProject.images ||
-        !activeProject.images.length
+        !activeProject
+      ) {
+
+        return;
+
+      }
+
+
+      const images =
+        getProjectImages(
+          activeProject
+        );
+
+
+      if (
+        images.length === 0
       ) {
 
         return;
@@ -3428,9 +3913,11 @@
 
 
       lightboxImage.src =
-        activeProject.images[
-          activeImageIndex
-        ];
+        getImageSource(
+          images[
+            activeImageIndex
+          ]
+        );
 
 
       lightboxImage.alt =
@@ -3453,7 +3940,7 @@
         +
 
         String(
-          activeProject.images.length
+          images.length
         ).padStart(
           2,
           "0"
@@ -3461,7 +3948,7 @@
 
 
       const single =
-        activeProject.images.length <= 1;
+        images.length <= 1;
 
 
       lightboxPrev.classList.toggle(
@@ -3483,9 +3970,22 @@
       () => {
 
         if (
-          !activeProject ||
-          !activeProject.images ||
-          !activeProject.images.length
+          !activeProject
+        ) {
+
+          return;
+
+        }
+
+
+        const images =
+          getProjectImages(
+            activeProject
+          );
+
+
+        if (
+          images.length === 0
         ) {
 
           return;
@@ -3496,50 +3996,150 @@
         updateLightbox();
 
 
-        imageLightbox.classList.add(
-          "active"
-        );
+        imageLightbox
+          .classList
+          .add("active");
 
       }
     );
 
 
-    closeLightbox.addEventListener(
-      "click",
-      () => {
+    function hideLightbox() {
 
-        imageLightbox.classList.remove(
-          "active"
-        );
+      imageLightbox
+        .classList
+        .remove("active");
 
-      }
-    );
+    }
 
 
-    lightboxPrev.addEventListener(
-      "click",
-      previousSlide
-    );
+    closeLightbox
+      .addEventListener(
+        "click",
+        hideLightbox
+      );
 
 
-    lightboxNext.addEventListener(
-      "click",
-      nextSlide
-    );
+    lightboxPrev
+      .addEventListener(
+        "click",
+        event => {
+
+          event.stopPropagation();
+
+          previousSlide();
+
+        }
+      );
 
 
-    imageLightbox.addEventListener(
-      "click",
+    lightboxNext
+      .addEventListener(
+        "click",
+        event => {
+
+          event.stopPropagation();
+
+          nextSlide();
+
+        }
+      );
+
+
+    imageLightbox
+      .addEventListener(
+        "click",
+        event => {
+
+          if (
+            event.target ===
+            imageLightbox
+          ) {
+
+            hideLightbox();
+
+          }
+
+        }
+      );
+
+
+    /* ====================================================
+       KEYBOARD
+    ==================================================== */
+
+    document.addEventListener(
+      "keydown",
       event => {
 
         if (
-          event.target ===
           imageLightbox
+            .classList
+            .contains("active")
         ) {
 
-          imageLightbox.classList.remove(
-            "active"
-          );
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            hideLightbox();
+
+          }
+
+
+          if (
+            event.key ===
+            "ArrowRight"
+          ) {
+
+            nextSlide();
+
+          }
+
+
+          if (
+            event.key ===
+            "ArrowLeft"
+          ) {
+
+            previousSlide();
+
+          }
+
+
+          return;
+
+        }
+
+
+        if (
+          projectIndexPanel
+            .classList
+            .contains("active")
+        ) {
+
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            hideProjectIndex();
+
+          }
+
+
+          return;
+
+        }
+
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          hidePanel();
 
         }
 
@@ -3548,27 +4148,12 @@
 
 
     /* ====================================================
-       BROKEN IMAGE
-    ==================================================== */
-
-    panelImage.addEventListener(
-      "error",
-      () => {
-
-        panelImage.style.display =
-          "none";
-
-
-        imagePlaceholder.classList.add(
-          "active"
-        );
-
-      }
-    );
-
-
-    /* ====================================================
        PROJECT MARKER POSITION
+
+       정면 = 선명
+       측면 = 자연스럽게 흐려짐
+       뒷면 = 18% 정도 남음
+       클릭은 계속 가능
     ==================================================== */
 
     const markerWorld =
@@ -3628,6 +4213,12 @@
       projectMarkers.forEach(
         marker => {
 
+
+          /*
+            회전된 지구의
+            현재 프로젝트 위치
+          */
+
           markerWorld.copy(
             marker.position
           );
@@ -3638,15 +4229,27 @@
           );
 
 
+          /*
+            앞면 / 뒷면 계산
+          */
+
           markerNormal
-            .copy(markerWorld)
-            .sub(globeCenter)
+            .copy(
+              markerWorld
+            )
+            .sub(
+              globeCenter
+            )
             .normalize();
 
 
           markerToCamera
-            .copy(cameraPosition)
-            .sub(markerWorld)
+            .copy(
+              cameraPosition
+            )
+            .sub(
+              markerWorld
+            )
             .normalize();
 
 
@@ -3657,73 +4260,117 @@
 
 
           /*
-            지구 뒷면이면 숨기기
+            3D → 2D
           */
 
-          if (
-            facing <= 0.02
-          ) {
-
-            marker.element.style.opacity =
-              "0";
-
-
-            marker.element.style.pointerEvents =
-              "none";
-
-
-            return;
-
-          }
-
-
           markerProjected
-            .copy(markerWorld)
-            .project(camera);
+            .copy(
+              markerWorld
+            )
+            .project(
+              camera
+            );
 
 
           const x =
+
             (
               markerProjected.x *
               0.5 +
               0.5
             )
+
             *
+
             width;
 
 
           const y =
+
             (
               -markerProjected.y *
               0.5 +
               0.5
             )
+
             *
+
             height;
 
 
           marker.element.style.left =
-            x + "px";
+            x +
+            "px";
 
 
           marker.element.style.top =
-            y + "px";
+            y +
+            "px";
 
+
+          /*
+            -1 ~ +1
+            ↓
+            0 ~ 1
+          */
+
+          const normalizedFacing =
+            THREE.MathUtils.clamp(
+
+              (
+                facing +
+                1
+              )
+              /
+              2,
+
+              0,
+
+              1
+
+            );
+
+
+          /*
+            뒷면에서도 완전히 사라지지 않음
+
+            back  ≈ 18%
+            side  ≈ 59%
+            front ≈ 100%
+          */
 
           const visibility =
-            THREE.MathUtils.clamp(
-              facing * 3,
-              0,
-              1
-            );
+            0.18 +
+            normalizedFacing *
+            0.82;
 
 
           marker.element.style.opacity =
             visibility;
 
 
+          /*
+            뒤쪽이어도 클릭 가능
+          */
+
           marker.element.style.pointerEvents =
             "auto";
+
+
+          /*
+            정면 점이 뒤쪽 점보다
+            위에 보이도록
+          */
+
+          marker.element.style.zIndex =
+            Math.round(
+
+              100 +
+
+              normalizedFacing *
+              100
+
+            );
 
         }
       );
@@ -3732,7 +4379,7 @@
 
 
     /* ====================================================
-       MOUSE
+       MOUSE REACTION
     ==================================================== */
 
     let mouseX =
@@ -3789,7 +4436,8 @@
         height;
 
 
-      camera.updateProjectionMatrix();
+      camera
+        .updateProjectionMatrix();
 
     }
 
@@ -3804,85 +4452,6 @@
 
 
     /* ====================================================
-       KEYBOARD
-    ==================================================== */
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key ===
-          "Escape"
-        ) {
-
-          if (
-            imageLightbox.classList.contains(
-              "active"
-            )
-          ) {
-
-            imageLightbox.classList.remove(
-              "active"
-            );
-
-
-            return;
-
-          }
-
-
-          if (
-            projectIndexPanel.classList.contains(
-              "active"
-            )
-          ) {
-
-            hideProjectIndex();
-
-
-            return;
-
-          }
-
-
-          hidePanel();
-
-        }
-
-
-        if (
-          imageLightbox.classList.contains(
-            "active"
-          )
-        ) {
-
-          if (
-            event.key ===
-            "ArrowRight"
-          ) {
-
-            nextSlide();
-
-          }
-
-
-          if (
-            event.key ===
-            "ArrowLeft"
-          ) {
-
-            previousSlide();
-
-          }
-
-        }
-
-      }
-    );
-
-
-    /* ====================================================
        ANIMATION
     ==================================================== */
 
@@ -3893,13 +4462,17 @@
       );
 
 
-      /* 자동 회전 */
+      /*
+        자동 회전
+      */
 
       globe.rotation.y +=
         0.0022;
 
 
-      /* 마우스 반응 */
+      /*
+        마우스 반응
+      */
 
       globe.rotation.x +=
 
@@ -3929,7 +4502,10 @@
         0.008;
 
 
-      /* 프로젝트 점 이동 */
+      /*
+        프로젝트 점 위치 /
+        투명도 업데이트
+      */
 
       updateProjectMarkers();
 
@@ -3941,6 +4517,10 @@
 
     }
 
+
+    /* ====================================================
+       START
+    ==================================================== */
 
     renderProjectIndex(
       "all"
