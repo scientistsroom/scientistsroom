@@ -94,11 +94,12 @@
     }
 
     /* ==================================================
-       TITLE
+       MAIN TITLE
     ================================================== */
 
     .title {
       position: absolute;
+
       top: 10%;
       left: 50%;
 
@@ -117,7 +118,7 @@
     }
 
     /* ==================================================
-       GUIDE
+       GUIDE LINES
     ================================================== */
 
     .guide-circle {
@@ -160,6 +161,7 @@
 
     .line {
       position: absolute;
+
       left: 50%;
       top: 50%;
 
@@ -172,11 +174,15 @@
     }
 
     .line.one {
-      transform: translate(-50%, -50%) rotate(32deg);
+      transform:
+        translate(-50%, -50%)
+        rotate(32deg);
     }
 
     .line.two {
-      transform: translate(-50%, -50%) rotate(-32deg);
+      transform:
+        translate(-50%, -50%)
+        rotate(-32deg);
     }
 
     .side-line {
@@ -203,6 +209,7 @@
 
     #earthWrap {
       position: absolute;
+
       left: 50%;
       top: 50%;
 
@@ -217,6 +224,7 @@
     #earth {
       position: absolute;
       inset: 0;
+
       width: 100%;
       height: 100%;
     }
@@ -267,7 +275,7 @@
         opacity;
     }
 
-    /* 중심 흰색 점 */
+    /* 큰 흰색 프로젝트 점 */
 
     .project-marker::before {
       content: "";
@@ -299,7 +307,7 @@
         var(--pulse-delay);
     }
 
-    /* 바깥 링 */
+    /* 프로젝트 점 바깥 링 */
 
     .project-marker::after {
       content: "";
@@ -402,6 +410,7 @@
 
     #projectLabel {
       position: fixed;
+
       left: 0;
       top: 0;
 
@@ -452,7 +461,11 @@
       bottom: 34px;
 
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+
+      grid-template-columns:
+        1fr
+        1fr
+        1fr;
 
       gap: 50px;
 
@@ -518,7 +531,7 @@
     }
 
     /* ==================================================
-       PROJECT PANEL
+       PROJECT DETAIL PANEL
     ================================================== */
 
     #projectPanel {
@@ -536,7 +549,10 @@
       border-left:
         1px solid rgba(255, 255, 255, 0.08);
 
-      padding: 38px 38px 42px;
+      padding:
+        38px
+        38px
+        42px;
 
       transform: translateX(100%);
 
@@ -571,19 +587,44 @@
       color: rgba(255, 255, 255, 0.42);
     }
 
-    #closePanel {
+    .panel-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .panel-action-button {
       appearance: none;
+
       border: 0;
+
       background: none;
 
       color: #fff;
 
-      font-size: 28px;
-      font-weight: 300;
-
       cursor: pointer;
 
       line-height: 1;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .panel-action-button:hover {
+      opacity: 0.5;
+    }
+
+    #backPanel {
+      font-size: 23px;
+      font-weight: 300;
+    }
+
+    #backPanel.hidden {
+      display: none;
+    }
+
+    #closePanel {
+      font-size: 28px;
+      font-weight: 300;
     }
 
     .panel-year {
@@ -672,6 +713,7 @@
 
     .slider-button {
       position: absolute;
+
       top: 50%;
 
       transform: translateY(-50%);
@@ -773,7 +815,7 @@
       border-top:
         1px solid rgba(255, 255, 255, 0.08);
 
-      color: rgba(255, 255, 255, 0.46);
+      color: rgba(255, 255, 255, 0.45);
 
       font-size: 10px;
       line-height: 1.55;
@@ -903,6 +945,8 @@
       font-weight: 300;
 
       cursor: pointer;
+
+      line-height: 1;
     }
 
     .project-index-meta {
@@ -942,6 +986,10 @@
       letter-spacing: 0.05em;
 
       cursor: pointer;
+
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .project-sort-button:hover {
@@ -950,6 +998,7 @@
 
     .project-sort-button.active {
       color: #fff;
+
       border-bottom-color: #fff;
     }
 
@@ -958,7 +1007,10 @@
 
       overflow-y: auto;
 
-      padding: 0 40px 60px;
+      padding:
+        0
+        40px
+        60px;
 
       scrollbar-width: thin;
 
@@ -1025,7 +1077,7 @@
     .project-row-number {
       font-size: 10px;
 
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.30);
     }
 
     .project-row-title {
@@ -1036,7 +1088,9 @@
       letter-spacing: -0.035em;
 
       white-space: nowrap;
+
       overflow: hidden;
+
       text-overflow: ellipsis;
     }
 
@@ -1063,6 +1117,7 @@
       inset: 0;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -1195,6 +1250,7 @@
 
       .guide-circle {
         width: 90vw;
+
         top: 49%;
       }
 
@@ -1228,7 +1284,9 @@
       }
 
       .project-index-header {
-        padding: 24px 22px;
+        padding:
+          24px
+          22px;
       }
 
       .project-index-top {
@@ -1284,8 +1342,8 @@
       #lightboxNext {
         right: 5px;
       }
-
     }
+
   </style>
 </head>
 
@@ -1297,7 +1355,7 @@
     <header class="top">
 
       <div>
-        scientistsroom
+        KIM MIN U
       </div>
 
       <div class="top-center">
@@ -1358,7 +1416,7 @@
       <div class="item center-item">
 
         <h3>
-          scientistsroom
+          xoxxnxxox@gmail.com
         </h3>
 
         <p>
@@ -1413,11 +1471,24 @@
         id="panelIndex">
       </div>
 
-      <button
-        id="closePanel"
-        aria-label="Close project">
-        ×
-      </button>
+
+      <div class="panel-actions">
+
+        <button
+          class="panel-action-button hidden"
+          id="backPanel"
+          aria-label="Back to projects">
+          ←
+        </button>
+
+        <button
+          class="panel-action-button"
+          id="closePanel"
+          aria-label="Close project">
+          ×
+        </button>
+
+      </div>
 
     </div>
 
@@ -1532,6 +1603,7 @@
         <h2 class="project-index-heading">
           Projects
         </h2>
+
 
         <button
           id="closeProjectIndex"
@@ -1742,21 +1814,25 @@
 
 
       /* ==================================================
-         05 BOOK
+         05 MINISTRY OF EDUCATION REPORT
       ================================================== */
 
       {
         number: "05",
 
-        title: "Book",
+        title:
+          "Ministry of Education Report",
 
-        year: "",
+        year: "2025",
 
         category: "EDITORIAL",
 
-        description: "",
+        description:
+          "교육부 인문사회연구소 지원사업 2023 선정 실적 및 연구계획서 제작하였습니다.",
 
-        images: [],
+        images: [
+          "images/ministry of education report-01.jpg"
+        ],
 
         lat: 53,
         lng: 57
@@ -1765,8 +1841,6 @@
 
       /* ==================================================
          06 POSTER
-
-         이미지마다 설명 다름
       ================================================== */
 
       {
@@ -1806,33 +1880,11 @@
 
 
       /* ==================================================
-         07 BANNER
+         07 WANDY
       ================================================== */
 
       {
         number: "07",
-
-        title: "Banner",
-
-        year: "",
-
-        category: "EDITORIAL",
-
-        description: "",
-
-        images: [],
-
-        lat: -9,
-        lng: 52
-      },
-
-
-      /* ==================================================
-         08 WANDY
-      ================================================== */
-
-      {
-        number: "08",
 
         title: "Wandy",
 
@@ -1860,11 +1912,11 @@
 
 
       /* ==================================================
-         09 LANGMUIR
+         08 LANGMUIR
       ================================================== */
 
       {
-        number: "09",
+        number: "08",
 
         title: "Langmuir",
 
@@ -1873,9 +1925,14 @@
         category: "COVER ARTWORK",
 
         description:
-          "미국화학회 ACS 학술지 Langmuir 논문 표지 제작을 의뢰받아 그래픽 디자인을 진행하였습니다.",
+          "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
 
-        images: [],
+        link:
+          "https://www.fnnews.com/news/202302011635428474",
+
+        images: [
+          "images/langmuir-01.jpg"
+        ],
 
         lat: 45,
         lng: -72
@@ -1883,11 +1940,11 @@
 
 
       /* ==================================================
-         10 OFFICE OF EDUCATION
+         09 OFFICE OF EDUCATION
       ================================================== */
 
       {
-        number: "10",
+        number: "09",
 
         title: "Office of Education",
 
@@ -1910,11 +1967,11 @@
 
 
       /* ==================================================
-         11 DONGGUK UNIVERSITY
+         10 DONGGUK UNIVERSITY
       ================================================== */
 
       {
-        number: "11",
+        number: "10",
 
         title: "Dongguk University",
 
@@ -1936,11 +1993,11 @@
 
 
       /* ==================================================
-         12 HONGIK UNIVERSITY
+         11 HONGIK UNIVERSITY
       ================================================== */
 
       {
-        number: "12",
+        number: "11",
 
         title: "Hongik University",
 
@@ -1964,11 +2021,11 @@
 
 
       /* ==================================================
-         13 SPACEHAESO
+         12 SPACEHAESO
       ================================================== */
 
       {
-        number: "13",
+        number: "12",
 
         title:
           "spacehaeso : 조용한 형상들의 엄습",
@@ -1997,11 +2054,11 @@
 
 
       /* ==================================================
-         14 LIG D&A
+         13 LIG D&A 50TH ANNIVERSARY
       ================================================== */
 
       {
-        number: "14",
+        number: "13",
 
         title:
           "LIG D&A 50th Anniversary",
@@ -2024,11 +2081,11 @@
 
 
       /* ==================================================
-         15 LG KES AI GALLERY
+         14 LG KES AI GALLERY
       ================================================== */
 
       {
-        number: "15",
+        number: "14",
 
         title:
           "LG KES AI Gallery",
@@ -2335,15 +2392,13 @@
 
 
     globe.rotation.x =
-      THREE.MathUtils.degToRad(
-        -14
-      );
+      THREE.MathUtils
+        .degToRad(-14);
 
 
     globe.rotation.z =
-      THREE.MathUtils.degToRad(
-        -8
-      );
+      THREE.MathUtils
+        .degToRad(-8);
 
 
     /* ====================================================
@@ -2387,7 +2442,7 @@
 
 
     /* ====================================================
-       DOM ELEMENTS
+       ELEMENTS
     ==================================================== */
 
     const label =
@@ -2477,6 +2532,12 @@
     const sliderDots =
       document.getElementById(
         "sliderDots"
+      );
+
+
+    const backPanel =
+      document.getElementById(
+        "backPanel"
       );
 
 
@@ -2576,11 +2637,12 @@
       "all";
 
 
-    /* ====================================================
-       IMAGE DATA HELPERS
+    let projectOpenedFromIndex =
+      false;
 
-       문자열 이미지와
-       이미지별 설명 객체 모두 지원
+
+    /* ====================================================
+       IMAGE HELPERS
     ==================================================== */
 
     function getProjectImages(
@@ -2714,8 +2776,6 @@
         );
 
 
-        /* 서로 다른 반짝임 타이밍 */
-
         const duration =
           2.5 +
           Math.random() *
@@ -2823,7 +2883,8 @@
 
 
             openProject(
-              project
+              project,
+              "globe"
             );
 
           }
@@ -2851,7 +2912,7 @@
 
 
     /* ====================================================
-       PROJECT LINK
+       LINK
     ==================================================== */
 
     function updateProjectLink() {
@@ -2896,7 +2957,7 @@
 
 
     /* ====================================================
-       IMAGE SLIDER
+       SLIDER
     ==================================================== */
 
     function updateSlider() {
@@ -2916,9 +2977,7 @@
         );
 
 
-      /*
-        이미지 없는 프로젝트
-      */
+      /* 이미지 없음 */
 
       if (
         images.length === 0
@@ -2965,9 +3024,7 @@
       }
 
 
-      /*
-        이미지 있는 프로젝트
-      */
+      /* 이미지 있음 */
 
       const currentImage =
         images[
@@ -2995,8 +3052,8 @@
 
 
       /*
-        Poster처럼 이미지별 설명이 있는 경우
-        이미지와 함께 설명도 변경
+        Poster처럼 이미지별 설명이 있다면
+        이미지 넘길 때 설명도 같이 변경
       */
 
       panelDescription.textContent =
@@ -3083,7 +3140,7 @@
 
 
     /* ====================================================
-       SLIDE NAVIGATION
+       NEXT / PREVIOUS
     ==================================================== */
 
     function nextSlide() {
@@ -3278,7 +3335,8 @@
     ==================================================== */
 
     function openProject(
-      project
+      project,
+      source = "globe"
     ) {
 
       activeProject =
@@ -3287,6 +3345,21 @@
 
       activeImageIndex =
         0;
+
+
+      projectOpenedFromIndex =
+        source === "index";
+
+
+      /*
+        PROJECTS 목록을 통해 들어온 경우만
+        뒤로가기 표시
+      */
+
+      backPanel.classList.toggle(
+        "hidden",
+        !projectOpenedFromIndex
+      );
 
 
       panelIndex.textContent =
@@ -3348,7 +3421,81 @@
       activeProject =
         null;
 
+
+      projectOpenedFromIndex =
+        false;
+
+
+      backPanel
+        .classList
+        .add("hidden");
+
     }
+
+
+    /* ====================================================
+       BACK TO PROJECT LIST
+    ==================================================== */
+
+    function backToProjectIndex() {
+
+      if (
+        !projectOpenedFromIndex
+      ) {
+
+        return;
+
+      }
+
+
+      panel
+        .classList
+        .remove("active");
+
+
+      panelOverlay
+        .classList
+        .remove("active");
+
+
+      activeProject =
+        null;
+
+
+      projectOpenedFromIndex =
+        false;
+
+
+      backPanel
+        .classList
+        .add("hidden");
+
+
+      /*
+        다시 PROJECTS 목록 열기
+      */
+
+      projectIndexOverlay
+        .classList
+        .add("active");
+
+
+      projectIndexPanel
+        .classList
+        .add("active");
+
+
+      renderProjectIndex(
+        projectSortMode
+      );
+
+    }
+
+
+    backPanel.addEventListener(
+      "click",
+      backToProjectIndex
+    );
 
 
     closePanel.addEventListener(
@@ -3455,13 +3602,15 @@
         "click",
         () => {
 
+
           hideProjectIndex();
 
 
           openProject(
             projects[
               realIndex
-            ]
+            ],
+            "index"
           );
 
         }
@@ -3546,7 +3695,9 @@
         );
 
 
-      /* ALL */
+      /* ==================================================
+         ALL
+      ================================================== */
 
       if (
         mode === "all"
@@ -3571,7 +3722,9 @@
       }
 
 
-      /* YEAR */
+      /* ==================================================
+         YEAR
+      ================================================== */
 
       if (
         mode === "year"
@@ -3690,7 +3843,9 @@
       }
 
 
-      /* NAME */
+      /* ==================================================
+         NAME
+      ================================================== */
 
       if (
         mode === "name"
@@ -3765,6 +3920,10 @@
     }
 
 
+    /* ====================================================
+       PROJECT INDEX OPEN / CLOSE
+    ==================================================== */
+
     function openProjectIndex() {
 
       hidePanel();
@@ -3822,6 +3981,10 @@
       );
 
 
+    /* ====================================================
+       SORT BUTTONS
+    ==================================================== */
+
     sortButtons.forEach(
       button => {
 
@@ -3863,7 +4026,7 @@
 
 
     /* ====================================================
-       BROKEN IMAGE
+       IMAGE ERROR
     ==================================================== */
 
     panelImage.addEventListener(
@@ -4013,55 +4176,51 @@
     }
 
 
-    closeLightbox
-      .addEventListener(
-        "click",
-        hideLightbox
-      );
+    closeLightbox.addEventListener(
+      "click",
+      hideLightbox
+    );
 
 
-    lightboxPrev
-      .addEventListener(
-        "click",
-        event => {
+    lightboxPrev.addEventListener(
+      "click",
+      event => {
 
-          event.stopPropagation();
+        event.stopPropagation();
 
-          previousSlide();
+        previousSlide();
 
-        }
-      );
-
-
-    lightboxNext
-      .addEventListener(
-        "click",
-        event => {
-
-          event.stopPropagation();
-
-          nextSlide();
-
-        }
-      );
+      }
+    );
 
 
-    imageLightbox
-      .addEventListener(
-        "click",
-        event => {
+    lightboxNext.addEventListener(
+      "click",
+      event => {
 
-          if (
-            event.target ===
-            imageLightbox
-          ) {
+        event.stopPropagation();
 
-            hideLightbox();
+        nextSlide();
 
-          }
+      }
+    );
+
+
+    imageLightbox.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          imageLightbox
+        ) {
+
+          hideLightbox();
 
         }
-      );
+
+      }
+    );
 
 
     /* ====================================================
@@ -4071,6 +4230,11 @@
     document.addEventListener(
       "keydown",
       event => {
+
+
+        /*
+          LIGHTBOX
+        */
 
         if (
           imageLightbox
@@ -4113,6 +4277,10 @@
         }
 
 
+        /*
+          PROJECT INDEX
+        */
+
         if (
           projectIndexPanel
             .classList
@@ -4134,12 +4302,24 @@
         }
 
 
+        /*
+          DETAIL
+        */
+
         if (
-          event.key ===
-          "Escape"
+          panel
+            .classList
+            .contains("active")
         ) {
 
-          hidePanel();
+          if (
+            event.key ===
+            "Escape"
+          ) {
+
+            hidePanel();
+
+          }
 
         }
 
@@ -4150,10 +4330,11 @@
     /* ====================================================
        PROJECT MARKER POSITION
 
-       정면 = 선명
-       측면 = 자연스럽게 흐려짐
-       뒷면 = 18% 정도 남음
-       클릭은 계속 가능
+       FRONT  = 100%
+       SIDE   = 약 59%
+       BACK   = 약 18%
+
+       뒤쪽이어도 클릭 가능
     ==================================================== */
 
     const markerWorld =
@@ -4214,11 +4395,6 @@
         marker => {
 
 
-          /*
-            회전된 지구의
-            현재 프로젝트 위치
-          */
-
           markerWorld.copy(
             marker.position
           );
@@ -4229,9 +4405,9 @@
           );
 
 
-          /*
-            앞면 / 뒷면 계산
-          */
+          /* ================================
+             FRONT / BACK CALCULATION
+          ================================ */
 
           markerNormal
             .copy(
@@ -4259,9 +4435,9 @@
             );
 
 
-          /*
-            3D → 2D
-          */
+          /* ================================
+             3D → 2D
+          ================================ */
 
           markerProjected
             .copy(
@@ -4308,11 +4484,13 @@
             "px";
 
 
-          /*
-            -1 ~ +1
-            ↓
-            0 ~ 1
-          */
+          /* ================================
+             NATURAL FADE
+
+             -1 ~ 1
+             ↓
+             0 ~ 1
+          ================================ */
 
           const normalizedFacing =
             THREE.MathUtils.clamp(
@@ -4332,11 +4510,8 @@
 
 
           /*
-            뒷면에서도 완전히 사라지지 않음
-
-            back  ≈ 18%
-            side  ≈ 59%
-            front ≈ 100%
+            완전히 뒷면이어도
+            18% 남음
           */
 
           const visibility =
@@ -4350,7 +4525,7 @@
 
 
           /*
-            뒤쪽이어도 클릭 가능
+            흐려져도 클릭 가능
           */
 
           marker.element.style.pointerEvents =
@@ -4358,8 +4533,7 @@
 
 
           /*
-            정면 점이 뒤쪽 점보다
-            위에 보이도록
+            정면 점일수록 위로
           */
 
           marker.element.style.zIndex =
@@ -4471,7 +4645,7 @@
 
 
       /*
-        마우스 반응
+        마우스 움직임 반응
       */
 
       globe.rotation.x +=
@@ -4503,7 +4677,7 @@
 
 
       /*
-        프로젝트 점 위치 /
+        프로젝트 포인트 위치 /
         투명도 업데이트
       */
 
