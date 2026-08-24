@@ -19,10 +19,8 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-
       background: #050505;
       color: #f5f5f5;
-
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -36,14 +34,10 @@
 
     .hero {
       position: relative;
-
       width: 100vw;
       height: 100vh;
-
       min-height: 700px;
-
       overflow: hidden;
-
       background: #050505;
     }
 
@@ -53,7 +47,6 @@
 
     .top {
       position: absolute;
-
       top: 36px;
       left: 40px;
       right: 40px;
@@ -70,21 +63,15 @@
 
     .top-center {
       position: absolute;
-
       left: 50%;
-
       transform: translateX(-50%);
-
       opacity: 0.35;
     }
 
     .top-menu-button {
       appearance: none;
-
       border: 0;
-
       background: none;
-
       padding: 0;
 
       color: #f5f5f5;
@@ -107,19 +94,16 @@
 
     .title {
       position: absolute;
-
       top: 10%;
       left: 50%;
 
       transform: translateX(-50%);
 
       font-size: clamp(38px, 4.2vw, 72px);
-
       line-height: 0.9;
       letter-spacing: -0.065em;
 
       text-align: center;
-
       font-weight: 600;
 
       white-space: nowrap;
@@ -135,7 +119,6 @@
       position: absolute;
 
       width: min(58vw, 720px);
-
       aspect-ratio: 1 / 1;
 
       left: 50%;
@@ -143,10 +126,7 @@
 
       transform: translate(-50%, -50%);
 
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 50%;
 
       pointer-events: none;
@@ -155,17 +135,13 @@
     .guide-circle::before,
     .guide-circle::after {
       content: "";
-
       position: absolute;
-
-      background:
-        rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.09);
     }
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
-
       left: -20%;
       top: 50%;
     }
@@ -173,48 +149,39 @@
     .guide-circle::after {
       width: 1px;
       height: 140%;
-
       left: 50%;
       top: -20%;
     }
 
     .line {
       position: absolute;
-
       left: 50%;
       top: 50%;
 
       width: 118%;
       height: 1px;
 
-      background:
-        rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.07);
 
       transform-origin: center;
     }
 
     .line.one {
-      transform:
-        translate(-50%, -50%)
-        rotate(32deg);
+      transform: translate(-50%, -50%) rotate(32deg);
     }
 
     .line.two {
-      transform:
-        translate(-50%, -50%)
-        rotate(-32deg);
+      transform: translate(-50%, -50%) rotate(-32deg);
     }
 
     .side-line {
       position: absolute;
-
       top: 45%;
 
       width: 12%;
       height: 1px;
 
-      background:
-        rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .side-line.left {
@@ -245,7 +212,6 @@
 
     #earth {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
@@ -254,13 +220,10 @@
 
     /* ==================================================
        PROJECT MARKERS
-
-       실제 클릭하는 큰 프로젝트 점
     ================================================== */
 
     #projectMarkers {
       position: absolute;
-
       inset: 0;
 
       pointer-events: none;
@@ -278,15 +241,13 @@
       height: 34px;
 
       border: 0;
-
       padding: 0;
 
       border-radius: 50%;
 
       background: transparent;
 
-      transform:
-        translate(-50%, -50%);
+      transform: translate(-50%, -50%);
 
       pointer-events: auto;
 
@@ -294,11 +255,8 @@
 
       opacity: 0;
 
-      transition:
-        opacity 0.15s ease;
+      transition: opacity 0.15s ease;
     }
-
-    /* 흰색 중심점 */
 
     .project-marker::before {
       content: "";
@@ -313,14 +271,12 @@
 
       border-radius: 50%;
 
-      background: #ffffff;
+      background: #fff;
 
-      transform:
-        translate(-50%, -50%);
+      transform: translate(-50%, -50%);
 
       box-shadow:
-        0 0 7px
-        rgba(255, 255, 255, 0.48);
+        0 0 7px rgba(255, 255, 255, 0.48);
 
       animation:
         projectPointPulse
@@ -331,8 +287,6 @@
       animation-delay:
         var(--pulse-delay);
     }
-
-    /* 바깥 링 */
 
     .project-marker::after {
       content: "";
@@ -346,13 +300,11 @@
       height: 19px;
 
       border:
-        1px solid
-        rgba(255, 255, 255, 0.42);
+        1px solid rgba(255, 255, 255, 0.42);
 
       border-radius: 50%;
 
-      transform:
-        translate(-50%, -50%);
+      transform: translate(-50%, -50%);
 
       animation:
         projectHaloPulse
@@ -365,7 +317,6 @@
     }
 
     @keyframes projectPointPulse {
-
       0%,
       100% {
         opacity: 0.75;
@@ -375,8 +326,7 @@
           scale(0.92);
 
         box-shadow:
-          0 0 4px
-          rgba(255, 255, 255, 0.35);
+          0 0 4px rgba(255, 255, 255, 0.35);
       }
 
       50% {
@@ -387,14 +337,11 @@
           scale(1.25);
 
         box-shadow:
-          0 0 12px
-          rgba(255, 255, 255, 0.85);
+          0 0 12px rgba(255, 255, 255, 0.85);
       }
-
     }
 
     @keyframes projectHaloPulse {
-
       0%,
       100% {
         opacity: 0.2;
@@ -411,7 +358,6 @@
           translate(-50%, -50%)
           scale(1.12);
       }
-
     }
 
     .project-marker:hover::before {
@@ -424,8 +370,7 @@
         scale(1.6);
 
       box-shadow:
-        0 0 16px
-        rgba(255, 255, 255, 1);
+        0 0 16px rgba(255, 255, 255, 1);
     }
 
     .project-marker:hover::after {
@@ -451,22 +396,18 @@
       padding: 9px 12px;
 
       background: #f5f5f5;
-
       color: #050505;
 
       font-size: 11px;
-
       line-height: 1.3;
 
       pointer-events: none;
 
       opacity: 0;
 
-      transform:
-        translate(14px, 14px);
+      transform: translate(14px, 14px);
 
-      transition:
-        opacity 0.18s ease;
+      transition: opacity 0.18s ease;
 
       z-index: 200;
 
@@ -479,13 +420,11 @@
 
     #projectLabel .label-number {
       opacity: 0.45;
-
       margin-right: 8px;
     }
 
     #projectLabel .label-category {
       opacity: 0.5;
-
       margin-left: 8px;
     }
 
@@ -501,11 +440,7 @@
       bottom: 34px;
 
       display: grid;
-
-      grid-template-columns:
-        1fr
-        1fr
-        1fr;
+      grid-template-columns: 1fr 1fr 1fr;
 
       gap: 50px;
 
@@ -518,7 +453,6 @@
       margin-bottom: 9px;
 
       font-size: 13px;
-
       font-weight: 600;
     }
 
@@ -526,11 +460,9 @@
       max-width: 300px;
 
       font-size: 10px;
-
       line-height: 1.35;
 
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255, 255, 255, 0.42);
     }
 
     .center-item {
@@ -550,7 +482,7 @@
     }
 
     /* ==================================================
-       PROJECT DETAIL OVERLAY
+       DETAIL OVERLAY
     ================================================== */
 
     .panel-overlay {
@@ -558,27 +490,23 @@
 
       inset: 0;
 
-      background:
-        rgba(0, 0, 0, 0.18);
+      background: rgba(0, 0, 0, 0.18);
 
       opacity: 0;
-
       pointer-events: none;
 
-      transition:
-        opacity 0.5s ease;
+      transition: opacity 0.5s ease;
 
       z-index: 80;
     }
 
     .panel-overlay.active {
       opacity: 1;
-
       pointer-events: auto;
     }
 
     /* ==================================================
-       PROJECT DETAIL PANEL
+       PROJECT DETAIL
     ================================================== */
 
     #projectPanel {
@@ -587,26 +515,18 @@
       top: 0;
       right: 0;
 
-      width:
-        min(540px, 92vw);
-
+      width: min(540px, 92vw);
       height: 100vh;
 
       background: #0b0b0b;
-
       color: #f5f5f5;
 
       border-left:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 
-      padding:
-        38px
-        38px
-        42px;
+      padding: 38px 38px 42px;
 
-      transform:
-        translateX(100%);
+      transform: translateX(100%);
 
       transition:
         transform
@@ -616,22 +536,18 @@
       z-index: 90;
 
       display: flex;
-
       flex-direction: column;
 
       overflow-y: auto;
     }
 
     #projectPanel.active {
-      transform:
-        translateX(0);
+      transform: translateX(0);
     }
 
     .panel-top {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
 
       margin-bottom: 42px;
@@ -640,21 +556,18 @@
     .panel-index {
       font-size: 11px;
 
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255, 255, 255, 0.42);
     }
 
     #closePanel {
       appearance: none;
 
       border: 0;
-
       background: none;
 
       color: #fff;
 
       font-size: 28px;
-
       font-weight: 300;
 
       cursor: pointer;
@@ -669,18 +582,15 @@
 
       font-size: 11px;
 
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255, 255, 255, 0.42);
     }
 
     .panel-title {
       margin-bottom: 18px;
 
-      font-size:
-        clamp(30px, 3.7vw, 52px);
+      font-size: clamp(30px, 3.7vw, 52px);
 
       line-height: 0.98;
-
       letter-spacing: -0.055em;
 
       font-weight: 500;
@@ -691,19 +601,17 @@
 
       font-size: 11px;
 
-      color:
-        rgba(255, 255, 255, 0.48);
+      color: rgba(255, 255, 255, 0.48);
     }
 
     /* ==================================================
-       IMAGE SLIDER
+       SLIDER
     ================================================== */
 
     .slider {
       position: relative;
 
       width: 100%;
-
       aspect-ratio: 16 / 9;
 
       overflow: hidden;
@@ -729,13 +637,11 @@
     }
 
     #panelImage:hover {
-      transform:
-        scale(1.012);
+      transform: scale(1.012);
     }
 
     .image-placeholder {
       position: absolute;
-
       inset: 0;
 
       display: none;
@@ -743,11 +649,9 @@
       align-items: center;
       justify-content: center;
 
-      color:
-        rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.28);
 
       font-size: 11px;
-
       letter-spacing: 0.08em;
     }
 
@@ -760,18 +664,15 @@
 
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       width: 42px;
       height: 42px;
 
       border:
-        1px solid
-        rgba(255, 255, 255, 0.15);
+        1px solid rgba(255, 255, 255, 0.15);
 
-      background:
-        rgba(0, 0, 0, 0.52);
+      background: rgba(0, 0, 0, 0.52);
 
       color: #fff;
 
@@ -783,8 +684,7 @@
     }
 
     .slider-button:hover {
-      background:
-        rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.13);
     }
 
     #prevImage {
@@ -803,20 +703,17 @@
       display: flex;
 
       justify-content: space-between;
-
       align-items: center;
 
       margin-bottom: 26px;
 
       font-size: 10px;
 
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255, 255, 255, 0.42);
     }
 
     .slider-dots {
       display: flex;
-
       gap: 6px;
     }
 
@@ -826,8 +723,7 @@
 
       border-radius: 50%;
 
-      background:
-        rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.22);
     }
 
     .slider-dot.active {
@@ -844,11 +740,9 @@
       margin-bottom: 40px;
 
       font-size: 12px;
-
       line-height: 1.8;
 
-      color:
-        rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.65);
 
       white-space: pre-line;
     }
@@ -859,11 +753,9 @@
       padding-top: 24px;
 
       border-top:
-        1px solid
-        rgba(255, 255, 255, 0.14);
+        1px solid rgba(255, 255, 255, 0.14);
 
       display: flex;
-
       justify-content: space-between;
 
       font-size: 11px;
@@ -882,11 +774,9 @@
 
       inset: 0;
 
-      background:
-        rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.35);
 
       opacity: 0;
-
       visibility: hidden;
 
       transition:
@@ -898,7 +788,6 @@
 
     #projectIndexOverlay.active {
       opacity: 1;
-
       visibility: visible;
     }
 
@@ -908,19 +797,15 @@
       top: 0;
       right: 0;
 
-      width:
-        min(820px, 100vw);
-
+      width: min(820px, 100vw);
       height: 100vh;
 
       background: #080808;
 
       border-left:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 
-      transform:
-        translateX(100%);
+      transform: translateX(100%);
 
       transition:
         transform
@@ -930,42 +815,32 @@
       z-index: 120;
 
       display: flex;
-
       flex-direction: column;
     }
 
     #projectIndexPanel.active {
-      transform:
-        translateX(0);
+      transform: translateX(0);
     }
 
     .project-index-header {
-      padding:
-        36px
-        40px
-        30px;
+      padding: 36px 40px 30px;
 
       border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.10);
+        1px solid rgba(255, 255, 255, 0.10);
     }
 
     .project-index-top {
       display: flex;
-
       justify-content: space-between;
-
       align-items: flex-start;
 
       margin-bottom: 56px;
     }
 
     .project-index-heading {
-      font-size:
-        clamp(42px, 6vw, 82px);
+      font-size: clamp(42px, 6vw, 82px);
 
       line-height: 0.9;
-
       letter-spacing: -0.065em;
 
       font-weight: 500;
@@ -975,13 +850,11 @@
       appearance: none;
 
       border: 0;
-
       background: none;
 
       color: #fff;
 
       font-size: 32px;
-
       font-weight: 300;
 
       cursor: pointer;
@@ -989,9 +862,7 @@
 
     .project-index-meta {
       display: flex;
-
       align-items: flex-end;
-
       justify-content: space-between;
 
       gap: 30px;
@@ -999,45 +870,40 @@
 
     .project-count {
       font-size: 10px;
-
       letter-spacing: 0.05em;
 
-      color:
-        rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.35);
     }
 
     .project-sort {
       display: flex;
-
       gap: 22px;
     }
 
     .project-sort-button {
       appearance: none;
 
-      padding:
-        0 0 5px;
+      padding: 0 0 5px;
 
       border: 0;
-
-      border-bottom:
-        1px solid transparent;
+      border-bottom: 1px solid transparent;
 
       background: none;
 
-      color:
-        rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.35);
 
       font-size: 10px;
-
       letter-spacing: 0.05em;
 
       cursor: pointer;
     }
 
+    .project-sort-button:hover {
+      color: #fff;
+    }
+
     .project-sort-button.active {
       color: #fff;
-
       border-bottom-color: #fff;
     }
 
@@ -1046,26 +912,19 @@
 
       overflow-y: auto;
 
-      padding:
-        0 40px 60px;
+      padding: 0 40px 60px;
     }
 
     .project-group-title {
-      padding:
-        42px
-        0
-        14px;
+      padding: 42px 0 14px;
 
       font-size: 10px;
-
       letter-spacing: 0.06em;
 
-      color:
-        rgba(255, 255, 255, 0.35);
+      color: rgba(255, 255, 255, 0.35);
 
       border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .project-list-row {
@@ -1085,14 +944,12 @@
 
       align-items: center;
 
-      padding:
-        22px 0;
+      padding: 22px 0;
 
       border: 0;
 
       border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 
       background: transparent;
 
@@ -1110,37 +967,31 @@
     .project-list-row:hover {
       padding-left: 10px;
 
-      background:
-        rgba(255, 255, 255, 0.025);
+      background: rgba(255, 255, 255, 0.025);
     }
 
     .project-row-number {
       font-size: 10px;
 
-      color:
-        rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.3);
     }
 
     .project-row-title {
       min-width: 0;
 
-      font-size:
-        clamp(17px, 2vw, 24px);
+      font-size: clamp(17px, 2vw, 24px);
 
       letter-spacing: -0.035em;
 
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
 
     .project-row-category {
       font-size: 9px;
 
-      color:
-        rgba(255, 255, 255, 0.38);
+      color: rgba(255, 255, 255, 0.38);
     }
 
     .project-row-year {
@@ -1148,8 +999,7 @@
 
       font-size: 10px;
 
-      color:
-        rgba(255, 255, 255, 0.38);
+      color: rgba(255, 255, 255, 0.38);
     }
 
     /* ==================================================
@@ -1158,32 +1008,28 @@
 
     #imageLightbox {
       position: fixed;
-
       inset: 0;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
-      padding:
-        55px
-        80px;
+      padding: 55px 80px;
 
-      background:
-        rgba(0, 0, 0, 0.98);
+      background: rgba(0, 0, 0, 0.98);
 
       opacity: 0;
-
       visibility: hidden;
+
+      transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
 
       z-index: 300;
     }
 
     #imageLightbox.active {
       opacity: 1;
-
       visibility: visible;
     }
 
@@ -1191,7 +1037,6 @@
       display: block;
 
       max-width: 92vw;
-
       max-height: 86vh;
 
       width: auto;
@@ -1207,7 +1052,6 @@
       right: 34px;
 
       border: 0;
-
       background: none;
 
       color: #fff;
@@ -1222,18 +1066,15 @@
 
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       width: 55px;
       height: 55px;
 
       border: 0;
-
       background: none;
 
-      color:
-        rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.65);
 
       font-size: 27px;
 
@@ -1258,11 +1099,9 @@
       left: 50%;
       bottom: 22px;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
-      color:
-        rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.55);
 
       font-size: 10px;
     }
@@ -1299,6 +1138,7 @@
 
       .guide-circle {
         width: 90vw;
+
         top: 49%;
       }
 
@@ -1347,7 +1187,6 @@
 
       .project-index-meta {
         flex-direction: column;
-
         align-items: flex-start;
 
         gap: 18px;
@@ -1373,6 +1212,14 @@
         display: none;
       }
 
+      #imageLightbox {
+        padding: 20px;
+      }
+
+      #lightboxImage {
+        max-width: 96vw;
+        max-height: 82vh;
+      }
     }
   </style>
 </head>
@@ -1394,10 +1241,9 @@
 
       <button
         class="top-menu-button"
-        id="projectsMenuButton">
-
+        id="projectsMenuButton"
+        type="button">
         PROJECTS
-
       </button>
 
     </header>
@@ -1409,21 +1255,22 @@
 
 
     <div class="guide-circle">
+
       <div class="line one"></div>
+
       <div class="line two"></div>
+
     </div>
 
+
     <div class="side-line left"></div>
+
     <div class="side-line right"></div>
 
-
-    <!-- EARTH -->
 
     <div id="earthWrap">
 
       <div id="earth"></div>
-
-      <!-- 프로젝트 점은 여기 표시됨 -->
 
       <div id="projectMarkers"></div>
 
@@ -1484,7 +1331,7 @@
   <div id="projectLabel"></div>
 
 
-  <!-- DETAIL -->
+  <!-- PROJECT DETAIL -->
 
   <div
     class="panel-overlay"
@@ -1501,7 +1348,9 @@
         id="panelIndex">
       </div>
 
-      <button id="closePanel">
+      <button
+        id="closePanel"
+        aria-label="Close project">
         ×
       </button>
 
@@ -1538,27 +1387,23 @@
       <div
         class="image-placeholder"
         id="imagePlaceholder">
-
         PROJECT IMAGE
-
       </div>
 
 
       <button
         class="slider-button"
-        id="prevImage">
-
+        id="prevImage"
+        aria-label="Previous image">
         ←
-
       </button>
 
 
       <button
         class="slider-button"
-        id="nextImage">
-
+        id="nextImage"
+        aria-label="Next image">
         →
-
       </button>
 
     </div>
@@ -1569,6 +1414,7 @@
       <div id="sliderCounter">
         00 / 00
       </div>
+
 
       <div
         class="slider-dots"
@@ -1614,7 +1460,9 @@
           Projects
         </h2>
 
-        <button id="closeProjectIndex">
+        <button
+          id="closeProjectIndex"
+          aria-label="Close projects">
           ×
         </button>
 
@@ -1634,27 +1482,21 @@
           <button
             class="project-sort-button active"
             data-sort="all">
-
             ALL
-
           </button>
 
 
           <button
             class="project-sort-button"
             data-sort="year">
-
             YEAR
-
           </button>
 
 
           <button
             class="project-sort-button"
             data-sort="name">
-
             NAME
-
           </button>
 
         </div>
@@ -1676,15 +1518,20 @@
 
   <div id="imageLightbox">
 
-    <button id="closeLightbox">
+    <button
+      id="closeLightbox"
+      aria-label="Close image">
       ×
     </button>
 
+
     <button
       class="lightbox-arrow"
-      id="lightboxPrev">
+      id="lightboxPrev"
+      aria-label="Previous image">
       ←
     </button>
+
 
     <img
       id="lightboxImage"
@@ -1692,11 +1539,14 @@
       alt=""
     >
 
+
     <button
       class="lightbox-arrow"
-      id="lightboxNext">
+      id="lightboxNext"
+      aria-label="Next image">
       →
     </button>
+
 
     <div id="lightboxCounter">
       01 / 01
@@ -1717,7 +1567,6 @@
 
     const projects = [
 
-
       /* 01 ORV */
 
       {
@@ -1725,7 +1574,7 @@
 
         title: "Orv",
 
-        year: "",
+        year: "2024",
 
         category: "BRANDING",
 
@@ -1751,7 +1600,7 @@
 
         title: "Advent Calendar",
 
-        year: "",
+        year: "2024",
 
         category: "PACKAGE",
 
@@ -1775,7 +1624,7 @@
 
         title: "Dream Cat Shelter",
 
-        year: "",
+        year: "2023",
 
         category: "BRANDING",
 
@@ -1871,17 +1720,14 @@
       },
 
 
-      /* ==================================================
-         08 WANDY
-         이미지 8장 추가
-      ================================================== */
+      /* 08 WANDY */
 
       {
         number: "08",
 
         title: "Wandy",
 
-        year: "",
+        year: "2024",
 
         category: "UX / UI",
 
@@ -1947,24 +1793,26 @@
       },
 
 
-      /* 11 DONGGUK UNIVERSITY */
+      /* ==================================================
+         11 DONGGUK UNIVERSITY
+      ================================================== */
 
       {
         number: "11",
 
-        title:
-          "Dongguk University",
+        title: "Dongguk University",
 
-        year:
-          "2025 — 2026",
+        year: "2025 — 2026",
 
         category:
-          "RESEARCH PROJECT",
+          "EDITORIAL / PUBLISHING",
 
         description:
-          "동국대학교와 교육청의 연구보고서 및 성과보고서 편집 / 출판 디자인을 진행하였습니다.",
+          "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
 
-        images: [],
+        images: [
+          "images/dongguk university-01.jpg"
+        ],
 
         lat: -13,
         lng: -67
@@ -1976,14 +1824,11 @@
       {
         number: "12",
 
-        title:
-          "Hongik University",
+        title: "Hongik University",
 
-        year:
-          "2026 —",
+        year: "2026 —",
 
-        category:
-          "HOMEPAGE",
+        category: "HOMEPAGE",
 
         description:
           "온라인커뮤니케이션실 부편집장으로 홈페이지 뉴스 콘텐츠 관리 및 관련 디자인 업무를 진행하고 있습니다.",
@@ -2003,11 +1848,9 @@
         title:
           "spacehaeso : 조용한 형상들의 엄습",
 
-        year:
-          "2025",
+        year: "2025",
 
-        category:
-          "PHOTO",
+        category: "PHOTO",
 
         description:
           "해소갤러리 조은필 작가 개인전 「조용한 형상들의 엄습」의 작품 사진 촬영을 진행하였습니다.",
@@ -2019,10 +1862,7 @@
       },
 
 
-      /* ==================================================
-         14 LIG D&A
-         이미지 + 새 설명 적용
-      ================================================== */
+      /* 14 LIG D&A */
 
       {
         number: "14",
@@ -2030,8 +1870,7 @@
         title:
           "LIG D&A 50th Anniversary",
 
-        year:
-          "2026",
+        year: "2026",
 
         category:
           "PACKAGE / GRAPHIC DESIGN",
@@ -2056,8 +1895,7 @@
         title:
           "LG KES AI Gallery",
 
-        year:
-          "2025",
+        year: "2025",
 
         category:
           "EXHIBITION / GRAPHIC DESIGN",
@@ -2184,8 +2022,6 @@
 
     /* ====================================================
        SMALL DOTS
-
-       작은 점은 고정
     ==================================================== */
 
     const dotGeometry =
@@ -2361,17 +2197,19 @@
 
 
     globe.rotation.x =
-      THREE.MathUtils
-        .degToRad(-14);
+      THREE.MathUtils.degToRad(
+        -14
+      );
 
 
     globe.rotation.z =
-      THREE.MathUtils
-        .degToRad(-8);
+      THREE.MathUtils.degToRad(
+        -8
+      );
 
 
     /* ====================================================
-       LAT / LNG
+       LAT LNG
     ==================================================== */
 
     function latLngToVector3(
@@ -2411,7 +2249,7 @@
 
 
     /* ====================================================
-       DOM ELEMENTS
+       ELEMENTS
     ==================================================== */
 
     const label =
@@ -2596,8 +2434,6 @@
 
     /* ====================================================
        PROJECT MARKERS
-
-       HTML 점 생성
     ==================================================== */
 
     const projectMarkersContainer =
@@ -2612,6 +2448,7 @@
 
     projects.forEach(
       (project, index) => {
+
 
         const marker =
           document.createElement(
@@ -2633,10 +2470,6 @@
         );
 
 
-        /*
-          서로 다른 타이밍으로 반짝이기
-        */
-
         const duration =
           2.5 +
           Math.random() *
@@ -2649,32 +2482,22 @@
 
 
         marker.style.setProperty(
-
           "--pulse-duration",
-
           duration + "s"
-
         );
 
 
         marker.style.setProperty(
-
           "--pulse-delay",
-
           delay + "s"
-
         );
 
 
         const position =
           latLngToVector3(
-
             project.lat,
-
             project.lng,
-
             1.43
-
           );
 
 
@@ -2761,10 +2584,9 @@
         );
 
 
-        projectMarkersContainer
-          .appendChild(
-            marker
-          );
+        projectMarkersContainer.appendChild(
+          marker
+        );
 
 
         projectMarkers.push({
@@ -2782,7 +2604,7 @@
 
 
     /* ====================================================
-       IMAGE SLIDER
+       SLIDER
     ==================================================== */
 
     function updateSlider() {
@@ -2812,19 +2634,19 @@
         );
 
 
-        imagePlaceholder
-          .classList
-          .add("active");
+        imagePlaceholder.classList.add(
+          "active"
+        );
 
 
-        prevImage
-          .classList
-          .add("hidden");
+        prevImage.classList.add(
+          "hidden"
+        );
 
 
-        nextImage
-          .classList
-          .add("hidden");
+        nextImage.classList.add(
+          "hidden"
+        );
 
 
         sliderCounter.textContent =
@@ -2844,9 +2666,9 @@
         "block";
 
 
-      imagePlaceholder
-        .classList
-        .remove("active");
+      imagePlaceholder.classList.remove(
+        "active"
+      );
 
 
       panelImage.src =
@@ -2855,11 +2677,18 @@
         ];
 
 
+      panelImage.alt =
+        activeProject.title;
+
+
       sliderCounter.textContent =
 
         String(
           activeImageIndex + 1
-        ).padStart(2, "0")
+        ).padStart(
+          2,
+          "0"
+        )
 
         +
 
@@ -2869,7 +2698,10 @@
 
         String(
           images.length
-        ).padStart(2, "0");
+        ).padStart(
+          2,
+          "0"
+        );
 
 
       sliderDots.innerHTML =
@@ -2931,10 +2763,12 @@
 
       if (
         !activeProject ||
+        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
         return;
+
       }
 
 
@@ -2950,9 +2784,9 @@
 
 
       if (
-        imageLightbox
-          .classList
-          .contains("active")
+        imageLightbox.classList.contains(
+          "active"
+        )
       ) {
 
         updateLightbox();
@@ -2966,10 +2800,12 @@
 
       if (
         !activeProject ||
+        !activeProject.images ||
         activeProject.images.length <= 1
       ) {
 
         return;
+
       }
 
 
@@ -2986,9 +2822,9 @@
 
 
       if (
-        imageLightbox
-          .classList
-          .contains("active")
+        imageLightbox.classList.contains(
+          "active"
+        )
       ) {
 
         updateLightbox();
@@ -3120,25 +2956,68 @@
         "project-list-row";
 
 
-      row.innerHTML = `
+      const number =
+        document.createElement(
+          "span"
+        );
 
-        <span class="project-row-number">
-          ${project.number}
-        </span>
 
-        <span class="project-row-title">
-          ${project.title}
-        </span>
+      number.className =
+        "project-row-number";
 
-        <span class="project-row-category">
-          ${project.category}
-        </span>
 
-        <span class="project-row-year">
-          ${project.year || "—"}
-        </span>
+      number.textContent =
+        project.number;
 
-      `;
+
+      const title =
+        document.createElement(
+          "span"
+        );
+
+
+      title.className =
+        "project-row-title";
+
+
+      title.textContent =
+        project.title;
+
+
+      const category =
+        document.createElement(
+          "span"
+        );
+
+
+      category.className =
+        "project-row-category";
+
+
+      category.textContent =
+        project.category;
+
+
+      const year =
+        document.createElement(
+          "span"
+        );
+
+
+      year.className =
+        "project-row-year";
+
+
+      year.textContent =
+        project.year || "—";
+
+
+      row.append(
+        number,
+        title,
+        category,
+        year
+      );
 
 
       row.addEventListener(
@@ -3199,10 +3078,12 @@
 
 
       if (
-        !matches
+        !matches ||
+        matches.length === 0
       ) {
 
         return -1;
+
       }
 
 
@@ -3234,6 +3115,8 @@
         );
 
 
+      /* ALL */
+
       if (
         mode === "all"
       ) {
@@ -3256,6 +3139,8 @@
       }
 
 
+      /* YEAR */
+
       if (
         mode === "year"
       ) {
@@ -3265,24 +3150,49 @@
 
 
         indexedProjects
+
           .sort(
-            (a, b) =>
+            (a, b) => {
 
-              getYearValue(
-                b.project
-              )
+              const difference =
 
-              -
+                getYearValue(
+                  b.project
+                )
 
-              getYearValue(
-                a.project
-              )
+                -
+
+                getYearValue(
+                  a.project
+                );
+
+
+              if (
+                difference !== 0
+              ) {
+
+                return difference;
+
+              }
+
+
+              return a.project.title.localeCompare(
+                b.project.title,
+                "en",
+                {
+                  sensitivity: "base"
+                }
+              );
+
+            }
           )
+
           .forEach(
             item => {
 
               const key =
-                item.project.year ||
+                item.project.year.trim()
+                ||
                 "YEAR NOT SET";
 
 
@@ -3339,6 +3249,8 @@
       }
 
 
+      /* NAME */
+
       if (
         mode === "name"
       ) {
@@ -3347,12 +3259,13 @@
           [...indexedProjects]
             .sort(
               (a, b) =>
-
-                a.project.title
-                  .localeCompare(
-                    b.project.title,
-                    "en"
-                  )
+                a.project.title.localeCompare(
+                  b.project.title,
+                  "en",
+                  {
+                    sensitivity: "base"
+                  }
+                )
             );
 
 
@@ -3365,6 +3278,7 @@
 
             const letter =
               item.project.title
+                .trim()
                 .charAt(0)
                 .toUpperCase();
 
@@ -3411,14 +3325,14 @@
       hidePanel();
 
 
-      projectIndexOverlay
-        .classList
-        .add("active");
+      projectIndexOverlay.classList.add(
+        "active"
+      );
 
 
-      projectIndexPanel
-        .classList
-        .add("active");
+      projectIndexPanel.classList.add(
+        "active"
+      );
 
 
       renderProjectIndex(
@@ -3430,14 +3344,14 @@
 
     function hideProjectIndex() {
 
-      projectIndexOverlay
-        .classList
-        .remove("active");
+      projectIndexOverlay.classList.remove(
+        "active"
+      );
 
 
-      projectIndexPanel
-        .classList
-        .remove("active");
+      projectIndexPanel.classList.remove(
+        "active"
+      );
 
     }
 
@@ -3504,10 +3418,12 @@
 
       if (
         !activeProject ||
+        !activeProject.images ||
         !activeProject.images.length
       ) {
 
         return;
+
       }
 
 
@@ -3517,11 +3433,18 @@
         ];
 
 
+      lightboxImage.alt =
+        activeProject.title;
+
+
       lightboxCounter.textContent =
 
         String(
           activeImageIndex + 1
-        ).padStart(2, "0")
+        ).padStart(
+          2,
+          "0"
+        )
 
         +
 
@@ -3531,7 +3454,10 @@
 
         String(
           activeProject.images.length
-        ).padStart(2, "0");
+        ).padStart(
+          2,
+          "0"
+        );
 
 
       const single =
@@ -3558,10 +3484,12 @@
 
         if (
           !activeProject ||
+          !activeProject.images ||
           !activeProject.images.length
         ) {
 
           return;
+
         }
 
 
@@ -3614,6 +3542,26 @@
           );
 
         }
+
+      }
+    );
+
+
+    /* ====================================================
+       BROKEN IMAGE
+    ==================================================== */
+
+    panelImage.addEventListener(
+      "error",
+      () => {
+
+        panelImage.style.display =
+          "none";
+
+
+        imagePlaceholder.classList.add(
+          "active"
+        );
 
       }
     );
@@ -3709,7 +3657,7 @@
 
 
           /*
-            지구 뒷면이면 숨김
+            지구 뒷면이면 숨기기
           */
 
           if (
@@ -3764,14 +3712,9 @@
 
           const visibility =
             THREE.MathUtils.clamp(
-
-              facing *
-              3,
-
+              facing * 3,
               0,
-
               1
-
             );
 
 
@@ -3806,13 +3749,15 @@
 
         mouseX =
           event.clientX /
-          window.innerWidth -
+          window.innerWidth
+          -
           0.5;
 
 
         mouseY =
           event.clientY /
-          window.innerHeight -
+          window.innerHeight
+          -
           0.5;
 
       }
@@ -3872,14 +3817,14 @@
         ) {
 
           if (
-            imageLightbox
-              .classList
-              .contains("active")
+            imageLightbox.classList.contains(
+              "active"
+            )
           ) {
 
-            imageLightbox
-              .classList
-              .remove("active");
+            imageLightbox.classList.remove(
+              "active"
+            );
 
 
             return;
@@ -3888,9 +3833,9 @@
 
 
           if (
-            projectIndexPanel
-              .classList
-              .contains("active")
+            projectIndexPanel.classList.contains(
+              "active"
+            )
           ) {
 
             hideProjectIndex();
@@ -3907,9 +3852,9 @@
 
 
         if (
-          imageLightbox
-            .classList
-            .contains("active")
+          imageLightbox.classList.contains(
+            "active"
+          )
         ) {
 
           if (
@@ -3948,17 +3893,13 @@
       );
 
 
-      /*
-        자동 회전
-      */
+      /* 자동 회전 */
 
       globe.rotation.y +=
         0.0022;
 
 
-      /*
-        마우스 움직임 반응
-      */
+      /* 마우스 반응 */
 
       globe.rotation.x +=
 
@@ -3988,9 +3929,7 @@
         0.008;
 
 
-      /*
-        프로젝트 흰 점 위치 업데이트
-      */
+      /* 프로젝트 점 이동 */
 
       updateProjectMarkers();
 
