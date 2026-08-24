@@ -1981,231 +1981,180 @@
     }
 
 
-    /* ====================================================
-       PROJECT POINTS
+   /* ====================================================
+   PROJECT POINTS
+   큰 프로젝트 점만 은은하게 반짝임
+==================================================== */
 
-       큰 프로젝트 점만 은은하게 반짝임
-    ==================================================== */
+const projectPoints = [];
 
-    const projectPoints =
-      [];
 
+projects.forEach(
+  (project, index) => {
 
-    projects.forEach(
-      (project, index) => {
+    /* 클릭 영역 */
 
+    const hitPoint =
+      new THREE.Mesh(
 
-        /* 클릭 영역 */
+        new THREE.SphereGeometry(
+          0.13,
+          20,
+          20
+        ),
 
-        const hitPoint =
-          new THREE.Mesh(
+        new THREE.MeshBasicMaterial({
+          transparent: true,
+          opacity: 0,
+          depthWrite: false
+        })
 
-            new THREE.SphereGeometry(
-              0.095,
-              18,
-              18
-            ),
-
-            new THREE.MeshBasicMaterial({
-              transparent: true,
-              opacity: 0
-            })
-
-          );
-
-
-        /* 큰 흰색 프로젝트 점 */
-
-        const visiblePoint =
-          new THREE.Mesh(
-
-            new THREE.SphereGeometry(
-              0.034,
-              24,
-              24
-            ),
-
-            new THREE.MeshBasicMaterial({
-
-              color: 0xffffff,
-
-              transparent: true,
-
-              opacity: 1
-
-            })
-
-          );
-
-
-        /* 주변 원 */
-
-        const halo =
-          new THREE.Mesh(
-
-            new THREE.RingGeometry(
-              0.052,
-              0.068,
-              40
-            ),
-
-            new THREE.MeshBasicMaterial({
-
-              color: 0xffffff,
-
-              transparent: true,
-
-              opacity: 0.22,
-
-              side:
-                THREE.DoubleSide
-
-            })
-
-          );
-
-
-        const position =
-          latLngToVector3(
-
-            project.lat,
-
-            project.lng,
-
-            1.42
-
-          );
-
-
-        hitPoint.position.copy(
-          position
-        );
-
-
-        visiblePoint.position.copy(
-          position
-        );
-
-
-        halo.position.copy(
-          position
-        );
-
-
-        hitPoint.userData = {
-
-          projectIndex:
-            index,
-
-          visiblePoint:
-            visiblePoint,
-
-          halo:
-            halo,
-
-          /* 각 점마다 반짝임 타이밍 다르게 */
-
-          twinklePhase:
-            Math.random() *
-            Math.PI *
-            2,
-
-          /* 점마다 반짝이는 속도 조금 다르게 */
-
-          twinkleSpeed:
-            0.65 +
-            Math.random() *
-            0.55
-
-        };
-
-
-        globe.add(
-          hitPoint
-        );
-
-
-        globe.add(
-          visiblePoint
-        );
-
-
-        globe.add(
-          halo
-        );
-
-
-        projectPoints.push(
-          hitPoint
-        );
-
-      }
-    );
-
-
-    /* ====================================================
-       LIGHTS
-    ==================================================== */
-
-    const lightA =
-      new THREE.DirectionalLight(
-        0xffffff,
-        4
       );
 
 
-    lightA.position.set(
-      2,
-      3,
-      4
-    );
+    /* 실제 프로젝트 점 */
 
+    const visiblePoint =
+      new THREE.Mesh(
 
-    scene.add(lightA);
+        new THREE.SphereGeometry(
+          0.052,
+          28,
+          28
+        ),
 
+        new THREE.MeshBasicMaterial({
 
-    const lightB =
-      new THREE.DirectionalLight(
-        0xffffff,
-        2
+          color: 0xffffff,
+
+          transparent: true,
+
+          opacity: 1,
+
+          depthTest: true,
+
+          depthWrite: false
+
+        })
+
       );
 
 
-    lightB.position.set(
-      -3,
-      -1,
-      2
-    );
+    /*
+      프로젝트 점 바깥 링
+    */
 
+    const halo =
+      new THREE.Mesh(
 
-    scene.add(lightB);
+        new THREE.RingGeometry(
+          0.075,
+          0.105,
+          48
+        ),
 
+        new THREE.MeshBasicMaterial({
 
-    const lightC =
-      new THREE.DirectionalLight(
-        0xffffff,
-        1
+          color: 0xffffff,
+
+          transparent: true,
+
+          opacity: 0.35,
+
+          side: THREE.DoubleSide,
+
+          depthWrite: false
+
+        })
+
       );
 
 
-    lightC.position.set(
-      3,
-      -2,
-      -1
+    /*
+      지구 표면보다 조금 더 바깥에 배치
+    */
+
+    const position =
+      latLngToVector3(
+        project.lat,
+        project.lng,
+        1.47
+      );
+
+
+    hitPoint.position.copy(
+      position
     );
 
 
-    scene.add(lightC);
+    visiblePoint.position.copy(
+      position
+    );
 
 
-    globe.rotation.x =
-      THREE.MathUtils
-        .degToRad(-14);
+    halo.position.copy(
+      position
+    );
 
 
-    globe.rotation.z =
-      THREE.MathUtils
-        .degToRad(-8);
+    /*
+      다른 오브젝트보다 나중에 렌더링
+    */
+
+    visiblePoint.renderOrder = 10;
+
+    halo.renderOrder = 9;
+
+
+    hitPoint.userData = {
+
+      projectIndex:
+        index,
+
+      visiblePoint:
+        visiblePoint,
+
+      halo:
+        halo,
+
+      /*
+        각각 다른 시점에 반짝임
+      */
+
+      twinklePhase:
+        Math.random() *
+        Math.PI *
+        2,
+
+      twinkleSpeed:
+        0.55 +
+        Math.random() *
+        0.45
+
+    };
+
+
+    globe.add(
+      hitPoint
+    );
+
+
+    globe.add(
+      visiblePoint
+    );
+
+
+    globe.add(
+      halo
+    );
+
+
+    projectPoints.push(
+      hitPoint
+    );
+
+  }
+);
 
 
     /* ====================================================
