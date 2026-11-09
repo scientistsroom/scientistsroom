@@ -2,2150 +2,2929 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scientistsroom - KIM MIN U</title>
-
-  <!-- KAKAO / SNS -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Scientistsroom - KIM MIN U">
-  <meta property="og:image" content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg">
-  <meta property="og:url" content="https://scientistsroom.github.io/scientistsroom/">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #050505;
-      color: #f5f5f5;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    button, a { font: inherit; }
-    button { color: inherit; }
-
-    /* HOME */
-
-    .hero {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-      background: #050505;
-    }
-
-    .top {
-      position: absolute;
-      top: 36px;
-      left: 40px;
-      right: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      font-weight: 600;
-      z-index: 40;
-    }
-
-    .top-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.35;
-    }
-
-    .top-menu-button {
-      appearance: none;
-      border: 0;
-      background: none;
-      padding: 0;
-      color: #f5f5f5;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity .2s ease;
-    }
-
-    .top-menu-button:hover { opacity: .5; }
-
-    .title {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: clamp(38px, 4.2vw, 72px);
-      line-height: .9;
-      letter-spacing: -.065em;
-      text-align: center;
-      font-weight: 600;
-      white-space: nowrap;
-      z-index: 10;
-    }
-
-    /* GUIDE */
-
-    .guide-circle {
-      position: absolute;
-      width: min(58vw, 720px);
-      aspect-ratio: 1 / 1;
-      left: 50%;
-      top: 48%;
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .guide-circle::before,
-    .guide-circle::after {
-      content: "";
-      position: absolute;
-      background: rgba(255,255,255,.09);
-    }
-
-    .guide-circle::before {
-      width: 140%;
-      height: 1px;
-      left: -20%;
-      top: 50%;
-    }
-
-    .guide-circle::after {
-      width: 1px;
-      height: 140%;
-      left: 50%;
-      top: -20%;
-    }
-
-    .line {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 118%;
-      height: 1px;
-      background: rgba(255,255,255,.07);
-      transform-origin: center;
-    }
-
-    .line.one {
-      transform: translate(-50%, -50%) rotate(32deg);
-    }
-
-    .line.two {
-      transform: translate(-50%, -50%) rotate(-32deg);
-    }
-
-    .side-line {
-      position: absolute;
-      top: 45%;
-      width: 12%;
-      height: 1px;
-      background: rgba(255,255,255,.15);
-    }
-
-    .side-line.left { left: 3.5%; }
-    .side-line.right { right: 3.5%; }
-
-    /* GLOBE */
-
-    #earthWrap {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: min(36vw, 500px);
-      height: min(36vw, 500px);
-      transform: translate(-50%, -48%);
-      z-index: 5;
-    }
-
-    #earth {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    #projectMarkers {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 30;
-    }
-
-    .project-marker {
-      --pulse-duration: 3s;
-      --pulse-delay: 0s;
-      position: absolute;
-      width: 34px;
-      height: 34px;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      background: transparent;
-      transform: translate(-50%, -50%);
-      pointer-events: auto;
-      cursor: pointer;
-      opacity: 1;
-      transition: opacity .35s ease;
-      will-change: left, top, opacity;
-    }
-
-    .project-marker::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #fff;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 7px rgba(255,255,255,.48);
-      animation: projectPointPulse var(--pulse-duration) ease-in-out infinite;
-      animation-delay: var(--pulse-delay);
-    }
-
-    .project-marker::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 19px;
-      height: 19px;
-      border: 1px solid rgba(255,255,255,.42);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: projectHaloPulse var(--pulse-duration) ease-in-out infinite;
-      animation-delay: var(--pulse-delay);
-    }
-
-    @keyframes projectPointPulse {
-      0%, 100% {
-        opacity: .76;
-        transform: translate(-50%, -50%) scale(.92);
-        box-shadow: 0 0 4px rgba(255,255,255,.35);
-      }
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.25);
-        box-shadow: 0 0 12px rgba(255,255,255,.85);
-      }
-    }
-
-    @keyframes projectHaloPulse {
-      0%, 100% {
-        opacity: .2;
-        transform: translate(-50%, -50%) scale(.90);
-      }
-      50% {
-        opacity: .68;
-        transform: translate(-50%, -50%) scale(1.12);
-      }
-    }
-
-    .project-marker:hover::before {
-      animation-play-state: paused;
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.62);
-      box-shadow: 0 0 16px #fff;
-    }
-
-    .project-marker:hover::after {
-      animation-play-state: paused;
-      opacity: .95;
-      transform: translate(-50%, -50%) scale(1.28);
-    }
-
-    #projectLabel {
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 9px 12px;
-      background: #f5f5f5;
-      color: #050505;
-      font-size: 11px;
-      line-height: 1.3;
-      pointer-events: none;
-      opacity: 0;
-      transform: translate(14px, 14px);
-      transition: opacity .18s ease;
-      z-index: 200;
-      white-space: nowrap;
-    }
-
-    #projectLabel.active { opacity: 1; }
-    #projectLabel .label-number { opacity: .45; margin-right: 8px; }
-    #projectLabel .label-category { opacity: .5; margin-left: 8px; }
-
-    /* FOOTER */
-
-    .bottom {
-      position: absolute;
-      left: 40px;
-      right: 40px;
-      bottom: 34px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 50px;
-      align-items: end;
-      z-index: 20;
-    }
-
-    .item h3 {
-      margin-bottom: 9px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .item p {
-      max-width: 300px;
-      font-size: 10px;
-      line-height: 1.35;
-      color: rgba(255,255,255,.42);
-    }
-
-    .center-item { text-align: center; }
-    .center-item p { margin: 0 auto; }
-    .right-item { text-align: right; }
-    .right-item p { margin-left: auto; }
-
-    /* PROJECT DETAIL */
-
-    .panel-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.18);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .5s ease;
-      z-index: 80;
-    }
-
-    .panel-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    #projectPanel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(540px, 92vw);
-      height: 100vh;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      border-left: 1px solid rgba(255,255,255,.08);
-      padding: 38px 38px 42px;
-      transform: translateX(100%);
-      transition: transform .7s cubic-bezier(.16,1,.3,1);
-      z-index: 90;
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
-    }
-
-    #projectPanel.active { transform: translateX(0); }
-
-    .panel-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 42px;
-    }
-
-    .panel-index {
-      font-size: 11px;
-      color: rgba(255,255,255,.42);
-    }
-
-    .panel-actions {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .panel-action-button {
-      appearance: none;
-      border: 0;
-      background: none;
-      color: #fff;
-      cursor: pointer;
-      line-height: 1;
-      transition: opacity .2s ease;
-    }
-
-    .panel-action-button:hover { opacity: .5; }
-    #backPanel { font-size: 23px; font-weight: 300; }
-    #backPanel.hidden { display: none; }
-    #closePanel { font-size: 28px; font-weight: 300; }
-
-    .panel-year {
-      min-height: 14px;
-      margin-bottom: 12px;
-      font-size: 11px;
-      color: rgba(255,255,255,.42);
-    }
-
-    .panel-title {
-      margin-bottom: 18px;
-      font-size: clamp(30px, 3.7vw, 52px);
-      line-height: .98;
-      letter-spacing: -.055em;
-      font-weight: 500;
-    }
-
-    .panel-category {
-      margin-bottom: 30px;
-      font-size: 11px;
-      color: rgba(255,255,255,.48);
-    }
-
-    /* IMAGE SLIDER */
-
-    .slider {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: #161616;
-      margin-bottom: 16px;
-    }
-
-    #panelImage {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      cursor: zoom-in;
-      opacity: 0;
-      transition: opacity .35s ease, transform .3s ease;
-    }
-
-    #panelImage:hover {
-      transform: scale(1.012);
-    }
-
-    .image-placeholder {
-      position: absolute;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,.28);
-      font-size: 11px;
-      letter-spacing: .08em;
-      pointer-events: none;
-    }
-
-    .image-placeholder.active { display: flex; }
-
-    .slider-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255,255,255,.15);
-      background: rgba(0,0,0,.52);
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .slider-button:hover { background: rgba(255,255,255,.13); }
-    #prevImage { left: 12px; }
-    #nextImage { right: 12px; }
-    .slider-button.hidden { display: none; }
-
-    .slider-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 26px;
-      font-size: 10px;
-      color: rgba(255,255,255,.42);
-    }
-
-    .slider-dots { display: flex; gap: 6px; }
-
-    .slider-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.22);
-    }
-
-    .slider-dot.active { background: #fff; }
-
-    .panel-description {
-      max-width: 420px;
-      margin-bottom: 20px;
-      font-size: 12px;
-      line-height: 1.8;
-      color: rgba(255,255,255,.65);
-      white-space: pre-line;
-    }
-
-    .panel-link {
-      display: none;
-      max-width: 420px;
-      margin-bottom: 40px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: rgba(255,255,255,.45);
-      font-size: 10px;
-      line-height: 1.55;
-      text-decoration: none;
-      word-break: break-all;
-      transition: color .2s ease;
-    }
-
-    .panel-link.active { display: block; }
-    .panel-link:hover { color: #fff; }
-
-    .view-project {
-      margin-top: auto;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,.14);
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-    }
-
-    .view-project span:last-child { opacity: .45; }
-
-    /* PROJECT INDEX */
-
-    #projectIndexOverlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.35);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .4s ease, visibility .4s ease;
-      z-index: 110;
-    }
-
-    #projectIndexOverlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    #projectIndexPanel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(820px, 100vw);
-      height: 100vh;
-      background: #080808;
-      border-left: 1px solid rgba(255,255,255,.08);
-      transform: translateX(100%);
-      transition: transform .75s cubic-bezier(.16,1,.3,1);
-      z-index: 120;
-      display: flex;
-      flex-direction: column;
-    }
-
-    #projectIndexPanel.active { transform: translateX(0); }
-
-    .project-index-header {
-      padding: 36px 40px 30px;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-
-    .project-index-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 56px;
-    }
-
-    .project-index-heading {
-      font-size: clamp(42px, 6vw, 82px);
-      line-height: .9;
-      letter-spacing: -.065em;
-      font-weight: 500;
-    }
-
-    #closeProjectIndex {
-      appearance: none;
-      border: 0;
-      background: none;
-      color: #fff;
-      font-size: 32px;
-      font-weight: 300;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .project-index-meta {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .project-count {
-      font-size: 10px;
-      letter-spacing: .05em;
-      color: rgba(255,255,255,.35);
-    }
-
-    .project-sort { display: flex; gap: 22px; }
-
-    .project-sort-button {
-      appearance: none;
-      padding: 0 0 5px;
-      border: 0;
-      border-bottom: 1px solid transparent;
-      background: none;
-      color: rgba(255,255,255,.35);
-      font-size: 10px;
-      letter-spacing: .05em;
-      cursor: pointer;
-      transition: color .2s ease, border-color .2s ease;
-    }
-
-    .project-sort-button:hover { color: #fff; }
-    .project-sort-button.active { color: #fff; border-bottom-color: #fff; }
-
-    .project-index-scroll {
-      flex: 1;
-      overflow-y: auto;
-      padding: 0 40px 60px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255,255,255,.2) transparent;
-    }
-
-    .project-group-title {
-      padding: 42px 0 14px;
-      font-size: 10px;
-      letter-spacing: .06em;
-      color: rgba(255,255,255,.35);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .project-list-row {
-      appearance: none;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 54px minmax(0,1fr) 190px 100px;
-      gap: 18px;
-      align-items: center;
-      padding: 22px 0;
-      border: 0;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background: transparent;
-      color: #fff;
-      text-align: left;
-      cursor: pointer;
-      transition: padding-left .25s ease, background .25s ease;
-    }
-
-    .project-list-row:hover {
-      padding-left: 10px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .project-row-number {
-      font-size: 10px;
-      color: rgba(255,255,255,.30);
-    }
-
-    .project-row-title {
-      min-width: 0;
-      font-size: clamp(17px, 2vw, 24px);
-      letter-spacing: -.035em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .project-row-category {
-      font-size: 9px;
-      color: rgba(255,255,255,.38);
-    }
-
-    .project-row-year {
-      text-align: right;
-      font-size: 10px;
-      color: rgba(255,255,255,.38);
-    }
-
-    /* LIGHTBOX */
-
-    #imageLightbox {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 55px 80px;
-      background: rgba(0,0,0,.98);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .35s ease, visibility .35s ease;
-      z-index: 300;
-    }
-
-    #imageLightbox.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    #lightboxImage {
-      display: block;
-      max-width: 92vw;
-      max-height: 86vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      opacity: 0;
-      transition: opacity .3s ease;
-    }
-
-    #closeLightbox {
-      position: absolute;
-      top: 28px;
-      right: 34px;
-      border: 0;
-      background: none;
-      color: #fff;
-      font-size: 34px;
-      cursor: pointer;
-    }
-
-    .lightbox-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 55px;
-      height: 55px;
-      border: 0;
-      background: none;
-      color: rgba(255,255,255,.65);
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    .lightbox-arrow:hover { color: #fff; }
-    #lightboxPrev { left: 24px; }
-    #lightboxNext { right: 24px; }
-    .lightbox-arrow.hidden { display: none; }
-
-    #lightboxCounter {
-      position: absolute;
-      left: 50%;
-      bottom: 22px;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,.55);
-      font-size: 10px;
-      letter-spacing: .08em;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 900px) {
-      .hero { min-height: 100svh; }
-      .top { top: 22px; left: 20px; right: 20px; }
-      .title { top: 13%; font-size: clamp(38px, 11vw, 52px); }
-
-      #earthWrap {
-        width: 72vw;
-        height: 72vw;
-        top: 49%;
-      }
-
-      .guide-circle { width: 90vw; top: 49%; }
-      .side-line { display: none; }
-
-      .bottom {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
-
-      .center-item { display: none; }
-      #projectPanel { width: 100vw; padding: 25px 24px 30px; }
-      .project-index-header { padding: 24px 22px; }
-      .project-index-top { margin-bottom: 42px; }
-      .project-index-heading { font-size: 50px; }
-
-      .project-index-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-      }
-
-      .project-index-scroll { padding: 0 22px 40px; }
-
-      .project-list-row {
-        grid-template-columns: 36px minmax(0,1fr) 90px;
-        gap: 10px;
-        padding: 18px 0;
-      }
-
-      .project-row-category { display: none; }
-      #imageLightbox { padding: 20px; }
-      #lightboxImage { max-width: 96vw; max-height: 82vh; }
-      #lightboxPrev { left: 5px; }
-      #lightboxNext { right: 5px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientistsroom - KIM MIN U</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scientistsroom - KIM MIN U">
+<meta property="og:image" content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg">
+<meta property="og:url" content="https://scientistsroom.github.io/scientistsroom/">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #050505;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button, a {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+/* ==============================
+   MAIN
+============================== */
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #050505;
+}
+
+.top {
+  position: absolute;
+  top: 36px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 40;
+}
+
+.top-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .35;
+}
+
+.top-menu-button {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #f5f5f5;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+.top-menu-button:hover {
+  opacity: .5;
+}
+
+.title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(38px, 4.2vw, 72px);
+  line-height: .9;
+  letter-spacing: -.065em;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* ==============================
+   GUIDE
+============================== */
+
+.guide-circle {
+  position: absolute;
+  width: min(58vw, 720px);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.guide-circle::before,
+.guide-circle::after {
+  content: "";
+  position: absolute;
+  background: rgba(255,255,255,.09);
+}
+
+.guide-circle::before {
+  width: 140%;
+  height: 1px;
+  left: -20%;
+  top: 50%;
+}
+
+.guide-circle::after {
+  width: 1px;
+  height: 140%;
+  left: 50%;
+  top: -20%;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118%;
+  height: 1px;
+  background: rgba(255,255,255,.07);
+  transform-origin: center;
+}
+
+.line.one {
+  transform: translate(-50%, -50%) rotate(32deg);
+}
+
+.line.two {
+  transform: translate(-50%, -50%) rotate(-32deg);
+}
+
+.side-line {
+  position: absolute;
+  top: 45%;
+  width: 12%;
+  height: 1px;
+  background: rgba(255,255,255,.15);
+}
+
+.side-line.left {
+  left: 3.5%;
+}
+
+.side-line.right {
+  right: 3.5%;
+}
+
+/* ==============================
+   GLOBE
+============================== */
+
+#earthWrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(36vw, 500px);
+  height: min(36vw, 500px);
+  transform: translate(-50%, -48%);
+  z-index: 5;
+}
+
+#earth {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#projectMarkers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.project-marker {
+  --pulse-duration: 3s;
+  --pulse-delay: 0s;
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity .35s;
+}
+
+.project-marker::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  animation: pointPulse var(--pulse-duration) ease-in-out infinite;
+  animation-delay: var(--pulse-delay);
+}
+
+.project-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 19px;
+  height: 19px;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: haloPulse var(--pulse-duration) ease-in-out infinite;
+  animation-delay: var(--pulse-delay);
+}
+
+@keyframes pointPulse {
+  0%, 100% {
+    opacity: .76;
+    transform: translate(-50%, -50%) scale(.92);
+    box-shadow: 0 0 4px rgba(255,255,255,.35);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    box-shadow: 0 0 12px rgba(255,255,255,.85);
+  }
+}
+
+@keyframes haloPulse {
+  0%, 100% {
+    opacity: .2;
+    transform: translate(-50%, -50%) scale(.9);
+  }
+  50% {
+    opacity: .68;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+.project-marker:hover::before {
+  animation-play-state: paused;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.62);
+}
+
+.project-marker:hover::after {
+  animation-play-state: paused;
+  opacity: .95;
+  transform: translate(-50%, -50%) scale(1.28);
+}
+
+#projectLabel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 9px 12px;
+  background: #f5f5f5;
+  color: #050505;
+  font-size: 11px;
+  line-height: 1.3;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(14px, 14px);
+  transition: opacity .18s;
+  z-index: 200;
+  white-space: nowrap;
+}
+
+#projectLabel.active {
+  opacity: 1;
+}
+
+.label-number {
+  opacity: .45;
+  margin-right: 8px;
+}
+
+.label-category {
+  opacity: .5;
+  margin-left: 8px;
+}
+
+/* ==============================
+   BOTTOM
+============================== */
+
+.bottom {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  align-items: end;
+  z-index: 20;
+}
+
+.item h3 {
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.item p {
+  max-width: 300px;
+  font-size: 10px;
+  line-height: 1.35;
+  color: rgba(255,255,255,.42);
+}
+
+.center-item {
+  text-align: center;
+}
+
+.center-item p {
+  margin: 0 auto;
+}
+
+.right-item {
+  text-align: right;
+}
+
+.right-item p {
+  margin-left: auto;
+}
+
+/* ==============================
+   SHARED OVERLAY
+============================== */
+
+.panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.32);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s;
+  z-index: 80;
+}
+
+.panel-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==============================
+   PROJECT DETAIL
+============================== */
+
+#projectPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(540px, 92vw);
+  height: 100vh;
+  background: #0b0b0b;
+  border-left: 1px solid rgba(255,255,255,.08);
+  padding: 38px 38px 42px;
+  transform: translateX(100%);
+  transition: transform .7s cubic-bezier(.16,1,.3,1);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+#projectPanel.active {
+  transform: translateX(0);
+}
+
+.panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+.panel-index,
+.panel-year {
+  font-size: 11px;
+  color: rgba(255,255,255,.42);
+}
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.panel-action-button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#backPanel {
+  font-size: 23px;
+}
+
+#closePanel {
+  font-size: 28px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.panel-year {
+  min-height: 14px;
+  margin-bottom: 12px;
+}
+
+.panel-title {
+  margin-bottom: 18px;
+  font-size: clamp(30px,3.7vw,52px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  font-weight: 500;
+}
+
+.panel-category {
+  margin-bottom: 30px;
+  font-size: 11px;
+  color: rgba(255,255,255,.48);
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #161616;
+  margin-bottom: 16px;
+}
+
+#panelImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  cursor: zoom-in;
+  opacity: 0;
+  transition: opacity .35s ease, transform .3s;
+}
+
+#panelImage:hover {
+  transform: scale(1.012);
+}
+
+.image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: rgba(255,255,255,.3);
+}
+
+.image-placeholder.active {
+  display: flex;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.52);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prevImage {
+  left: 12px;
+}
+
+#nextImage {
+  right: 12px;
+}
+
+.slider-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+  font-size: 10px;
+  color: rgba(255,255,255,.42);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.slider-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.22);
+}
+
+.slider-dot.active {
+  background: #fff;
+}
+
+.panel-description {
+  max-width: 420px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.65);
+  white-space: pre-line;
+}
+
+.panel-link {
+  display: none;
+  max-width: 420px;
+  margin-bottom: 40px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.45);
+  font-size: 10px;
+  line-height: 1.55;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.panel-link.active {
+  display: block;
+}
+
+.panel-link:hover {
+  color: #fff;
+}
+
+.view-project {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.view-project span:last-child {
+  opacity: .45;
+}
+
+/* ==============================
+   PROJECT INDEX
+============================== */
+
+#projectIndexOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+  z-index: 110;
+}
+
+#projectIndexOverlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#projectIndexPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(820px,100vw);
+  height: 100vh;
+  background: #080808;
+  border-left: 1px solid rgba(255,255,255,.08);
+  transform: translateX(100%);
+  transition: transform .75s cubic-bezier(.16,1,.3,1);
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+}
+
+#projectIndexPanel.active {
+  transform: translateX(0);
+}
+
+.project-index-header {
+  padding: 36px 40px 30px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.project-index-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 56px;
+}
+
+.project-index-heading {
+  font-size: clamp(42px,6vw,82px);
+  line-height: .9;
+  letter-spacing: -.065em;
+  font-weight: 500;
+}
+
+#closeProjectIndex {
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.project-index-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.project-count {
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+}
+
+.project-sort {
+  display: flex;
+  gap: 22px;
+}
+
+.project-sort-button {
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: none;
+  color: rgba(255,255,255,.35);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.project-sort-button.active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.project-index-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 40px 60px;
+}
+
+.project-group-title {
+  padding: 42px 0 14px;
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.project-list-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 54px minmax(0,1fr) 190px 100px;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: padding-left .25s, background .25s;
+}
+
+.project-list-row:hover {
+  padding-left: 10px;
+  background: rgba(255,255,255,.025);
+}
+
+.project-row-number,
+.project-row-category,
+.project-row-year {
+  font-size: 10px;
+  color: rgba(255,255,255,.38);
+}
+
+.project-row-title {
+  min-width: 0;
+  font-size: clamp(17px,2vw,24px);
+  letter-spacing: -.035em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-row-year {
+  text-align: right;
+}
+
+/* ==============================
+   ABOUT PANEL
+============================== */
+
+#aboutOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.42);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s, visibility .45s;
+  z-index: 140;
+}
+
+#aboutOverlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#aboutPanel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(660px,100vw);
+  height: 100vh;
+  background: #080808;
+  border-right: 1px solid rgba(255,255,255,.1);
+  transform: translateX(-100%);
+  transition: transform .75s cubic-bezier(.16,1,.3,1);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+}
+
+#aboutPanel.active {
+  transform: translateX(0);
+}
+
+.about-header {
+  flex-shrink: 0;
+  padding: 36px 40px 26px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  background: #080808;
+}
+
+.about-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-small {
+  font-size: 10px;
+  letter-spacing: .07em;
+  color: rgba(255,255,255,.4);
+}
+
+#closeAbout {
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.about-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 45px 40px 70px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+.about-name {
+  font-size: clamp(48px,6vw,80px);
+  line-height: .9;
+  letter-spacing: -.065em;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.about-role {
+  font-size: 11px;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .04em;
+  margin-bottom: 30px;
+}
+
+.about-intro {
+  max-width: 480px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 85px;
+}
+
+.about-section {
+  margin-bottom: 85px;
+}
+
+.about-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.about-section-title {
+  font-size: clamp(25px,3vw,38px);
+  letter-spacing: -.055em;
+  font-weight: 500;
+}
+
+.about-section-meta {
+  font-size: 9px;
+  color: rgba(255,255,255,.35);
+  white-space: nowrap;
+}
+
+.about-entry {
+  display: grid;
+  grid-template-columns: 135px minmax(0,1fr);
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.075);
+}
+
+.about-entry-date {
+  font-size: 10px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.38);
+}
+
+.about-entry-title {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+  margin-bottom: 9px;
+}
+
+.about-entry-desc {
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.48);
+  white-space: pre-line;
+}
+
+.about-note {
+  margin-top: 23px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: rgba(255,255,255,.45);
+}
+
+.course-group {
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.course-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.course-title {
+  font-size: 17px;
+  letter-spacing: -.035em;
+  font-weight: 500;
+}
+
+.course-count {
+  font-size: 9px;
+  color: rgba(255,255,255,.35);
+  white-space: nowrap;
+}
+
+.course-list {
+  font-size: 11px;
+  line-height: 2.1;
+  color: rgba(255,255,255,.53);
+  word-break: keep-all;
+}
+
+.about-contact {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 24px;
+}
+
+.about-contact-label {
+  font-size: 10px;
+  color: rgba(255,255,255,.4);
+  margin-bottom: 17px;
+}
+
+.about-contact a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  letter-spacing: -.025em;
+}
+
+.about-contact a:hover {
+  opacity: .55;
+}
+
+/* ==============================
+   LIGHTBOX
+============================== */
+
+#imageLightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 80px;
+  background: rgba(0,0,0,.98);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s;
+  z-index: 300;
+}
+
+#imageLightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#lightboxImage {
+  display: block;
+  max-width: 92vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+#closeLightbox {
+  position: absolute;
+  top: 28px;
+  right: 34px;
+  border: 0;
+  background: none;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
+  border: 0;
+  background: none;
+  font-size: 27px;
+  color: rgba(255,255,255,.65);
+  cursor: pointer;
+}
+
+#lightboxPrev {
+  left: 24px;
+}
+
+#lightboxNext {
+  right: 24px;
+}
+
+#lightboxCounter {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: rgba(255,255,255,.55);
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:900px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .top {
+    top: 22px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .title {
+    top: 13%;
+    font-size: clamp(38px,11vw,52px);
+  }
+
+  #earthWrap {
+    width: 72vw;
+    height: 72vw;
+    top: 49%;
+  }
+
+  .guide-circle {
+    width: 90vw;
+    top: 49%;
+  }
+
+  .side-line {
+    display: none;
+  }
+
+  .bottom {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .center-item {
+    display: none;
+  }
+
+  #projectPanel {
+    width: 100vw;
+    padding: 25px 24px 30px;
+  }
+
+  .project-index-header {
+    padding: 24px 22px;
+  }
+
+  .project-index-top {
+    margin-bottom: 42px;
+  }
+
+  .project-index-heading {
+    font-size: 50px;
+  }
+
+  .project-index-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .project-index-scroll {
+    padding: 0 22px 40px;
+  }
+
+  .project-list-row {
+    grid-template-columns: 36px minmax(0,1fr) 90px;
+    gap: 10px;
+    padding: 18px 0;
+  }
+
+  .project-row-category {
+    display: none;
+  }
+
+  .about-header {
+    padding: 25px 24px;
+  }
+
+  .about-scroll {
+    padding: 42px 24px 60px;
+  }
+
+  .about-entry {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .about-section {
+    margin-bottom: 65px;
+  }
+
+  .about-intro {
+    margin-bottom: 65px;
+  }
+
+  #imageLightbox {
+    padding: 20px;
+  }
+
+  #lightboxImage {
+    max-width: 96vw;
+    max-height: 82vh;
+  }
+
+  #lightboxPrev {
+    left: 5px;
+  }
+
+  #lightboxNext {
+    right: 5px;
+  }
+}
+
+@media(max-width:420px) {
+  .title {
+    font-size: 9.1vw;
+  }
+
+  .about-section-meta {
+    font-size: 8px;
+  }
+
+  .about-contact a {
+    font-size: 16px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <main class="hero">
-    <header class="top">
-      <div>KIM MIN U</div>
-      <div class="top-center">PORTFOLIO</div>
-      <button class="top-menu-button" id="projectsMenuButton" type="button">PROJECTS</button>
-    </header>
 
-    <div class="title">Scientists[room]</div>
+<main class="hero">
 
-    <div class="guide-circle">
-      <div class="line one"></div>
-      <div class="line two"></div>
-    </div>
+  <header class="top">
+    <button
+      class="top-menu-button"
+      id="aboutMenuButton"
+      type="button"
+    >KIM MIN U</button>
 
-    <div class="side-line left"></div>
-    <div class="side-line right"></div>
+    <div class="top-center">PORTFOLIO</div>
 
-    <div id="earthWrap">
-      <div id="earth"></div>
-      <div id="projectMarkers"></div>
-    </div>
+    <button
+      class="top-menu-button"
+      id="projectsMenuButton"
+      type="button"
+    >PROJECTS</button>
+  </header>
 
-    <section class="bottom">
-      <div class="item">
-        <h3>Visual Design</h3>
-        <p>Graphic / Editorial / Branding / UX UI / Photography</p>
-      </div>
+  <div class="title">Scientists[room]</div>
 
-      <div class="item center-item">
-        <h3>xoxxnxxox@gmail.com</h3>
-        <p>Visual communication across print, space and digital media.</p>
-      </div>
-
-      <div class="item right-item">
-        <h3>Selected Works</h3>
-        <p>Click the points on the globe or open the project index.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- HOVER LABEL -->
-  <div id="projectLabel"></div>
-
-  <!-- PROJECT DETAIL -->
-  <div class="panel-overlay" id="panelOverlay"></div>
-
-  <aside id="projectPanel">
-    <div class="panel-top">
-      <div class="panel-index" id="panelIndex"></div>
-
-      <div class="panel-actions">
-        <button class="panel-action-button hidden" id="backPanel" type="button" aria-label="Back to projects">←</button>
-        <button class="panel-action-button" id="closePanel" type="button" aria-label="Close project">×</button>
-      </div>
-    </div>
-
-    <div class="panel-year" id="panelYear"></div>
-    <h2 class="panel-title" id="panelTitle"></h2>
-    <div class="panel-category" id="panelCategory"></div>
-
-    <div class="slider">
-      <img id="panelImage" alt="" decoding="async" fetchpriority="high">
-      <div class="image-placeholder" id="imagePlaceholder">
-        <span id="imageStatus">PROJECT IMAGE</span>
-      </div>
-
-      <button class="slider-button" id="prevImage" type="button" aria-label="Previous image">←</button>
-      <button class="slider-button" id="nextImage" type="button" aria-label="Next image">→</button>
-    </div>
-
-    <div class="slider-info">
-      <div id="sliderCounter">00 / 00</div>
-      <div class="slider-dots" id="sliderDots"></div>
-    </div>
-
-    <p class="panel-description" id="panelDescription"></p>
-
-    <a class="panel-link" id="panelLink" target="_blank" rel="noopener noreferrer"></a>
-
-    <div class="view-project">
-      <span>SELECTED PROJECT</span>
-      <span>scientistsroom</span>
-    </div>
-  </aside>
-
-  <!-- PROJECT INDEX -->
-  <div id="projectIndexOverlay"></div>
-
-  <section id="projectIndexPanel">
-    <div class="project-index-header">
-      <div class="project-index-top">
-        <h2 class="project-index-heading">Projects</h2>
-        <button id="closeProjectIndex" type="button" aria-label="Close projects">×</button>
-      </div>
-
-      <div class="project-index-meta">
-        <div class="project-count" id="projectCount"></div>
-
-        <div class="project-sort">
-          <button class="project-sort-button active" type="button" data-sort="all">ALL</button>
-          <button class="project-sort-button" type="button" data-sort="year">YEAR</button>
-          <button class="project-sort-button" type="button" data-sort="name">NAME</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-index-scroll" id="projectIndexList"></div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div id="imageLightbox">
-    <button id="closeLightbox" type="button" aria-label="Close image">×</button>
-    <button class="lightbox-arrow" id="lightboxPrev" type="button" aria-label="Previous image">←</button>
-    <img id="lightboxImage" alt="" decoding="async">
-    <button class="lightbox-arrow" id="lightboxNext" type="button" aria-label="Next image">→</button>
-    <div id="lightboxCounter">01 / 01</div>
+  <div class="guide-circle">
+    <div class="line one"></div>
+    <div class="line two"></div>
   </div>
 
-  <script type="module">
-    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
+  <div class="side-line left"></div>
+  <div class="side-line right"></div>
 
-    /* PROJECT DATA — 14 PROJECTS */
+  <div id="earthWrap">
+    <div id="earth"></div>
+    <div id="projectMarkers"></div>
+  </div>
 
-    const projects = [
+  <section class="bottom">
+    <div class="item">
+      <h3>Visual Design</h3>
+      <p>Graphic / Editorial / Branding / UX UI / Photography</p>
+    </div>
+
+    <div class="item center-item">
+      <h3>xoxxnxxox@gmail.com</h3>
+      <p>Visual communication across print, space and digital media.</p>
+    </div>
+
+    <div class="item right-item">
+      <h3>Selected Works</h3>
+      <p>Click the points on the globe or open the project index.</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="projectLabel"></div>
+
+<!-- PROJECT DETAIL -->
+
+<div class="panel-overlay" id="panelOverlay"></div>
+
+<aside id="projectPanel">
+  <div class="panel-top">
+    <div class="panel-index" id="panelIndex"></div>
+
+    <div class="panel-actions">
+      <button class="panel-action-button hidden" id="backPanel" type="button">←</button>
+      <button class="panel-action-button" id="closePanel" type="button">×</button>
+    </div>
+  </div>
+
+  <div class="panel-year" id="panelYear"></div>
+  <h2 class="panel-title" id="panelTitle"></h2>
+  <div class="panel-category" id="panelCategory"></div>
+
+  <div class="slider">
+    <img id="panelImage" alt="" decoding="async">
+
+    <div class="image-placeholder" id="imagePlaceholder">
+      PROJECT IMAGE
+    </div>
+
+    <button class="slider-button" id="prevImage" type="button">←</button>
+    <button class="slider-button" id="nextImage" type="button">→</button>
+  </div>
+
+  <div class="slider-info">
+    <div id="sliderCounter">00 / 00</div>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+
+  <p class="panel-description" id="panelDescription"></p>
+
+  <a
+    class="panel-link"
+    id="panelLink"
+    target="_blank"
+    rel="noopener noreferrer"
+  ></a>
+
+  <div class="view-project">
+    <span>SELECTED PROJECT</span>
+    <span>scientistsroom</span>
+  </div>
+</aside>
+
+<!-- PROJECT INDEX -->
+
+<div id="projectIndexOverlay"></div>
+
+<section id="projectIndexPanel">
+  <div class="project-index-header">
+    <div class="project-index-top">
+      <h2 class="project-index-heading">Projects</h2>
+      <button id="closeProjectIndex" type="button">×</button>
+    </div>
+
+    <div class="project-index-meta">
+      <div class="project-count" id="projectCount"></div>
+
+      <div class="project-sort">
+        <button class="project-sort-button active" data-sort="all">ALL</button>
+        <button class="project-sort-button" data-sort="year">YEAR</button>
+        <button class="project-sort-button" data-sort="name">NAME</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-index-scroll" id="projectIndexList"></div>
+</section>
+
+<!-- ABOUT -->
+
+<div id="aboutOverlay"></div>
+
+<aside id="aboutPanel">
+  <div class="about-header">
+    <div class="about-top">
+      <div class="about-small">SCIENTISTS[ROOM] / ABOUT</div>
+      <button id="closeAbout" type="button" aria-label="Close about">×</button>
+    </div>
+  </div>
+
+  <div class="about-scroll" id="aboutScroll">
+
+    <h1 class="about-name">Kim Min U.</h1>
+
+    <div class="about-role">
+      GRAPHIC DESIGNER / VISUAL COMMUNICATION
+    </div>
+
+    <p class="about-intro">
+      Graphic Design · Branding · Editorial ·
+      Exhibition · Publishing · Visual Communication
+    </p>
+
+    <section class="about-section">
+      <div class="about-section-header">
+        <h2 class="about-section-title">01. Experience</h2>
+        <span class="about-section-meta">CAREER / LEADERSHIP</span>
+      </div>
+      <div id="experienceList"></div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-section-header">
+        <h2 class="about-section-title">02. Projects</h2>
+        <span class="about-section-meta">PROJECT ARCHIVE</span>
+      </div>
+      <div id="careerProjectList"></div>
+
+      <p class="about-note">
+        Additional works include branding,
+        Chugye University graduation exhibition posters,
+        local government brochures,
+        and editorial / publishing design.
+      </p>
+    </section>
+
+    <section class="about-section">
+      <div class="about-section-header">
+        <h2 class="about-section-title">03. Academic Courses</h2>
+        <span class="about-section-meta">EDUCATION</span>
+      </div>
+      <div id="academicList"></div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-section-header">
+        <h2 class="about-section-title">04. Selected Activities</h2>
+        <span class="about-section-meta">EVENT / EXPERIENCE</span>
+      </div>
+      <div id="activityList"></div>
+    </section>
+
+    <div class="about-contact">
+      <div class="about-contact-label">CONTACT</div>
+      <a href="mailto:xoxxnxxox@gmail.com">
+        xoxxnxxox@gmail.com
+      </a>
+    </div>
+
+  </div>
+</aside>
+
+<!-- LIGHTBOX -->
+
+<div id="imageLightbox">
+  <button id="closeLightbox" type="button">×</button>
+
+  <button class="lightbox-arrow" id="lightboxPrev" type="button">←</button>
+
+  <img id="lightboxImage" alt="" decoding="async">
+
+  <button class="lightbox-arrow" id="lightboxNext" type="button">→</button>
+
+  <div id="lightboxCounter">01 / 01</div>
+</div>
+
+<script type="module">
+
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
+
+/* ==========================================
+   MAIN PROJECT DATA — 14 PROJECTS
+========================================== */
+
+const projects = [
+  {
+    number: "01",
+    title: "Orv",
+    year: "2024",
+    category: "BRANDING",
+    description: "Orv는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
+    images: [
+      "images/orv-01.jpg",
+      "images/orv-02.jpg",
+      "images/orv-03.jpg",
+      "images/orv-04.jpg"
+    ],
+    lat: 48,
+    lng: 125
+  },
+  {
+    number: "02",
+    title: "Advent Calendar",
+    year: "2024",
+    category: "PACKAGE",
+    description: "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
+    images: [
+      "images/advent calendar-01.jpg",
+      "images/advent calendar-02.jpg"
+    ],
+    lat: 23,
+    lng: 145
+  },
+  {
+    number: "03",
+    title: "Dream Cat Shelter",
+    year: "2023",
+    category: "BRANDING",
+    description: "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
+    images: ["images/dream-cat.jpg"],
+    lat: -5,
+    lng: 126
+  },
+  {
+    number: "04",
+    title: "Logo",
+    year: "",
+    category: "BRANDING",
+    description: "Too many LOGO !",
+    images: ["images/logo-01.jpg"],
+    lat: -34,
+    lng: 148
+  },
+  {
+    number: "05",
+    title: "Ministry of Education Report",
+    year: "2025",
+    category: "EDITORIAL",
+    description: "교육부 인문사회연구소 지원사업 선정 실적 및 연구계획서 제작하였습니다.",
+    images: ["images/ministry of education report-01.jpg"],
+    lat: 53,
+    lng: 57
+  },
+  {
+    number: "06",
+    title: "Poster",
+    year: "",
+    category: "EDITORIAL",
+    description: "",
+    images: [
       {
-        number: "01",
-        title: "Orv",
-        year: "2024",
-        category: "BRANDING",
-        description: "Orv는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
-        images: [
-          "images/orv-01.jpg",
-          "images/orv-02.jpg",
-          "images/orv-03.jpg",
-          "images/orv-04.jpg"
-        ],
-        lat: 48,
-        lng: 125
+        src: "images/poster-01.jpg",
+        description: "3D Poster 작업프로세스"
       },
-
       {
-        number: "02",
-        title: "Advent Calendar",
-        year: "2024",
-        category: "PACKAGE",
-        description: "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
-        images: [
-          "images/advent calendar-01.jpg",
-          "images/advent calendar-02.jpg"
-        ],
-        lat: 23,
-        lng: 145
-      },
-
-      {
-        number: "03",
-        title: "Dream Cat Shelter",
-        year: "2023",
-        category: "BRANDING",
-        description: "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
-        images: ["images/dream-cat.jpg"],
-        lat: -5,
-        lng: 126
-      },
-
-      {
-        number: "04",
-        title: "Logo",
-        year: "",
-        category: "BRANDING",
-        description: "Too many LOGO !",
-        images: ["images/logo-01.jpg"],
-        lat: -34,
-        lng: 148
-      },
-
-      {
-        number: "05",
-        title: "Ministry of Education Report",
-        year: "2025",
-        category: "EDITORIAL",
-        description: "교육부 인문사회연구소 지원사업 선정 실적 및 연구계획서 제작하였습니다.",
-        images: ["images/ministry of education report-01.jpg"],
-        lat: 53,
-        lng: 57
-      },
-
-      {
-        number: "06",
-        title: "Poster",
-        year: "",
-        category: "EDITORIAL",
-        description: "",
-        images: [
-          {
-            src: "images/poster-01.jpg",
-            description: "3D Poster 작업프로세스"
-          },
-          {
-            src: "images/poster-02.jpg",
-            description: "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작"
-          }
-        ],
-        lat: 25,
-        lng: 67
-      },
-
-      {
-        number: "07",
-        title: "Wandy",
-        year: "2024",
-        category: "UX / UI",
-        description: "당신의 진로 파트너 Wandy!",
-        images: [
-          "images/wandy-01.jpg",
-          "images/wandy-02.jpg",
-          "images/wandy-03.jpg",
-          "images/wandy-04.jpg",
-          "images/wandy-05.jpg",
-          "images/wandy-06.jpg",
-          "images/wandy-07.jpg",
-          "images/wandy-08.jpg"
-        ],
-        lat: -40,
-        lng: 30
-      },
-
-      {
-        number: "08",
-        title: "Langmuir",
-        year: "2022",
-        category: "COVER ARTWORK",
-        description: "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
-        images: ["images/langmuir-01.jpg"],
-        link: "https://www.fnnews.com/news/202302011635428474",
-        lat: 45,
-        lng: -72
-      },
-
-      {
-        number: "09",
-        title: "Office of Education",
-        year: "2025",
-        category: "PM SAFETY EDUCATION",
-        description: "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
-        images: [],
-        link: "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
-        lat: 18,
-        lng: -52
-      },
-
-      {
-        number: "10",
-        title: "Dongguk University",
-        year: "2026",
-        category: "EDITORIAL / PUBLISHING",
-        description: "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
-        images: ["images/dongguk university-01.jpg"],
-        lat: -13,
-        lng: -67
-      },
-
-      {
-        number: "11",
-        title: "Hongik University",
-        year: "2026",
-        category: "HOMEPAGE",
-        description: "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
-        images: ["images/hongik university-01.jpg"],
-        link: "https://www.hongik.ac.kr/kr/index.do",
-        lat: -42,
-        lng: -40
-      },
-
-      {
-        number: "12",
-        title: "spacehaeso : 조용한 형상들의 엄습",
-        year: "2025",
-        category: "PHOTO",
-        description: "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
-        images: [
-          "images/spacehaeso-01.jpg",
-          "images/spacehaeso-02.jpg",
-          "images/spacehaeso-03.jpg",
-          "images/spacehaeso-04.jpg",
-          "images/spacehaeso-05.jpg"
-        ],
-        link: "https://spacehaeso.com/53",
-        lat: 57,
-        lng: -143
-      },
-
-      {
-        number: "13",
-        title: "LIG D&A 50th Anniversary",
-        year: "2026",
-        category: "PACKAGE / GRAPHIC DESIGN",
-        description: "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
-        images: ["images/LIG D&A-01.jpg"],
-        lat: 5,
-        lng: -125
-      },
-
-      {
-        number: "14",
-        title: "LG KES AI Gallery",
-        year: "2025",
-        category: "EXHIBITION / GRAPHIC DESIGN",
-        description: "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
-        images: ["images/kes lg-01.jpg"],
-        lat: 32,
-        lng: -105
+        src: "images/poster-02.jpg",
+        description: "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작"
       }
-    ];
+    ],
+    lat: 25,
+    lng: 67
+  },
+  {
+    number: "07",
+    title: "Wandy",
+    year: "2024",
+    category: "UX / UI",
+    description: "당신의 진로 파트너 Wandy!",
+    images: [
+      "images/wandy-01.jpg",
+      "images/wandy-02.jpg",
+      "images/wandy-03.jpg",
+      "images/wandy-04.jpg",
+      "images/wandy-05.jpg",
+      "images/wandy-06.jpg",
+      "images/wandy-07.jpg",
+      "images/wandy-08.jpg"
+    ],
+    lat: -40,
+    lng: 30
+  },
+  {
+    number: "08",
+    title: "Langmuir",
+    year: "2022",
+    category: "COVER ARTWORK",
+    description: "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
+    images: ["images/langmuir-01.jpg"],
+    link: "https://www.fnnews.com/news/202302011635428474",
+    lat: 45,
+    lng: -72
+  },
+  {
+    number: "09",
+    title: "Office of Education",
+    year: "2025",
+    category: "PM SAFETY EDUCATION",
+    description: "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
+    images: [],
+    link: "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
+    lat: 18,
+    lng: -52
+  },
+  {
+    number: "10",
+    title: "Dongguk University",
+    year: "2026",
+    category: "EDITORIAL / PUBLISHING",
+    description: "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
+    images: ["images/dongguk university-01.jpg"],
+    lat: -13,
+    lng: -67
+  },
+  {
+    number: "11",
+    title: "Hongik University",
+    year: "2026",
+    category: "HOMEPAGE",
+    description: "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
+    images: ["images/hongik university-01.jpg"],
+    link: "https://www.hongik.ac.kr/kr/index.do",
+    lat: -42,
+    lng: -40
+  },
+  {
+    number: "12",
+    title: "spacehaeso : 조용한 형상들의 엄습",
+    year: "2025",
+    category: "PHOTO",
+    description: "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
+    images: [
+      "images/spacehaeso-01.jpg",
+      "images/spacehaeso-02.jpg",
+      "images/spacehaeso-03.jpg",
+      "images/spacehaeso-04.jpg",
+      "images/spacehaeso-05.jpg"
+    ],
+    link: "https://spacehaeso.com/53",
+    lat: 57,
+    lng: -143
+  },
+  {
+    number: "13",
+    title: "LIG D&A 50th Anniversary",
+    year: "2026",
+    category: "PACKAGE / GRAPHIC DESIGN",
+    description: "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
+    images: ["images/LIG D&A-01.jpg"],
+    lat: 5,
+    lng: -125
+  },
+  {
+    number: "14",
+    title: "LG KES AI Gallery",
+    year: "2025",
+    category: "EXHIBITION / GRAPHIC DESIGN",
+    description: "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
+    images: ["images/kes lg-01.jpg"],
+    lat: 32,
+    lng: -105
+  }
+];
 
-    /* THREE.JS GLOBE */
+/* ==========================================
+   ABOUT — EXPERIENCE
+========================================== */
 
-    const container = document.getElementById("earth");
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
-    camera.position.z = 4.8;
+const experiences = [
+  {
+    date: "2026.09 — PRESENT",
+    title: "Hongik University · HD LAB 4기",
+    description: "주연화 교수"
+  },
+  {
+    date: "2026.06 — PRESENT",
+    title: "ASSIST",
+    description: "AX 디자인 · 삼성화재 PoC"
+  },
+  {
+    date: "2026.06 — PRESENT",
+    title: "Hongik University",
+    description: "문화예술경영 학회장"
+  },
+  {
+    date: "2026.02 — PRESENT",
+    title: "Hongik University",
+    description: "온라인커뮤니케이션실 부편집장 · 홈페이지 관리"
+  },
+  {
+    date: "2024.03 — 2025.03",
+    title: "Graduation Exhibition Committee",
+    description: "졸업전시위원장 · 1년"
+  },
+  {
+    date: "2020.10 — PRESENT",
+    title: "Art Academy",
+    description: "홍보 / 마케팅"
+  },
+  {
+    date: "",
+    title: "University Ambassador",
+    description: "대학소개 · 대학박람회 · 외국인 학생 캠퍼스투어"
+  }
+];
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true
-    });
+/* ==========================================
+   ABOUT — PROJECT ARCHIVE
+========================================== */
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
+const careerProjects = [
+  {
+    date: "2026.07 — PRESENT",
+    title: "삼성화재 PoC AX디자인",
+    description: "삼성화재 PoC · AX 디자인"
+  },
+  {
+    date: "2024.06 / 2025.01 / 2025.06 / 2025.12 / 2026.06 / 2026.10",
+    title: "임종희 형사법 모의고사 출판",
+    description: "편집디자인 총괄"
+  },
+  {
+    date: "2025.09 / 2025.11 / 2025.12 / 2026.01 / 2026.10",
+    title: "서정표 경찰학 출판",
+    description: "요기로 · 총론 · 각론 · 동형모의고사 · 예상문제풀이\n편집디자인 총괄"
+  },
+  {
+    date: "2026.04 — 2026.06",
+    title: "LIG 50주년 디자인",
+    description: "굿즈 및 포스터 키비주얼 제작"
+  },
+  {
+    date: "2025.11 — 2026.02",
+    title: "연구보고서 및 성과보고서 출판",
+    description: "동국대학교 및 교육청\n『학교안전의 이론적 탐색과 실천』 · 『안전한 통학로 만들기』 출판"
+  },
+  {
+    date: "2025.08 — 2026.02",
+    title: "교육청 PM 안전교육 책자 제작",
+    description: "유치원 · 초등학교 · 중학교 · 고등학교 대상 개인형 이동장치 안전교육 자료 제작"
+  },
+  {
+    date: "2025.03 — 2025.11",
+    title: "구석구석 문화배달",
+    description: "포스터 · 배너 · 리플렛 · 인쇄물 및 홍보 디자인"
+  },
+  {
+    date: "2025.09 — 2025.10",
+    title: "KES LG 한국전자전",
+    description: "리플렛 · POP · 스펙보드 · 시안 합성"
+  },
+  {
+    date: "2025.07 — 2025.10",
+    title: "광주읍성 : 사라진 기억",
+    description: "서빛마루 문화예술회관\n포스터 · 배너 · 상세페이지 제작"
+  },
+  {
+    date: "2025.07 — 2025.08",
+    title: "해소갤러리 : 조용한 형상들의 엄습",
+    description: "조은필 작가 개인전 설치 작품 사진촬영"
+  },
+  {
+    date: "2023.03 — 2023.05",
+    title: "빛의 하모니 전국 합창 경연대회",
+    description: "포스터 디자인"
+  },
+  {
+    date: "2023.01 — 2023.02",
+    title: "광주펫쇼",
+    description: "포스터 및 브로슈어 제작"
+  },
+  {
+    date: "2022.05 — 2022.10",
+    title: "Langmuir 논문 표지 제작",
+    description: "미국화학회 ACS Langmuir 논문 표지 그래픽 디자인"
+  },
+  {
+    date: "2022.01 — 2022.03",
+    title: "아모레퍼시픽 광주지부",
+    description: "지부장 포스터 · 브로슈어 · 제34~35회 정기총회 책자 제작"
+  },
+  {
+    date: "2021.03 — 2021.09",
+    title: "상담나무 Mind Diary Project",
+    description: "크라우드펀딩 다이어리 그래픽 디자인"
+  }
+];
 
-    const globe = new THREE.Group();
-    scene.add(globe);
+/* ==========================================
+   ABOUT — ACADEMIC COURSES
+========================================== */
 
-    const globeGeometry = new THREE.SphereGeometry(1.35, 128, 128);
+const academicCourses = [
+  {
+    title: "Visual Design",
+    courses: [
+      "평면조형",
+      "기초그래픽디자인",
+      "디자인색채",
+      "입체조형",
+      "발상과표현",
+      "디지털그래픽디자인",
+      "디자인론",
+      "디지털아트그래픽",
+      "사진디자인1",
+      "시각콘텐츠디자인",
+      "영상미디어디자인",
+      "커머셜포토",
+      "타이포그래피",
+      "컴퓨터그래픽1",
+      "브랜드디자인",
+      "마케팅커뮤니케이션디자인",
+      "패키지디자인",
+      "사진편집디자인",
+      "UI/UX디자인",
+      "에디토리얼디자인",
+      "사진디자인2",
+      "멀티미디어이해와활용",
+      "디지털아트디자인워크숍1",
+      "브랜드아이덴티티디자인1",
+      "서비스마케팅디자인1",
+      "브랜드아이덴티티디자인2",
+      "서비스마케팅디자인2",
+      "패키지디자인세미나2"
+    ]
+  },
+  {
+    title: "Arts & Cultural Management",
+    courses: [
+      "문화예술경영개론",
+      "미술시장경영론",
+      "미술경영특론",
+      "대중문화론",
+      "문화예술과 지적재산",
+      "질적조사방법론"
+    ]
+  },
+  {
+    title: "Business & Management",
+    courses: [
+      "경영학원론",
+      "회계원리",
+      "무역학개론",
+      "중급회계1",
+      "조직행동론",
+      "경영정보시스템",
+      "생산·운영관리",
+      "소비자행동",
+      "재무관리",
+      "마케팅관리론",
+      "인적자원관리",
+      "기술경영혁신론",
+      "경영조직론",
+      "기업과경영",
+      "경제학원론"
+    ]
+  },
+  {
+    title: "Humanities & Liberal Arts",
+    courses: [
+      "생활영어1",
+      "한국문학의이해",
+      "리더십",
+      "철학의이해",
+      "한문",
+      "삶과지적대화",
+      "무기체계",
+      "민법총칙",
+      "논리학",
+      "36.5도의물리학",
+      "공동체와담론",
+      "토론과민주지성",
+      "글로벌커뮤니케이션잉글리쉬"
+    ]
+  },
+  {
+    title: "Education & Communication",
+    courses: [
+      "진로설계와자기이해",
+      "상업정보교재연구및지도법"
+    ]
+  }
+];
 
-    const globeMaterial = new THREE.MeshPhysicalMaterial({
+/* ==========================================
+   ABOUT — SELECTED ACTIVITIES
+========================================== */
+
+const activities = [
+  {
+    date: "2025.12.06 — 12.28",
+    title: "League of Legends LCK Photo Exhibition",
+    description: "롤파크 · LCK 사진전"
+  },
+  {
+    date: "2025.11.22",
+    title: "Kakao AI Campus Competition",
+    description: "카카오 AI캠퍼스 대회"
+  },
+  {
+    date: "2025.10.27 — 11.04",
+    title: "HYBE &TEAM Pop-up",
+    description: "앤팀 아이돌 팝업"
+  },
+  {
+    date: "2025.10.01 — 10.24",
+    title: "KES · LG",
+    description: "한국전자전 · 디자인 및 광고대행사 업무"
+  },
+  {
+    date: "2025.09.03 — 09.06",
+    title: "adidas Exhibition & Pop-up",
+    description: "아디다스 전시 및 팝업"
+  },
+  {
+    date: "2025.09.01 — 09.30",
+    title: "NH All One Bank Pop-up",
+    description: "농협 올원뱅크 성수 팝업"
+  },
+  {
+    date: "2025.07.25 — 08.03",
+    title: "Mercedes-Benz GLE SUV",
+    description: "Hot Spot 팝업"
+  },
+  {
+    date: "2025.06.21",
+    title: "Gwanghwamun Hallyu Festival",
+    description: "광화문 한류축제"
+  },
+  {
+    date: "2025.06.20 — 06.21",
+    title: "Orchestra Concert",
+    description: "경희대학교 평화의전당 · 스태프"
+  },
+  {
+    date: "2025.06.12 — 06.14",
+    title: "BTS FESTA",
+    description: "행사 스태프"
+  },
+  {
+    date: "2025.05",
+    title: "Cheong Wa Dae",
+    description: "청와대 안내요원"
+  }
+];
+
+/* ==========================================
+   ABOUT — RENDERING
+========================================== */
+
+const byId = id => document.getElementById(id);
+
+function createAboutEntry(item) {
+  const entry = document.createElement("div");
+  entry.className = "about-entry";
+
+  const date = document.createElement("div");
+  date.className = "about-entry-date";
+  date.textContent = item.date || " ";
+
+  const content = document.createElement("div");
+
+  const title = document.createElement("div");
+  title.className = "about-entry-title";
+  title.textContent = item.title;
+
+  const description = document.createElement("div");
+  description.className = "about-entry-desc";
+  description.textContent = item.description || "";
+
+  content.append(title, description);
+  entry.append(date, content);
+
+  return entry;
+}
+
+function renderAboutEntries(containerId, items) {
+  const target = byId(containerId);
+  target.replaceChildren();
+
+  items.forEach(item => {
+    target.appendChild(createAboutEntry(item));
+  });
+}
+
+function renderAcademicCourses() {
+  const target = byId("academicList");
+  target.replaceChildren();
+
+  academicCourses.forEach((group, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "course-group";
+
+    const heading = document.createElement("div");
+    heading.className = "course-heading";
+
+    const title = document.createElement("h3");
+    title.className = "course-title";
+    title.textContent =
+      String(index + 1).padStart(2, "0") + ". " + group.title;
+
+    const count = document.createElement("span");
+    count.className = "course-count";
+    count.textContent = group.courses.length + " COURSES";
+
+    const courses = document.createElement("p");
+    courses.className = "course-list";
+    courses.textContent = group.courses.join(" · ");
+
+    heading.append(title, count);
+    wrapper.append(heading, courses);
+    target.appendChild(wrapper);
+  });
+}
+
+renderAboutEntries("experienceList", experiences);
+renderAboutEntries("careerProjectList", careerProjects);
+renderAboutEntries("activityList", activities);
+renderAcademicCourses();
+
+/* ==========================================
+   THREE.JS GLOBE
+========================================== */
+
+const container = byId("earth");
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+  38, 1, 0.1, 100
+);
+
+camera.position.z = 4.8;
+
+const renderer = new THREE.WebGLRenderer({
+  alpha: true,
+  antialias: true
+});
+
+renderer.setPixelRatio(
+  Math.min(window.devicePixelRatio, 2)
+);
+
+container.appendChild(renderer.domElement);
+
+const globe = new THREE.Group();
+scene.add(globe);
+
+const globeGeometry = new THREE.SphereGeometry(
+  1.35, 128, 128
+);
+
+const globeMaterial = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.10,
+  roughness: 0.08,
+  metalness: 0.02,
+  transmission: 0.5,
+  thickness: 1,
+  ior: 1.35,
+  clearcoat: 1,
+  clearcoatRoughness: 0.08
+});
+
+globe.add(
+  new THREE.Mesh(globeGeometry, globeMaterial)
+);
+
+/* SMALL DOTS */
+
+const DOT_COUNT = 3000;
+const dotPoints = [];
+
+for (let i = 0; i < DOT_COUNT; i++) {
+  const phi = Math.acos(-1 + (2 * i) / DOT_COUNT);
+  const theta = Math.sqrt(DOT_COUNT * Math.PI) * phi;
+  const radius = 1.37;
+
+  dotPoints.push(
+    radius * Math.cos(theta) * Math.sin(phi),
+    radius * Math.sin(theta) * Math.sin(phi),
+    radius * Math.cos(phi)
+  );
+}
+
+const dotGeometry = new THREE.BufferGeometry();
+
+dotGeometry.setAttribute(
+  "position",
+  new THREE.Float32BufferAttribute(dotPoints, 3)
+);
+
+globe.add(
+  new THREE.Points(
+    dotGeometry,
+    new THREE.PointsMaterial({
       color: 0xffffff,
+      size: 0.013,
       transparent: true,
-      opacity: 0.10,
-      roughness: 0.08,
-      metalness: 0.02,
-      transmission: 0.5,
-      thickness: 1,
-      ior: 1.35,
-      clearcoat: 1,
-      clearcoatRoughness: 0.08
-    });
+      opacity: 0.55,
+      sizeAttenuation: true
+    })
+  )
+);
 
-    globe.add(new THREE.Mesh(globeGeometry, globeMaterial));
+/* WIREFRAME */
 
-    /* SMALL DOTS */
+globe.add(
+  new THREE.Mesh(
+    new THREE.SphereGeometry(1.36, 30, 20),
+    new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.05
+    })
+  )
+);
 
-    const DOT_COUNT = 3000;
-    const dotPoints = [];
+/* LIGHT */
 
-    for (let i = 0; i < DOT_COUNT; i++) {
-      const phi = Math.acos(-1 + (2 * i) / DOT_COUNT);
-      const theta = Math.sqrt(DOT_COUNT * Math.PI) * phi;
-      const radius = 1.37;
+const lightA = new THREE.DirectionalLight(0xffffff, 4);
+lightA.position.set(2, 3, 4);
+scene.add(lightA);
 
-      dotPoints.push(
-        radius * Math.cos(theta) * Math.sin(phi),
-        radius * Math.sin(theta) * Math.sin(phi),
-        radius * Math.cos(phi)
-      );
-    }
+const lightB = new THREE.DirectionalLight(0xffffff, 2);
+lightB.position.set(-3, -1, 2);
+scene.add(lightB);
 
-    const dotGeometry = new THREE.BufferGeometry();
-    dotGeometry.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(dotPoints, 3)
-    );
+globe.rotation.x = THREE.MathUtils.degToRad(-14);
+globe.rotation.z = THREE.MathUtils.degToRad(-8);
 
-    globe.add(new THREE.Points(
-      dotGeometry,
-      new THREE.PointsMaterial({
-        color: 0xffffff,
-        size: 0.013,
-        transparent: true,
-        opacity: 0.55,
-        sizeAttenuation: true
-      })
-    ));
+function latLngToVector3(lat, lng, radius) {
+  const phi = THREE.MathUtils.degToRad(90 - lat);
+  const theta = THREE.MathUtils.degToRad(lng + 180);
 
-    /* WIREFRAME */
+  return new THREE.Vector3(
+    -radius * Math.sin(phi) * Math.cos(theta),
+    radius * Math.cos(phi),
+    radius * Math.sin(phi) * Math.sin(theta)
+  );
+}
 
-    const wire = new THREE.Mesh(
-      new THREE.SphereGeometry(1.36, 30, 20),
-      new THREE.MeshBasicMaterial({
-        color: 0xffffff,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.05
-      })
-    );
+/* ==========================================
+   UI STATE
+========================================== */
 
-    globe.add(wire);
+const label = byId("projectLabel");
+const panel = byId("projectPanel");
+const panelOverlay = byId("panelOverlay");
+const panelImage = byId("panelImage");
+const imagePlaceholder = byId("imagePlaceholder");
 
-    /* LIGHTS */
+const projectIndexPanel = byId("projectIndexPanel");
+const projectIndexOverlay = byId("projectIndexOverlay");
 
-    const lightA = new THREE.DirectionalLight(0xffffff, 4);
-    lightA.position.set(2, 3, 4);
-    scene.add(lightA);
+const aboutPanel = byId("aboutPanel");
+const aboutOverlay = byId("aboutOverlay");
+const aboutScroll = byId("aboutScroll");
 
-    const lightB = new THREE.DirectionalLight(0xffffff, 2);
-    lightB.position.set(-3, -1, 2);
-    scene.add(lightB);
+const imageLightbox = byId("imageLightbox");
+const lightboxImage = byId("lightboxImage");
 
-    globe.rotation.x = THREE.MathUtils.degToRad(-14);
-    globe.rotation.z = THREE.MathUtils.degToRad(-8);
+let activeProject = null;
+let activeImageIndex = 0;
+let projectSortMode = "all";
+let projectOpenedFromIndex = false;
 
-    function latLngToVector3(lat, lng, radius) {
-      const phi = THREE.MathUtils.degToRad(90 - lat);
-      const theta = THREE.MathUtils.degToRad(lng + 180);
+let panelImageToken = 0;
+let lightboxImageToken = 0;
 
-      return new THREE.Vector3(
-        -radius * Math.sin(phi) * Math.cos(theta),
-        radius * Math.cos(phi),
-        radius * Math.sin(phi) * Math.sin(theta)
-      );
-    }
+const getProjectImages = project => project.images || [];
 
-    /* ELEMENTS AND STATE */
+const getImageSource = item =>
+  typeof item === "string" ? item : (item?.src || "");
 
-    const byId = id => document.getElementById(id);
+const getImageDescription = item =>
+  typeof item === "object" ? (item?.description || "") : "";
 
-    const label = byId("projectLabel");
-    const panel = byId("projectPanel");
-    const panelOverlay = byId("panelOverlay");
-    const panelIndex = byId("panelIndex");
-    const panelYear = byId("panelYear");
-    const panelTitle = byId("panelTitle");
-    const panelCategory = byId("panelCategory");
-    const panelDescription = byId("panelDescription");
-    const panelLink = byId("panelLink");
-    const panelImage = byId("panelImage");
-    const imagePlaceholder = byId("imagePlaceholder");
-    const imageStatus = byId("imageStatus");
-    const prevImage = byId("prevImage");
-    const nextImage = byId("nextImage");
-    const sliderCounter = byId("sliderCounter");
-    const sliderDots = byId("sliderDots");
-    const backPanel = byId("backPanel");
-    const closePanel = byId("closePanel");
-    const projectIndexPanel = byId("projectIndexPanel");
-    const projectIndexOverlay = byId("projectIndexOverlay");
-    const projectIndexList = byId("projectIndexList");
-    const projectCount = byId("projectCount");
-    const imageLightbox = byId("imageLightbox");
-    const lightboxImage = byId("lightboxImage");
-    const lightboxPrev = byId("lightboxPrev");
-    const lightboxNext = byId("lightboxNext");
-    const lightboxCounter = byId("lightboxCounter");
-    const sortButtons = document.querySelectorAll(".project-sort-button");
+function getCurrentDescription() {
+  if (!activeProject) return "";
 
-    let activeProject = null;
-    let activeImageIndex = 0;
-    let projectSortMode = "all";
-    let projectOpenedFromIndex = false;
-    let panelImageLoadToken = 0;
+  const item = getProjectImages(activeProject)[activeImageIndex];
 
-    const getProjectImages = project => project.images || [];
+  return getImageDescription(item) ||
+    activeProject.description || "";
+}
 
-    const getImageSource = item =>
-      typeof item === "string" ? item : (item?.src || "");
+/* ==========================================
+   IMAGE PRELOADING
+========================================== */
 
-    const getImageDescription = item =>
-      typeof item === "object" ? (item?.description || "") : "";
+const imageCache = new Map();
+const preloadQueue = [];
 
-    function getCurrentDescription() {
-      if (!activeProject) return "";
+let activePreloads = 0;
+const MAX_PRELOADS = 2;
 
-      const item = getProjectImages(activeProject)[activeImageIndex];
+function preloadImage(src, highPriority = false) {
+  if (!src) return Promise.resolve(false);
 
-      return getImageDescription(item) || activeProject.description || "";
-    }
+  if (imageCache.has(src)) {
+    const cached = imageCache.get(src);
 
-    /* =========================================
-       IMAGE PRELOADING / CACHE
-       이미지 로딩 문구는 표시하지 않음
-    ========================================= */
+    if (highPriority && !cached.job.started) {
+      const position = preloadQueue.indexOf(cached.job);
 
-    const imagePreloadCache = new Map();
-    const imagePreloadQueue = [];
-    const MAX_CONCURRENT_PRELOADS = 2;
-
-    let runningPreloads = 0;
-
-    function preloadImage(src, priority = false) {
-      if (!src) return Promise.resolve(false);
-
-      const existing = imagePreloadCache.get(src);
-
-      if (existing) {
-        if (priority && !existing.job.started) {
-          existing.job.priority = true;
-
-          const position = imagePreloadQueue.indexOf(existing.job);
-
-          if (position >= 0) {
-            imagePreloadQueue.splice(position, 1);
-          }
-
-          imagePreloadQueue.unshift(existing.job);
-        }
-
-        runPreloadQueue();
-        return existing.promise;
-      }
-
-      let resolvePromise;
-      const promise = new Promise(resolve => {
-        resolvePromise = resolve;
-      });
-
-      const job = {
-        src,
-        priority,
-        started: false,
-        resolvePromise
-      };
-
-      imagePreloadCache.set(src, { promise, job });
-
-      if (priority) imagePreloadQueue.unshift(job);
-      else imagePreloadQueue.push(job);
-
-      runPreloadQueue();
-      return promise;
-    }
-
-    function runPreloadQueue() {
-      while (
-        runningPreloads < MAX_CONCURRENT_PRELOADS &&
-        imagePreloadQueue.length
-      ) {
-        const firstPriority = imagePreloadQueue.findIndex(
-          job => job.priority
-        );
-
-        if (activeProject && firstPriority === -1) break;
-
-        const job = firstPriority >= 0
-          ? imagePreloadQueue.splice(firstPriority, 1)[0]
-          : imagePreloadQueue.shift();
-
-        job.started = true;
-        runningPreloads++;
-
-        const image = new Image();
-        image.decoding = "async";
-        image.fetchPriority = job.priority ? "high" : "low";
-
-        let finished = false;
-
-        const finish = success => {
-          if (finished) return;
-
-          finished = true;
-          runningPreloads--;
-
-          if (!success) imagePreloadCache.delete(job.src);
-
-          job.resolvePromise(success);
-          runPreloadQueue();
-        };
-
-        image.onload = () => {
-          if (typeof image.decode === "function") {
-            image.decode()
-              .catch(() => {})
-              .finally(() => finish(true));
-          } else {
-            finish(true);
-          }
-        };
-
-        image.onerror = () => finish(false);
-        image.src = job.src;
+      if (position !== -1) {
+        preloadQueue.splice(position, 1);
+        preloadQueue.unshift(cached.job);
       }
     }
 
-    function preloadProjectCover(project) {
-      const first = getProjectImages(project)[0];
+    runPreloads();
+    return cached.promise;
+  }
 
-      if (first) {
-        preloadImage(getImageSource(first), true);
+  let finishPromise;
+
+  const promise = new Promise(resolve => {
+    finishPromise = resolve;
+  });
+
+  const job = {
+    src,
+    started: false,
+    finishPromise,
+    highPriority
+  };
+
+  imageCache.set(src, { promise, job });
+
+  if (highPriority) preloadQueue.unshift(job);
+  else preloadQueue.push(job);
+
+  runPreloads();
+
+  return promise;
+}
+
+function runPreloads() {
+  while (
+    activePreloads < MAX_PRELOADS &&
+    preloadQueue.length
+  ) {
+    const job = preloadQueue.shift();
+
+    activePreloads++;
+    job.started = true;
+
+    const image = new Image();
+    image.decoding = "async";
+    image.fetchPriority = job.highPriority ? "high" : "low";
+
+    let finished = false;
+
+    const finish = success => {
+      if (finished) return;
+
+      finished = true;
+      activePreloads--;
+
+      if (!success) imageCache.delete(job.src);
+
+      job.finishPromise(success);
+      runPreloads();
+    };
+
+    image.onload = async () => {
+      if (typeof image.decode === "function") {
+        try {
+          await image.decode();
+        } catch (error) {}
       }
-    }
 
-    function preloadSlideNeighbors() {
-      if (!activeProject) return;
+      finish(true);
+    };
 
-      const images = getProjectImages(activeProject);
+    image.onerror = () => finish(false);
+    image.src = job.src;
+  }
+}
 
-      if (images.length <= 1) return;
+function preloadCover(project) {
+  const first = getProjectImages(project)[0];
 
-      const next = (activeImageIndex + 1) % images.length;
-      const previous =
-        (activeImageIndex - 1 + images.length) % images.length;
+  if (first) {
+    preloadImage(getImageSource(first), true);
+  }
+}
 
-      preloadImage(getImageSource(images[next]), true);
+function preloadNeighbors() {
+  if (!activeProject) return;
 
-      if (previous !== next) {
-        preloadImage(getImageSource(images[previous]), true);
-      }
-    }
+  const images = getProjectImages(activeProject);
 
-    function scheduleCoverPreloads() {
-      if (navigator.connection?.saveData) return;
+  if (images.length <= 1) return;
 
-      const mobile = window.matchMedia("(max-width: 900px)").matches;
+  const next = (activeImageIndex + 1) % images.length;
+  const previous =
+    (activeImageIndex - 1 + images.length) % images.length;
 
-      const firstImages = projects
-        .map(project => getProjectImages(project)[0])
-        .filter(Boolean);
+  preloadImage(getImageSource(images[next]), true);
 
-      const preloadLimit = mobile ? 5 : firstImages.length;
+  if (previous !== next) {
+    preloadImage(getImageSource(images[previous]), true);
+  }
+}
 
-      firstImages.slice(0, preloadLimit).forEach((item, index) => {
-        window.setTimeout(() => {
+window.addEventListener("load", () => {
+  if (navigator.connection?.saveData) return;
+
+  const mobile = window.matchMedia("(max-width:900px)").matches;
+  const limit = mobile ? 3 : 7;
+
+  const preload = () => {
+    projects
+      .map(project => getProjectImages(project)[0])
+      .filter(Boolean)
+      .slice(0, limit)
+      .forEach((item, index) => {
+        setTimeout(() => {
           preloadImage(getImageSource(item));
-        }, index * 400);
+        }, index * 350);
       });
-    }
+  };
 
-    window.addEventListener("load", () => {
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(scheduleCoverPreloads, {
-          timeout: 1600
-        });
-      } else {
-        window.setTimeout(scheduleCoverPreloads, 950);
-      }
-    });
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(preload, { timeout: 1500 });
+  } else {
+    setTimeout(preload, 800);
+  }
+});
 
-    /* PROJECT MARKERS */
+/* ==========================================
+   MARKERS
+========================================== */
 
-    const projectMarkers = [];
-    const projectMarkersContainer = byId("projectMarkers");
+const projectMarkers = [];
+const markerContainer = byId("projectMarkers");
 
-    projects.forEach(project => {
-      const marker = document.createElement("button");
+projects.forEach(project => {
+  const marker = document.createElement("button");
 
-      marker.type = "button";
-      marker.className = "project-marker";
-      marker.setAttribute("aria-label", project.title);
+  marker.type = "button";
+  marker.className = "project-marker";
+  marker.setAttribute("aria-label", project.title);
 
-      marker.style.setProperty(
-        "--pulse-duration",
-        (2.5 + Math.random() * 1.7) + "s"
-      );
+  marker.style.setProperty(
+    "--pulse-duration",
+    (2.5 + Math.random() * 1.7) + "s"
+  );
 
-      marker.style.setProperty(
-        "--pulse-delay",
-        (-Math.random() * 4) + "s"
-      );
+  marker.style.setProperty(
+    "--pulse-delay",
+    (-Math.random() * 4) + "s"
+  );
 
-      const position = latLngToVector3(
-        project.lat,
-        project.lng,
-        1.43
-      );
+  const position = latLngToVector3(
+    project.lat,
+    project.lng,
+    1.43
+  );
 
-      marker.addEventListener("mouseenter", event => {
-        label.innerHTML =
-          `<span class="label-number">${project.number}</span>` +
-          project.title +
-          `<span class="label-category">${project.category}</span>`;
+  marker.addEventListener("mouseenter", event => {
+    label.innerHTML =
+      '<span class="label-number">' + project.number + '</span>' +
+      project.title +
+      '<span class="label-category">' + project.category + '</span>';
 
-        label.style.left = event.clientX + "px";
-        label.style.top = event.clientY + "px";
-        label.classList.add("active");
+    label.style.left = event.clientX + "px";
+    label.style.top = event.clientY + "px";
+    label.classList.add("active");
 
-        preloadProjectCover(project);
-      });
+    preloadCover(project);
+  });
 
-      marker.addEventListener("mousemove", event => {
-        label.style.left = event.clientX + "px";
-        label.style.top = event.clientY + "px";
-      });
+  marker.addEventListener("mousemove", event => {
+    label.style.left = event.clientX + "px";
+    label.style.top = event.clientY + "px";
+  });
 
-      marker.addEventListener("mouseleave", () => {
-        label.classList.remove("active");
-      });
+  marker.addEventListener("mouseleave", () => {
+    label.classList.remove("active");
+  });
 
-      marker.addEventListener("click", event => {
-        event.stopPropagation();
-        openProject(project, "globe");
-      });
+  marker.addEventListener("click", () => {
+    openProject(project, "globe");
+  });
 
-      projectMarkersContainer.appendChild(marker);
+  markerContainer.appendChild(marker);
 
-      projectMarkers.push({
-        element: marker,
-        position
-      });
-    });
+  projectMarkers.push({ element: marker, position });
+});
 
-    /* PROJECT LINK */
+/* ==========================================
+   PROJECT SLIDER
+========================================== */
 
-    function updateProjectLink() {
-      if (!activeProject?.link) {
-        panelLink.classList.remove("active");
-        panelLink.removeAttribute("href");
-        panelLink.textContent = "";
-        return;
-      }
+function updateSlider() {
+  if (!activeProject) return;
 
-      panelLink.href = activeProject.link;
-      panelLink.textContent = activeProject.link;
-      panelLink.classList.add("active");
-    }
+  const images = getProjectImages(activeProject);
+  const token = ++panelImageToken;
 
-    /* IMAGE SLIDER */
+  panelImage.style.opacity = "0";
 
-    function updateSlider() {
-      if (!activeProject) return;
+  byId("panelDescription").textContent =
+    getCurrentDescription();
 
-      const images = getProjectImages(activeProject);
+  if (!images.length) {
+    panelImage.style.display = "none";
+    panelImage.removeAttribute("src");
+    imagePlaceholder.textContent = "PROJECT IMAGE";
+    imagePlaceholder.classList.add("active");
+    byId("prevImage").classList.add("hidden");
+    byId("nextImage").classList.add("hidden");
+    byId("sliderCounter").textContent = "00 / 00";
+    byId("sliderDots").replaceChildren();
+    return;
+  }
 
-      panelImageLoadToken++;
-      panelImage.style.opacity = "0";
+  const source = getImageSource(images[activeImageIndex]);
 
-      if (images.length === 0) {
-        panelImage.style.display = "none";
-        panelImage.removeAttribute("src");
+  panelImage.style.display = "block";
+  panelImage.removeAttribute("src");
+  imagePlaceholder.classList.remove("active");
 
-        imageStatus.textContent = "PROJECT IMAGE";
-        imagePlaceholder.classList.add("active");
+  byId("sliderCounter").textContent =
+    String(activeImageIndex + 1).padStart(2, "0") +
+    " / " +
+    String(images.length).padStart(2, "0");
 
-        prevImage.classList.add("hidden");
-        nextImage.classList.add("hidden");
+  const dots = byId("sliderDots");
+  dots.replaceChildren();
 
-        sliderCounter.textContent = "00 / 00";
-        sliderDots.innerHTML = "";
-        panelDescription.textContent = activeProject.description || "";
-        return;
-      }
+  images.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.className =
+      "slider-dot" +
+      (index === activeImageIndex ? " active" : "");
 
-      const source = getImageSource(images[activeImageIndex]);
+    dots.appendChild(dot);
+  });
 
-      panelImage.style.display = "block";
+  const single = images.length <= 1;
 
-      // 로딩 중에는 문구 없이 어두운 배경만 표시
-      imagePlaceholder.classList.remove("active");
-      imageStatus.textContent = "";
+  byId("prevImage").classList.toggle("hidden", single);
+  byId("nextImage").classList.toggle("hidden", single);
 
-      panelImage.alt = activeProject.title;
-      panelDescription.textContent = getCurrentDescription();
+  preloadImage(source, true).then(success => {
+    if (token !== panelImageToken || !activeProject) return;
 
-      sliderCounter.textContent =
-        `${String(activeImageIndex + 1).padStart(2, "0")} / ` +
-        `${String(images.length).padStart(2, "0")}`;
-
-      sliderDots.innerHTML = "";
-
-      images.forEach((_, index) => {
-        const dot = document.createElement("span");
-
-        dot.className =
-          "slider-dot" +
-          (index === activeImageIndex ? " active" : "");
-
-        sliderDots.appendChild(dot);
-      });
-
-      const single = images.length <= 1;
-
-      prevImage.classList.toggle("hidden", single);
-      nextImage.classList.toggle("hidden", single);
-
-      // 캐시에 있으면 바로 표시할 수 있음
-      panelImage.src = source;
-
-      const token = panelImageLoadToken;
-
-      if (panelImage.complete && panelImage.naturalWidth > 0) {
-        showLoadedPanelImage(token);
-      }
-    }
-
-    function showLoadedPanelImage(token) {
-      if (token !== panelImageLoadToken || !activeProject) return;
-
-      const reveal = () => {
-        if (token !== panelImageLoadToken || !activeProject) return;
-
-        panelImage.style.opacity = "1";
-        preloadSlideNeighbors();
-      };
-
-      if (typeof panelImage.decode === "function") {
-        panelImage.decode()
-          .catch(() => {})
-          .then(reveal);
-      } else {
-        reveal();
-      }
-    }
-
-    panelImage.addEventListener("load", () => {
-      showLoadedPanelImage(panelImageLoadToken);
-    });
-
-    panelImage.addEventListener("error", () => {
+    if (!success) {
       panelImage.style.display = "none";
-      imageStatus.textContent = "IMAGE UNAVAILABLE";
+      imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
       imagePlaceholder.classList.add("active");
+      return;
+    }
+
+    panelImage.src = source;
+    panelImage.alt = activeProject.title;
+
+    requestAnimationFrame(() => {
+      if (token === panelImageToken) {
+        panelImage.style.opacity = "1";
+      }
     });
 
-    /* SLIDE NAVIGATION */
+    preloadNeighbors();
+  });
+}
 
-    function nextSlide() {
-      if (!activeProject) return;
+function nextSlide() {
+  if (!activeProject) return;
 
-      const count = getProjectImages(activeProject).length;
+  const count = getProjectImages(activeProject).length;
+  if (count <= 1) return;
 
-      if (count <= 1) return;
+  activeImageIndex = (activeImageIndex + 1) % count;
 
-      activeImageIndex = (activeImageIndex + 1) % count;
+  updateSlider();
 
-      updateSlider();
+  if (imageLightbox.classList.contains("active")) {
+    updateLightbox();
+  }
+}
 
-      if (imageLightbox.classList.contains("active")) {
-        updateLightbox();
-      }
-    }
+function previousSlide() {
+  if (!activeProject) return;
 
-    function previousSlide() {
-      if (!activeProject) return;
+  const count = getProjectImages(activeProject).length;
+  if (count <= 1) return;
 
-      const count = getProjectImages(activeProject).length;
+  activeImageIndex =
+    (activeImageIndex - 1 + count) % count;
 
-      if (count <= 1) return;
+  updateSlider();
 
-      activeImageIndex =
-        (activeImageIndex - 1 + count) % count;
+  if (imageLightbox.classList.contains("active")) {
+    updateLightbox();
+  }
+}
 
-      updateSlider();
+byId("prevImage").addEventListener("click", previousSlide);
+byId("nextImage").addEventListener("click", nextSlide);
 
-      if (imageLightbox.classList.contains("active")) {
-        updateLightbox();
-      }
-    }
+/* ==========================================
+   PROJECT DETAIL OPEN / CLOSE
+========================================== */
 
-    prevImage.addEventListener("click", previousSlide);
-    nextImage.addEventListener("click", nextSlide);
+function updateProjectLink() {
+  const link = byId("panelLink");
 
-    /* MOBILE SWIPE */
+  if (!activeProject?.link) {
+    link.classList.remove("active");
+    link.removeAttribute("href");
+    link.textContent = "";
+    return;
+  }
 
-    function registerSwipe(element) {
-      let touchStartX = 0;
-      let touchStartY = 0;
+  link.href = activeProject.link;
+  link.textContent = activeProject.link;
+  link.classList.add("active");
+}
 
-      element.addEventListener("touchstart", event => {
-        touchStartX = event.touches[0].clientX;
-        touchStartY = event.touches[0].clientY;
-      }, { passive: true });
+function openProject(project, source = "globe") {
+  closeAbout();
+  hideProjectIndex();
 
-      element.addEventListener("touchend", event => {
-        const dx =
-          touchStartX - event.changedTouches[0].clientX;
+  activeProject = project;
+  activeImageIndex = 0;
+  projectOpenedFromIndex = source === "index";
 
-        const dy =
-          touchStartY - event.changedTouches[0].clientY;
+  byId("backPanel").classList.toggle(
+    "hidden",
+    !projectOpenedFromIndex
+  );
 
-        if (Math.abs(dx) < 40) return;
-        if (Math.abs(dx) < Math.abs(dy)) return;
+  byId("panelIndex").textContent =
+    project.number + " / PROJECT";
 
-        if (dx > 0) nextSlide();
-        else previousSlide();
-      }, { passive: true });
-    }
+  byId("panelYear").textContent = project.year;
+  byId("panelTitle").textContent = project.title;
+  byId("panelCategory").textContent = project.category;
 
-    registerSwipe(document.querySelector(".slider"));
-    registerSwipe(imageLightbox);
+  updateProjectLink();
+  updateSlider();
 
-    /* OPEN PROJECT */
+  panel.classList.add("active");
+  panelOverlay.classList.add("active");
+  label.classList.remove("active");
+}
 
-    function openProject(project, source = "globe") {
-      activeProject = project;
-      activeImageIndex = 0;
-      projectOpenedFromIndex = source === "index";
+function hidePanel() {
+  panel.classList.remove("active");
+  panelOverlay.classList.remove("active");
 
-      backPanel.classList.toggle(
-        "hidden",
-        !projectOpenedFromIndex
+  activeProject = null;
+  projectOpenedFromIndex = false;
+  panelImageToken++;
+  lightboxImageToken++;
+
+  byId("backPanel").classList.add("hidden");
+}
+
+function backToIndex() {
+  if (!projectOpenedFromIndex) return;
+
+  hidePanel();
+  openProjectIndex();
+}
+
+byId("backPanel").addEventListener("click", backToIndex);
+byId("closePanel").addEventListener("click", hidePanel);
+panelOverlay.addEventListener("click", hidePanel);
+
+/* ==========================================
+   PROJECT INDEX
+========================================== */
+
+function createProjectRow(project, index) {
+  const row = document.createElement("button");
+  row.type = "button";
+  row.className = "project-list-row";
+
+  const values = [
+    ["project-row-number", project.number],
+    ["project-row-title", project.title],
+    ["project-row-category", project.category],
+    ["project-row-year", project.year || "—"]
+  ];
+
+  values.forEach(([className, value]) => {
+    const element = document.createElement("span");
+    element.className = className;
+    element.textContent = value;
+    row.appendChild(element);
+  });
+
+  row.addEventListener("mouseenter", () => {
+    preloadCover(project);
+  });
+
+  row.addEventListener("click", () => {
+    openProject(projects[index], "index");
+  });
+
+  return row;
+}
+
+function createGroupTitle(value) {
+  const element = document.createElement("div");
+  element.className = "project-group-title";
+  element.textContent = value;
+  return element;
+}
+
+function getYearValue(project) {
+  const match = String(project.year).match(/\d{4}/);
+  return match ? Number(match[0]) : -1;
+}
+
+function renderProjectIndex(mode = "all") {
+  projectSortMode = mode;
+
+  const list = byId("projectIndexList");
+  list.replaceChildren();
+
+  const indexed = projects.map((project, index) => ({
+    project,
+    index
+  }));
+
+  if (mode === "all") {
+    indexed.forEach(item => {
+      list.appendChild(
+        createProjectRow(item.project, item.index)
       );
+    });
+  }
 
-      panelIndex.textContent = project.number + " / PROJECT";
-      panelYear.textContent = project.year;
-      panelTitle.textContent = project.title;
-      panelCategory.textContent = project.category;
-      panelDescription.textContent = project.description || "";
-
-      updateProjectLink();
-      updateSlider();
-
-      panel.classList.add("active");
-      panelOverlay.classList.add("active");
-      label.classList.remove("active");
-    }
-
-    function hidePanel() {
-      panel.classList.remove("active");
-      panelOverlay.classList.remove("active");
-
-      activeProject = null;
-      projectOpenedFromIndex = false;
-
-      backPanel.classList.add("hidden");
-
-      panelImageLoadToken++;
-      runPreloadQueue();
-    }
-
-    function backToProjectIndex() {
-      if (!projectOpenedFromIndex) return;
-
-      hidePanel();
-
-      projectIndexOverlay.classList.add("active");
-      projectIndexPanel.classList.add("active");
-
-      renderProjectIndex(projectSortMode);
-    }
-
-    backPanel.addEventListener("click", backToProjectIndex);
-    closePanel.addEventListener("click", hidePanel);
-    panelOverlay.addEventListener("click", hidePanel);
-
-    /* PROJECT INDEX ROW */
-
-    function createProjectRow(project, realIndex) {
-      const row = document.createElement("button");
-
-      row.type = "button";
-      row.className = "project-list-row";
-
-      const fields = [
-        ["project-row-number", project.number],
-        ["project-row-title", project.title],
-        ["project-row-category", project.category],
-        ["project-row-year", project.year || "—"]
-      ];
-
-      fields.forEach(([className, value]) => {
-        const span = document.createElement("span");
-        span.className = className;
-        span.textContent = value;
-        row.appendChild(span);
-      });
-
-      row.addEventListener("mouseenter", () => {
-        preloadProjectCover(project);
-      });
-
-      row.addEventListener("click", () => {
-        hideProjectIndex();
-        openProject(projects[realIndex], "index");
-      });
-
-      return row;
-    }
-
-    function createGroupTitle(title) {
-      const element = document.createElement("div");
-      element.className = "project-group-title";
-      element.textContent = title;
-      return element;
-    }
-
-    function getYearValue(project) {
-      const matches = String(project.year).match(/\d{4}/g);
-
-      return matches
-        ? Math.max(...matches.map(Number))
-        : -1;
-    }
-
-    /* PROJECT INDEX SORTING */
-
-    function renderProjectIndex(mode = "all") {
-      projectSortMode = mode;
-      projectIndexList.innerHTML = "";
-
-      const indexed = projects.map((project, index) => ({
-        project,
-        index
-      }));
-
-      /* ALL */
-
-      if (mode === "all") {
-        indexed.forEach(item => {
-          projectIndexList.appendChild(
-            createProjectRow(item.project, item.index)
-          );
-        });
-      }
-
-      /* YEAR */
-
-      else if (mode === "year") {
-        const groups = new Map();
-
-        indexed.sort((a, b) =>
-          getYearValue(b.project) -
-          getYearValue(a.project) ||
-          a.project.title.localeCompare(
-            b.project.title,
-            "en",
-            { sensitivity: "base" }
-          )
-        );
-
-        indexed.forEach(item => {
-          const key = item.project.year.trim() || "YEAR NOT SET";
-
-          if (!groups.has(key)) {
-            groups.set(key, []);
-          }
-
-          groups.get(key).push(item);
-        });
-
-        groups.forEach((items, year) => {
-          projectIndexList.appendChild(
-            createGroupTitle(year)
-          );
-
-          items.forEach(item => {
-            projectIndexList.appendChild(
-              createProjectRow(item.project, item.index)
-            );
-          });
-        });
-      }
-
-      /* NAME */
-
-      else if (mode === "name") {
-        indexed.sort((a, b) =>
-          a.project.title.localeCompare(
-            b.project.title,
-            "en",
-            { sensitivity: "base" }
-          )
-        );
-
-        let currentLetter = "";
-
-        indexed.forEach(item => {
-          const letter =
-            item.project.title.trim().charAt(0).toUpperCase();
-
-          if (letter !== currentLetter) {
-            currentLetter = letter;
-
-            projectIndexList.appendChild(
-              createGroupTitle(letter)
-            );
-          }
-
-          projectIndexList.appendChild(
-            createProjectRow(item.project, item.index)
-          );
-        });
-      }
-    }
-
-    /* PROJECT INDEX OPEN / CLOSE */
-
-    function openProjectIndex() {
-      hidePanel();
-
-      projectIndexOverlay.classList.add("active");
-      projectIndexPanel.classList.add("active");
-
-      renderProjectIndex(projectSortMode);
-    }
-
-    function hideProjectIndex() {
-      projectIndexOverlay.classList.remove("active");
-      projectIndexPanel.classList.remove("active");
-    }
-
-    byId("projectsMenuButton").addEventListener(
-      "click",
-      openProjectIndex
+  if (mode === "year") {
+    indexed.sort((a, b) =>
+      getYearValue(b.project) - getYearValue(a.project) ||
+      a.project.title.localeCompare(b.project.title)
     );
 
-    byId("closeProjectIndex").addEventListener(
-      "click",
-      hideProjectIndex
+    let currentYear = "";
+
+    indexed.forEach(item => {
+      const year = item.project.year || "YEAR NOT SET";
+
+      if (year !== currentYear) {
+        currentYear = year;
+        list.appendChild(createGroupTitle(year));
+      }
+
+      list.appendChild(
+        createProjectRow(item.project, item.index)
+      );
+    });
+  }
+
+  if (mode === "name") {
+    indexed.sort((a, b) =>
+      a.project.title.localeCompare(
+        b.project.title,
+        "en",
+        { sensitivity: "base" }
+      )
     );
 
-    projectIndexOverlay.addEventListener(
-      "click",
-      hideProjectIndex
+    let currentLetter = "";
+
+    indexed.forEach(item => {
+      const letter =
+        item.project.title.charAt(0).toUpperCase();
+
+      if (letter !== currentLetter) {
+        currentLetter = letter;
+        list.appendChild(createGroupTitle(letter));
+      }
+
+      list.appendChild(
+        createProjectRow(item.project, item.index)
+      );
+    });
+  }
+}
+
+function openProjectIndex() {
+  closeAbout();
+  hidePanel();
+
+  projectIndexOverlay.classList.add("active");
+  projectIndexPanel.classList.add("active");
+
+  renderProjectIndex(projectSortMode);
+}
+
+function hideProjectIndex() {
+  projectIndexOverlay.classList.remove("active");
+  projectIndexPanel.classList.remove("active");
+}
+
+byId("projectsMenuButton").addEventListener(
+  "click",
+  openProjectIndex
+);
+
+byId("closeProjectIndex").addEventListener(
+  "click",
+  hideProjectIndex
+);
+
+projectIndexOverlay.addEventListener(
+  "click",
+  hideProjectIndex
+);
+
+document.querySelectorAll(".project-sort-button")
+  .forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".project-sort-button")
+        .forEach(item => item.classList.remove("active"));
+
+      button.classList.add("active");
+      renderProjectIndex(button.dataset.sort);
+    });
+  });
+
+byId("projectCount").textContent =
+  projects.length + " PROJECTS";
+
+/* ==========================================
+   ABOUT OPEN / CLOSE
+========================================== */
+
+function openAbout() {
+  hideLightbox();
+  hideProjectIndex();
+  hidePanel();
+
+  aboutScroll.scrollTop = 0;
+
+  aboutOverlay.classList.add("active");
+  aboutPanel.classList.add("active");
+
+  label.classList.remove("active");
+}
+
+function closeAbout() {
+  aboutOverlay.classList.remove("active");
+  aboutPanel.classList.remove("active");
+}
+
+byId("aboutMenuButton").addEventListener(
+  "click",
+  openAbout
+);
+
+byId("closeAbout").addEventListener(
+  "click",
+  closeAbout
+);
+
+aboutOverlay.addEventListener(
+  "click",
+  closeAbout
+);
+
+/* ==========================================
+   LIGHTBOX
+========================================== */
+
+function updateLightbox() {
+  if (!activeProject) return;
+
+  const images = getProjectImages(activeProject);
+  if (!images.length) return;
+
+  const token = ++lightboxImageToken;
+  const source = getImageSource(images[activeImageIndex]);
+
+  lightboxImage.style.opacity = "0";
+  lightboxImage.removeAttribute("src");
+
+  byId("lightboxCounter").textContent =
+    String(activeImageIndex + 1).padStart(2, "0") +
+    " / " +
+    String(images.length).padStart(2, "0");
+
+  const single = images.length <= 1;
+
+  byId("lightboxPrev").classList.toggle("hidden", single);
+  byId("lightboxNext").classList.toggle("hidden", single);
+
+  preloadImage(source, true).then(success => {
+    if (
+      !success ||
+      token !== lightboxImageToken ||
+      !activeProject
+    ) return;
+
+    lightboxImage.src = source;
+    lightboxImage.alt = activeProject.title;
+
+    requestAnimationFrame(() => {
+      if (token === lightboxImageToken) {
+        lightboxImage.style.opacity = "1";
+      }
+    });
+  });
+}
+
+panelImage.addEventListener("click", () => {
+  if (!activeProject) return;
+  if (!getProjectImages(activeProject).length) return;
+  if (panelImage.style.opacity !== "1") return;
+
+  imageLightbox.classList.add("active");
+  updateLightbox();
+});
+
+function hideLightbox() {
+  imageLightbox.classList.remove("active");
+  lightboxImageToken++;
+}
+
+byId("closeLightbox").addEventListener(
+  "click",
+  hideLightbox
+);
+
+byId("lightboxPrev").addEventListener(
+  "click",
+  previousSlide
+);
+
+byId("lightboxNext").addEventListener(
+  "click",
+  nextSlide
+);
+
+imageLightbox.addEventListener("click", event => {
+  if (event.target === imageLightbox) {
+    hideLightbox();
+  }
+});
+
+/* ==========================================
+   MOBILE SWIPE
+========================================== */
+
+function registerSwipe(element) {
+  let startX = 0;
+  let startY = 0;
+
+  element.addEventListener("touchstart", event => {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+  }, { passive: true });
+
+  element.addEventListener("touchend", event => {
+    const dx = startX - event.changedTouches[0].clientX;
+    const dy = startY - event.changedTouches[0].clientY;
+
+    if (Math.abs(dx) < 40) return;
+    if (Math.abs(dx) < Math.abs(dy)) return;
+
+    if (dx > 0) nextSlide();
+    else previousSlide();
+  }, { passive: true });
+}
+
+registerSwipe(document.querySelector(".slider"));
+registerSwipe(imageLightbox);
+
+/* ==========================================
+   KEYBOARD
+========================================== */
+
+document.addEventListener("keydown", event => {
+  if (imageLightbox.classList.contains("active")) {
+    if (event.key === "Escape") hideLightbox();
+    if (event.key === "ArrowRight") nextSlide();
+    if (event.key === "ArrowLeft") previousSlide();
+    return;
+  }
+
+  if (aboutPanel.classList.contains("active")) {
+    if (event.key === "Escape") closeAbout();
+    return;
+  }
+
+  if (projectIndexPanel.classList.contains("active")) {
+    if (event.key === "Escape") hideProjectIndex();
+    return;
+  }
+
+  if (panel.classList.contains("active")) {
+    if (event.key === "Escape") hidePanel();
+  }
+});
+
+/* ==========================================
+   MARKER PROJECTION
+========================================== */
+
+const markerWorld = new THREE.Vector3();
+const markerProjected = new THREE.Vector3();
+const globeCenter = new THREE.Vector3();
+const cameraPosition = new THREE.Vector3();
+const markerNormal = new THREE.Vector3();
+const markerToCamera = new THREE.Vector3();
+
+function updateProjectMarkers() {
+  globe.updateMatrixWorld(true);
+  camera.updateMatrixWorld(true);
+
+  globe.getWorldPosition(globeCenter);
+  camera.getWorldPosition(cameraPosition);
+
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  projectMarkers.forEach(marker => {
+    markerWorld.copy(marker.position);
+    globe.localToWorld(markerWorld);
+
+    markerNormal
+      .copy(markerWorld)
+      .sub(globeCenter)
+      .normalize();
+
+    markerToCamera
+      .copy(cameraPosition)
+      .sub(markerWorld)
+      .normalize();
+
+    const facing =
+      markerNormal.dot(markerToCamera);
+
+    markerProjected
+      .copy(markerWorld)
+      .project(camera);
+
+    const x =
+      (markerProjected.x * .5 + .5) * width;
+
+    const y =
+      (-markerProjected.y * .5 + .5) * height;
+
+    const normalizedFacing = THREE.MathUtils.clamp(
+      (facing + 1) / 2,
+      0,
+      1
     );
 
-    sortButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        sortButtons.forEach(item => {
-          item.classList.remove("active");
-        });
+    const visibility =
+      0.18 + normalizedFacing * 0.82;
 
-        button.classList.add("active");
+    marker.element.style.left = x + "px";
+    marker.element.style.top = y + "px";
+    marker.element.style.opacity = visibility;
+    marker.element.style.pointerEvents = "auto";
+    marker.element.style.zIndex =
+      Math.round(100 + normalizedFacing * 100);
+  });
+}
 
-        renderProjectIndex(button.dataset.sort);
-      });
-    });
+/* ==========================================
+   MOUSE
+========================================== */
 
-    projectCount.textContent = projects.length + " PROJECTS";
+let mouseX = 0;
+let mouseY = 0;
 
-    /* LIGHTBOX */
+document.addEventListener("mousemove", event => {
+  mouseX = event.clientX / window.innerWidth - .5;
+  mouseY = event.clientY / window.innerHeight - .5;
+});
 
-    function updateLightbox() {
-      if (!activeProject) return;
+/* ==========================================
+   RESIZE
+========================================== */
 
-      const images = getProjectImages(activeProject);
+function resize() {
+  const width = container.clientWidth;
+  const height = container.clientHeight;
 
-      if (!images.length) return;
+  if (!width || !height) return;
 
-      lightboxImage.style.opacity = "0";
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
 
-      lightboxImage.src =
-        getImageSource(images[activeImageIndex]);
+window.addEventListener("resize", resize);
+resize();
 
-      lightboxImage.alt = activeProject.title;
+/* ==========================================
+   ANIMATION
+========================================== */
 
-      lightboxCounter.textContent =
-        `${String(activeImageIndex + 1).padStart(2, "0")} / ` +
-        `${String(images.length).padStart(2, "0")}`;
+function animate() {
+  requestAnimationFrame(animate);
 
-      const single = images.length <= 1;
+  globe.rotation.y += 0.0022;
 
-      lightboxPrev.classList.toggle("hidden", single);
-      lightboxNext.classList.toggle("hidden", single);
+  globe.rotation.x +=
+    (mouseY * 0.18 - globe.rotation.x) * 0.012;
 
-      if (
-        lightboxImage.complete &&
-        lightboxImage.naturalWidth > 0
-      ) {
-        revealLightboxImage();
-      }
-    }
+  globe.rotation.z +=
+    (-mouseX * 0.10 - globe.rotation.z) * 0.008;
 
-    function revealLightboxImage() {
-      const show = () => {
-        if (lightboxImage.naturalWidth > 0) {
-          lightboxImage.style.opacity = "1";
-        }
-      };
+  updateProjectMarkers();
+  renderer.render(scene, camera);
+}
 
-      if (typeof lightboxImage.decode === "function") {
-        lightboxImage.decode()
-          .catch(() => {})
-          .then(show);
-      } else {
-        show();
-      }
-    }
+/* START */
 
-    lightboxImage.addEventListener(
-      "load",
-      revealLightboxImage
-    );
+renderProjectIndex("all");
+animate();
 
-    panelImage.addEventListener("click", () => {
-      if (
-        !activeProject ||
-        !getProjectImages(activeProject).length
-      ) {
-        return;
-      }
-
-      updateLightbox();
-      imageLightbox.classList.add("active");
-    });
-
-    function hideLightbox() {
-      imageLightbox.classList.remove("active");
-    }
-
-    byId("closeLightbox").addEventListener(
-      "click",
-      hideLightbox
-    );
-
-    lightboxPrev.addEventListener("click", event => {
-      event.stopPropagation();
-      previousSlide();
-    });
-
-    lightboxNext.addEventListener("click", event => {
-      event.stopPropagation();
-      nextSlide();
-    });
-
-    imageLightbox.addEventListener("click", event => {
-      if (event.target === imageLightbox) {
-        hideLightbox();
-      }
-    });
-
-    /* KEYBOARD */
-
-    document.addEventListener("keydown", event => {
-      if (imageLightbox.classList.contains("active")) {
-        if (event.key === "Escape") hideLightbox();
-        if (event.key === "ArrowRight") nextSlide();
-        if (event.key === "ArrowLeft") previousSlide();
-        return;
-      }
-
-      if (projectIndexPanel.classList.contains("active")) {
-        if (event.key === "Escape") hideProjectIndex();
-        return;
-      }
-
-      if (
-        panel.classList.contains("active") &&
-        event.key === "Escape"
-      ) {
-        hidePanel();
-      }
-    });
-
-    /* PROJECT MARKER PROJECTION */
-
-    const markerWorld = new THREE.Vector3();
-    const markerProjected = new THREE.Vector3();
-    const globeCenter = new THREE.Vector3();
-    const cameraPosition = new THREE.Vector3();
-    const markerNormal = new THREE.Vector3();
-    const markerToCamera = new THREE.Vector3();
-
-    function updateProjectMarkers() {
-      globe.updateMatrixWorld(true);
-      camera.updateMatrixWorld(true);
-
-      globe.getWorldPosition(globeCenter);
-      camera.getWorldPosition(cameraPosition);
-
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-
-      projectMarkers.forEach(marker => {
-        markerWorld.copy(marker.position);
-        globe.localToWorld(markerWorld);
-
-        markerNormal
-          .copy(markerWorld)
-          .sub(globeCenter)
-          .normalize();
-
-        markerToCamera
-          .copy(cameraPosition)
-          .sub(markerWorld)
-          .normalize();
-
-        const facing = markerNormal.dot(markerToCamera);
-
-        markerProjected
-          .copy(markerWorld)
-          .project(camera);
-
-        const x =
-          (markerProjected.x * .5 + .5) * width;
-
-        const y =
-          (-markerProjected.y * .5 + .5) * height;
-
-        const normalizedFacing = THREE.MathUtils.clamp(
-          (facing + 1) / 2,
-          0,
-          1
-        );
-
-        const visibility =
-          0.18 + normalizedFacing * 0.82;
-
-        marker.element.style.left = x + "px";
-        marker.element.style.top = y + "px";
-        marker.element.style.opacity = visibility;
-        marker.element.style.pointerEvents = "auto";
-
-        marker.element.style.zIndex = Math.round(
-          100 + normalizedFacing * 100
-        );
-      });
-    }
-
-    /* MOUSE */
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener("mousemove", event => {
-      mouseX = event.clientX / window.innerWidth - .5;
-      mouseY = event.clientY / window.innerHeight - .5;
-    });
-
-    /* RESIZE */
-
-    function resize() {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-
-      if (!width || !height) return;
-
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    }
-
-    window.addEventListener("resize", resize);
-
-    resize();
-
-    /* ANIMATION */
-
-    function animate() {
-      requestAnimationFrame(animate);
-
-      globe.rotation.y += 0.0022;
-
-      globe.rotation.x +=
-        (mouseY * 0.18 - globe.rotation.x) * 0.012;
-
-      globe.rotation.z +=
-        (-mouseX * 0.10 - globe.rotation.z) * 0.008;
-
-      updateProjectMarkers();
-      renderer.render(scene, camera);
-    }
-
-    /* START */
-
-    renderProjectIndex("all");
-    animate();
-  </script>
+</script>
 </body>
 </html>
