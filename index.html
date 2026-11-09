@@ -1,219 +1,115 @@
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scientistsroom - KIM MIN U</title>
 
-
-  <!-- ==================================================
-       KAKAO / SNS OPEN GRAPH
-  ================================================== -->
-
+  <!-- KAKAO / SNS -->
   <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Scientistsroom - KIM MIN U"
-  >
-
-  <meta
-    property="og:image"
-    content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg"
-  >
-
-  <meta
-    property="og:url"
-    content="https://scientistsroom.github.io/scientistsroom/"
-  >
-
+  <meta property="og:title" content="Scientistsroom - KIM MIN U">
+  <meta property="og:image" content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg">
+  <meta property="og:url" content="https://scientistsroom.github.io/scientistsroom/">
 
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
+    html, body {
       width: 100%;
       height: 100%;
       overflow: hidden;
-
       background: #050505;
       color: #f5f5f5;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    button,
-    a {
-      font: inherit;
-    }
+    button, a { font: inherit; }
+    button { color: inherit; }
 
-    button {
-      color: inherit;
-    }
-
-
-    /* ==================================================
-       HOME
-    ================================================== */
+    /* HOME */
 
     .hero {
       position: relative;
-
       width: 100vw;
       height: 100vh;
-
       min-height: 700px;
-
       overflow: hidden;
-
       background: #050505;
     }
 
-
-    /* ==================================================
-       HEADER
-    ================================================== */
-
     .top {
       position: absolute;
-
       top: 36px;
       left: 40px;
       right: 40px;
-
       display: flex;
-
-      justify-content: space-between;
       align-items: center;
-
+      justify-content: space-between;
       font-size: 12px;
       font-weight: 600;
-
       z-index: 40;
     }
 
     .top-center {
       position: absolute;
-
       left: 50%;
-
-      transform:
-        translateX(-50%);
-
+      transform: translateX(-50%);
       opacity: 0.35;
     }
 
     .top-menu-button {
       appearance: none;
-
       border: 0;
-
       background: none;
-
       padding: 0;
-
       color: #f5f5f5;
-
       font-size: 12px;
       font-weight: 600;
-
       cursor: pointer;
-
-      transition:
-        opacity 0.2s ease;
+      transition: opacity .2s ease;
     }
 
-    .top-menu-button:hover {
-      opacity: 0.5;
-    }
-
-
-    /* ==================================================
-       MAIN TITLE
-    ================================================== */
+    .top-menu-button:hover { opacity: .5; }
 
     .title {
       position: absolute;
-
       top: 10%;
       left: 50%;
-
-      transform:
-        translateX(-50%);
-
-      font-size:
-        clamp(38px, 4.2vw, 72px);
-
-      line-height: 0.9;
-
-      letter-spacing: -0.065em;
-
+      transform: translateX(-50%);
+      font-size: clamp(38px, 4.2vw, 72px);
+      line-height: .9;
+      letter-spacing: -.065em;
       text-align: center;
-
       font-weight: 600;
-
       white-space: nowrap;
-
       z-index: 10;
     }
 
-
-    /* ==================================================
-       GUIDE LINES
-    ================================================== */
+    /* GUIDE */
 
     .guide-circle {
       position: absolute;
-
-      width:
-        min(58vw, 720px);
-
+      width: min(58vw, 720px);
       aspect-ratio: 1 / 1;
-
       left: 50%;
       top: 48%;
-
-      transform:
-        translate(-50%, -50%);
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: 50%;
-
       pointer-events: none;
     }
 
     .guide-circle::before,
     .guide-circle::after {
       content: "";
-
       position: absolute;
-
-      background:
-        rgba(255, 255, 255, 0.09);
+      background: rgba(255,255,255,.09);
     }
 
     .guide-circle::before {
       width: 140%;
       height: 1px;
-
       left: -20%;
       top: 50%;
     }
@@ -221,1899 +117,904 @@
     .guide-circle::after {
       width: 1px;
       height: 140%;
-
       left: 50%;
       top: -20%;
     }
 
     .line {
       position: absolute;
-
       left: 50%;
       top: 50%;
-
       width: 118%;
       height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.07);
-
+      background: rgba(255,255,255,.07);
       transform-origin: center;
     }
 
     .line.one {
-      transform:
-        translate(-50%, -50%)
-        rotate(32deg);
+      transform: translate(-50%, -50%) rotate(32deg);
     }
 
     .line.two {
-      transform:
-        translate(-50%, -50%)
-        rotate(-32deg);
+      transform: translate(-50%, -50%) rotate(-32deg);
     }
 
     .side-line {
       position: absolute;
-
       top: 45%;
-
       width: 12%;
       height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.15);
+      background: rgba(255,255,255,.15);
     }
 
-    .side-line.left {
-      left: 3.5%;
-    }
+    .side-line.left { left: 3.5%; }
+    .side-line.right { right: 3.5%; }
 
-    .side-line.right {
-      right: 3.5%;
-    }
-
-
-    /* ==================================================
-       EARTH
-    ================================================== */
+    /* GLOBE */
 
     #earthWrap {
       position: absolute;
-
       left: 50%;
       top: 50%;
-
-      width:
-        min(36vw, 500px);
-
-      height:
-        min(36vw, 500px);
-
-      transform:
-        translate(-50%, -48%);
-
+      width: min(36vw, 500px);
+      height: min(36vw, 500px);
+      transform: translate(-50%, -48%);
       z-index: 5;
     }
 
     #earth {
       position: absolute;
-
       inset: 0;
-
       width: 100%;
       height: 100%;
     }
 
-
-    /* ==================================================
-       PROJECT MARKERS
-    ================================================== */
-
     #projectMarkers {
       position: absolute;
-
       inset: 0;
-
       pointer-events: none;
-
       z-index: 30;
     }
 
     .project-marker {
       --pulse-duration: 3s;
       --pulse-delay: 0s;
-
       position: absolute;
-
       width: 34px;
       height: 34px;
-
       padding: 0;
-
       border: 0;
-
       border-radius: 50%;
-
       background: transparent;
-
-      transform:
-        translate(-50%, -50%);
-
+      transform: translate(-50%, -50%);
       pointer-events: auto;
-
       cursor: pointer;
-
       opacity: 1;
-
-      transition:
-        opacity 0.35s ease;
-
-      will-change:
-        left,
-        top,
-        opacity;
+      transition: opacity .35s ease;
+      will-change: left, top, opacity;
     }
 
     .project-marker::before {
       content: "";
-
       position: absolute;
-
       left: 50%;
       top: 50%;
-
       width: 9px;
       height: 9px;
-
       border-radius: 50%;
-
       background: #fff;
-
-      transform:
-        translate(-50%, -50%);
-
-      box-shadow:
-        0 0 7px
-        rgba(255, 255, 255, 0.48);
-
-      animation:
-        projectPointPulse
-        var(--pulse-duration)
-        ease-in-out
-        infinite;
-
-      animation-delay:
-        var(--pulse-delay);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 7px rgba(255,255,255,.48);
+      animation: projectPointPulse var(--pulse-duration) ease-in-out infinite;
+      animation-delay: var(--pulse-delay);
     }
 
     .project-marker::after {
       content: "";
-
       position: absolute;
-
       left: 50%;
       top: 50%;
-
       width: 19px;
       height: 19px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.42);
-
+      border: 1px solid rgba(255,255,255,.42);
       border-radius: 50%;
-
-      transform:
-        translate(-50%, -50%);
-
-      animation:
-        projectHaloPulse
-        var(--pulse-duration)
-        ease-in-out
-        infinite;
-
-      animation-delay:
-        var(--pulse-delay);
+      transform: translate(-50%, -50%);
+      animation: projectHaloPulse var(--pulse-duration) ease-in-out infinite;
+      animation-delay: var(--pulse-delay);
     }
 
     @keyframes projectPointPulse {
-
-      0%,
-      100% {
-        opacity: 0.76;
-
-        transform:
-          translate(-50%, -50%)
-          scale(0.92);
-
-        box-shadow:
-          0 0 4px
-          rgba(255, 255, 255, 0.35);
+      0%, 100% {
+        opacity: .76;
+        transform: translate(-50%, -50%) scale(.92);
+        box-shadow: 0 0 4px rgba(255,255,255,.35);
       }
-
       50% {
         opacity: 1;
-
-        transform:
-          translate(-50%, -50%)
-          scale(1.25);
-
-        box-shadow:
-          0 0 12px
-          rgba(255, 255, 255, 0.85);
+        transform: translate(-50%, -50%) scale(1.25);
+        box-shadow: 0 0 12px rgba(255,255,255,.85);
       }
     }
 
     @keyframes projectHaloPulse {
-
-      0%,
-      100% {
-        opacity: 0.20;
-
-        transform:
-          translate(-50%, -50%)
-          scale(0.90);
+      0%, 100% {
+        opacity: .2;
+        transform: translate(-50%, -50%) scale(.90);
       }
-
       50% {
-        opacity: 0.68;
-
-        transform:
-          translate(-50%, -50%)
-          scale(1.12);
+        opacity: .68;
+        transform: translate(-50%, -50%) scale(1.12);
       }
     }
 
     .project-marker:hover::before {
       animation-play-state: paused;
-
       opacity: 1;
-
-      transform:
-        translate(-50%, -50%)
-        scale(1.62);
-
-      box-shadow:
-        0 0 16px
-        rgba(255, 255, 255, 1);
+      transform: translate(-50%, -50%) scale(1.62);
+      box-shadow: 0 0 16px #fff;
     }
 
     .project-marker:hover::after {
       animation-play-state: paused;
-
-      opacity: 0.95;
-
-      transform:
-        translate(-50%, -50%)
-        scale(1.28);
+      opacity: .95;
+      transform: translate(-50%, -50%) scale(1.28);
     }
-
-
-    /* ==================================================
-       HOVER LABEL
-    ================================================== */
 
     #projectLabel {
       position: fixed;
-
       left: 0;
       top: 0;
-
-      padding:
-        9px
-        12px;
-
+      padding: 9px 12px;
       background: #f5f5f5;
-
       color: #050505;
-
       font-size: 11px;
       line-height: 1.3;
-
       pointer-events: none;
-
       opacity: 0;
-
-      transform:
-        translate(14px, 14px);
-
-      transition:
-        opacity 0.18s ease;
-
+      transform: translate(14px, 14px);
+      transition: opacity .18s ease;
       z-index: 200;
-
       white-space: nowrap;
     }
 
-    #projectLabel.active {
-      opacity: 1;
-    }
+    #projectLabel.active { opacity: 1; }
+    #projectLabel .label-number { opacity: .45; margin-right: 8px; }
+    #projectLabel .label-category { opacity: .5; margin-left: 8px; }
 
-    #projectLabel .label-number {
-      opacity: 0.45;
-
-      margin-right: 8px;
-    }
-
-    #projectLabel .label-category {
-      opacity: 0.5;
-
-      margin-left: 8px;
-    }
-
-
-    /* ==================================================
-       BOTTOM
-    ================================================== */
+    /* FOOTER */
 
     .bottom {
       position: absolute;
-
       left: 40px;
       right: 40px;
       bottom: 34px;
-
       display: grid;
-
-      grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 50px;
-
       align-items: end;
-
       z-index: 20;
     }
 
     .item h3 {
       margin-bottom: 9px;
-
       font-size: 13px;
-
       font-weight: 600;
     }
 
     .item p {
       max-width: 300px;
-
       font-size: 10px;
-
       line-height: 1.35;
-
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255,255,255,.42);
     }
 
-    .center-item {
-      text-align: center;
-    }
+    .center-item { text-align: center; }
+    .center-item p { margin: 0 auto; }
+    .right-item { text-align: right; }
+    .right-item p { margin-left: auto; }
 
-    .center-item p {
-      margin: 0 auto;
-    }
-
-    .right-item {
-      text-align: right;
-    }
-
-    .right-item p {
-      margin-left: auto;
-    }
-
-
-    /* ==================================================
-       OVERLAY
-    ================================================== */
+    /* PROJECT DETAIL */
 
     .panel-overlay {
       position: fixed;
-
       inset: 0;
-
-      background:
-        rgba(0, 0, 0, 0.18);
-
+      background: rgba(0,0,0,.18);
       opacity: 0;
-
       pointer-events: none;
-
-      transition:
-        opacity 0.5s ease;
-
+      transition: opacity .5s ease;
       z-index: 80;
     }
 
     .panel-overlay.active {
       opacity: 1;
-
       pointer-events: auto;
     }
 
-
-    /* ==================================================
-       PROJECT DETAIL
-    ================================================== */
-
     #projectPanel {
       position: fixed;
-
       top: 0;
       right: 0;
-
-      width:
-        min(540px, 92vw);
-
+      width: min(540px, 92vw);
       height: 100vh;
-
       background: #0b0b0b;
-
       color: #f5f5f5;
-
-      border-left:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-      padding:
-        38px
-        38px
-        42px;
-
-      transform:
-        translateX(100%);
-
-      transition:
-        transform
-        0.7s
-        cubic-bezier(.16, 1, .3, 1);
-
+      border-left: 1px solid rgba(255,255,255,.08);
+      padding: 38px 38px 42px;
+      transform: translateX(100%);
+      transition: transform .7s cubic-bezier(.16,1,.3,1);
       z-index: 90;
-
       display: flex;
-
       flex-direction: column;
-
       overflow-y: auto;
     }
 
-    #projectPanel.active {
-      transform:
-        translateX(0);
-    }
+    #projectPanel.active { transform: translateX(0); }
 
     .panel-top {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       margin-bottom: 42px;
     }
 
     .panel-index {
       font-size: 11px;
-
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255,255,255,.42);
     }
 
     .panel-actions {
       display: flex;
-
       align-items: center;
-
       gap: 18px;
     }
 
     .panel-action-button {
       appearance: none;
-
       border: 0;
-
       background: none;
-
       color: #fff;
-
       cursor: pointer;
-
       line-height: 1;
-
-      transition:
-        opacity 0.2s ease;
+      transition: opacity .2s ease;
     }
 
-    .panel-action-button:hover {
-      opacity: 0.5;
-    }
-
-    #backPanel {
-      font-size: 23px;
-
-      font-weight: 300;
-    }
-
-    #backPanel.hidden {
-      display: none;
-    }
-
-    #closePanel {
-      font-size: 28px;
-
-      font-weight: 300;
-    }
+    .panel-action-button:hover { opacity: .5; }
+    #backPanel { font-size: 23px; font-weight: 300; }
+    #backPanel.hidden { display: none; }
+    #closePanel { font-size: 28px; font-weight: 300; }
 
     .panel-year {
       min-height: 14px;
-
       margin-bottom: 12px;
-
       font-size: 11px;
-
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255,255,255,.42);
     }
 
     .panel-title {
       margin-bottom: 18px;
-
-      font-size:
-        clamp(30px, 3.7vw, 52px);
-
-      line-height: 0.98;
-
-      letter-spacing: -0.055em;
-
+      font-size: clamp(30px, 3.7vw, 52px);
+      line-height: .98;
+      letter-spacing: -.055em;
       font-weight: 500;
     }
 
     .panel-category {
       margin-bottom: 30px;
-
       font-size: 11px;
-
-      color:
-        rgba(255, 255, 255, 0.48);
+      color: rgba(255,255,255,.48);
     }
 
-
-    /* ==================================================
-       SLIDER
-    ================================================== */
+    /* IMAGE SLIDER */
 
     .slider {
       position: relative;
-
       width: 100%;
-
       aspect-ratio: 16 / 9;
-
       overflow: hidden;
-
       background: #161616;
-
       margin-bottom: 16px;
     }
 
     #panelImage {
       width: 100%;
       height: 100%;
-
       display: block;
-
       object-fit: contain;
-
       cursor: zoom-in;
-
-      transition:
-        opacity 0.25s ease,
-        transform 0.3s ease;
+      opacity: 0;
+      transition: opacity .35s ease, transform .3s ease;
     }
 
     #panelImage:hover {
-      transform:
-        scale(1.012);
+      transform: scale(1.012);
     }
 
     .image-placeholder {
       position: absolute;
-
       inset: 0;
-
       display: none;
-
       align-items: center;
-
       justify-content: center;
-
-      color:
-        rgba(255, 255, 255, 0.28);
-
+      color: rgba(255,255,255,.28);
       font-size: 11px;
-
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
+      pointer-events: none;
     }
 
-    .image-placeholder.active {
-      display: flex;
-    }
+    .image-placeholder.active { display: flex; }
 
     .slider-button {
       position: absolute;
-
       top: 50%;
-
-      transform:
-        translateY(-50%);
-
+      transform: translateY(-50%);
       width: 42px;
       height: 42px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.15);
-
-      background:
-        rgba(0, 0, 0, 0.52);
-
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(0,0,0,.52);
       color: #fff;
-
       font-size: 18px;
-
       cursor: pointer;
-
       z-index: 10;
     }
 
-    .slider-button:hover {
-      background:
-        rgba(255, 255, 255, 0.13);
-    }
-
-    #prevImage {
-      left: 12px;
-    }
-
-    #nextImage {
-      right: 12px;
-    }
-
-    .slider-button.hidden {
-      display: none;
-    }
+    .slider-button:hover { background: rgba(255,255,255,.13); }
+    #prevImage { left: 12px; }
+    #nextImage { right: 12px; }
+    .slider-button.hidden { display: none; }
 
     .slider-info {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       margin-bottom: 26px;
-
       font-size: 10px;
-
-      color:
-        rgba(255, 255, 255, 0.42);
+      color: rgba(255,255,255,.42);
     }
 
-    .slider-dots {
-      display: flex;
-
-      gap: 6px;
-    }
+    .slider-dots { display: flex; gap: 6px; }
 
     .slider-dot {
       width: 4px;
       height: 4px;
-
       border-radius: 50%;
-
-      background:
-        rgba(255, 255, 255, 0.22);
+      background: rgba(255,255,255,.22);
     }
 
-    .slider-dot.active {
-      background: #fff;
-    }
-
-
-    /* ==================================================
-       DESCRIPTION
-    ================================================== */
+    .slider-dot.active { background: #fff; }
 
     .panel-description {
       max-width: 420px;
-
       margin-bottom: 20px;
-
       font-size: 12px;
-
       line-height: 1.8;
-
-      color:
-        rgba(255, 255, 255, 0.65);
-
+      color: rgba(255,255,255,.65);
       white-space: pre-line;
     }
 
-
-    /* ==================================================
-       LINK
-    ================================================== */
-
     .panel-link {
       display: none;
-
       max-width: 420px;
-
       margin-bottom: 40px;
-
       padding-top: 14px;
-
-      border-top:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-      color:
-        rgba(255, 255, 255, 0.45);
-
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.45);
       font-size: 10px;
-
       line-height: 1.55;
-
       text-decoration: none;
-
       word-break: break-all;
-
-      transition:
-        color 0.2s ease;
+      transition: color .2s ease;
     }
 
-    .panel-link.active {
-      display: block;
-    }
-
-    .panel-link:hover {
-      color: #fff;
-    }
+    .panel-link.active { display: block; }
+    .panel-link:hover { color: #fff; }
 
     .view-project {
       margin-top: auto;
-
       padding-top: 24px;
-
-      border-top:
-        1px solid
-        rgba(255, 255, 255, 0.14);
-
+      border-top: 1px solid rgba(255,255,255,.14);
       display: flex;
-
       justify-content: space-between;
-
       font-size: 11px;
     }
 
-    .view-project span:last-child {
-      opacity: 0.45;
-    }
+    .view-project span:last-child { opacity: .45; }
 
-
-    /* ==================================================
-       PROJECT INDEX
-    ================================================== */
+    /* PROJECT INDEX */
 
     #projectIndexOverlay {
       position: fixed;
-
       inset: 0;
-
-      background:
-        rgba(0, 0, 0, 0.35);
-
+      background: rgba(0,0,0,.35);
       opacity: 0;
-
       visibility: hidden;
-
-      transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-
+      transition: opacity .4s ease, visibility .4s ease;
       z-index: 110;
     }
 
     #projectIndexOverlay.active {
       opacity: 1;
-
       visibility: visible;
     }
 
     #projectIndexPanel {
       position: fixed;
-
       top: 0;
       right: 0;
-
-      width:
-        min(820px, 100vw);
-
+      width: min(820px, 100vw);
       height: 100vh;
-
       background: #080808;
-
-      border-left:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-      transform:
-        translateX(100%);
-
-      transition:
-        transform
-        0.75s
-        cubic-bezier(.16, 1, .3, 1);
-
+      border-left: 1px solid rgba(255,255,255,.08);
+      transform: translateX(100%);
+      transition: transform .75s cubic-bezier(.16,1,.3,1);
       z-index: 120;
-
       display: flex;
-
       flex-direction: column;
     }
 
-    #projectIndexPanel.active {
-      transform:
-        translateX(0);
-    }
+    #projectIndexPanel.active { transform: translateX(0); }
 
     .project-index-header {
-      padding:
-        36px
-        40px
-        30px;
-
-      border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.10);
+      padding: 36px 40px 30px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
     }
 
     .project-index-top {
       display: flex;
-
       justify-content: space-between;
-
       align-items: flex-start;
-
       margin-bottom: 56px;
     }
 
     .project-index-heading {
-      font-size:
-        clamp(42px, 6vw, 82px);
-
-      line-height: 0.9;
-
-      letter-spacing: -0.065em;
-
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: .9;
+      letter-spacing: -.065em;
       font-weight: 500;
     }
 
     #closeProjectIndex {
       appearance: none;
-
       border: 0;
-
       background: none;
-
       color: #fff;
-
       font-size: 32px;
-
       font-weight: 300;
-
       cursor: pointer;
-
       line-height: 1;
     }
 
     .project-index-meta {
       display: flex;
-
       align-items: flex-end;
-
       justify-content: space-between;
-
       gap: 30px;
     }
 
     .project-count {
       font-size: 10px;
-
-      letter-spacing: 0.05em;
-
-      color:
-        rgba(255, 255, 255, 0.35);
+      letter-spacing: .05em;
+      color: rgba(255,255,255,.35);
     }
 
-    .project-sort {
-      display: flex;
-
-      gap: 22px;
-    }
+    .project-sort { display: flex; gap: 22px; }
 
     .project-sort-button {
       appearance: none;
-
-      padding:
-        0 0 5px;
-
+      padding: 0 0 5px;
       border: 0;
-
-      border-bottom:
-        1px solid transparent;
-
+      border-bottom: 1px solid transparent;
       background: none;
-
-      color:
-        rgba(255, 255, 255, 0.35);
-
+      color: rgba(255,255,255,.35);
       font-size: 10px;
-
-      letter-spacing: 0.05em;
-
+      letter-spacing: .05em;
       cursor: pointer;
-
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
+      transition: color .2s ease, border-color .2s ease;
     }
 
-    .project-sort-button:hover {
-      color: #fff;
-    }
-
-    .project-sort-button.active {
-      color: #fff;
-
-      border-bottom-color: #fff;
-    }
+    .project-sort-button:hover { color: #fff; }
+    .project-sort-button.active { color: #fff; border-bottom-color: #fff; }
 
     .project-index-scroll {
       flex: 1;
-
       overflow-y: auto;
-
-      padding:
-        0
-        40px
-        60px;
-
+      padding: 0 40px 60px;
       scrollbar-width: thin;
-
-      scrollbar-color:
-        rgba(255, 255, 255, 0.2)
-        transparent;
+      scrollbar-color: rgba(255,255,255,.2) transparent;
     }
 
     .project-group-title {
-      padding:
-        42px
-        0
-        14px;
-
+      padding: 42px 0 14px;
       font-size: 10px;
-
-      letter-spacing: 0.06em;
-
-      color:
-        rgba(255, 255, 255, 0.35);
-
-      border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.35);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .project-list-row {
       appearance: none;
-
       width: 100%;
-
       display: grid;
-
-      grid-template-columns:
-        54px
-        minmax(0, 1fr)
-        190px
-        100px;
-
+      grid-template-columns: 54px minmax(0,1fr) 190px 100px;
       gap: 18px;
-
       align-items: center;
-
-      padding:
-        22px 0;
-
+      padding: 22px 0;
       border: 0;
-
-      border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
+      border-bottom: 1px solid rgba(255,255,255,.08);
       background: transparent;
-
       color: #fff;
-
       text-align: left;
-
       cursor: pointer;
-
-      transition:
-        padding-left 0.25s ease,
-        background 0.25s ease;
+      transition: padding-left .25s ease, background .25s ease;
     }
 
     .project-list-row:hover {
       padding-left: 10px;
-
-      background:
-        rgba(255, 255, 255, 0.025);
+      background: rgba(255,255,255,.025);
     }
 
     .project-row-number {
       font-size: 10px;
-
-      color:
-        rgba(255, 255, 255, 0.30);
+      color: rgba(255,255,255,.30);
     }
 
     .project-row-title {
       min-width: 0;
-
-      font-size:
-        clamp(17px, 2vw, 24px);
-
-      letter-spacing: -0.035em;
-
+      font-size: clamp(17px, 2vw, 24px);
+      letter-spacing: -.035em;
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
 
     .project-row-category {
       font-size: 9px;
-
-      color:
-        rgba(255, 255, 255, 0.38);
+      color: rgba(255,255,255,.38);
     }
 
     .project-row-year {
       text-align: right;
-
       font-size: 10px;
-
-      color:
-        rgba(255, 255, 255, 0.38);
+      color: rgba(255,255,255,.38);
     }
 
-
-    /* ==================================================
-       LIGHTBOX
-    ================================================== */
+    /* LIGHTBOX */
 
     #imageLightbox {
       position: fixed;
-
       inset: 0;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
-      padding:
-        55px
-        80px;
-
-      background:
-        rgba(0, 0, 0, 0.98);
-
+      padding: 55px 80px;
+      background: rgba(0,0,0,.98);
       opacity: 0;
-
       visibility: hidden;
-
-      transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-
+      transition: opacity .35s ease, visibility .35s ease;
       z-index: 300;
     }
 
     #imageLightbox.active {
       opacity: 1;
-
       visibility: visible;
     }
 
     #lightboxImage {
       display: block;
-
       max-width: 92vw;
       max-height: 86vh;
-
       width: auto;
       height: auto;
-
       object-fit: contain;
+      opacity: 0;
+      transition: opacity .3s ease;
     }
 
     #closeLightbox {
       position: absolute;
-
       top: 28px;
       right: 34px;
-
       border: 0;
-
       background: none;
-
       color: #fff;
-
       font-size: 34px;
-
       cursor: pointer;
     }
 
     .lightbox-arrow {
       position: absolute;
-
       top: 50%;
-
-      transform:
-        translateY(-50%);
-
+      transform: translateY(-50%);
       width: 55px;
       height: 55px;
-
       border: 0;
-
       background: none;
-
-      color:
-        rgba(255, 255, 255, 0.65);
-
+      color: rgba(255,255,255,.65);
       font-size: 27px;
-
       cursor: pointer;
     }
 
-    .lightbox-arrow:hover {
-      color: #fff;
-    }
-
-    #lightboxPrev {
-      left: 24px;
-    }
-
-    #lightboxNext {
-      right: 24px;
-    }
-
-    .lightbox-arrow.hidden {
-      display: none;
-    }
+    .lightbox-arrow:hover { color: #fff; }
+    #lightboxPrev { left: 24px; }
+    #lightboxNext { right: 24px; }
+    .lightbox-arrow.hidden { display: none; }
 
     #lightboxCounter {
       position: absolute;
-
       left: 50%;
       bottom: 22px;
-
-      transform:
-        translateX(-50%);
-
-      color:
-        rgba(255, 255, 255, 0.55);
-
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.55);
       font-size: 10px;
-
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
     }
 
-
-    /* ==================================================
-       MOBILE
-    ================================================== */
+    /* MOBILE */
 
     @media (max-width: 900px) {
-
-      .hero {
-        min-height: 100svh;
-      }
-
-      .top {
-        top: 22px;
-        left: 20px;
-        right: 20px;
-      }
-
-      .title {
-        top: 13%;
-
-        font-size:
-          clamp(38px, 11vw, 52px);
-      }
+      .hero { min-height: 100svh; }
+      .top { top: 22px; left: 20px; right: 20px; }
+      .title { top: 13%; font-size: clamp(38px, 11vw, 52px); }
 
       #earthWrap {
         width: 72vw;
         height: 72vw;
-
         top: 49%;
       }
 
-      .guide-circle {
-        width: 90vw;
-
-        top: 49%;
-      }
-
-      .side-line {
-        display: none;
-      }
+      .guide-circle { width: 90vw; top: 49%; }
+      .side-line { display: none; }
 
       .bottom {
         left: 20px;
         right: 20px;
         bottom: 20px;
-
-        grid-template-columns:
-          1fr
-          1fr;
-
+        grid-template-columns: 1fr 1fr;
         gap: 22px;
       }
 
-      .center-item {
-        display: none;
-      }
-
-      #projectPanel {
-        width: 100vw;
-
-        padding:
-          25px
-          24px
-          30px;
-      }
-
-      .project-index-header {
-        padding:
-          24px
-          22px;
-      }
-
-      .project-index-top {
-        margin-bottom: 42px;
-      }
-
-      .project-index-heading {
-        font-size: 50px;
-      }
+      .center-item { display: none; }
+      #projectPanel { width: 100vw; padding: 25px 24px 30px; }
+      .project-index-header { padding: 24px 22px; }
+      .project-index-top { margin-bottom: 42px; }
+      .project-index-heading { font-size: 50px; }
 
       .project-index-meta {
         flex-direction: column;
-
         align-items: flex-start;
-
         gap: 18px;
       }
 
-      .project-index-scroll {
-        padding:
-          0
-          22px
-          40px;
-      }
+      .project-index-scroll { padding: 0 22px 40px; }
 
       .project-list-row {
-        grid-template-columns:
-          36px
-          minmax(0, 1fr)
-          90px;
-
+        grid-template-columns: 36px minmax(0,1fr) 90px;
         gap: 10px;
-
         padding: 18px 0;
       }
 
-      .project-row-category {
-        display: none;
-      }
-
-      #imageLightbox {
-        padding: 20px;
-      }
-
-      #lightboxImage {
-        max-width: 96vw;
-        max-height: 82vh;
-      }
-
-      #lightboxPrev {
-        left: 5px;
-      }
-
-      #lightboxNext {
-        right: 5px;
-      }
-
+      .project-row-category { display: none; }
+      #imageLightbox { padding: 20px; }
+      #lightboxImage { max-width: 96vw; max-height: 82vh; }
+      #lightboxPrev { left: 5px; }
+      #lightboxNext { right: 5px; }
     }
-
   </style>
 </head>
 
-
 <body>
-
   <main class="hero">
-
     <header class="top">
-
-      <div>
-        KIM MIN U
-      </div>
-
-      <div class="top-center">
-        PORTFOLIO
-      </div>
-
-      <button
-        class="top-menu-button"
-        id="projectsMenuButton"
-        type="button"
-      >
-        PROJECTS
-      </button>
-
+      <div>KIM MIN U</div>
+      <div class="top-center">PORTFOLIO</div>
+      <button class="top-menu-button" id="projectsMenuButton" type="button">PROJECTS</button>
     </header>
 
-
-    <div class="title">
-      Scientists[room]
-    </div>
-
+    <div class="title">Scientists[room]</div>
 
     <div class="guide-circle">
       <div class="line one"></div>
       <div class="line two"></div>
     </div>
 
-
     <div class="side-line left"></div>
     <div class="side-line right"></div>
-
 
     <div id="earthWrap">
       <div id="earth"></div>
       <div id="projectMarkers"></div>
     </div>
 
-
     <section class="bottom">
-
       <div class="item">
-
-        <h3>
-          Visual Design
-        </h3>
-
-        <p>
-          Graphic / Editorial /
-          Branding / UX UI /
-          Photography
-        </p>
-
+        <h3>Visual Design</h3>
+        <p>Graphic / Editorial / Branding / UX UI / Photography</p>
       </div>
-
 
       <div class="item center-item">
-
-        <h3>
-          xoxxnxxox@gmail.com
-        </h3>
-
-        <p>
-          Visual communication
-          across print, space
-          and digital media.
-        </p>
-
+        <h3>xoxxnxxox@gmail.com</h3>
+        <p>Visual communication across print, space and digital media.</p>
       </div>
-
 
       <div class="item right-item">
-
-        <h3>
-          Selected Works
-        </h3>
-
-        <p>
-          Click the points on
-          the globe or open
-          the project index.
-        </p>
-
+        <h3>Selected Works</h3>
+        <p>Click the points on the globe or open the project index.</p>
       </div>
-
     </section>
-
   </main>
 
-
   <!-- HOVER LABEL -->
-
   <div id="projectLabel"></div>
 
-
-  <!-- DETAIL OVERLAY -->
-
-  <div
-    class="panel-overlay"
-    id="panelOverlay"
-  ></div>
-
-
   <!-- PROJECT DETAIL -->
+  <div class="panel-overlay" id="panelOverlay"></div>
 
   <aside id="projectPanel">
-
     <div class="panel-top">
-
-      <div
-        class="panel-index"
-        id="panelIndex"
-      ></div>
-
+      <div class="panel-index" id="panelIndex"></div>
 
       <div class="panel-actions">
-
-        <button
-          class="panel-action-button hidden"
-          id="backPanel"
-          aria-label="Back to projects"
-        >
-          ←
-        </button>
-
-        <button
-          class="panel-action-button"
-          id="closePanel"
-          aria-label="Close project"
-        >
-          ×
-        </button>
-
+        <button class="panel-action-button hidden" id="backPanel" type="button" aria-label="Back to projects">←</button>
+        <button class="panel-action-button" id="closePanel" type="button" aria-label="Close project">×</button>
       </div>
-
     </div>
 
-
-    <div
-      class="panel-year"
-      id="panelYear"
-    ></div>
-
-
-    <h2
-      class="panel-title"
-      id="panelTitle"
-    ></h2>
-
-
-    <div
-      class="panel-category"
-      id="panelCategory"
-    ></div>
-
+    <div class="panel-year" id="panelYear"></div>
+    <h2 class="panel-title" id="panelTitle"></h2>
+    <div class="panel-category" id="panelCategory"></div>
 
     <div class="slider">
-
-      <img
-        id="panelImage"
-        src=""
-        alt=""
-      >
-
-
-      <div
-        class="image-placeholder"
-        id="imagePlaceholder"
-      >
-        PROJECT IMAGE
+      <img id="panelImage" alt="" decoding="async" fetchpriority="high">
+      <div class="image-placeholder" id="imagePlaceholder">
+        <span id="imageStatus">PROJECT IMAGE</span>
       </div>
 
-
-      <button
-        class="slider-button"
-        id="prevImage"
-        aria-label="Previous image"
-      >
-        ←
-      </button>
-
-
-      <button
-        class="slider-button"
-        id="nextImage"
-        aria-label="Next image"
-      >
-        →
-      </button>
-
+      <button class="slider-button" id="prevImage" type="button" aria-label="Previous image">←</button>
+      <button class="slider-button" id="nextImage" type="button" aria-label="Next image">→</button>
     </div>
-
 
     <div class="slider-info">
-
-      <div id="sliderCounter">
-        00 / 00
-      </div>
-
-      <div
-        class="slider-dots"
-        id="sliderDots"
-      ></div>
-
+      <div id="sliderCounter">00 / 00</div>
+      <div class="slider-dots" id="sliderDots"></div>
     </div>
 
+    <p class="panel-description" id="panelDescription"></p>
 
-    <p
-      class="panel-description"
-      id="panelDescription"
-    ></p>
-
-
-    <a
-      class="panel-link"
-      id="panelLink"
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer"
-    ></a>
-
+    <a class="panel-link" id="panelLink" target="_blank" rel="noopener noreferrer"></a>
 
     <div class="view-project">
-
-      <span>
-        SELECTED PROJECT
-      </span>
-
-      <span>
-        scientistsroom
-      </span>
-
+      <span>SELECTED PROJECT</span>
+      <span>scientistsroom</span>
     </div>
-
   </aside>
 
-
   <!-- PROJECT INDEX -->
-
   <div id="projectIndexOverlay"></div>
 
-
   <section id="projectIndexPanel">
-
     <div class="project-index-header">
-
       <div class="project-index-top">
-
-        <h2 class="project-index-heading">
-          Projects
-        </h2>
-
-        <button
-          id="closeProjectIndex"
-          aria-label="Close projects"
-        >
-          ×
-        </button>
-
+        <h2 class="project-index-heading">Projects</h2>
+        <button id="closeProjectIndex" type="button" aria-label="Close projects">×</button>
       </div>
-
 
       <div class="project-index-meta">
-
-        <div
-          class="project-count"
-          id="projectCount"
-        ></div>
-
+        <div class="project-count" id="projectCount"></div>
 
         <div class="project-sort">
-
-          <button
-            class="project-sort-button active"
-            data-sort="all"
-          >
-            ALL
-          </button>
-
-          <button
-            class="project-sort-button"
-            data-sort="year"
-          >
-            YEAR
-          </button>
-
-          <button
-            class="project-sort-button"
-            data-sort="name"
-          >
-            NAME
-          </button>
-
+          <button class="project-sort-button active" type="button" data-sort="all">ALL</button>
+          <button class="project-sort-button" type="button" data-sort="year">YEAR</button>
+          <button class="project-sort-button" type="button" data-sort="name">NAME</button>
         </div>
-
       </div>
-
     </div>
 
-
-    <div
-      class="project-index-scroll"
-      id="projectIndexList"
-    ></div>
-
+    <div class="project-index-scroll" id="projectIndexList"></div>
   </section>
 
-
   <!-- LIGHTBOX -->
-
   <div id="imageLightbox">
-
-    <button
-      id="closeLightbox"
-      aria-label="Close image"
-    >
-      ×
-    </button>
-
-
-    <button
-      class="lightbox-arrow"
-      id="lightboxPrev"
-      aria-label="Previous image"
-    >
-      ←
-    </button>
-
-
-    <img
-      id="lightboxImage"
-      src=""
-      alt=""
-    >
-
-
-    <button
-      class="lightbox-arrow"
-      id="lightboxNext"
-      aria-label="Next image"
-    >
-      →
-    </button>
-
-
-    <div id="lightboxCounter">
-      01 / 01
-    </div>
-
+    <button id="closeLightbox" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-arrow" id="lightboxPrev" type="button" aria-label="Previous image">←</button>
+    <img id="lightboxImage" alt="" decoding="async">
+    <button class="lightbox-arrow" id="lightboxNext" type="button" aria-label="Next image">→</button>
+    <div id="lightboxCounter">01 / 01</div>
   </div>
 
-
   <script type="module">
+    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
-    import * as THREE
-    from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
-
-
-    /* ====================================================
-       PROJECT DATA
-    ==================================================== */
+    /* PROJECT DATA — 14 PROJECTS */
 
     const projects = [
-
-
-      /* ==================================================
-         01 ORV
-      ================================================== */
-
       {
         number: "01",
-
         title: "Orv",
-
         year: "2024",
-
         category: "BRANDING",
-
-        description:
-          "Orv는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
-
+        description: "Orv는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
         images: [
           "images/orv-01.jpg",
           "images/orv-02.jpg",
           "images/orv-03.jpg",
           "images/orv-04.jpg"
         ],
-
         lat: 48,
         lng: 125
       },
 
-
-      /* ==================================================
-         02 ADVENT CALENDAR
-      ================================================== */
-
       {
         number: "02",
-
         title: "Advent Calendar",
-
         year: "2024",
-
         category: "PACKAGE",
-
-        description:
-          "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
-
+        description: "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
         images: [
           "images/advent calendar-01.jpg",
           "images/advent calendar-02.jpg"
         ],
-
         lat: 23,
         lng: 145
       },
 
-
-      /* ==================================================
-         03 DREAM CAT SHELTER
-      ================================================== */
-
       {
         number: "03",
-
         title: "Dream Cat Shelter",
-
         year: "2023",
-
         category: "BRANDING",
-
-        description:
-          "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
-
-        images: [
-          "images/dream-cat.jpg"
-        ],
-
+        description: "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
+        images: ["images/dream-cat.jpg"],
         lat: -5,
         lng: 126
       },
 
-
-      /* ==================================================
-         04 LOGO
-      ================================================== */
-
       {
         number: "04",
-
         title: "Logo",
-
         year: "",
-
         category: "BRANDING",
-
-        description:
-          "Too many LOGO !",
-
-        images: [
-          "images/logo-01.jpg"
-        ],
-
+        description: "Too many LOGO !",
+        images: ["images/logo-01.jpg"],
         lat: -34,
         lng: 148
       },
 
-
-      /* ==================================================
-         05 MINISTRY OF EDUCATION REPORT
-      ================================================== */
-
       {
         number: "05",
-
-        title:
-          "Ministry of Education Report",
-
+        title: "Ministry of Education Report",
         year: "2025",
-
         category: "EDITORIAL",
-
-        description:
-          "교육부 인문사회연구소 지원사업 선정 실적 및 연구계획서 제작하였습니다.",
-
-        images: [
-          "images/ministry of education report-01.jpg"
-        ],
-
+        description: "교육부 인문사회연구소 지원사업 선정 실적 및 연구계획서 제작하였습니다.",
+        images: ["images/ministry of education report-01.jpg"],
         lat: 53,
         lng: 57
       },
 
-
-      /* ==================================================
-         06 POSTER
-      ================================================== */
-
       {
         number: "06",
-
         title: "Poster",
-
         year: "",
-
         category: "EDITORIAL",
-
         description: "",
-
         images: [
-
           {
-            src:
-              "images/poster-01.jpg",
-
-            description:
-              "3D Poster 작업프로세스"
+            src: "images/poster-01.jpg",
+            description: "3D Poster 작업프로세스"
           },
-
           {
-            src:
-              "images/poster-02.jpg",
-
-            description:
-              "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작"
+            src: "images/poster-02.jpg",
+            description: "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작"
           }
-
         ],
-
         lat: 25,
         lng: 67
       },
 
-
-      /* ==================================================
-         07 WANDY
-      ================================================== */
-
       {
         number: "07",
-
         title: "Wandy",
-
         year: "2024",
-
         category: "UX / UI",
-
-        description:
-          "당신의 진로 파트너 Wandy!",
-
+        description: "당신의 진로 파트너 Wandy!",
         images: [
           "images/wandy-01.jpg",
           "images/wandy-02.jpg",
@@ -2124,141 +1025,63 @@
           "images/wandy-07.jpg",
           "images/wandy-08.jpg"
         ],
-
         lat: -40,
         lng: 30
       },
 
-
-      /* ==================================================
-         08 LANGMUIR
-      ================================================== */
-
       {
         number: "08",
-
         title: "Langmuir",
-
         year: "2022",
-
         category: "COVER ARTWORK",
-
-        description:
-          "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
-
-        link:
-          "https://www.fnnews.com/news/202302011635428474",
-
-        images: [
-          "images/langmuir-01.jpg"
-        ],
-
+        description: "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
+        images: ["images/langmuir-01.jpg"],
+        link: "https://www.fnnews.com/news/202302011635428474",
         lat: 45,
         lng: -72
       },
 
-
-      /* ==================================================
-         09 OFFICE OF EDUCATION
-      ================================================== */
-
       {
         number: "09",
-
         title: "Office of Education",
-
         year: "2025",
-
-        category:
-          "PM SAFETY EDUCATION",
-
-        description:
-          "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
-
-        link:
-          "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
-
+        category: "PM SAFETY EDUCATION",
+        description: "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
         images: [],
-
+        link: "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
         lat: 18,
         lng: -52
       },
 
-
-      /* ==================================================
-         10 DONGGUK UNIVERSITY
-      ================================================== */
-
       {
         number: "10",
-
         title: "Dongguk University",
-
         year: "2026",
-
-        category:
-          "EDITORIAL / PUBLISHING",
-
-        description:
-          "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
-
-        images: [
-          "images/dongguk university-01.jpg"
-        ],
-
+        category: "EDITORIAL / PUBLISHING",
+        description: "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
+        images: ["images/dongguk university-01.jpg"],
         lat: -13,
         lng: -67
       },
 
-
-      /* ==================================================
-         11 HONGIK UNIVERSITY
-      ================================================== */
-
       {
         number: "11",
-
         title: "Hongik University",
-
         year: "2026",
-
         category: "HOMEPAGE",
-
-        description:
-          "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
-
-        link:
-          "https://www.hongik.ac.kr/kr/index.do",
-
-        images: [
-          "images/hongik university-01.jpg"
-        ],
-
+        description: "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
+        images: ["images/hongik university-01.jpg"],
+        link: "https://www.hongik.ac.kr/kr/index.do",
         lat: -42,
         lng: -40
       },
 
-
-      /* ==================================================
-         12 SPACEHAESO
-      ================================================== */
-
       {
         number: "12",
-
-        title:
-          "spacehaeso : 조용한 형상들의 엄습",
-
+        title: "spacehaeso : 조용한 형상들의 엄습",
         year: "2025",
-
         category: "PHOTO",
-
-        description:
-          "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
-
-        link:
-          "https://spacehaeso.com/53",
-
+        description: "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
         images: [
           "images/spacehaeso-01.jpg",
           "images/spacehaeso-02.jpg",
@@ -2266,2580 +1089,1063 @@
           "images/spacehaeso-04.jpg",
           "images/spacehaeso-05.jpg"
         ],
-
+        link: "https://spacehaeso.com/53",
         lat: 57,
         lng: -143
       },
 
-
-      /* ==================================================
-         13 LIG D&A 50TH ANNIVERSARY
-      ================================================== */
-
       {
         number: "13",
-
-        title:
-          "LIG D&A 50th Anniversary",
-
+        title: "LIG D&A 50th Anniversary",
         year: "2026",
-
-        category:
-          "PACKAGE / GRAPHIC DESIGN",
-
-        description:
-          "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
-
-        images: [
-          "images/LIG D&A-01.jpg"
-        ],
-
+        category: "PACKAGE / GRAPHIC DESIGN",
+        description: "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
+        images: ["images/LIG D&A-01.jpg"],
         lat: 5,
         lng: -125
       },
 
-
-      /* ==================================================
-         14 LG KES AI GALLERY
-      ================================================== */
-
       {
         number: "14",
-
-        title:
-          "LG KES AI Gallery",
-
+        title: "LG KES AI Gallery",
         year: "2025",
-
-        category:
-          "EXHIBITION / GRAPHIC DESIGN",
-
-        description:
-          "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
-
-        images: [
-          "images/kes lg-01.jpg"
-        ],
-
+        category: "EXHIBITION / GRAPHIC DESIGN",
+        description: "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
+        images: ["images/kes lg-01.jpg"],
         lat: 32,
         lng: -105
       }
-
     ];
 
+    /* THREE.JS GLOBE */
 
-    /* ====================================================
-       THREE JS
-    ==================================================== */
+    const container = document.getElementById("earth");
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.z = 4.8;
 
-    const container =
-      document.getElementById(
-        "earth"
-      );
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true
+    });
 
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
 
-    const scene =
-      new THREE.Scene();
+    const globe = new THREE.Group();
+    scene.add(globe);
 
+    const globeGeometry = new THREE.SphereGeometry(1.35, 128, 128);
 
-    const camera =
-      new THREE.PerspectiveCamera(
-        38,
-        1,
-        0.1,
-        100
-      );
+    const globeMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.10,
+      roughness: 0.08,
+      metalness: 0.02,
+      transmission: 0.5,
+      thickness: 1,
+      ior: 1.35,
+      clearcoat: 1,
+      clearcoatRoughness: 0.08
+    });
 
+    globe.add(new THREE.Mesh(globeGeometry, globeMaterial));
 
-    camera.position.z =
-      4.8;
+    /* SMALL DOTS */
 
+    const DOT_COUNT = 3000;
+    const dotPoints = [];
 
-    const renderer =
-      new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true
-      });
-
-
-    renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2
-      )
-    );
-
-
-    container.appendChild(
-      renderer.domElement
-    );
-
-
-    /* ====================================================
-       GLOBE
-    ==================================================== */
-
-    const globe =
-      new THREE.Group();
-
-
-    scene.add(
-      globe
-    );
-
-
-    const globeGeometry =
-      new THREE.SphereGeometry(
-        1.35,
-        128,
-        128
-      );
-
-
-    const globeMaterial =
-      new THREE.MeshPhysicalMaterial({
-
-        color: 0xffffff,
-
-        transparent: true,
-
-        opacity: 0.10,
-
-        roughness: 0.08,
-
-        metalness: 0.02,
-
-        transmission: 0.5,
-
-        thickness: 1,
-
-        ior: 1.35,
-
-        clearcoat: 1,
-
-        clearcoatRoughness: 0.08
-
-      });
-
-
-    const sphere =
-      new THREE.Mesh(
-        globeGeometry,
-        globeMaterial
-      );
-
-
-    globe.add(
-      sphere
-    );
-
-
-    /* ====================================================
-       SMALL DOTS
-    ==================================================== */
-
-    const dotGeometry =
-      new THREE.BufferGeometry();
-
-
-    const dotPoints =
-      [];
-
-
-    const DOT_COUNT =
-      3000;
-
-
-    for (
-      let i = 0;
-      i < DOT_COUNT;
-      i++
-    ) {
-
-      const phi =
-        Math.acos(
-          -1 +
-          (2 * i) /
-          DOT_COUNT
-        );
-
-
-      const theta =
-        Math.sqrt(
-          DOT_COUNT *
-          Math.PI
-        )
-        *
-        phi;
-
-
-      const radius =
-        1.37;
-
+    for (let i = 0; i < DOT_COUNT; i++) {
+      const phi = Math.acos(-1 + (2 * i) / DOT_COUNT);
+      const theta = Math.sqrt(DOT_COUNT * Math.PI) * phi;
+      const radius = 1.37;
 
       dotPoints.push(
-
-        radius *
-        Math.cos(theta) *
-        Math.sin(phi),
-
-        radius *
-        Math.sin(theta) *
-        Math.sin(phi),
-
-        radius *
-        Math.cos(phi)
-
+        radius * Math.cos(theta) * Math.sin(phi),
+        radius * Math.sin(theta) * Math.sin(phi),
+        radius * Math.cos(phi)
       );
-
     }
 
-
+    const dotGeometry = new THREE.BufferGeometry();
     dotGeometry.setAttribute(
-
       "position",
-
-      new THREE.Float32BufferAttribute(
-        dotPoints,
-        3
-      )
-
+      new THREE.Float32BufferAttribute(dotPoints, 3)
     );
 
-
-    const dotMaterial =
+    globe.add(new THREE.Points(
+      dotGeometry,
       new THREE.PointsMaterial({
-
         color: 0xffffff,
-
         size: 0.013,
-
         transparent: true,
-
         opacity: 0.55,
-
         sizeAttenuation: true
+      })
+    ));
 
-      });
+    /* WIREFRAME */
 
-
-    const dots =
-      new THREE.Points(
-        dotGeometry,
-        dotMaterial
-      );
-
-
-    globe.add(
-      dots
+    const wire = new THREE.Mesh(
+      new THREE.SphereGeometry(1.36, 30, 20),
+      new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.05
+      })
     );
 
+    globe.add(wire);
 
-    /* ====================================================
-       WIREFRAME
-    ==================================================== */
+    /* LIGHTS */
 
-    const wire =
-      new THREE.Mesh(
+    const lightA = new THREE.DirectionalLight(0xffffff, 4);
+    lightA.position.set(2, 3, 4);
+    scene.add(lightA);
 
-        new THREE.SphereGeometry(
-          1.36,
-          30,
-          20
-        ),
+    const lightB = new THREE.DirectionalLight(0xffffff, 2);
+    lightB.position.set(-3, -1, 2);
+    scene.add(lightB);
 
-        new THREE.MeshBasicMaterial({
+    globe.rotation.x = THREE.MathUtils.degToRad(-14);
+    globe.rotation.z = THREE.MathUtils.degToRad(-8);
 
-          color: 0xffffff,
-
-          wireframe: true,
-
-          transparent: true,
-
-          opacity: 0.05
-
-        })
-
-      );
-
-
-    globe.add(
-      wire
-    );
-
-
-    /* ====================================================
-       LIGHT
-    ==================================================== */
-
-    const lightA =
-      new THREE.DirectionalLight(
-        0xffffff,
-        4
-      );
-
-
-    lightA.position.set(
-      2,
-      3,
-      4
-    );
-
-
-    scene.add(
-      lightA
-    );
-
-
-    const lightB =
-      new THREE.DirectionalLight(
-        0xffffff,
-        2
-      );
-
-
-    lightB.position.set(
-      -3,
-      -1,
-      2
-    );
-
-
-    scene.add(
-      lightB
-    );
-
-
-    globe.rotation.x =
-      THREE.MathUtils
-        .degToRad(-14);
-
-
-    globe.rotation.z =
-      THREE.MathUtils
-        .degToRad(-8);
-
-
-    /* ====================================================
-       LAT / LNG
-    ==================================================== */
-
-    function latLngToVector3(
-      lat,
-      lng,
-      radius
-    ) {
-
-      const phi =
-        THREE.MathUtils.degToRad(
-          90 - lat
-        );
-
-
-      const theta =
-        THREE.MathUtils.degToRad(
-          lng + 180
-        );
-
+    function latLngToVector3(lat, lng, radius) {
+      const phi = THREE.MathUtils.degToRad(90 - lat);
+      const theta = THREE.MathUtils.degToRad(lng + 180);
 
       return new THREE.Vector3(
-
-        -radius *
-        Math.sin(phi) *
-        Math.cos(theta),
-
-        radius *
-        Math.cos(phi),
-
-        radius *
-        Math.sin(phi) *
-        Math.sin(theta)
-
+        -radius * Math.sin(phi) * Math.cos(theta),
+        radius * Math.cos(phi),
+        radius * Math.sin(phi) * Math.sin(theta)
       );
-
     }
 
-
-    /* ====================================================
-       ELEMENTS
-    ==================================================== */
-
-    const label =
-      document.getElementById(
-        "projectLabel"
-      );
-
-
-    const panel =
-      document.getElementById(
-        "projectPanel"
-      );
-
-
-    const panelOverlay =
-      document.getElementById(
-        "panelOverlay"
-      );
-
-
-    const panelIndex =
-      document.getElementById(
-        "panelIndex"
-      );
-
-
-    const panelYear =
-      document.getElementById(
-        "panelYear"
-      );
-
-
-    const panelTitle =
-      document.getElementById(
-        "panelTitle"
-      );
-
-
-    const panelCategory =
-      document.getElementById(
-        "panelCategory"
-      );
-
-
-    const panelDescription =
-      document.getElementById(
-        "panelDescription"
-      );
-
-
-    const panelLink =
-      document.getElementById(
-        "panelLink"
-      );
-
-
-    const panelImage =
-      document.getElementById(
-        "panelImage"
-      );
-
-
-    const imagePlaceholder =
-      document.getElementById(
-        "imagePlaceholder"
-      );
-
-
-    const prevImage =
-      document.getElementById(
-        "prevImage"
-      );
-
-
-    const nextImage =
-      document.getElementById(
-        "nextImage"
-      );
-
-
-    const sliderCounter =
-      document.getElementById(
-        "sliderCounter"
-      );
-
-
-    const sliderDots =
-      document.getElementById(
-        "sliderDots"
-      );
-
-
-    const backPanel =
-      document.getElementById(
-        "backPanel"
-      );
-
-
-    const closePanel =
-      document.getElementById(
-        "closePanel"
-      );
-
-
-    const projectIndexPanel =
-      document.getElementById(
-        "projectIndexPanel"
-      );
-
-
-    const projectIndexOverlay =
-      document.getElementById(
-        "projectIndexOverlay"
-      );
-
-
-    const projectsMenuButton =
-      document.getElementById(
-        "projectsMenuButton"
-      );
-
-
-    const closeProjectIndex =
-      document.getElementById(
-        "closeProjectIndex"
-      );
-
-
-    const projectIndexList =
-      document.getElementById(
-        "projectIndexList"
-      );
-
-
-    const projectCount =
-      document.getElementById(
-        "projectCount"
-      );
-
-
-    const sortButtons =
-      document.querySelectorAll(
-        ".project-sort-button"
-      );
-
-
-    const imageLightbox =
-      document.getElementById(
-        "imageLightbox"
-      );
-
-
-    const lightboxImage =
-      document.getElementById(
-        "lightboxImage"
-      );
-
-
-    const lightboxPrev =
-      document.getElementById(
-        "lightboxPrev"
-      );
-
-
-    const lightboxNext =
-      document.getElementById(
-        "lightboxNext"
-      );
-
-
-    const lightboxCounter =
-      document.getElementById(
-        "lightboxCounter"
-      );
-
-
-    const closeLightbox =
-      document.getElementById(
-        "closeLightbox"
-      );
-
-
-    let activeProject =
-      null;
-
-
-    let activeImageIndex =
-      0;
-
-
-    let projectSortMode =
-      "all";
-
-
-    let projectOpenedFromIndex =
-      false;
-
-
-    /* ====================================================
-       IMAGE HELPERS
-    ==================================================== */
-
-    function getProjectImages(
-      project
-    ) {
-
-      return project.images || [];
-
-    }
-
-
-    function getImageSource(
-      item
-    ) {
-
-      if (
-        typeof item ===
-        "string"
-      ) {
-
-        return item;
-
-      }
-
-
-      return item.src || "";
-
-    }
-
-
-    function getImageDescription(
-      item
-    ) {
-
-      if (
-        typeof item ===
-        "object" &&
-        item.description
-      ) {
-
-        return item.description;
-
-      }
-
-
-      return null;
-
-    }
-
+    /* ELEMENTS AND STATE */
+
+    const byId = id => document.getElementById(id);
+
+    const label = byId("projectLabel");
+    const panel = byId("projectPanel");
+    const panelOverlay = byId("panelOverlay");
+    const panelIndex = byId("panelIndex");
+    const panelYear = byId("panelYear");
+    const panelTitle = byId("panelTitle");
+    const panelCategory = byId("panelCategory");
+    const panelDescription = byId("panelDescription");
+    const panelLink = byId("panelLink");
+    const panelImage = byId("panelImage");
+    const imagePlaceholder = byId("imagePlaceholder");
+    const imageStatus = byId("imageStatus");
+    const prevImage = byId("prevImage");
+    const nextImage = byId("nextImage");
+    const sliderCounter = byId("sliderCounter");
+    const sliderDots = byId("sliderDots");
+    const backPanel = byId("backPanel");
+    const closePanel = byId("closePanel");
+    const projectIndexPanel = byId("projectIndexPanel");
+    const projectIndexOverlay = byId("projectIndexOverlay");
+    const projectIndexList = byId("projectIndexList");
+    const projectCount = byId("projectCount");
+    const imageLightbox = byId("imageLightbox");
+    const lightboxImage = byId("lightboxImage");
+    const lightboxPrev = byId("lightboxPrev");
+    const lightboxNext = byId("lightboxNext");
+    const lightboxCounter = byId("lightboxCounter");
+    const sortButtons = document.querySelectorAll(".project-sort-button");
+
+    let activeProject = null;
+    let activeImageIndex = 0;
+    let projectSortMode = "all";
+    let projectOpenedFromIndex = false;
+    let panelImageLoadToken = 0;
+
+    const getProjectImages = project => project.images || [];
+
+    const getImageSource = item =>
+      typeof item === "string" ? item : (item?.src || "");
+
+    const getImageDescription = item =>
+      typeof item === "object" ? (item?.description || "") : "";
 
     function getCurrentDescription() {
+      if (!activeProject) return "";
 
-      if (
-        !activeProject
-      ) {
+      const item = getProjectImages(activeProject)[activeImageIndex];
 
-        return "";
-
-      }
-
-
-      const images =
-        getProjectImages(
-          activeProject
-        );
-
-
-      if (
-        images.length
-      ) {
-
-        const imageDescription =
-          getImageDescription(
-            images[
-              activeImageIndex
-            ]
-          );
-
-
-        if (
-          imageDescription
-        ) {
-
-          return imageDescription;
-
-        }
-
-      }
-
-
-      return activeProject.description || "";
-
+      return getImageDescription(item) || activeProject.description || "";
     }
 
+    /* =========================================
+       IMAGE PRELOADING / CACHE
+       이미지 로딩 문구는 표시하지 않음
+    ========================================= */
 
-    /* ====================================================
-       PROJECT MARKERS
-    ==================================================== */
+    const imagePreloadCache = new Map();
+    const imagePreloadQueue = [];
+    const MAX_CONCURRENT_PRELOADS = 2;
 
-    const projectMarkersContainer =
-      document.getElementById(
-        "projectMarkers"
+    let runningPreloads = 0;
+
+    function preloadImage(src, priority = false) {
+      if (!src) return Promise.resolve(false);
+
+      const existing = imagePreloadCache.get(src);
+
+      if (existing) {
+        if (priority && !existing.job.started) {
+          existing.job.priority = true;
+
+          const position = imagePreloadQueue.indexOf(existing.job);
+
+          if (position >= 0) {
+            imagePreloadQueue.splice(position, 1);
+          }
+
+          imagePreloadQueue.unshift(existing.job);
+        }
+
+        runPreloadQueue();
+        return existing.promise;
+      }
+
+      let resolvePromise;
+      const promise = new Promise(resolve => {
+        resolvePromise = resolve;
+      });
+
+      const job = {
+        src,
+        priority,
+        started: false,
+        resolvePromise
+      };
+
+      imagePreloadCache.set(src, { promise, job });
+
+      if (priority) imagePreloadQueue.unshift(job);
+      else imagePreloadQueue.push(job);
+
+      runPreloadQueue();
+      return promise;
+    }
+
+    function runPreloadQueue() {
+      while (
+        runningPreloads < MAX_CONCURRENT_PRELOADS &&
+        imagePreloadQueue.length
+      ) {
+        const firstPriority = imagePreloadQueue.findIndex(
+          job => job.priority
+        );
+
+        if (activeProject && firstPriority === -1) break;
+
+        const job = firstPriority >= 0
+          ? imagePreloadQueue.splice(firstPriority, 1)[0]
+          : imagePreloadQueue.shift();
+
+        job.started = true;
+        runningPreloads++;
+
+        const image = new Image();
+        image.decoding = "async";
+        image.fetchPriority = job.priority ? "high" : "low";
+
+        let finished = false;
+
+        const finish = success => {
+          if (finished) return;
+
+          finished = true;
+          runningPreloads--;
+
+          if (!success) imagePreloadCache.delete(job.src);
+
+          job.resolvePromise(success);
+          runPreloadQueue();
+        };
+
+        image.onload = () => {
+          if (typeof image.decode === "function") {
+            image.decode()
+              .catch(() => {})
+              .finally(() => finish(true));
+          } else {
+            finish(true);
+          }
+        };
+
+        image.onerror = () => finish(false);
+        image.src = job.src;
+      }
+    }
+
+    function preloadProjectCover(project) {
+      const first = getProjectImages(project)[0];
+
+      if (first) {
+        preloadImage(getImageSource(first), true);
+      }
+    }
+
+    function preloadSlideNeighbors() {
+      if (!activeProject) return;
+
+      const images = getProjectImages(activeProject);
+
+      if (images.length <= 1) return;
+
+      const next = (activeImageIndex + 1) % images.length;
+      const previous =
+        (activeImageIndex - 1 + images.length) % images.length;
+
+      preloadImage(getImageSource(images[next]), true);
+
+      if (previous !== next) {
+        preloadImage(getImageSource(images[previous]), true);
+      }
+    }
+
+    function scheduleCoverPreloads() {
+      if (navigator.connection?.saveData) return;
+
+      const mobile = window.matchMedia("(max-width: 900px)").matches;
+
+      const firstImages = projects
+        .map(project => getProjectImages(project)[0])
+        .filter(Boolean);
+
+      const preloadLimit = mobile ? 5 : firstImages.length;
+
+      firstImages.slice(0, preloadLimit).forEach((item, index) => {
+        window.setTimeout(() => {
+          preloadImage(getImageSource(item));
+        }, index * 400);
+      });
+    }
+
+    window.addEventListener("load", () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(scheduleCoverPreloads, {
+          timeout: 1600
+        });
+      } else {
+        window.setTimeout(scheduleCoverPreloads, 950);
+      }
+    });
+
+    /* PROJECT MARKERS */
+
+    const projectMarkers = [];
+    const projectMarkersContainer = byId("projectMarkers");
+
+    projects.forEach(project => {
+      const marker = document.createElement("button");
+
+      marker.type = "button";
+      marker.className = "project-marker";
+      marker.setAttribute("aria-label", project.title);
+
+      marker.style.setProperty(
+        "--pulse-duration",
+        (2.5 + Math.random() * 1.7) + "s"
       );
 
-
-    const projectMarkers =
-      [];
-
-
-    projects.forEach(
-      project => {
-
-
-        const marker =
-          document.createElement(
-            "button"
-          );
-
-
-        marker.type =
-          "button";
-
-
-        marker.className =
-          "project-marker";
-
-
-        marker.setAttribute(
-          "aria-label",
-          project.title
-        );
-
-
-        const duration =
-          2.5 +
-          Math.random() *
-          1.7;
-
-
-        const delay =
-          -Math.random() *
-          4;
-
-
-        marker.style.setProperty(
-          "--pulse-duration",
-          duration + "s"
-        );
-
-
-        marker.style.setProperty(
-          "--pulse-delay",
-          delay + "s"
-        );
-
-
-        const position =
-          latLngToVector3(
-            project.lat,
-            project.lng,
-            1.43
-          );
-
-
-        marker.addEventListener(
-          "mouseenter",
-          event => {
-
-            label.innerHTML =
-
-              '<span class="label-number">' +
-
-              project.number +
-
-              '</span>' +
-
-              project.title +
-
-              '<span class="label-category">' +
-
-              project.category +
-
-              '</span>';
-
-
-            label.style.left =
-              event.clientX +
-              "px";
-
-
-            label.style.top =
-              event.clientY +
-              "px";
-
-
-            label.classList.add(
-              "active"
-            );
-
-          }
-        );
-
-
-        marker.addEventListener(
-          "mousemove",
-          event => {
-
-            label.style.left =
-              event.clientX +
-              "px";
-
-
-            label.style.top =
-              event.clientY +
-              "px";
-
-          }
-        );
-
-
-        marker.addEventListener(
-          "mouseleave",
-          () => {
-
-            label.classList.remove(
-              "active"
-            );
-
-          }
-        );
-
-
-        marker.addEventListener(
-          "click",
-          event => {
-
-            event.stopPropagation();
-
-
-            openProject(
-              project,
-              "globe"
-            );
-
-          }
-        );
-
-
-        projectMarkersContainer
-          .appendChild(
-            marker
-          );
-
-
-        projectMarkers.push({
-
-          element:
-            marker,
-
-          position:
-            position
-
-        });
-
-      }
-    );
-
-
-    /* ====================================================
-       PROJECT LINK
-    ==================================================== */
+      marker.style.setProperty(
+        "--pulse-delay",
+        (-Math.random() * 4) + "s"
+      );
+
+      const position = latLngToVector3(
+        project.lat,
+        project.lng,
+        1.43
+      );
+
+      marker.addEventListener("mouseenter", event => {
+        label.innerHTML =
+          `<span class="label-number">${project.number}</span>` +
+          project.title +
+          `<span class="label-category">${project.category}</span>`;
+
+        label.style.left = event.clientX + "px";
+        label.style.top = event.clientY + "px";
+        label.classList.add("active");
+
+        preloadProjectCover(project);
+      });
+
+      marker.addEventListener("mousemove", event => {
+        label.style.left = event.clientX + "px";
+        label.style.top = event.clientY + "px";
+      });
+
+      marker.addEventListener("mouseleave", () => {
+        label.classList.remove("active");
+      });
+
+      marker.addEventListener("click", event => {
+        event.stopPropagation();
+        openProject(project, "globe");
+      });
+
+      projectMarkersContainer.appendChild(marker);
+
+      projectMarkers.push({
+        element: marker,
+        position
+      });
+    });
+
+    /* PROJECT LINK */
 
     function updateProjectLink() {
-
-      if (
-        !activeProject ||
-        !activeProject.link
-      ) {
-
-        panelLink
-          .classList
-          .remove("active");
-
-
-        panelLink.removeAttribute(
-          "href"
-        );
-
-
-        panelLink.textContent =
-          "";
-
-
+      if (!activeProject?.link) {
+        panelLink.classList.remove("active");
+        panelLink.removeAttribute("href");
+        panelLink.textContent = "";
         return;
-
       }
 
-
-      panelLink.href =
-        activeProject.link;
-
-
-      panelLink.textContent =
-        activeProject.link;
-
-
-      panelLink
-        .classList
-        .add("active");
-
+      panelLink.href = activeProject.link;
+      panelLink.textContent = activeProject.link;
+      panelLink.classList.add("active");
     }
 
-
-    /* ====================================================
-       SLIDER
-    ==================================================== */
+    /* IMAGE SLIDER */
 
     function updateSlider() {
+      if (!activeProject) return;
 
-      if (
-        !activeProject
-      ) {
+      const images = getProjectImages(activeProject);
 
+      panelImageLoadToken++;
+      panelImage.style.opacity = "0";
+
+      if (images.length === 0) {
+        panelImage.style.display = "none";
+        panelImage.removeAttribute("src");
+
+        imageStatus.textContent = "PROJECT IMAGE";
+        imagePlaceholder.classList.add("active");
+
+        prevImage.classList.add("hidden");
+        nextImage.classList.add("hidden");
+
+        sliderCounter.textContent = "00 / 00";
+        sliderDots.innerHTML = "";
+        panelDescription.textContent = activeProject.description || "";
         return;
-
       }
 
+      const source = getImageSource(images[activeImageIndex]);
 
-      const images =
-        getProjectImages(
-          activeProject
-        );
+      panelImage.style.display = "block";
 
+      // 로딩 중에는 문구 없이 어두운 배경만 표시
+      imagePlaceholder.classList.remove("active");
+      imageStatus.textContent = "";
 
-      if (
-        images.length === 0
-      ) {
-
-        panelImage.style.display =
-          "none";
-
-
-        panelImage.removeAttribute(
-          "src"
-        );
-
-
-        imagePlaceholder
-          .classList
-          .add("active");
-
-
-        prevImage
-          .classList
-          .add("hidden");
-
-
-        nextImage
-          .classList
-          .add("hidden");
-
-
-        sliderCounter.textContent =
-          "00 / 00";
-
-
-        sliderDots.innerHTML =
-          "";
-
-
-        panelDescription.textContent =
-          activeProject.description || "";
-
-
-        return;
-
-      }
-
-
-      const currentImage =
-        images[
-          activeImageIndex
-        ];
-
-
-      panelImage.style.display =
-        "block";
-
-
-      imagePlaceholder
-        .classList
-        .remove("active");
-
-
-      panelImage.src =
-        getImageSource(
-          currentImage
-        );
-
-
-      panelImage.alt =
-        activeProject.title;
-
-
-      panelDescription.textContent =
-        getCurrentDescription();
-
+      panelImage.alt = activeProject.title;
+      panelDescription.textContent = getCurrentDescription();
 
       sliderCounter.textContent =
+        `${String(activeImageIndex + 1).padStart(2, "0")} / ` +
+        `${String(images.length).padStart(2, "0")}`;
 
-        String(
-          activeImageIndex + 1
-        ).padStart(
-          2,
-          "0"
-        )
+      sliderDots.innerHTML = "";
 
-        +
+      images.forEach((_, index) => {
+        const dot = document.createElement("span");
 
-        " / "
+        dot.className =
+          "slider-dot" +
+          (index === activeImageIndex ? " active" : "");
 
-        +
+        sliderDots.appendChild(dot);
+      });
 
-        String(
-          images.length
-        ).padStart(
-          2,
-          "0"
-        );
+      const single = images.length <= 1;
 
+      prevImage.classList.toggle("hidden", single);
+      nextImage.classList.toggle("hidden", single);
 
-      sliderDots.innerHTML =
-        "";
+      // 캐시에 있으면 바로 표시할 수 있음
+      panelImage.src = source;
 
+      const token = panelImageLoadToken;
 
-      images.forEach(
-        (image, index) => {
-
-
-          const dot =
-            document.createElement(
-              "span"
-            );
-
-
-          dot.className =
-            "slider-dot";
-
-
-          if (
-            index ===
-            activeImageIndex
-          ) {
-
-            dot.classList.add(
-              "active"
-            );
-
-          }
-
-
-          sliderDots.appendChild(
-            dot
-          );
-
-        }
-      );
-
-
-      const single =
-        images.length <= 1;
-
-
-      prevImage.classList.toggle(
-        "hidden",
-        single
-      );
-
-
-      nextImage.classList.toggle(
-        "hidden",
-        single
-      );
-
+      if (panelImage.complete && panelImage.naturalWidth > 0) {
+        showLoadedPanelImage(token);
+      }
     }
 
+    function showLoadedPanelImage(token) {
+      if (token !== panelImageLoadToken || !activeProject) return;
 
-    /* ====================================================
-       NEXT / PREVIOUS
-    ==================================================== */
+      const reveal = () => {
+        if (token !== panelImageLoadToken || !activeProject) return;
+
+        panelImage.style.opacity = "1";
+        preloadSlideNeighbors();
+      };
+
+      if (typeof panelImage.decode === "function") {
+        panelImage.decode()
+          .catch(() => {})
+          .then(reveal);
+      } else {
+        reveal();
+      }
+    }
+
+    panelImage.addEventListener("load", () => {
+      showLoadedPanelImage(panelImageLoadToken);
+    });
+
+    panelImage.addEventListener("error", () => {
+      panelImage.style.display = "none";
+      imageStatus.textContent = "IMAGE UNAVAILABLE";
+      imagePlaceholder.classList.add("active");
+    });
+
+    /* SLIDE NAVIGATION */
 
     function nextSlide() {
+      if (!activeProject) return;
 
-      if (
-        !activeProject
-      ) {
+      const count = getProjectImages(activeProject).length;
 
-        return;
+      if (count <= 1) return;
 
-      }
-
-
-      const images =
-        getProjectImages(
-          activeProject
-        );
-
-
-      if (
-        images.length <= 1
-      ) {
-
-        return;
-
-      }
-
-
-      activeImageIndex =
-        (
-          activeImageIndex + 1
-        )
-        %
-        images.length;
-
+      activeImageIndex = (activeImageIndex + 1) % count;
 
       updateSlider();
 
-
-      if (
-        imageLightbox
-          .classList
-          .contains("active")
-      ) {
-
+      if (imageLightbox.classList.contains("active")) {
         updateLightbox();
-
       }
-
     }
-
 
     function previousSlide() {
+      if (!activeProject) return;
 
-      if (
-        !activeProject
-      ) {
+      const count = getProjectImages(activeProject).length;
 
-        return;
-
-      }
-
-
-      const images =
-        getProjectImages(
-          activeProject
-        );
-
-
-      if (
-        images.length <= 1
-      ) {
-
-        return;
-
-      }
-
+      if (count <= 1) return;
 
       activeImageIndex =
-        (
-          activeImageIndex - 1
-          +
-          images.length
-        )
-        %
-        images.length;
-
+        (activeImageIndex - 1 + count) % count;
 
       updateSlider();
 
-
-      if (
-        imageLightbox
-          .classList
-          .contains("active")
-      ) {
-
+      if (imageLightbox.classList.contains("active")) {
         updateLightbox();
-
       }
-
     }
 
+    prevImage.addEventListener("click", previousSlide);
+    nextImage.addEventListener("click", nextSlide);
 
-    prevImage.addEventListener(
-      "click",
-      previousSlide
-    );
+    /* MOBILE SWIPE */
 
+    function registerSwipe(element) {
+      let touchStartX = 0;
+      let touchStartY = 0;
 
-    nextImage.addEventListener(
-      "click",
-      nextSlide
-    );
+      element.addEventListener("touchstart", event => {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+      }, { passive: true });
 
+      element.addEventListener("touchend", event => {
+        const dx =
+          touchStartX - event.changedTouches[0].clientX;
 
-    /* ====================================================
-       TOUCH
-    ==================================================== */
+        const dy =
+          touchStartY - event.changedTouches[0].clientY;
 
-    const slider =
-      document.querySelector(
-        ".slider"
-      );
+        if (Math.abs(dx) < 40) return;
+        if (Math.abs(dx) < Math.abs(dy)) return;
 
+        if (dx > 0) nextSlide();
+        else previousSlide();
+      }, { passive: true });
+    }
 
-    let touchStartX =
-      0;
+    registerSwipe(document.querySelector(".slider"));
+    registerSwipe(imageLightbox);
 
+    /* OPEN PROJECT */
 
-    slider.addEventListener(
-      "touchstart",
-      event => {
-
-        touchStartX =
-          event.touches[0].clientX;
-
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    slider.addEventListener(
-      "touchend",
-      event => {
-
-        const touchEndX =
-          event.changedTouches[0].clientX;
-
-
-        const difference =
-          touchStartX -
-          touchEndX;
-
-
-        if (
-          Math.abs(
-            difference
-          ) < 40
-        ) {
-
-          return;
-
-        }
-
-
-        if (
-          difference > 0
-        ) {
-
-          nextSlide();
-
-        }
-
-        else {
-
-          previousSlide();
-
-        }
-
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    /* ====================================================
-       OPEN PROJECT
-    ==================================================== */
-
-    function openProject(
-      project,
-      source = "globe"
-    ) {
-
-      activeProject =
-        project;
-
-
-      activeImageIndex =
-        0;
-
-
-      projectOpenedFromIndex =
-        source === "index";
-
+    function openProject(project, source = "globe") {
+      activeProject = project;
+      activeImageIndex = 0;
+      projectOpenedFromIndex = source === "index";
 
       backPanel.classList.toggle(
         "hidden",
         !projectOpenedFromIndex
       );
 
-
-      panelIndex.textContent =
-        project.number +
-        " / PROJECT";
-
-
-      panelYear.textContent =
-        project.year;
-
-
-      panelTitle.textContent =
-        project.title;
-
-
-      panelCategory.textContent =
-        project.category;
-
-
-      panelDescription.textContent =
-        project.description || "";
-
+      panelIndex.textContent = project.number + " / PROJECT";
+      panelYear.textContent = project.year;
+      panelTitle.textContent = project.title;
+      panelCategory.textContent = project.category;
+      panelDescription.textContent = project.description || "";
 
       updateProjectLink();
-
-
       updateSlider();
 
-
-      panel
-        .classList
-        .add("active");
-
-
-      panelOverlay
-        .classList
-        .add("active");
-
-
-      label
-        .classList
-        .remove("active");
-
+      panel.classList.add("active");
+      panelOverlay.classList.add("active");
+      label.classList.remove("active");
     }
-
 
     function hidePanel() {
+      panel.classList.remove("active");
+      panelOverlay.classList.remove("active");
 
-      panel
-        .classList
-        .remove("active");
+      activeProject = null;
+      projectOpenedFromIndex = false;
 
+      backPanel.classList.add("hidden");
 
-      panelOverlay
-        .classList
-        .remove("active");
-
-
-      activeProject =
-        null;
-
-
-      projectOpenedFromIndex =
-        false;
-
-
-      backPanel
-        .classList
-        .add("hidden");
-
+      panelImageLoadToken++;
+      runPreloadQueue();
     }
-
-
-    /* ====================================================
-       BACK
-    ==================================================== */
 
     function backToProjectIndex() {
-
-      if (
-        !projectOpenedFromIndex
-      ) {
-
-        return;
-
-      }
-
-
-      panel
-        .classList
-        .remove("active");
-
-
-      panelOverlay
-        .classList
-        .remove("active");
-
-
-      activeProject =
-        null;
-
-
-      projectOpenedFromIndex =
-        false;
-
-
-      backPanel
-        .classList
-        .add("hidden");
-
-
-      projectIndexOverlay
-        .classList
-        .add("active");
-
-
-      projectIndexPanel
-        .classList
-        .add("active");
-
-
-      renderProjectIndex(
-        projectSortMode
-      );
-
-    }
-
-
-    backPanel.addEventListener(
-      "click",
-      backToProjectIndex
-    );
-
-
-    closePanel.addEventListener(
-      "click",
-      hidePanel
-    );
-
-
-    panelOverlay.addEventListener(
-      "click",
-      hidePanel
-    );
-
-
-    /* ====================================================
-       PROJECT INDEX ROW
-    ==================================================== */
-
-    function createProjectRow(
-      project,
-      realIndex
-    ) {
-
-      const row =
-        document.createElement(
-          "button"
-        );
-
-
-      row.type =
-        "button";
-
-
-      row.className =
-        "project-list-row";
-
-
-      const number =
-        document.createElement(
-          "span"
-        );
-
-
-      number.className =
-        "project-row-number";
-
-
-      number.textContent =
-        project.number;
-
-
-      const title =
-        document.createElement(
-          "span"
-        );
-
-
-      title.className =
-        "project-row-title";
-
-
-      title.textContent =
-        project.title;
-
-
-      const category =
-        document.createElement(
-          "span"
-        );
-
-
-      category.className =
-        "project-row-category";
-
-
-      category.textContent =
-        project.category;
-
-
-      const year =
-        document.createElement(
-          "span"
-        );
-
-
-      year.className =
-        "project-row-year";
-
-
-      year.textContent =
-        project.year ||
-        "—";
-
-
-      row.append(
-        number,
-        title,
-        category,
-        year
-      );
-
-
-      row.addEventListener(
-        "click",
-        () => {
-
-
-          hideProjectIndex();
-
-
-          openProject(
-            projects[
-              realIndex
-            ],
-            "index"
-          );
-
-        }
-      );
-
-
-      return row;
-
-    }
-
-
-    function createGroupTitle(
-      text
-    ) {
-
-      const element =
-        document.createElement(
-          "div"
-        );
-
-
-      element.className =
-        "project-group-title";
-
-
-      element.textContent =
-        text;
-
-
-      return element;
-
-    }
-
-
-    function getYearValue(
-      project
-    ) {
-
-      const matches =
-        String(
-          project.year
-        ).match(
-          /\d{4}/g
-        );
-
-
-      if (
-        !matches ||
-        matches.length === 0
-      ) {
-
-        return -1;
-
-      }
-
-
-      return Math.max(
-        ...matches.map(Number)
-      );
-
-    }
-
-
-    /* ====================================================
-       PROJECT INDEX
-    ==================================================== */
-
-    function renderProjectIndex(
-      mode = "all"
-    ) {
-
-      projectSortMode =
-        mode;
-
-
-      projectIndexList.innerHTML =
-        "";
-
-
-      const indexedProjects =
-        projects.map(
-          (project, index) => ({
-            project,
-            index
-          })
-        );
-
-
-      /* ALL */
-
-      if (
-        mode === "all"
-      ) {
-
-        indexedProjects.forEach(
-          item => {
-
-            projectIndexList
-              .appendChild(
-
-                createProjectRow(
-                  item.project,
-                  item.index
-                )
-
-              );
-
-          }
-        );
-
-      }
-
-
-      /* YEAR */
-
-      if (
-        mode === "year"
-      ) {
-
-        const groups =
-          new Map();
-
-
-        indexedProjects
-
-          .sort(
-            (a, b) => {
-
-              const difference =
-
-                getYearValue(
-                  b.project
-                )
-
-                -
-
-                getYearValue(
-                  a.project
-                );
-
-
-              if (
-                difference !== 0
-              ) {
-
-                return difference;
-
-              }
-
-
-              return a.project.title
-                .localeCompare(
-                  b.project.title,
-                  "en",
-                  {
-                    sensitivity:
-                      "base"
-                  }
-                );
-
-            }
-          )
-
-          .forEach(
-            item => {
-
-              const key =
-
-                item.project.year.trim()
-
-                ||
-
-                "YEAR NOT SET";
-
-
-              if (
-                !groups.has(
-                  key
-                )
-              ) {
-
-                groups.set(
-                  key,
-                  []
-                );
-
-              }
-
-
-              groups
-                .get(key)
-                .push(item);
-
-            }
-          );
-
-
-        groups.forEach(
-          (items, year) => {
-
-            projectIndexList
-              .appendChild(
-
-                createGroupTitle(
-                  year
-                )
-
-              );
-
-
-            items.forEach(
-              item => {
-
-                projectIndexList
-                  .appendChild(
-
-                    createProjectRow(
-                      item.project,
-                      item.index
-                    )
-
-                  );
-
-              }
-            );
-
-          }
-        );
-
-      }
-
-
-      /* NAME */
-
-      if (
-        mode === "name"
-      ) {
-
-        const sorted =
-          [...indexedProjects]
-            .sort(
-              (a, b) =>
-                a.project.title
-                  .localeCompare(
-                    b.project.title,
-                    "en",
-                    {
-                      sensitivity:
-                        "base"
-                    }
-                  )
-            );
-
-
-        let currentLetter =
-          "";
-
-
-        sorted.forEach(
-          item => {
-
-            const letter =
-              item.project.title
-                .trim()
-                .charAt(0)
-                .toUpperCase();
-
-
-            if (
-              letter !==
-              currentLetter
-            ) {
-
-              currentLetter =
-                letter;
-
-
-              projectIndexList
-                .appendChild(
-
-                  createGroupTitle(
-                    letter
-                  )
-
-                );
-
-            }
-
-
-            projectIndexList
-              .appendChild(
-
-                createProjectRow(
-                  item.project,
-                  item.index
-                )
-
-              );
-
-          }
-        );
-
-      }
-
-    }
-
-
-    /* ====================================================
-       OPEN / CLOSE PROJECT INDEX
-    ==================================================== */
-
-    function openProjectIndex() {
+      if (!projectOpenedFromIndex) return;
 
       hidePanel();
 
+      projectIndexOverlay.classList.add("active");
+      projectIndexPanel.classList.add("active");
 
-      projectIndexOverlay
-        .classList
-        .add("active");
-
-
-      projectIndexPanel
-        .classList
-        .add("active");
-
-
-      renderProjectIndex(
-        projectSortMode
-      );
-
+      renderProjectIndex(projectSortMode);
     }
 
+    backPanel.addEventListener("click", backToProjectIndex);
+    closePanel.addEventListener("click", hidePanel);
+    panelOverlay.addEventListener("click", hidePanel);
 
-    function hideProjectIndex() {
+    /* PROJECT INDEX ROW */
 
-      projectIndexOverlay
-        .classList
-        .remove("active");
+    function createProjectRow(project, realIndex) {
+      const row = document.createElement("button");
 
+      row.type = "button";
+      row.className = "project-list-row";
 
-      projectIndexPanel
-        .classList
-        .remove("active");
+      const fields = [
+        ["project-row-number", project.number],
+        ["project-row-title", project.title],
+        ["project-row-category", project.category],
+        ["project-row-year", project.year || "—"]
+      ];
 
+      fields.forEach(([className, value]) => {
+        const span = document.createElement("span");
+        span.className = className;
+        span.textContent = value;
+        row.appendChild(span);
+      });
+
+      row.addEventListener("mouseenter", () => {
+        preloadProjectCover(project);
+      });
+
+      row.addEventListener("click", () => {
+        hideProjectIndex();
+        openProject(projects[realIndex], "index");
+      });
+
+      return row;
     }
 
+    function createGroupTitle(title) {
+      const element = document.createElement("div");
+      element.className = "project-group-title";
+      element.textContent = title;
+      return element;
+    }
 
-    projectsMenuButton
-      .addEventListener(
-        "click",
-        openProjectIndex
-      );
+    function getYearValue(project) {
+      const matches = String(project.year).match(/\d{4}/g);
 
+      return matches
+        ? Math.max(...matches.map(Number))
+        : -1;
+    }
 
-    closeProjectIndex
-      .addEventListener(
-        "click",
-        hideProjectIndex
-      );
+    /* PROJECT INDEX SORTING */
 
+    function renderProjectIndex(mode = "all") {
+      projectSortMode = mode;
+      projectIndexList.innerHTML = "";
 
-    projectIndexOverlay
-      .addEventListener(
-        "click",
-        hideProjectIndex
-      );
+      const indexed = projects.map((project, index) => ({
+        project,
+        index
+      }));
 
+      /* ALL */
 
-    /* ====================================================
-       SORT BUTTONS
-    ==================================================== */
+      if (mode === "all") {
+        indexed.forEach(item => {
+          projectIndexList.appendChild(
+            createProjectRow(item.project, item.index)
+          );
+        });
+      }
 
-    sortButtons.forEach(
-      button => {
+      /* YEAR */
 
-        button.addEventListener(
-          "click",
-          () => {
+      else if (mode === "year") {
+        const groups = new Map();
 
-            sortButtons.forEach(
-              item =>
-                item
-                  .classList
-                  .remove("active")
-            );
+        indexed.sort((a, b) =>
+          getYearValue(b.project) -
+          getYearValue(a.project) ||
+          a.project.title.localeCompare(
+            b.project.title,
+            "en",
+            { sensitivity: "base" }
+          )
+        );
 
+        indexed.forEach(item => {
+          const key = item.project.year.trim() || "YEAR NOT SET";
 
-            button
-              .classList
-              .add("active");
-
-
-            renderProjectIndex(
-              button.dataset.sort
-            );
-
+          if (!groups.has(key)) {
+            groups.set(key, []);
           }
-        );
 
-      }
-    );
+          groups.get(key).push(item);
+        });
 
-
-    projectCount.textContent =
-      projects.length +
-      " PROJECTS";
-
-
-    /* ====================================================
-       IMAGE ERROR
-    ==================================================== */
-
-    panelImage.addEventListener(
-      "error",
-      () => {
-
-        panelImage.style.display =
-          "none";
-
-
-        imagePlaceholder
-          .classList
-          .add("active");
-
-      }
-    );
-
-
-    /* ====================================================
-       LIGHTBOX
-    ==================================================== */
-
-    function updateLightbox() {
-
-      if (
-        !activeProject
-      ) {
-
-        return;
-
-      }
-
-
-      const images =
-        getProjectImages(
-          activeProject
-        );
-
-
-      if (
-        images.length === 0
-      ) {
-
-        return;
-
-      }
-
-
-      lightboxImage.src =
-        getImageSource(
-          images[
-            activeImageIndex
-          ]
-        );
-
-
-      lightboxImage.alt =
-        activeProject.title;
-
-
-      lightboxCounter.textContent =
-
-        String(
-          activeImageIndex + 1
-        ).padStart(
-          2,
-          "0"
-        )
-
-        +
-
-        " / "
-
-        +
-
-        String(
-          images.length
-        ).padStart(
-          2,
-          "0"
-        );
-
-
-      const single =
-        images.length <= 1;
-
-
-      lightboxPrev.classList.toggle(
-        "hidden",
-        single
-      );
-
-
-      lightboxNext.classList.toggle(
-        "hidden",
-        single
-      );
-
-    }
-
-
-    panelImage.addEventListener(
-      "click",
-      () => {
-
-        if (
-          !activeProject
-        ) {
-
-          return;
-
-        }
-
-
-        const images =
-          getProjectImages(
-            activeProject
+        groups.forEach((items, year) => {
+          projectIndexList.appendChild(
+            createGroupTitle(year)
           );
 
-
-        if (
-          images.length === 0
-        ) {
-
-          return;
-
-        }
-
-
-        updateLightbox();
-
-
-        imageLightbox
-          .classList
-          .add("active");
-
+          items.forEach(item => {
+            projectIndexList.appendChild(
+              createProjectRow(item.project, item.index)
+            );
+          });
+        });
       }
-    );
 
+      /* NAME */
 
-    function hideLightbox() {
+      else if (mode === "name") {
+        indexed.sort((a, b) =>
+          a.project.title.localeCompare(
+            b.project.title,
+            "en",
+            { sensitivity: "base" }
+          )
+        );
 
-      imageLightbox
-        .classList
-        .remove("active");
+        let currentLetter = "";
 
+        indexed.forEach(item => {
+          const letter =
+            item.project.title.trim().charAt(0).toUpperCase();
+
+          if (letter !== currentLetter) {
+            currentLetter = letter;
+
+            projectIndexList.appendChild(
+              createGroupTitle(letter)
+            );
+          }
+
+          projectIndexList.appendChild(
+            createProjectRow(item.project, item.index)
+          );
+        });
+      }
     }
 
+    /* PROJECT INDEX OPEN / CLOSE */
 
-    closeLightbox.addEventListener(
+    function openProjectIndex() {
+      hidePanel();
+
+      projectIndexOverlay.classList.add("active");
+      projectIndexPanel.classList.add("active");
+
+      renderProjectIndex(projectSortMode);
+    }
+
+    function hideProjectIndex() {
+      projectIndexOverlay.classList.remove("active");
+      projectIndexPanel.classList.remove("active");
+    }
+
+    byId("projectsMenuButton").addEventListener(
+      "click",
+      openProjectIndex
+    );
+
+    byId("closeProjectIndex").addEventListener(
+      "click",
+      hideProjectIndex
+    );
+
+    projectIndexOverlay.addEventListener(
+      "click",
+      hideProjectIndex
+    );
+
+    sortButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        sortButtons.forEach(item => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        renderProjectIndex(button.dataset.sort);
+      });
+    });
+
+    projectCount.textContent = projects.length + " PROJECTS";
+
+    /* LIGHTBOX */
+
+    function updateLightbox() {
+      if (!activeProject) return;
+
+      const images = getProjectImages(activeProject);
+
+      if (!images.length) return;
+
+      lightboxImage.style.opacity = "0";
+
+      lightboxImage.src =
+        getImageSource(images[activeImageIndex]);
+
+      lightboxImage.alt = activeProject.title;
+
+      lightboxCounter.textContent =
+        `${String(activeImageIndex + 1).padStart(2, "0")} / ` +
+        `${String(images.length).padStart(2, "0")}`;
+
+      const single = images.length <= 1;
+
+      lightboxPrev.classList.toggle("hidden", single);
+      lightboxNext.classList.toggle("hidden", single);
+
+      if (
+        lightboxImage.complete &&
+        lightboxImage.naturalWidth > 0
+      ) {
+        revealLightboxImage();
+      }
+    }
+
+    function revealLightboxImage() {
+      const show = () => {
+        if (lightboxImage.naturalWidth > 0) {
+          lightboxImage.style.opacity = "1";
+        }
+      };
+
+      if (typeof lightboxImage.decode === "function") {
+        lightboxImage.decode()
+          .catch(() => {})
+          .then(show);
+      } else {
+        show();
+      }
+    }
+
+    lightboxImage.addEventListener(
+      "load",
+      revealLightboxImage
+    );
+
+    panelImage.addEventListener("click", () => {
+      if (
+        !activeProject ||
+        !getProjectImages(activeProject).length
+      ) {
+        return;
+      }
+
+      updateLightbox();
+      imageLightbox.classList.add("active");
+    });
+
+    function hideLightbox() {
+      imageLightbox.classList.remove("active");
+    }
+
+    byId("closeLightbox").addEventListener(
       "click",
       hideLightbox
     );
 
+    lightboxPrev.addEventListener("click", event => {
+      event.stopPropagation();
+      previousSlide();
+    });
 
-    lightboxPrev.addEventListener(
-      "click",
-      event => {
+    lightboxNext.addEventListener("click", event => {
+      event.stopPropagation();
+      nextSlide();
+    });
 
-        event.stopPropagation();
-
-        previousSlide();
-
+    imageLightbox.addEventListener("click", event => {
+      if (event.target === imageLightbox) {
+        hideLightbox();
       }
-    );
+    });
 
+    /* KEYBOARD */
 
-    lightboxNext.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        nextSlide();
-
+    document.addEventListener("keydown", event => {
+      if (imageLightbox.classList.contains("active")) {
+        if (event.key === "Escape") hideLightbox();
+        if (event.key === "ArrowRight") nextSlide();
+        if (event.key === "ArrowLeft") previousSlide();
+        return;
       }
-    );
 
-
-    imageLightbox.addEventListener(
-      "click",
-      event => {
-
-        if (
-          event.target ===
-          imageLightbox
-        ) {
-
-          hideLightbox();
-
-        }
-
+      if (projectIndexPanel.classList.contains("active")) {
+        if (event.key === "Escape") hideProjectIndex();
+        return;
       }
-    );
 
-
-    /* ====================================================
-       KEYBOARD
-    ==================================================== */
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-
-        if (
-          imageLightbox
-            .classList
-            .contains("active")
-        ) {
-
-          if (
-            event.key ===
-            "Escape"
-          ) {
-
-            hideLightbox();
-
-          }
-
-
-          if (
-            event.key ===
-            "ArrowRight"
-          ) {
-
-            nextSlide();
-
-          }
-
-
-          if (
-            event.key ===
-            "ArrowLeft"
-          ) {
-
-            previousSlide();
-
-          }
-
-
-          return;
-
-        }
-
-
-        if (
-          projectIndexPanel
-            .classList
-            .contains("active")
-        ) {
-
-          if (
-            event.key ===
-            "Escape"
-          ) {
-
-            hideProjectIndex();
-
-          }
-
-
-          return;
-
-        }
-
-
-        if (
-          panel
-            .classList
-            .contains("active")
-        ) {
-
-          if (
-            event.key ===
-            "Escape"
-          ) {
-
-            hidePanel();
-
-          }
-
-        }
-
+      if (
+        panel.classList.contains("active") &&
+        event.key === "Escape"
+      ) {
+        hidePanel();
       }
-    );
+    });
 
+    /* PROJECT MARKER PROJECTION */
 
-    /* ====================================================
-       PROJECT MARKER POSITION
-    ==================================================== */
-
-    const markerWorld =
-      new THREE.Vector3();
-
-
-    const markerProjected =
-      new THREE.Vector3();
-
-
-    const globeCenter =
-      new THREE.Vector3();
-
-
-    const cameraPosition =
-      new THREE.Vector3();
-
-
-    const markerNormal =
-      new THREE.Vector3();
-
-
-    const markerToCamera =
-      new THREE.Vector3();
-
+    const markerWorld = new THREE.Vector3();
+    const markerProjected = new THREE.Vector3();
+    const globeCenter = new THREE.Vector3();
+    const cameraPosition = new THREE.Vector3();
+    const markerNormal = new THREE.Vector3();
+    const markerToCamera = new THREE.Vector3();
 
     function updateProjectMarkers() {
+      globe.updateMatrixWorld(true);
+      camera.updateMatrixWorld(true);
 
-      globe.updateMatrixWorld(
-        true
-      );
+      globe.getWorldPosition(globeCenter);
+      camera.getWorldPosition(cameraPosition);
 
+      const width = container.clientWidth;
+      const height = container.clientHeight;
 
-      camera.updateMatrixWorld(
-        true
-      );
+      projectMarkers.forEach(marker => {
+        markerWorld.copy(marker.position);
+        globe.localToWorld(markerWorld);
 
+        markerNormal
+          .copy(markerWorld)
+          .sub(globeCenter)
+          .normalize();
 
-      globe.getWorldPosition(
-        globeCenter
-      );
+        markerToCamera
+          .copy(cameraPosition)
+          .sub(markerWorld)
+          .normalize();
 
+        const facing = markerNormal.dot(markerToCamera);
 
-      camera.getWorldPosition(
-        cameraPosition
-      );
+        markerProjected
+          .copy(markerWorld)
+          .project(camera);
 
+        const x =
+          (markerProjected.x * .5 + .5) * width;
 
-      const width =
-        container.clientWidth;
+        const y =
+          (-markerProjected.y * .5 + .5) * height;
 
+        const normalizedFacing = THREE.MathUtils.clamp(
+          (facing + 1) / 2,
+          0,
+          1
+        );
 
-      const height =
-        container.clientHeight;
+        const visibility =
+          0.18 + normalizedFacing * 0.82;
 
+        marker.element.style.left = x + "px";
+        marker.element.style.top = y + "px";
+        marker.element.style.opacity = visibility;
+        marker.element.style.pointerEvents = "auto";
 
-      projectMarkers.forEach(
-        marker => {
-
-
-          markerWorld.copy(
-            marker.position
-          );
-
-
-          globe.localToWorld(
-            markerWorld
-          );
-
-
-          markerNormal
-            .copy(
-              markerWorld
-            )
-            .sub(
-              globeCenter
-            )
-            .normalize();
-
-
-          markerToCamera
-            .copy(
-              cameraPosition
-            )
-            .sub(
-              markerWorld
-            )
-            .normalize();
-
-
-          const facing =
-            markerNormal.dot(
-              markerToCamera
-            );
-
-
-          markerProjected
-            .copy(
-              markerWorld
-            )
-            .project(
-              camera
-            );
-
-
-          const x =
-
-            (
-              markerProjected.x *
-              0.5 +
-              0.5
-            )
-
-            *
-
-            width;
-
-
-          const y =
-
-            (
-              -markerProjected.y *
-              0.5 +
-              0.5
-            )
-
-            *
-
-            height;
-
-
-          marker.element.style.left =
-            x +
-            "px";
-
-
-          marker.element.style.top =
-            y +
-            "px";
-
-
-          const normalizedFacing =
-            THREE.MathUtils.clamp(
-
-              (
-                facing +
-                1
-              )
-              /
-              2,
-
-              0,
-
-              1
-
-            );
-
-
-          const visibility =
-            0.18 +
-            normalizedFacing *
-            0.82;
-
-
-          marker.element.style.opacity =
-            visibility;
-
-
-          marker.element.style.pointerEvents =
-            "auto";
-
-
-          marker.element.style.zIndex =
-            Math.round(
-
-              100 +
-
-              normalizedFacing *
-              100
-
-            );
-
-        }
-      );
-
+        marker.element.style.zIndex = Math.round(
+          100 + normalizedFacing * 100
+        );
+      });
     }
 
+    /* MOUSE */
 
-    /* ====================================================
-       MOUSE
-    ==================================================== */
+    let mouseX = 0;
+    let mouseY = 0;
 
-    let mouseX =
-      0;
+    document.addEventListener("mousemove", event => {
+      mouseX = event.clientX / window.innerWidth - .5;
+      mouseY = event.clientY / window.innerHeight - .5;
+    });
 
-
-    let mouseY =
-      0;
-
-
-    document.addEventListener(
-      "mousemove",
-      event => {
-
-        mouseX =
-          event.clientX /
-          window.innerWidth
-          -
-          0.5;
-
-
-        mouseY =
-          event.clientY /
-          window.innerHeight
-          -
-          0.5;
-
-      }
-    );
-
-
-    /* ====================================================
-       RESIZE
-    ==================================================== */
+    /* RESIZE */
 
     function resize() {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
 
-      const width =
-        container.clientWidth;
+      if (!width || !height) return;
 
-
-      const height =
-        container.clientHeight;
-
-
-      renderer.setSize(
-        width,
-        height
-      );
-
-
-      camera.aspect =
-        width /
-        height;
-
-
-      camera
-        .updateProjectionMatrix();
-
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
     }
 
-
-    window.addEventListener(
-      "resize",
-      resize
-    );
-
+    window.addEventListener("resize", resize);
 
     resize();
 
-
-    /* ====================================================
-       ANIMATION
-    ==================================================== */
+    /* ANIMATION */
 
     function animate() {
+      requestAnimationFrame(animate);
 
-      requestAnimationFrame(
-        animate
-      );
-
-
-      globe.rotation.y +=
-        0.0022;
-
+      globe.rotation.y += 0.0022;
 
       globe.rotation.x +=
-
-        (
-          mouseY *
-          0.18
-          -
-          globe.rotation.x
-        )
-
-        *
-
-        0.012;
-
+        (mouseY * 0.18 - globe.rotation.x) * 0.012;
 
       globe.rotation.z +=
-
-        (
-          -mouseX *
-          0.10
-          -
-          globe.rotation.z
-        )
-
-        *
-
-        0.008;
-
+        (-mouseX * 0.10 - globe.rotation.z) * 0.008;
 
       updateProjectMarkers();
-
-
-      renderer.render(
-        scene,
-        camera
-      );
-
+      renderer.render(scene, camera);
     }
 
+    /* START */
 
-    /* ====================================================
-       START
-    ==================================================== */
-
-    renderProjectIndex(
-      "all"
-    );
-
-
+    renderProjectIndex("all");
     animate();
-
   </script>
-
 </body>
-
 </html>
