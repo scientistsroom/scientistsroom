@@ -2,1321 +2,911 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scientistsroom - KIM MIN U</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientistsroom - KIM MIN U</title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Scientistsroom - KIM MIN U">
-<meta property="og:image" content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg">
-<meta property="og:url" content="https://scientistsroom.github.io/scientistsroom/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scientistsroom - KIM MIN U">
+  <meta property="og:image" content="https://scientistsroom.github.io/scientistsroom/images/og-image.jpg">
+  <meta property="og:url" content="https://scientistsroom.github.io/scientistsroom/">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #050505;
-  color: #f5f5f5;
-  font-family: Arial, Helvetica, sans-serif;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#050505;
+  color:#f5f5f5;
+  font-family:Arial,Helvetica,sans-serif;
 }
-
-button, a {
-  font: inherit;
+button,a { font:inherit; }
+button { color:inherit; }
+button:focus-visible,a:focus-visible {
+  outline:1px solid #fff;
+  outline-offset:4px;
 }
+.hidden { display:none!important; }
 
-button {
-  color: inherit;
-}
-
-button:focus-visible,
-a:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 4px;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* ==============================
-   MAIN
-============================== */
-
+/* HOME */
 .hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  min-height: 700px;
-  overflow: hidden;
-  background: #050505;
+  position:relative;
+  width:100vw;
+  height:100vh;
+  min-height:700px;
+  overflow:hidden;
+  background:#050505;
 }
-
 .top {
-  position: absolute;
-  top: 36px;
-  left: 40px;
-  right: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12px;
-  font-weight: 600;
-  z-index: 40;
+  position:absolute;
+  top:36px;
+  left:40px;
+  right:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:12px;
+  font-weight:600;
+  z-index:40;
 }
-
 .top-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: .35;
-  pointer-events: none;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  opacity:.35;
+  pointer-events:none;
 }
-
 .top-menu-button {
-  border: 0;
-  background: none;
-  padding: 0;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity .2s;
+  border:0;
+  background:none;
+  padding:0;
+  font-size:12px;
+  font-weight:600;
+  cursor:pointer;
+  transition:opacity .2s;
 }
-
-.top-menu-button:hover {
-  opacity: .5;
-}
-
+.top-menu-button:hover { opacity:.5; }
 .title {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(38px, 4.2vw, 72px);
-  line-height: .9;
-  letter-spacing: -.065em;
-  text-align: center;
-  font-weight: 600;
-  white-space: nowrap;
-  z-index: 10;
+  position:absolute;
+  top:10%;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:clamp(38px,4.2vw,72px);
+  line-height:.9;
+  letter-spacing:-.065em;
+  text-align:center;
+  font-weight:600;
+  white-space:nowrap;
+  z-index:10;
 }
-
-/* ==============================
-   GUIDE
-============================== */
-
 .guide-circle {
-  position: absolute;
-  width: min(58vw, 720px);
-  aspect-ratio: 1;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 50%;
-  pointer-events: none;
+  position:absolute;
+  width:min(58vw,720px);
+  aspect-ratio:1;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:50%;
+  pointer-events:none;
 }
-
-.guide-circle::before,
-.guide-circle::after {
-  content: "";
-  position: absolute;
-  background: rgba(255,255,255,.09);
+.guide-circle::before,.guide-circle::after {
+  content:"";
+  position:absolute;
+  background:rgba(255,255,255,.09);
 }
-
 .guide-circle::before {
-  width: 140%;
-  height: 1px;
-  left: -20%;
-  top: 50%;
+  width:140%;
+  height:1px;
+  left:-20%;
+  top:50%;
 }
-
 .guide-circle::after {
-  width: 1px;
-  height: 140%;
-  left: 50%;
-  top: -20%;
+  width:1px;
+  height:140%;
+  left:50%;
+  top:-20%;
 }
-
 .line {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 118%;
-  height: 1px;
-  background: rgba(255,255,255,.07);
-  transform-origin: center;
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:118%;
+  height:1px;
+  background:rgba(255,255,255,.07);
+  transform-origin:center;
 }
-
-.line.one {
-  transform: translate(-50%, -50%) rotate(32deg);
-}
-
-.line.two {
-  transform: translate(-50%, -50%) rotate(-32deg);
-}
-
+.line.one { transform:translate(-50%,-50%) rotate(32deg); }
+.line.two { transform:translate(-50%,-50%) rotate(-32deg); }
 .side-line {
-  position: absolute;
-  top: 45%;
-  width: 12%;
-  height: 1px;
-  background: rgba(255,255,255,.15);
+  position:absolute;
+  top:45%;
+  width:12%;
+  height:1px;
+  background:rgba(255,255,255,.15);
 }
+.side-line.left { left:3.5%; }
+.side-line.right { right:3.5%; }
 
-.side-line.left {
-  left: 3.5%;
-}
-
-.side-line.right {
-  right: 3.5%;
-}
-
-/* ==============================
-   GLOBE
-============================== */
-
+/* GLOBE */
 #earthWrap {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: min(36vw, 500px);
-  height: min(36vw, 500px);
-  transform: translate(-50%, -48%);
-  z-index: 5;
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:min(36vw,500px);
+  height:min(36vw,500px);
+  transform:translate(-50%,-48%);
+  z-index:5;
 }
-
 #earth {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
 }
-
 #projectMarkers {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 30;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:30;
 }
-
 .project-marker {
-  --pulse-duration: 3s;
-  --pulse-delay: 0s;
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  transform: translate(-50%, -50%);
-  pointer-events: auto;
-  cursor: pointer;
-  transition: opacity .35s;
+  --pulse-duration:3s;
+  --pulse-delay:0s;
+  position:absolute;
+  width:34px;
+  height:34px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  transform:translate(-50%,-50%);
+  pointer-events:auto;
+  cursor:pointer;
+  transition:opacity .35s;
 }
-
 .project-marker::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #fff;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 7px rgba(255,255,255,.48);
-  animation: projectPointPulse var(--pulse-duration) ease-in-out infinite;
-  animation-delay: var(--pulse-delay);
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#fff;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 7px rgba(255,255,255,.48);
+  animation:projectPointPulse var(--pulse-duration) ease-in-out infinite;
+  animation-delay:var(--pulse-delay);
 }
-
 .project-marker::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 19px;
-  height: 19px;
-  border: 1px solid rgba(255,255,255,.42);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: projectHaloPulse var(--pulse-duration) ease-in-out infinite;
-  animation-delay: var(--pulse-delay);
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:19px;
+  height:19px;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  animation:projectHaloPulse var(--pulse-duration) ease-in-out infinite;
+  animation-delay:var(--pulse-delay);
 }
-
 @keyframes projectPointPulse {
-  0%, 100% {
-    opacity: .76;
-    transform: translate(-50%, -50%) scale(.92);
-    box-shadow: 0 0 4px rgba(255,255,255,.35);
+  0%,100% {
+    opacity:.76;
+    transform:translate(-50%,-50%) scale(.92);
+    box-shadow:0 0 4px rgba(255,255,255,.35);
   }
-
   50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.25);
-    box-shadow: 0 0 12px rgba(255,255,255,.85);
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1.25);
+    box-shadow:0 0 12px rgba(255,255,255,.85);
   }
 }
-
 @keyframes projectHaloPulse {
-  0%, 100% {
-    opacity: .2;
-    transform: translate(-50%, -50%) scale(.9);
+  0%,100% {
+    opacity:.2;
+    transform:translate(-50%,-50%) scale(.9);
   }
-
   50% {
-    opacity: .68;
-    transform: translate(-50%, -50%) scale(1.12);
+    opacity:.68;
+    transform:translate(-50%,-50%) scale(1.12);
   }
 }
-
 .project-marker:hover::before {
-  animation-play-state: paused;
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.62);
-  box-shadow: 0 0 16px #fff;
+  animation-play-state:paused;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1.62);
+  box-shadow:0 0 16px #fff;
 }
-
 .project-marker:hover::after {
-  animation-play-state: paused;
-  opacity: .95;
-  transform: translate(-50%, -50%) scale(1.28);
+  animation-play-state:paused;
+  opacity:.95;
+  transform:translate(-50%,-50%) scale(1.28);
 }
-
 #projectLabel {
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 9px 12px;
-  background: #f5f5f5;
-  color: #050505;
-  font-size: 11px;
-  line-height: 1.3;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(14px, 14px);
-  transition: opacity .18s;
-  z-index: 200;
-  white-space: nowrap;
+  position:fixed;
+  left:0;
+  top:0;
+  padding:9px 12px;
+  background:#f5f5f5;
+  color:#050505;
+  font-size:11px;
+  line-height:1.3;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(14px,14px);
+  transition:opacity .18s;
+  z-index:200;
+  white-space:nowrap;
 }
+#projectLabel.active { opacity:1; }
+.label-number { opacity:.45; margin-right:8px; }
+.label-category { opacity:.5; margin-left:8px; }
 
-#projectLabel.active {
-  opacity: 1;
-}
-
-.label-number {
-  opacity: .45;
-  margin-right: 8px;
-}
-
-.label-category {
-  opacity: .5;
-  margin-left: 8px;
-}
-
-/* ==============================
-   BOTTOM
-============================== */
-
+/* BOTTOM */
 .bottom {
-  position: absolute;
-  left: 40px;
-  right: 40px;
-  bottom: 34px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 50px;
-  align-items: end;
-  z-index: 20;
+  position:absolute;
+  left:40px;
+  right:40px;
+  bottom:34px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:50px;
+  align-items:end;
+  z-index:20;
 }
-
-.item h3 {
-  margin-bottom: 9px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
+.item h3 { margin-bottom:9px; font-size:13px; font-weight:600; }
 .item p {
-  max-width: 300px;
-  font-size: 10px;
-  line-height: 1.35;
-  color: rgba(255,255,255,.42);
+  max-width:300px;
+  font-size:10px;
+  line-height:1.35;
+  color:rgba(255,255,255,.42);
 }
+.center-item { text-align:center; }
+.center-item p { margin:0 auto; }
+.right-item { text-align:right; }
+.right-item p { margin-left:auto; }
 
-.center-item {
-  text-align: center;
-}
-
-.center-item p {
-  margin: 0 auto;
-}
-
-.right-item {
-  text-align: right;
-}
-
-.right-item p {
-  margin-left: auto;
-}
-
-/* ==============================
-   SHARED PANEL CONTROLS
-============================== */
-
+/* COMMON PANEL CONTROLS */
 .panel-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.18);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .5s;
-  z-index: 80;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.18);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .5s;
+  z-index:80;
 }
-
-.panel-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.panel-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
+.panel-overlay.active { opacity:1; pointer-events:auto; }
+.panel-actions { display:flex; align-items:center; gap:18px; }
 .panel-action-button {
-  appearance: none;
-  border: 0;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  line-height: 1;
-  transition: opacity .2s;
+  appearance:none;
+  border:0;
+  background:none;
+  color:#fff;
+  cursor:pointer;
+  line-height:1;
+  transition:opacity .2s;
 }
+.panel-action-button:hover { opacity:.5; }
+#backPanel { font-size:23px; font-weight:300; }
+#closePanel { font-size:28px; font-weight:300; }
 
-.panel-action-button:hover {
-  opacity: .5;
-}
-
-#backPanel {
-  font-size: 23px;
-  font-weight: 300;
-}
-
-#closePanel {
-  font-size: 28px;
-  font-weight: 300;
-}
-
-/* ==============================
-   LANGUAGE SWITCH
-============================== */
-
+/* LANGUAGE SWITCH */
 .lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  white-space: nowrap;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  white-space:nowrap;
 }
-
 .lang-button {
-  appearance: none;
-  padding: 5px 0;
-  border: 0;
-  background: none;
-  color: rgba(255,255,255,.32);
-  font-size: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color .2s;
+  appearance:none;
+  padding:5px 0;
+  border:0;
+  background:none;
+  color:rgba(255,255,255,.32);
+  font-size:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:color .2s;
 }
+.lang-button:hover,.lang-button.active { color:#fff; }
+.lang-divider { font-size:9px; color:rgba(255,255,255,.25); }
 
-.lang-button:hover,
-.lang-button.active {
-  color: #fff;
-}
-
-.lang-divider {
-  font-size: 9px;
-  color: rgba(255,255,255,.25);
-}
-
-/* ==============================
-   PROJECT DETAIL
-============================== */
-
+/* PROJECT DETAIL */
 #projectPanel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(540px,92vw);
-  height: 100vh;
-  background: #0b0b0b;
-  border-left: 1px solid rgba(255,255,255,.08);
-  padding: 38px 38px 42px;
-  transform: translateX(100%);
-  transition: transform .7s cubic-bezier(.16,1,.3,1);
-  z-index: 90;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+  position:fixed;
+  top:0;
+  right:0;
+  width:min(540px,92vw);
+  height:100vh;
+  background:#0b0b0b;
+  border-left:1px solid rgba(255,255,255,.08);
+  padding:38px 38px 42px;
+  transform:translateX(100%);
+  transition:transform .7s cubic-bezier(.16,1,.3,1);
+  z-index:90;
+  display:flex;
+  flex-direction:column;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior-y:contain;
 }
-
-#projectPanel.active {
-  transform: translateX(0);
-}
-
+#projectPanel.active { transform:translateX(0); }
 .panel-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 42px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:42px;
 }
-
-.panel-index,
-.panel-year {
-  font-size: 11px;
-  color: rgba(255,255,255,.42);
+.panel-index,.panel-year {
+  font-size:11px;
+  color:rgba(255,255,255,.42);
 }
-
-.panel-year {
-  min-height: 14px;
-  margin-bottom: 12px;
-}
-
+.panel-year { min-height:14px; margin-bottom:12px; }
 .panel-title {
-  margin-bottom: 18px;
-  font-size: clamp(30px,3.7vw,52px);
-  line-height: .98;
-  letter-spacing: -.055em;
-  font-weight: 500;
+  margin-bottom:18px;
+  font-size:clamp(30px,3.7vw,52px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:500;
 }
-
 .panel-category {
-  margin-bottom: 30px;
-  font-size: 11px;
-  color: rgba(255,255,255,.48);
+  margin-bottom:30px;
+  font-size:11px;
+  color:rgba(255,255,255,.48);
 }
 
+/*
+  ALL PROJECT IMAGE RATIO FIX
+  Prevent the slider from shrinking inside the flex panel.
+*/
 .slider {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #161616;
-  margin-bottom: 16px;
+  position:relative;
+  width:100%;
+  height:auto;
+  aspect-ratio:16 / 9;
+  flex:0 0 auto;
+  min-height:0;
+  overflow:hidden;
+  background:#161616;
+  margin-bottom:16px;
 }
 
+/*
+  Preserve original image proportions.
+  The image fills the fixed 16:9 stage without distortion.
+*/
 #panelImage {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
-  cursor: zoom-in;
-  opacity: 0;
-  transition: opacity .35s ease, transform .3s;
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  cursor:zoom-in;
+  opacity:0;
+  transition:opacity .35s ease,transform .3s;
 }
-
-#panelImage:hover {
-  transform: scale(1.012);
-}
+#panelImage:hover { transform:scale(1.012); }
 
 .image-placeholder {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  color: rgba(255,255,255,.3);
-  pointer-events: none;
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  color:rgba(255,255,255,.3);
+  pointer-events:none;
 }
-
-.image-placeholder.active {
-  display: flex;
-}
-
+.image-placeholder.active { display:flex; }
 .slider-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(255,255,255,.15);
-  background: rgba(0,0,0,.52);
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 10;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(0,0,0,.52);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  z-index:10;
 }
-
-.slider-button:hover {
-  background: rgba(255,255,255,.13);
-}
-
-#prevImage {
-  left: 12px;
-}
-
-#nextImage {
-  right: 12px;
-}
-
+.slider-button:hover { background:rgba(255,255,255,.13); }
+#prevImage { left:12px; }
+#nextImage { right:12px; }
 .slider-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 26px;
-  font-size: 10px;
-  color: rgba(255,255,255,.42);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:26px;
+  font-size:10px;
+  color:rgba(255,255,255,.42);
 }
-
-.slider-dots {
-  display: flex;
-  gap: 6px;
-}
-
+.slider-dots { display:flex; gap:6px; }
 .slider-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.22);
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:rgba(255,255,255,.22);
 }
-
-.slider-dot.active {
-  background: #fff;
-}
-
+.slider-dot.active { background:#fff; }
 .panel-description {
-  max-width: 420px;
-  margin-bottom: 20px;
-  font-size: 12px;
-  line-height: 1.8;
-  color: rgba(255,255,255,.65);
-  white-space: pre-line;
+  max-width:420px;
+  margin-bottom:20px;
+  font-size:12px;
+  line-height:1.8;
+  color:rgba(255,255,255,.65);
+  white-space:pre-line;
 }
-
 .panel-link {
-  display: none;
-  max-width: 420px;
-  margin-bottom: 40px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.45);
-  font-size: 10px;
-  line-height: 1.55;
-  text-decoration: none;
-  word-break: break-all;
+  display:none;
+  max-width:420px;
+  margin-bottom:40px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.45);
+  font-size:10px;
+  line-height:1.55;
+  text-decoration:none;
+  word-break:break-all;
 }
-
-.panel-link.active {
-  display: block;
-}
-
-.panel-link:hover {
-  color: #fff;
-}
-
+.panel-link.active { display:block; }
+.panel-link:hover { color:#fff; }
 .view-project {
-  margin-top: auto;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
+  margin-top:auto;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.14);
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
 }
+.view-project span:last-child { opacity:.45; }
 
-.view-project span:last-child {
-  opacity: .45;
+/* PROJECT INDEX */
+#projectIndexOverlay,#aboutOverlay {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s,visibility .4s;
 }
-
-/* ==============================
-   PROJECT INDEX
-============================== */
-
-#projectIndexOverlay,
-#aboutOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.35);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .4s, visibility .4s;
+#projectIndexOverlay { z-index:110; }
+#aboutOverlay { z-index:140; }
+#projectIndexOverlay.active,#aboutOverlay.active {
+  opacity:1;
+  visibility:visible;
 }
-
-#projectIndexOverlay {
-  z-index: 110;
-}
-
-#aboutOverlay {
-  z-index: 140;
-}
-
-#projectIndexOverlay.active,
-#aboutOverlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
 #projectIndexPanel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(820px,100vw);
-  height: 100vh;
-  background: #080808;
-  border-left: 1px solid rgba(255,255,255,.08);
-  transform: translateX(100%);
-  transition: transform .75s cubic-bezier(.16,1,.3,1);
-  z-index: 120;
-  display: flex;
-  flex-direction: column;
+  position:fixed;
+  top:0;
+  right:0;
+  width:min(820px,100vw);
+  height:100vh;
+  background:#080808;
+  border-left:1px solid rgba(255,255,255,.08);
+  transform:translateX(100%);
+  transition:transform .75s cubic-bezier(.16,1,.3,1);
+  z-index:120;
+  display:flex;
+  flex-direction:column;
 }
-
-#projectIndexPanel.active {
-  transform: translateX(0);
-}
-
+#projectIndexPanel.active { transform:translateX(0); }
 .project-index-header {
-  padding: 36px 40px 30px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding:36px 40px 30px;
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
-
 .project-index-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 56px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:56px;
 }
-
 .project-index-heading {
-  font-size: clamp(42px,6vw,82px);
-  line-height: .9;
-  letter-spacing: -.065em;
-  font-weight: 500;
+  font-size:clamp(42px,6vw,82px);
+  line-height:.9;
+  letter-spacing:-.065em;
+  font-weight:500;
 }
-
 .project-index-actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  display:flex;
+  align-items:center;
+  gap:24px;
 }
-
-#closeProjectIndex,
-#closeAbout {
-  appearance: none;
-  border: 0;
-  background: none;
-  color: #fff;
-  font-size: 32px;
-  font-weight: 300;
-  cursor: pointer;
-  line-height: 1;
+#closeProjectIndex,#closeAbout {
+  appearance:none;
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:32px;
+  font-weight:300;
+  cursor:pointer;
+  line-height:1;
 }
-
 .project-index-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:30px;
 }
-
 .project-count {
-  font-size: 10px;
-  letter-spacing: .05em;
-  color: rgba(255,255,255,.35);
+  font-size:10px;
+  letter-spacing:.05em;
+  color:rgba(255,255,255,.35);
 }
-
-.project-sort {
-  display: flex;
-  gap: 22px;
-}
-
+.project-sort { display:flex; gap:22px; }
 .project-sort-button {
-  padding: 0 0 5px;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  background: none;
-  color: rgba(255,255,255,.35);
-  font-size: 10px;
-  cursor: pointer;
+  padding:0 0 5px;
+  border:0;
+  border-bottom:1px solid transparent;
+  background:none;
+  color:rgba(255,255,255,.35);
+  font-size:10px;
+  cursor:pointer;
 }
-
-.project-sort-button:hover,
-.project-sort-button.active {
-  color: #fff;
-}
-
-.project-sort-button.active {
-  border-bottom-color: #fff;
-}
-
+.project-sort-button:hover,.project-sort-button.active { color:#fff; }
+.project-sort-button.active { border-bottom-color:#fff; }
 .project-index-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding: 0 40px 60px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.2) transparent;
+  flex:1;
+  overflow-y:auto;
+  padding:0 40px 60px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.2) transparent;
 }
-
 .project-group-title {
-  padding: 42px 0 14px;
-  font-size: 10px;
-  color: rgba(255,255,255,.35);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding:42px 0 14px;
+  font-size:10px;
+  color:rgba(255,255,255,.35);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-
 .project-list-row {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 54px minmax(0,1fr) 190px 100px;
-  gap: 18px;
-  align-items: center;
-  padding: 22px 0;
-  border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  transition: padding-left .25s, background .25s;
+  width:100%;
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) 190px 100px;
+  gap:18px;
+  align-items:center;
+  padding:22px 0;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:transparent;
+  text-align:left;
+  cursor:pointer;
+  transition:padding-left .25s,background .25s;
 }
-
 .project-list-row:hover {
-  padding-left: 10px;
-  background: rgba(255,255,255,.025);
+  padding-left:10px;
+  background:rgba(255,255,255,.025);
 }
-
-.project-row-number,
-.project-row-category,
-.project-row-year {
-  font-size: 10px;
-  color: rgba(255,255,255,.38);
+.project-row-number,.project-row-category,.project-row-year {
+  font-size:10px;
+  color:rgba(255,255,255,.38);
 }
-
 .project-row-title {
-  min-width: 0;
-  font-size: clamp(17px,2vw,24px);
-  letter-spacing: -.035em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width:0;
+  font-size:clamp(17px,2vw,24px);
+  letter-spacing:-.035em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
+.project-row-year { text-align:right; }
 
-.project-row-year {
-  text-align: right;
-}
-
-/* ==============================
-   ABOUT PANEL
-============================== */
-
+/* ABOUT */
 #aboutPanel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: min(660px,100vw);
-  height: 100vh;
-  background: #080808;
-  border-right: 1px solid rgba(255,255,255,.1);
-  transform: translateX(-100%);
-  transition: transform .75s cubic-bezier(.16,1,.3,1);
-  z-index: 150;
-  display: flex;
-  flex-direction: column;
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(660px,100vw);
+  height:100vh;
+  background:#080808;
+  border-right:1px solid rgba(255,255,255,.1);
+  transform:translateX(-100%);
+  transition:transform .75s cubic-bezier(.16,1,.3,1);
+  z-index:150;
+  display:flex;
+  flex-direction:column;
 }
-
-#aboutPanel.active {
-  transform: translateX(0);
-}
-
+#aboutPanel.active { transform:translateX(0); }
 .about-header {
-  flex-shrink: 0;
-  padding: 36px 40px 26px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  background: #080808;
+  flex-shrink:0;
+  padding:36px 40px 26px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  background:#080808;
 }
-
 .about-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
-
-.about-top-actions {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
+.about-top-actions { display:flex; align-items:center; gap:24px; }
 .about-small {
-  font-size: 10px;
-  letter-spacing: .07em;
-  color: rgba(255,255,255,.4);
+  font-size:10px;
+  letter-spacing:.07em;
+  color:rgba(255,255,255,.4);
 }
-
 .about-scroll {
-  flex: 1;
-  overflow-y: auto;
-  padding: 45px 40px 70px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,.2) transparent;
+  flex:1;
+  overflow-y:auto;
+  padding:45px 40px 70px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.2) transparent;
 }
-
 .about-name {
-  font-size: clamp(48px,6vw,80px);
-  line-height: .9;
-  letter-spacing: -.065em;
-  font-weight: 500;
-  margin-bottom: 25px;
+  font-size:clamp(48px,6vw,80px);
+  line-height:.9;
+  letter-spacing:-.065em;
+  font-weight:500;
+  margin-bottom:25px;
 }
-
 .about-role {
-  font-size: 11px;
-  color: rgba(255,255,255,.55);
-  letter-spacing: .04em;
-  margin-bottom: 30px;
+  font-size:11px;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.04em;
+  margin-bottom:30px;
 }
-
 .about-intro {
-  max-width: 480px;
-  font-size: 13px;
-  line-height: 1.9;
-  color: rgba(255,255,255,.65);
-  margin-bottom: 85px;
-  white-space: pre-line;
+  max-width:480px;
+  font-size:13px;
+  line-height:1.9;
+  color:rgba(255,255,255,.65);
+  margin-bottom:85px;
+  white-space:pre-line;
 }
-
-.about-section {
-  margin-bottom: 85px;
-}
-
+.about-section { margin-bottom:85px; }
 .about-section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 30px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255,255,255,.15);
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:30px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.15);
 }
-
 .about-section-title {
-  font-size: clamp(25px,3vw,38px);
-  letter-spacing: -.055em;
-  font-weight: 500;
+  font-size:clamp(25px,3vw,38px);
+  letter-spacing:-.055em;
+  font-weight:500;
 }
-
 .about-section-meta {
-  font-size: 9px;
-  color: rgba(255,255,255,.35);
-  white-space: nowrap;
+  font-size:9px;
+  color:rgba(255,255,255,.35);
+  white-space:nowrap;
 }
-
 .about-entry {
-  display: grid;
-  grid-template-columns: 135px minmax(0,1fr);
-  gap: 20px;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(255,255,255,.075);
+  display:grid;
+  grid-template-columns:135px minmax(0,1fr);
+  gap:20px;
+  padding:22px 0;
+  border-bottom:1px solid rgba(255,255,255,.075);
 }
-
 .about-entry-date {
-  font-size: 10px;
-  line-height: 1.7;
-  color: rgba(255,255,255,.38);
+  font-size:10px;
+  line-height:1.7;
+  color:rgba(255,255,255,.38);
 }
-
 .about-entry-title {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -.025em;
-  margin-bottom: 9px;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.4;
+  letter-spacing:-.025em;
+  margin-bottom:9px;
 }
-
 .about-entry-desc {
-  font-size: 11px;
-  line-height: 1.8;
-  color: rgba(255,255,255,.48);
-  white-space: pre-line;
+  font-size:11px;
+  line-height:1.8;
+  color:rgba(255,255,255,.48);
+  white-space:pre-line;
 }
-
 .about-note {
-  margin-top: 23px;
-  font-size: 11px;
-  line-height: 1.9;
-  color: rgba(255,255,255,.45);
+  margin-top:23px;
+  font-size:11px;
+  line-height:1.9;
+  color:rgba(255,255,255,.45);
 }
-
 .course-group {
-  padding: 25px 0;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  padding:25px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-
 .course-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  margin-bottom:17px;
 }
-
 .course-title {
-  font-size: 17px;
-  letter-spacing: -.035em;
-  font-weight: 500;
+  font-size:17px;
+  letter-spacing:-.035em;
+  font-weight:500;
 }
-
 .course-count {
-  font-size: 9px;
-  color: rgba(255,255,255,.35);
-  white-space: nowrap;
+  font-size:9px;
+  color:rgba(255,255,255,.35);
+  white-space:nowrap;
 }
-
 .course-list {
-  font-size: 11px;
-  line-height: 2.1;
-  color: rgba(255,255,255,.53);
-  word-break: keep-all;
+  font-size:11px;
+  line-height:2.1;
+  color:rgba(255,255,255,.53);
+  word-break:keep-all;
 }
-
 .about-contact {
-  border-top: 1px solid rgba(255,255,255,.15);
-  padding-top: 24px;
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:24px;
 }
-
 .about-contact-label {
-  font-size: 10px;
-  color: rgba(255,255,255,.4);
-  margin-bottom: 17px;
+  font-size:10px;
+  color:rgba(255,255,255,.4);
+  margin-bottom:17px;
 }
-
 .about-contact a {
-  color: #fff;
-  font-size: 18px;
-  text-decoration: none;
-  letter-spacing: -.025em;
+  color:#fff;
+  font-size:18px;
+  text-decoration:none;
+  letter-spacing:-.025em;
 }
+.about-contact a:hover { opacity:.55; }
 
-.about-contact a:hover {
-  opacity: .55;
-}
-
-/* ==============================
-   LIGHTBOX
-============================== */
-
+/* LIGHTBOX */
 #imageLightbox {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 55px 80px;
-  background: rgba(0,0,0,.98);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .35s, visibility .35s;
-  z-index: 300;
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:55px 80px;
+  background:rgba(0,0,0,.98);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s,visibility .35s;
+  z-index:300;
 }
-
-#imageLightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
+#imageLightbox.active { opacity:1; visibility:visible; }
 #lightboxImage {
-  display: block;
-  max-width: 92vw;
-  max-height: 86vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity .3s;
+  display:block;
+  max-width:92vw;
+  max-height:86vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  opacity:0;
+  transition:opacity .3s;
 }
-
 #closeLightbox {
-  position: absolute;
-  top: 28px;
-  right: 34px;
-  border: 0;
-  background: none;
-  font-size: 34px;
-  cursor: pointer;
+  position:absolute;
+  top:28px;
+  right:34px;
+  border:0;
+  background:none;
+  font-size:34px;
+  cursor:pointer;
 }
-
 .lightbox-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 55px;
-  height: 55px;
-  border: 0;
-  background: none;
-  font-size: 27px;
-  color: rgba(255,255,255,.65);
-  cursor: pointer;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:55px;
+  height:55px;
+  border:0;
+  background:none;
+  font-size:27px;
+  color:rgba(255,255,255,.65);
+  cursor:pointer;
 }
-
-.lightbox-arrow:hover {
-  color: #fff;
-}
-
-#lightboxPrev {
-  left: 24px;
-}
-
-#lightboxNext {
-  right: 24px;
-}
-
+.lightbox-arrow:hover { color:#fff; }
+#lightboxPrev { left:24px; }
+#lightboxNext { right:24px; }
 #lightboxCounter {
-  position: absolute;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  font-size: 10px;
-  color: rgba(255,255,255,.55);
-  letter-spacing: .08em;
+  position:absolute;
+  left:50%;
+  bottom:22px;
+  transform:translateX(-50%);
+  font-size:10px;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.08em;
 }
 
-/* ==============================
-   MOBILE
-============================== */
-
+/* MOBILE */
 @media (max-width:900px) {
-  .hero {
-    min-height: 100svh;
-  }
-
-  .top {
-    top: 22px;
-    left: 20px;
-    right: 20px;
-  }
-
-  .title {
-    top: 13%;
-    font-size: clamp(38px,11vw,52px);
-  }
-
-  #earthWrap {
-    width: 72vw;
-    height: 72vw;
-    top: 49%;
-  }
-
-  .guide-circle {
-    width: 90vw;
-    top: 49%;
-  }
-
-  .side-line {
-    display: none;
-  }
-
+  .hero { min-height:100svh; }
+  .top { top:22px; left:20px; right:20px; }
+  .title { top:13%; font-size:clamp(38px,11vw,52px); }
+  #earthWrap { width:72vw; height:72vw; top:49%; }
+  .guide-circle { width:90vw; top:49%; }
+  .side-line { display:none; }
   .bottom {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
+    left:20px;
+    right:20px;
+    bottom:20px;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
   }
-
-  .center-item {
-    display: none;
-  }
-
-  #projectPanel {
-    width: 100vw;
-    padding: 25px 24px 30px;
-  }
-
-  .project-index-header {
-    padding: 24px 22px;
-  }
-
-  .project-index-top {
-    margin-bottom: 42px;
-  }
-
-  .project-index-heading {
-    font-size: 50px;
-  }
-
+  .center-item { display:none; }
+  #projectPanel { width:100vw; padding:25px 24px 30px; }
+  .project-index-header { padding:24px 22px; }
+  .project-index-top { margin-bottom:42px; }
+  .project-index-heading { font-size:50px; }
   .project-index-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:18px;
   }
-
-  .project-index-scroll {
-    padding: 0 22px 40px;
-  }
-
+  .project-index-scroll { padding:0 22px 40px; }
   .project-list-row {
-    grid-template-columns: 36px minmax(0,1fr) 90px;
-    gap: 10px;
-    padding: 18px 0;
+    grid-template-columns:36px minmax(0,1fr) 90px;
+    gap:10px;
+    padding:18px 0;
   }
-
-  .project-row-category {
-    display: none;
-  }
-
-  .about-header {
-    padding: 25px 24px;
-  }
-
-  .about-scroll {
-    padding: 42px 24px 60px;
-  }
-
-  .about-entry {
-    grid-template-columns: 1fr;
-    gap: 7px;
-  }
-
-  .about-section {
-    margin-bottom: 65px;
-  }
-
-  .about-intro {
-    margin-bottom: 65px;
-  }
-
-  #imageLightbox {
-    padding: 20px;
-  }
-
-  #lightboxImage {
-    max-width: 96vw;
-    max-height: 82vh;
-  }
-
-  #lightboxPrev {
-    left: 5px;
-  }
-
-  #lightboxNext {
-    right: 5px;
-  }
+  .project-row-category { display:none; }
+  .about-header { padding:25px 24px; }
+  .about-scroll { padding:42px 24px 60px; }
+  .about-entry { grid-template-columns:1fr; gap:7px; }
+  .about-section { margin-bottom:65px; }
+  .about-intro { margin-bottom:65px; }
+  #imageLightbox { padding:20px; }
+  #lightboxImage { max-width:96vw; max-height:82vh; }
+  #lightboxPrev { left:5px; }
+  #lightboxNext { right:5px; }
 }
-
 @media (max-width:420px) {
-  .title {
-    font-size: 9.1vw;
-  }
-
-  .about-section-meta {
-    font-size: 8px;
-  }
-
-  .about-contact a {
-    font-size: 16px;
-  }
-
-  .about-top-actions,
-  .project-index-actions {
-    gap: 13px;
-  }
+  .title { font-size:9.1vw; }
+  .about-section-meta { font-size:8px; }
+  .about-contact a { font-size:16px; }
+  .about-top-actions,.project-index-actions { gap:13px; }
 }
 
-/* ==============================
-   MOBILE SCROLL FIX
-
-   1. Dynamic viewport height
-   2. Independent panel scrolling
-   3. Bottom safe-area padding
-============================== */
-
-#projectPanel,
-#projectIndexPanel,
-#aboutPanel {
-  height: 100vh;
+/* MOBILE PANEL SCROLL */
+#projectPanel,#projectIndexPanel,#aboutPanel {
+  height:100vh;
 }
-
-@supports (height: 100dvh) {
-  #projectPanel,
-  #projectIndexPanel,
-  #aboutPanel {
-    height: 100dvh;
-    max-height: 100dvh;
+@supports (height:100dvh) {
+  #projectPanel,#projectIndexPanel,#aboutPanel {
+    height:100dvh;
+    max-height:100dvh;
   }
 }
-
-#projectIndexPanel,
-#aboutPanel {
-  overflow: hidden;
+#projectIndexPanel,#aboutPanel { overflow:hidden; }
+.project-index-header,.about-header { flex:0 0 auto; }
+.project-index-scroll,.about-scroll {
+  flex:1 1 0%;
+  min-height:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:contain;
+  touch-action:pan-y;
 }
-
-.project-index-header,
-.about-header {
-  flex: 0 0 auto;
-}
-
-.project-index-scroll,
-.about-scroll {
-  flex: 1 1 0%;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-  touch-action: pan-y;
-}
-
 @media (max-width:900px) {
   .project-index-scroll {
-    padding-bottom: calc(
-      130px + env(safe-area-inset-bottom, 0px)
-    );
+    padding-bottom:calc(130px + env(safe-area-inset-bottom,0px));
   }
-
   .about-scroll {
-    padding-bottom: calc(
-      150px + env(safe-area-inset-bottom, 0px)
-    );
+    padding-bottom:calc(150px + env(safe-area-inset-bottom,0px));
   }
-
   #projectPanel {
-    padding-bottom: calc(
-      90px + env(safe-area-inset-bottom, 0px)
-    );
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
+    padding-bottom:calc(90px + env(safe-area-inset-bottom,0px));
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-y:contain;
   }
 }
 </style>
 </head>
 
 <body>
-
-<!-- ==============================
-     HOME
-============================== -->
-
 <main class="hero">
-
   <header class="top">
-    <button class="top-menu-button" id="aboutMenuButton" type="button">
-      KIM MIN U
-    </button>
-
+    <button class="top-menu-button" id="aboutMenuButton" type="button">KIM MIN U</button>
     <div class="top-center">PORTFOLIO</div>
-
-    <button class="top-menu-button" id="projectsMenuButton" type="button">
-      PROJECTS
-    </button>
+    <button class="top-menu-button" id="projectsMenuButton" type="button">PROJECTS</button>
   </header>
 
   <div class="title">Scientists[room]</div>
@@ -1325,7 +915,6 @@ a:focus-visible {
     <div class="line one"></div>
     <div class="line two"></div>
   </div>
-
   <div class="side-line left"></div>
   <div class="side-line right"></div>
 
@@ -1339,58 +928,31 @@ a:focus-visible {
       <h3>Visual Design</h3>
       <p>Graphic / Editorial / Branding / UX UI / Photography</p>
     </div>
-
     <div class="item center-item">
       <h3>xoxxnxxox@gmail.com</h3>
       <p>Visual communication across print, space and digital media.</p>
     </div>
-
     <div class="item right-item">
       <h3>Selected Works</h3>
       <p>Click the points on the globe or open the project index.</p>
     </div>
   </section>
-
 </main>
 
-<!-- ==============================
-     PROJECT LABEL
-============================== -->
-
 <div id="projectLabel"></div>
-
-<!-- ==============================
-     PROJECT DETAIL
-============================== -->
-
 <div class="panel-overlay" id="panelOverlay"></div>
 
 <aside id="projectPanel" aria-label="Project details">
-
   <div class="panel-top">
     <div class="panel-index" id="panelIndex"></div>
-
     <div class="panel-actions">
-
       <div class="lang-switch" data-language-control aria-label="Language">
         <button class="lang-button" data-lang="kr" type="button">KR</button>
         <span class="lang-divider">/</span>
         <button class="lang-button" data-lang="en" type="button">EN</button>
       </div>
-
-      <button
-        class="panel-action-button hidden"
-        id="backPanel"
-        type="button"
-        aria-label="Back to projects"
-      >←</button>
-
-      <button
-        class="panel-action-button"
-        id="closePanel"
-        type="button"
-        aria-label="Close project"
-      >×</button>
+      <button class="panel-action-button hidden" id="backPanel" type="button" aria-label="Back to projects">←</button>
+      <button class="panel-action-button" id="closePanel" type="button" aria-label="Close project">×</button>
     </div>
   </div>
 
@@ -1400,131 +962,69 @@ a:focus-visible {
 
   <div class="slider">
     <img id="panelImage" alt="" decoding="async">
-
-    <div class="image-placeholder" id="imagePlaceholder">
-      PROJECT IMAGE
-    </div>
-
-    <button
-      class="slider-button"
-      id="prevImage"
-      type="button"
-      aria-label="Previous image"
-    >←</button>
-
-    <button
-      class="slider-button"
-      id="nextImage"
-      type="button"
-      aria-label="Next image"
-    >→</button>
+    <div class="image-placeholder" id="imagePlaceholder">PROJECT IMAGE</div>
+    <button class="slider-button" id="prevImage" type="button" aria-label="Previous image">←</button>
+    <button class="slider-button" id="nextImage" type="button" aria-label="Next image">→</button>
   </div>
-
   <div class="slider-info">
     <div id="sliderCounter">00 / 00</div>
     <div class="slider-dots" id="sliderDots"></div>
   </div>
 
   <p class="panel-description" id="panelDescription"></p>
-
-  <a
-    class="panel-link"
-    id="panelLink"
-    target="_blank"
-    rel="noopener noreferrer"
-  ></a>
-
+  <a class="panel-link" id="panelLink" target="_blank" rel="noopener noreferrer"></a>
   <div class="view-project">
     <span>SELECTED PROJECT</span>
     <span>scientistsroom</span>
   </div>
-
 </aside>
 
-<!-- ==============================
-     PROJECT INDEX
-============================== -->
-
 <div id="projectIndexOverlay"></div>
-
 <section id="projectIndexPanel" aria-label="Projects index">
-
   <div class="project-index-header">
-
     <div class="project-index-top">
       <h2 class="project-index-heading">Projects</h2>
-
       <div class="project-index-actions">
         <div class="lang-switch" data-language-control aria-label="Language">
           <button class="lang-button" data-lang="kr" type="button">KR</button>
           <span class="lang-divider">/</span>
           <button class="lang-button" data-lang="en" type="button">EN</button>
         </div>
-
-        <button
-          id="closeProjectIndex"
-          type="button"
-          aria-label="Close projects"
-        >×</button>
+        <button id="closeProjectIndex" type="button" aria-label="Close projects">×</button>
       </div>
     </div>
 
     <div class="project-index-meta">
       <div class="project-count" id="projectCount"></div>
-
       <div class="project-sort">
         <button class="project-sort-button active" data-sort="all" type="button">ALL</button>
         <button class="project-sort-button" data-sort="year" type="button">YEAR</button>
         <button class="project-sort-button" data-sort="name" type="button">NAME</button>
       </div>
     </div>
-
   </div>
-
   <div class="project-index-scroll" id="projectIndexList"></div>
-
 </section>
 
-<!-- ==============================
-     ABOUT PANEL
-============================== -->
-
 <div id="aboutOverlay"></div>
-
 <aside id="aboutPanel" aria-label="About Kim Min U">
-
   <div class="about-header">
     <div class="about-top">
-
-      <div class="about-small">
-        SCIENTISTS[ROOM] / ABOUT
-      </div>
-
+      <div class="about-small">SCIENTISTS[ROOM] / ABOUT</div>
       <div class="about-top-actions">
         <div class="lang-switch" data-language-control aria-label="Language">
           <button class="lang-button" data-lang="kr" type="button">KR</button>
           <span class="lang-divider">/</span>
           <button class="lang-button" data-lang="en" type="button">EN</button>
         </div>
-
-        <button
-          id="closeAbout"
-          type="button"
-          aria-label="Close about"
-        >×</button>
+        <button id="closeAbout" type="button" aria-label="Close about">×</button>
       </div>
-
     </div>
   </div>
 
   <div class="about-scroll" id="aboutScroll">
-
     <h1 class="about-name">Kim Min U.</h1>
-
-    <div class="about-role">
-      GRAPHIC DESIGNER / VISUAL COMMUNICATION
-    </div>
-
+    <div class="about-role">GRAPHIC DESIGNER / VISUAL COMMUNICATION</div>
     <p class="about-intro" id="aboutIntro"></p>
 
     <section class="about-section">
@@ -1532,7 +1032,6 @@ a:focus-visible {
         <h2 class="about-section-title">01. Experience</h2>
         <span class="about-section-meta">CAREER / LEADERSHIP</span>
       </div>
-
       <div id="experienceList"></div>
     </section>
 
@@ -1541,7 +1040,6 @@ a:focus-visible {
         <h2 class="about-section-title">02. Projects</h2>
         <span class="about-section-meta">PROJECT ARCHIVE</span>
       </div>
-
       <div id="careerProjectList"></div>
       <p class="about-note" id="aboutProjectNote"></p>
     </section>
@@ -1551,7 +1049,6 @@ a:focus-visible {
         <h2 class="about-section-title">03. Academic Courses</h2>
         <span class="about-section-meta">EDUCATION</span>
       </div>
-
       <div id="academicList"></div>
     </section>
 
@@ -1560,199 +1057,140 @@ a:focus-visible {
         <h2 class="about-section-title">04. Selected Activities</h2>
         <span class="about-section-meta">EVENT / EXPERIENCE</span>
       </div>
-
       <div id="activityList"></div>
     </section>
 
     <div class="about-contact">
       <div class="about-contact-label">CONTACT</div>
-      <a href="mailto:xoxxnxxox@gmail.com">
-        xoxxnxxox@gmail.com
-      </a>
+      <a href="mailto:xoxxnxxox@gmail.com">xoxxnxxox@gmail.com</a>
     </div>
-
   </div>
 </aside>
 
-<!-- ==============================
-     LIGHTBOX
-============================== -->
-
 <div id="imageLightbox" aria-label="Expanded project image">
-
-  <button
-    id="closeLightbox"
-    type="button"
-    aria-label="Close image"
-  >×</button>
-
-  <button
-    class="lightbox-arrow"
-    id="lightboxPrev"
-    type="button"
-    aria-label="Previous image"
-  >←</button>
-
+  <button id="closeLightbox" type="button" aria-label="Close image">×</button>
+  <button class="lightbox-arrow" id="lightboxPrev" type="button" aria-label="Previous image">←</button>
   <img id="lightboxImage" alt="" decoding="async">
-
-  <button
-    class="lightbox-arrow"
-    id="lightboxNext"
-    type="button"
-    aria-label="Next image"
-  >→</button>
-
+  <button class="lightbox-arrow" id="lightboxNext" type="button" aria-label="Next image">→</button>
   <div id="lightboxCounter">01 / 01</div>
-
 </div>
 
 <script type="module">
-
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js";
 
-/* ==============================
-   LANGUAGE
-============================== */
-
-const translated = (kr, en) => ({ kr, en });
-
+/* LANGUAGE */
+const translated = (kr,en) => ({kr,en});
 let language = "kr";
-
 try {
-  language = localStorage.getItem("scientistsroom-language") === "en"
-    ? "en"
-    : "kr";
-} catch (error) {
+  language = localStorage.getItem("scientistsroom-language") === "en" ? "en" : "kr";
+} catch(error) {
   language = "kr";
 }
+const tr = value => typeof value === "string"
+  ? value
+  : (value?.[language] || value?.kr || "");
 
-const tr = value =>
-  typeof value === "string"
-    ? value
-    : (value?.[language] || value?.kr || "");
-
-/* ==============================
-   MAIN PROJECTS — 14
-============================== */
-
+/* MAIN PROJECTS */
 const projects = [
-
   {
-    number: "01",
-    title: "Orv",
-    year: "2024",
-    category: "BRANDING",
-    description: translated(
+    number:"01",
+    title:"Orv",
+    year:"2024",
+    category:"BRANDING",
+    description:translated(
       "Orv는 '0(지구), r(새싹), V(협곡)'의 의미를 더해 탄생한 브랜드로 자연과 공간, 사물을 결합하여 새로운 시각을 자극합니다.\n\n매일 지나치는 일상 속에서 새로운 시각으로 세상을 바라보면서 끊임없이 상상하게 합니다.\n\n또한 다양한 제품, 공간을 자연에 결합하는 시도를 하며 새롭게 진화하는 가치를 제공합니다.",
       "Orv is a brand built around the meanings of '0 (Earth), r (sprout), and V (canyon).' It combines nature, spaces, and objects to inspire new perspectives.\n\nBy reimagining familiar everyday scenes, Orv encourages ongoing curiosity and imagination.\n\nIt explores ways to integrate diverse products and spaces with nature, creating values that continue to evolve."
     ),
-    images: [
+    images:[
       "images/orv-01.jpg",
       "images/orv-02.jpg",
       "images/orv-03.jpg",
       "images/orv-04.jpg"
     ],
-    lat: 48,
-    lng: 125
+    lat:48,lng:125
   },
-
   {
-    number: "02",
-    title: "Advent Calendar",
-    year: "2024",
-    category: "PACKAGE",
-    description: translated(
+    number:"02",
+    title:"Advent Calendar",
+    year:"2024",
+    category:"PACKAGE",
+    description:translated(
       "어드벤트 캘린더는 12월 1일부터 24일까지 매일 한 칸씩 열어보며 즐기는 캘린더를 말합니다.\n\n크리스마스의 설렘과 기쁨을 나누는 문화와 연말 마케팅으로 자리잡은 어드벤트 캘린더를 호텔과 리본 컨셉으로 제작하였습니다.",
       "An advent calendar invites you to open one compartment each day from December 1 through 24.\n\nThis package design reinterprets the festive anticipation and joy of an advent calendar through a hotel-and-ribbon concept."
     ),
-    images: [
+    images:[
       "images/advent calendar-01.jpg",
       "images/advent calendar-02.jpg"
     ],
-    lat: 23,
-    lng: 145
+    lat:23,lng:145
   },
-
   {
-    number: "03",
-    title: translated("꿈꾸는 고양이", "Dream Cat Shelter"),
-    year: "2023",
-    category: "BRANDING",
-    description: translated(
+    number:"03",
+    title:translated("꿈꾸는 고양이","Dream Cat Shelter"),
+    year:"2023",
+    category:"BRANDING",
+    description:translated(
       "꿈꾸는고냥이는 시동물보호소와 부상, 학대, 유기된 동물들을 지속적으로 홍보하고 입양을 독려함으로써 조금 더 나은 삶을 살게 하기 위해 노력하는 고양이 입양센터입니다.\n\n브랜딩을 진행하여 팔로워 2.3K를 달성하였습니다.",
       "Dream Cat Shelter is a cat adoption center that supports animals affected by injury, abuse, or abandonment. It promotes shelter animals and encourages adoption to help them find better lives.\n\nI developed its branding, helping the account reach 2.3K followers."
     ),
-    images: ["images/dream-cat.jpg"],
-    lat: -5,
-    lng: 126
+    images:["images/dream-cat.jpg"],
+    lat:-5,lng:126
   },
-
   {
-    number: "04",
-    title: "Logo",
-    year: "",
-    category: "BRANDING",
-    description: "Too many LOGO !",
-    images: ["images/logo-01.jpg"],
-    lat: -34,
-    lng: 148
+    number:"04",
+    title:"Logo",
+    year:"",
+    category:"BRANDING",
+    description:"Too many LOGO !",
+    images:["images/logo-01.jpg"],
+    lat:-34,lng:148
   },
-
   {
-    number: "05",
-    title: translated(
-      "학교종합안전연구소",
-      "Ministry of Education Report"
-    ),
-    year: "2025",
-    category: "EDITORIAL",
-    description: translated(
+    number:"05",
+    title:translated("학교종합안전연구소","Ministry of Education Report"),
+    year:"2025",
+    category:"EDITORIAL",
+    description:translated(
       "교육부 인문사회연구소 지원사업 선정 실적 및 연구계획서 제작하였습니다.",
       "Designed the report on selected achievements and a research proposal for a Ministry of Education-funded humanities and social sciences research institute program."
     ),
-    images: [
-      "images/ministry of education report-01.jpg"
-    ],
-    lat: 53,
-    lng: 57
+    images:["images/ministry of education report-01.jpg"],
+    lat:53,lng:57
   },
-
   {
-    number: "06",
-    title: "Poster",
-    year: "",
-    category: "EDITORIAL",
-    description: "",
-    images: [
+    number:"06",
+    title:"Poster",
+    year:"",
+    category:"EDITORIAL",
+    description:"",
+    images:[
       {
-        src: "images/poster-01.jpg",
-        description: translated(
+        src:"images/poster-01.jpg",
+        description:translated(
           "3D Poster 작업프로세스",
           "3D poster design process"
         )
       },
       {
-        src: "images/poster-02.jpg",
-        description: translated(
+        src:"images/poster-02.jpg",
+        description:translated(
           "광주읍성 : 사라진기억 / 광주펫쇼 / 크리스마스 행사 / 전국 합창 경연대회 / ACC 뉴비스테이지 / 겨울특강 포스터 제작",
           "Poster designs for Gwangju Fortress: Lost Memories / Gwangju Pet Show / Christmas event / National Choir Competition / ACC New Stage / Winter Special Program"
         )
       }
     ],
-    lat: 25,
-    lng: 67
+    lat:25,lng:67
   },
-
   {
-    number: "07",
-    title: "Wandy",
-    year: "2024",
-    category: "UX / UI",
-    description: translated(
+    number:"07",
+    title:"Wandy",
+    year:"2024",
+    category:"UX / UI",
+    description:translated(
       "당신의 진로 파트너 Wandy!",
       "Wandy, your career-planning partner!"
     ),
-    images: [
+    images:[
       "images/wandy-01.jpg",
       "images/wandy-02.jpg",
       "images/wandy-03.jpg",
@@ -1762,613 +1200,387 @@ const projects = [
       "images/wandy-07.jpg",
       "images/wandy-08.jpg"
     ],
-    lat: -40,
-    lng: 30
+    lat:-40,lng:30
   },
-
   {
-    number: "08",
-    title: "Langmuir",
-    year: "2022",
-    category: "COVER ARTWORK",
-    description: translated(
+    number:"08",
+    title:"Langmuir",
+    year:"2022",
+    category:"COVER ARTWORK",
+    description:translated(
       "미국화학회 ACS 학술지 Langmuir 논문 표지 제작 및 그래픽 디자인을 진행하였습니다.",
       "Created cover artwork and graphic design for Langmuir, a scientific journal published by the American Chemical Society (ACS)."
     ),
-    images: ["images/langmuir-01.jpg"],
-    link: "https://www.fnnews.com/news/202302011635428474",
-    lat: 45,
-    lng: -72
+    images:["images/langmuir-01.jpg"],
+    link:"https://www.fnnews.com/news/202302011635428474",
+    lat:45,lng:-72
   },
-
   {
-    number: "09",
-    title: translated("교육청", "Office of Education"),
-    year: "2025",
-    category: "PM SAFETY EDUCATION",
-    description: translated(
+    number:"09",
+    title:translated("교육청","Office of Education"),
+    year:"2025",
+    category:"PM SAFETY EDUCATION",
+    description:translated(
       "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
       "Created graphic and editorial designs for personal mobility (PM) safety education materials tailored to kindergarten students, elementary school grades 1–2, 3–4, and 5–6, middle and high school students, and parents."
     ),
-    images: [],
-    link: "https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
-    lat: 18,
-    lng: -52
+    images:[],
+    link:"https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
+    lat:18,lng:-52
   },
-
   {
-    number: "10",
-    title: translated("동국대학교", "Dongguk University"),
-    year: "2026",
-    category: "EDITORIAL / PUBLISHING",
-    description: translated(
+    number:"10",
+    title:translated("동국대학교","Dongguk University"),
+    year:"2026",
+    category:"EDITORIAL / PUBLISHING",
+    description:translated(
       "『안전한 통학로 만들기』, 『학교안전의 이론적 탐색과 실천』의 표지 및 내지 디자인을 진행하였습니다.\n\n내지 교정과 편집을 비롯해 ISBN 등록부터 최종 출판까지 도서 제작의 전 과정을 함께 수행하였습니다.",
       "Designed the covers and interior layouts for Making Safe Routes to School and Theoretical Exploration and Practice of School Safety.\n\nWorked across the publishing process, from proofreading and editorial layout to ISBN registration and final publication."
     ),
-    images: ["images/dongguk university-01.jpg"],
-    lat: -13,
-    lng: -67
+    images:["images/dongguk university-01.jpg"],
+    lat:-13,lng:-67
   },
-
   {
-    number: "11",
-    title: translated("홍익대학교", "Hongik University"),
-    year: "2026",
-    category: "HOMEPAGE",
-    description: translated(
+    number:"11",
+    title:translated("홍익대학교","Hongik University"),
+    year:"2026",
+    category:"HOMEPAGE",
+    description:translated(
       "홍익대학교 온라인커뮤니케이션실 부편집장으로 뉴스 콘텐츠 제작 및 홈페이지 관리를 진행하였습니다.",
       "As Deputy Editor in the Office of Online Communication at Hongik University, I produced news content and managed the university website."
     ),
-    images: ["images/hongik university-01.jpg"],
-    link: "https://www.hongik.ac.kr/kr/index.do",
-    lat: -42,
-    lng: -40
+    images:["images/hongik university-01.jpg"],
+    link:"https://www.hongik.ac.kr/kr/index.do",
+    lat:-42,lng:-40
   },
-
   {
-    number: "12",
-    title: "spacehaeso : 조용한 형상들의 엄습",
-    year: "2025",
-    category: "PHOTO",
-    description: translated(
+    number:"12",
+    title:"spacehaeso : 조용한 형상들의 엄습",
+    year:"2025",
+    category:"PHOTO",
+    description:translated(
       "성수에 위치한 해소갤러리에서 조은필 작가의 「조용한 형상들의 엄습」 설치 촬영을 진행하였습니다.",
       "Photographed the installation of artist Jo Eunpil's solo exhibition 'The Quiet Forms' at Space Haeso Gallery in Seongsu, Seoul."
     ),
-    images: [
+    images:[
       "images/spacehaeso-01.jpg",
       "images/spacehaeso-02.jpg",
       "images/spacehaeso-03.jpg",
       "images/spacehaeso-04.jpg",
       "images/spacehaeso-05.jpg"
     ],
-    link: "https://spacehaeso.com/53",
-    lat: 57,
-    lng: -143
+    link:"https://spacehaeso.com/53",
+    lat:57,lng:-143
   },
-
   {
-    number: "13",
-    title: "LIG D&A 50th Anniversary",
-    year: "2026",
-    category: "PACKAGE / GRAPHIC DESIGN",
-    description: translated(
+    number:"13",
+    title:"LIG D&A 50th Anniversary",
+    year:"2026",
+    category:"PACKAGE / GRAPHIC DESIGN",
+    description:translated(
       "LIG 디펜스&에어로스페이스의 창립 50주년을 기념하여 VIP를 위한 소서세트 패키지 디자인을 진행하였습니다.\n\n50주년의 상징성과 브랜드 이미지를 담아 패키지 / 컵 / 소서 / 티 패키지까지 전체적인 디자인을 통일감 있게 구성하였습니다.",
       "Designed a VIP saucer-set package to commemorate the 50th anniversary of LIG Defense & Aerospace.\n\nDeveloped a cohesive design across the outer packaging, cup, saucer, and tea package, reflecting the anniversary and brand identity."
     ),
-    images: ["images/LIG D&A-01.jpg"],
-    lat: 5,
-    lng: -125
+    images:["images/LIG D&A-01.jpg"],
+    lat:5,lng:-125
   },
-
   {
-    number: "14",
-    title: "LG KES AI Gallery",
-    year: "2025",
-    category: "EXHIBITION / GRAPHIC DESIGN",
-    description: translated(
+    number:"14",
+    title:"LG KES AI Gallery",
+    year:"2025",
+    category:"EXHIBITION / GRAPHIC DESIGN",
+    description:translated(
       "COEX에서 열린 KES LG AI 갤러리의 리플렛, POP, 스펙보드 및 시안 합성을 제작하였습니다.",
       "Created leaflets, point-of-purchase (POP) materials, specification boards, and design mockups for LG's AI Gallery at KES, held at COEX."
     ),
-    images: ["images/kes lg-01.jpg"],
-    lat: 32,
-    lng: -105
+    images:["images/kes lg-01.jpg"],
+    lat:32,lng:-105
   }
-
 ];
 
-/* ==============================
-   ABOUT — EXPERIENCE
-============================== */
-
+/* EXPERIENCE */
 const experiences = [
-
   {
-    date: "2026.09 — PRESENT",
-    title: translated(
-      "홍익대학교 · HD LAB 4기",
-      "Hongik University · HD LAB, Cohort 4"
-    ),
-    description: translated(
-      "주연화 교수",
-      "Professor Joo Yeonhwa"
-    )
+    date:"2026.09 — PRESENT",
+    title:translated("홍익대학교 · HD LAB 4기","Hongik University · HD LAB, Cohort 4"),
+    description:translated("주연화 교수","Professor Joo Yeonhwa")
   },
-
   {
-    date: "2026.06 — PRESENT",
-    title: "ASSIST",
-    description: translated(
-      "AX 디자인 · 삼성화재 PoC",
-      "AX Design · Samsung Fire & Marine Insurance PoC"
-    )
+    date:"2026.06 — PRESENT",
+    title:"ASSIST",
+    description:translated("AX 디자인 · 삼성화재 PoC","AX Design · Samsung Fire & Marine Insurance PoC")
   },
-
   {
-    date: "2026.06 — PRESENT",
-    title: translated(
-      "홍익대학교",
-      "Hongik University"
-    ),
-    description: translated(
-      "문화예술경영 학회장",
-      "President, Arts and Cultural Management Student Association"
-    )
+    date:"2026.06 — PRESENT",
+    title:translated("홍익대학교","Hongik University"),
+    description:translated("문화예술경영 학회장","President, Arts and Cultural Management Student Association")
   },
-
   {
-    date: "2026.02 — PRESENT",
-    title: translated(
-      "홍익대학교",
-      "Hongik University"
-    ),
-    description: translated(
+    date:"2026.02 — PRESENT",
+    title:translated("홍익대학교","Hongik University"),
+    description:translated(
       "온라인커뮤니케이션실 부편집장 · 홈페이지 관리",
       "Deputy Editor, Office of Online Communication · Website Management"
     )
   },
-
   {
-    date: "2024.03 — 2025.03",
-    title: translated(
-      "졸업전시위원회",
-      "Graduation Exhibition Committee"
-    ),
-    description: translated(
-      "졸업전시위원장 · 1년",
-      "Chair of the Graduation Exhibition Committee · 1 year"
-    )
+    date:"2024.03 — 2025.03",
+    title:translated("졸업전시위원회","Graduation Exhibition Committee"),
+    description:translated("졸업전시위원장 · 1년","Chair of the Graduation Exhibition Committee · 1 year")
   },
-
   {
-    date: "2020.10 — PRESENT",
-    title: translated(
-      "미술학원",
-      "Art Academy"
-    ),
-    description: translated(
-      "홍보 / 마케팅",
-      "Public Relations / Marketing"
-    )
+    date:"2020.10 — PRESENT",
+    title:translated("미술학원","Art Academy"),
+    description:translated("홍보 / 마케팅","Public Relations / Marketing")
   },
-
   {
-    date: "",
-    title: translated(
-      "대학 홍보대사",
-      "University Ambassador"
-    ),
-    description: translated(
+    date:"",
+    title:translated("대학 홍보대사","University Ambassador"),
+    description:translated(
       "대학소개 · 대학박람회 · 외국인 학생 캠퍼스투어",
       "University introductions · Education fairs · Campus tours for international students"
     )
   }
-
 ];
 
-/* ==============================
-   ABOUT — PROJECT ARCHIVE
-============================== */
-
+/* PROJECT ARCHIVE */
 const careerProjects = [
-
   {
-    date: "2026.07 — PRESENT",
-    title: translated(
-      "삼성화재 PoC AX 디자인",
-      "Samsung Fire & Marine Insurance PoC"
-    ),
-    description: translated(
-      "삼성화재 PoC · AX 디자인",
-      "PoC project · AX design"
-    )
+    date:"2026.07 — PRESENT",
+    title:translated("삼성화재 PoC AX 디자인","Samsung Fire & Marine Insurance PoC"),
+    description:translated("삼성화재 PoC · AX 디자인","PoC project · AX design")
   },
-
   {
-    date: "2024.06 / 2025.01 / 2025.06 / 2025.12 / 2026.06 / 2026.10",
-    title: translated(
-      "임종희 형사법 모의고사 출판",
-      "Im Jonghee Criminal Law Practice Exam Publications"
-    ),
-    description: translated(
-      "편집디자인 총괄",
-      "Lead Editorial Designer"
-    )
+    date:"2024.06 / 2025.01 / 2025.06 / 2025.12 / 2026.06 / 2026.10",
+    title:translated("임종희 형사법 모의고사 출판","Im Jonghee Criminal Law Practice Exam Publications"),
+    description:translated("편집디자인 총괄","Lead Editorial Designer")
   },
-
   {
-    date: "2025.09 / 2025.11 / 2025.12 / 2026.01 / 2026.10",
-    title: translated(
-      "서정표 경찰학 출판",
-      "Seo Jeongpyo Police Studies Publications"
-    ),
-    description: translated(
+    date:"2025.09 / 2025.11 / 2025.12 / 2026.01 / 2026.10",
+    title:translated("서정표 경찰학 출판","Seo Jeongpyo Police Studies Publications"),
+    description:translated(
       "요기로 · 총론 · 각론 · 동형모의고사 · 예상문제풀이\n편집디자인 총괄",
       "Textbooks, practice exams, and question books\nLead Editorial Designer"
     )
   },
-
   {
-    date: "2026.04 — 2026.06",
-    title: "LIG 50th Anniversary",
-    description: translated(
-      "굿즈 및 포스터 키비주얼 제작",
-      "Key visual design for merchandise and posters"
-    )
+    date:"2026.04 — 2026.06",
+    title:"LIG 50th Anniversary",
+    description:translated("굿즈 및 포스터 키비주얼 제작","Key visual design for merchandise and posters")
   },
-
   {
-    date: "2025.11 — 2026.02",
-    title: translated(
-      "연구보고서 및 성과보고서 출판",
-      "Research and Performance Report Publications"
-    ),
-    description: translated(
+    date:"2025.11 — 2026.02",
+    title:translated("연구보고서 및 성과보고서 출판","Research and Performance Report Publications"),
+    description:translated(
       "동국대학교 및 교육청\n『학교안전의 이론적 탐색과 실천』 · 『안전한 통학로 만들기』 출판",
       "Publishing projects with Dongguk University and the Office of Education\nTheoretical Exploration and Practice of School Safety / Making Safe Routes to School"
     )
   },
-
   {
-    date: "2025.08 — 2026.02",
-    title: translated(
-      "교육청 PM 안전교육 책자 제작",
-      "Office of Education · PM Safety Materials"
-    ),
-    description: translated(
+    date:"2025.08 — 2026.02",
+    title:translated("교육청 PM 안전교육 책자 제작","Office of Education · PM Safety Materials"),
+    description:translated(
       "유치원 · 초등학교 · 중학교 · 고등학교 대상 개인형 이동장치 안전교육 자료 제작",
       "Personal mobility safety education materials for kindergarten, elementary, middle, and high school students"
     )
   },
-
   {
-    date: "2025.03 — 2025.11",
-    title: translated(
-      "구석구석 문화배달",
-      "Culture Delivery Program"
-    ),
-    description: translated(
+    date:"2025.03 — 2025.11",
+    title:translated("구석구석 문화배달","Culture Delivery Program"),
+    description:translated(
       "포스터 · 배너 · 리플렛 · 인쇄물 및 홍보 디자인",
       "Posters, banners, leaflets, print materials, and promotional design"
     )
   },
-
   {
-    date: "2025.09 — 2025.10",
-    title: "KES LG",
-    description: translated(
+    date:"2025.09 — 2025.10",
+    title:"KES LG",
+    description:translated(
       "한국전자전 · 리플렛 · POP · 스펙보드 · 시안 합성",
       "Korea Electronics Show · Leaflets · POP · Specification boards · Design mockups"
     )
   },
-
   {
-    date: "2025.07 — 2025.10",
-    title: translated(
-      "광주읍성 : 사라진 기억",
-      "Gwangju Fortress: Lost Memories"
-    ),
-    description: translated(
+    date:"2025.07 — 2025.10",
+    title:translated("광주읍성 : 사라진 기억","Gwangju Fortress: Lost Memories"),
+    description:translated(
       "서빛마루 문화예술회관\n포스터 · 배너 · 상세페이지 제작",
       "Seobitmaru Culture & Arts Center\nPosters, banners, and promotional detail pages"
     )
   },
-
   {
-    date: "2025.07 — 2025.08",
-    title: translated(
-      "해소갤러리 : 조용한 형상들의 엄습",
-      "Space Haeso Gallery · Jo Eunpil Solo Exhibition"
-    ),
-    description: translated(
+    date:"2025.07 — 2025.08",
+    title:translated("해소갤러리 : 조용한 형상들의 엄습","Space Haeso Gallery · Jo Eunpil Solo Exhibition"),
+    description:translated(
       "조은필 작가 개인전 설치 작품 사진촬영",
       "Installation photography for artist Jo Eunpil's solo exhibition"
     )
   },
-
   {
-    date: "2023.03 — 2023.05",
-    title: translated(
-      "빛의 하모니 전국 합창 경연대회",
-      "Harmony of Light National Choir Competition"
-    ),
-    description: translated(
-      "포스터 디자인",
-      "Poster design"
-    )
+    date:"2023.03 — 2023.05",
+    title:translated("빛의 하모니 전국 합창 경연대회","Harmony of Light National Choir Competition"),
+    description:translated("포스터 디자인","Poster design")
   },
-
   {
-    date: "2023.01 — 2023.02",
-    title: translated(
-      "광주펫쇼",
-      "Gwangju Pet Show"
-    ),
-    description: translated(
-      "포스터 및 브로슈어 제작",
-      "Posters and brochure design"
-    )
+    date:"2023.01 — 2023.02",
+    title:translated("광주펫쇼","Gwangju Pet Show"),
+    description:translated("포스터 및 브로슈어 제작","Posters and brochure design")
   },
-
   {
-    date: "2022.05 — 2022.10",
-    title: "Langmuir",
-    description: translated(
+    date:"2022.05 — 2022.10",
+    title:"Langmuir",
+    description:translated(
       "미국화학회 ACS Langmuir 논문 표지 그래픽 디자인",
       "Cover artwork for Langmuir, an American Chemical Society journal"
     )
   },
-
   {
-    date: "2022.01 — 2022.03",
-    title: translated(
-      "아모레퍼시픽 광주지부",
-      "Amorepacific · Gwangju Branch"
-    ),
-    description: translated(
+    date:"2022.01 — 2022.03",
+    title:translated("아모레퍼시픽 광주지부","Amorepacific · Gwangju Branch"),
+    description:translated(
       "지부장 포스터 · 브로슈어 · 제34~35회 정기총회 책자 제작",
       "Branch head posters, brochures, and the 34th–35th general meeting booklets"
     )
   },
-
   {
-    date: "2021.03 — 2021.09",
-    title: "Mind Diary Project",
-    description: translated(
+    date:"2021.03 — 2021.09",
+    title:"Mind Diary Project",
+    description:translated(
       "상담나무 크라우드펀딩 다이어리 그래픽 디자인",
       "Graphic design for Sangdamnamu's crowdfunded Mind Diary"
     )
   }
-
 ];
 
-/* ==============================
-   ABOUT — ACADEMIC COURSES
-============================== */
-
+/* ACADEMIC COURSES */
 const academicCourses = [
-
   {
-    title: "Visual Design",
-    courses: [
-      "평면조형",
-      "기초그래픽디자인",
-      "디자인색채",
-      "입체조형",
-      "발상과표현",
-      "디지털그래픽디자인",
-      "디자인론",
-      "디지털아트그래픽",
-      "사진디자인1",
-      "시각콘텐츠디자인",
-      "영상미디어디자인",
-      "커머셜포토",
-      "타이포그래피",
-      "컴퓨터그래픽1",
-      "브랜드디자인",
-      "마케팅커뮤니케이션디자인",
-      "패키지디자인",
-      "사진편집디자인",
-      "UI/UX디자인",
-      "에디토리얼디자인",
-      "사진디자인2",
-      "멀티미디어이해와활용",
-      "디지털아트디자인워크숍1",
-      "브랜드아이덴티티디자인1",
-      "서비스마케팅디자인1",
-      "브랜드아이덴티티디자인2",
-      "서비스마케팅디자인2",
-      "패키지디자인세미나2"
+    title:"Visual Design",
+    courses:[
+      "평면조형","기초그래픽디자인","디자인색채",
+      "입체조형","발상과표현","디지털그래픽디자인",
+      "디자인론","디지털아트그래픽","사진디자인1",
+      "시각콘텐츠디자인","영상미디어디자인","커머셜포토",
+      "타이포그래피","컴퓨터그래픽1","브랜드디자인",
+      "마케팅커뮤니케이션디자인","패키지디자인",
+      "사진편집디자인","UI/UX디자인","에디토리얼디자인",
+      "사진디자인2","멀티미디어이해와활용",
+      "디지털아트디자인워크숍1","브랜드아이덴티티디자인1",
+      "서비스마케팅디자인1","브랜드아이덴티티디자인2",
+      "서비스마케팅디자인2","패키지디자인세미나2"
     ]
   },
-
   {
-    title: "Arts & Cultural Management",
-    courses: [
-      "문화예술경영개론",
-      "미술시장경영론",
-      "미술경영특론",
-      "대중문화론",
-      "문화예술과 지적재산",
-      "질적조사방법론"
+    title:"Arts & Cultural Management",
+    courses:[
+      "문화예술경영개론","미술시장경영론","미술경영특론",
+      "대중문화론","문화예술과 지적재산","질적조사방법론"
     ]
   },
-
   {
-    title: "Business & Management",
-    courses: [
-      "경영학원론",
-      "회계원리",
-      "무역학개론",
-      "중급회계1",
-      "조직행동론",
-      "경영정보시스템",
-      "생산·운영관리",
-      "소비자행동",
-      "재무관리",
-      "마케팅관리론",
-      "인적자원관리",
-      "기술경영혁신론",
-      "경영조직론",
-      "기업과경영",
-      "경제학원론"
+    title:"Business & Management",
+    courses:[
+      "경영학원론","회계원리","무역학개론","중급회계1",
+      "조직행동론","경영정보시스템","생산·운영관리",
+      "소비자행동","재무관리","마케팅관리론",
+      "인적자원관리","기술경영혁신론","경영조직론",
+      "기업과경영","경제학원론"
     ]
   },
-
   {
-    title: "Humanities & Liberal Arts",
-    courses: [
-      "생활영어1",
-      "한국문학의이해",
-      "리더십",
-      "철학의이해",
-      "한문",
-      "삶과지적대화",
-      "무기체계",
-      "민법총칙",
-      "논리학",
-      "36.5도의물리학",
-      "공동체와담론",
-      "토론과민주지성",
-      "글로벌커뮤니케이션잉글리쉬"
+    title:"Humanities & Liberal Arts",
+    courses:[
+      "생활영어1","한국문학의이해","리더십","철학의이해",
+      "한문","삶과지적대화","무기체계","민법총칙",
+      "논리학","36.5도의물리학","공동체와담론",
+      "토론과민주지성","글로벌커뮤니케이션잉글리쉬"
     ]
   },
-
   {
-    title: "Education & Communication",
-    courses: [
-      "진로설계와자기이해",
-      "상업정보교재연구및지도법"
+    title:"Education & Communication",
+    courses:[
+      "진로설계와자기이해","상업정보교재연구및지도법"
     ]
   }
-
 ];
 
-/* ==============================
-   ABOUT — SELECTED ACTIVITIES
-============================== */
-
+/* SELECTED ACTIVITIES */
 const activities = [
-
   {
-    date: "2025.12.06 — 12.28",
-    title: "League of Legends LCK Photo Exhibition",
-    description: translated(
-      "롤파크 · LCK 사진전",
-      "LCK photo exhibition at LoL PARK"
-    )
+    date:"2025.12.06 — 12.28",
+    title:"League of Legends LCK Photo Exhibition",
+    description:translated("롤파크 · LCK 사진전","LCK photo exhibition at LoL PARK")
   },
-
   {
-    date: "2025.11.22",
-    title: "Kakao AI Campus Competition",
-    description: translated(
-      "카카오 AI캠퍼스 대회",
-      "Kakao AI Campus competition"
-    )
+    date:"2025.11.22",
+    title:"Kakao AI Campus Competition",
+    description:translated("카카오 AI캠퍼스 대회","Kakao AI Campus competition")
   },
-
   {
-    date: "2025.10.27 — 11.04",
-    title: "HYBE &TEAM Pop-up",
-    description: translated(
-      "앤팀 아이돌 팝업",
-      "Pop-up event for idol group &TEAM"
-    )
+    date:"2025.10.27 — 11.04",
+    title:"HYBE &TEAM Pop-up",
+    description:translated("앤팀 아이돌 팝업","Pop-up event for idol group &TEAM")
   },
-
   {
-    date: "2025.10.01 — 10.24",
-    title: "KES · LG",
-    description: translated(
+    date:"2025.10.01 — 10.24",
+    title:"KES · LG",
+    description:translated(
       "한국전자전 · 디자인 및 광고대행사 업무",
       "Korea Electronics Show · Design and advertising agency work"
     )
   },
-
   {
-    date: "2025.09.03 — 09.06",
-    title: "adidas Exhibition & Pop-up",
-    description: translated(
-      "아디다스 전시 및 팝업",
-      "adidas exhibition and pop-up"
-    )
+    date:"2025.09.03 — 09.06",
+    title:"adidas Exhibition & Pop-up",
+    description:translated("아디다스 전시 및 팝업","adidas exhibition and pop-up")
   },
-
   {
-    date: "2025.09.01 — 09.30",
-    title: "NH All One Bank Pop-up",
-    description: translated(
-      "농협 올원뱅크 성수 팝업",
-      "NH All One Bank pop-up in Seongsu"
-    )
+    date:"2025.09.01 — 09.30",
+    title:"NH All One Bank Pop-up",
+    description:translated("농협 올원뱅크 성수 팝업","NH All One Bank pop-up in Seongsu")
   },
-
   {
-    date: "2025.07.25 — 08.03",
-    title: "Mercedes-Benz GLE SUV",
-    description: translated(
-      "Hot Spot 팝업",
-      "Hot Spot pop-up"
-    )
+    date:"2025.07.25 — 08.03",
+    title:"Mercedes-Benz GLE SUV",
+    description:translated("Hot Spot 팝업","Hot Spot pop-up")
   },
-
   {
-    date: "2025.06.21",
-    title: "Gwanghwamun Hallyu Festival",
-    description: translated(
-      "광화문 한류축제",
-      "Korean Wave festival at Gwanghwamun"
-    )
+    date:"2025.06.21",
+    title:"Gwanghwamun Hallyu Festival",
+    description:translated("광화문 한류축제","Korean Wave festival at Gwanghwamun")
   },
-
   {
-    date: "2025.06.20 — 06.21",
-    title: "Orchestra Concert",
-    description: translated(
+    date:"2025.06.20 — 06.21",
+    title:"Orchestra Concert",
+    description:translated(
       "경희대학교 평화의전당 · 스태프",
       "Event staff · Grand Peace Hall, Kyung Hee University"
     )
   },
-
   {
-    date: "2025.06.12 — 06.14",
-    title: "BTS FESTA",
-    description: translated(
-      "행사 스태프",
-      "Event staff"
-    )
+    date:"2025.06.12 — 06.14",
+    title:"BTS FESTA",
+    description:translated("행사 스태프","Event staff")
   },
-
   {
-    date: "2025.05",
-    title: "Cheong Wa Dae",
-    description: translated(
-      "청와대 안내요원",
-      "Visitor guide"
-    )
+    date:"2025.05",
+    title:"Cheong Wa Dae",
+    description:translated("청와대 안내요원","Visitor guide")
   }
-
 ];
 
-/* ==============================
-   DOM / STATE
-============================== */
-
+/* DOM / STATE */
 const byId = id => document.getElementById(id);
-
 const aboutPanel = byId("aboutPanel");
 const aboutOverlay = byId("aboutOverlay");
 const aboutScroll = byId("aboutScroll");
-
 const panel = byId("projectPanel");
 const panelOverlay = byId("panelOverlay");
 const panelImage = byId("panelImage");
 const imagePlaceholder = byId("imagePlaceholder");
-
 const projectIndexPanel = byId("projectIndexPanel");
 const projectIndexOverlay = byId("projectIndexOverlay");
 const projectIndexList = byId("projectIndexList");
-
 const imageLightbox = byId("imageLightbox");
 const lightboxImage = byId("lightboxImage");
 const label = byId("projectLabel");
@@ -2377,14 +1589,10 @@ let activeProject = null;
 let activeImageIndex = 0;
 let projectSortMode = "all";
 let projectOpenedFromIndex = false;
-
 let panelImageToken = 0;
 let lightboxImageToken = 0;
 
-/* ==============================
-   ABOUT RENDERING
-============================== */
-
+/* ABOUT RENDER */
 function createAboutEntry(item) {
   const entry = document.createElement("div");
   entry.className = "about-entry";
@@ -2403,25 +1611,19 @@ function createAboutEntry(item) {
   description.className = "about-entry-desc";
   description.textContent = tr(item.description);
 
-  content.append(title, description);
-  entry.append(date, content);
-
+  content.append(title,description);
+  entry.append(date,content);
   return entry;
 }
-
-function renderAboutEntries(containerId, items) {
+function renderAboutEntries(containerId,items) {
   const container = byId(containerId);
-
-  container.replaceChildren(
-    ...items.map(createAboutEntry)
-  );
+  container.replaceChildren(...items.map(createAboutEntry));
 }
-
 function renderAcademicCourses() {
   const target = byId("academicList");
   target.replaceChildren();
 
-  academicCourses.forEach((group, index) => {
+  academicCourses.forEach((group,index) => {
     const wrapper = document.createElement("div");
     wrapper.className = "course-group";
 
@@ -2430,290 +1632,193 @@ function renderAcademicCourses() {
 
     const title = document.createElement("h3");
     title.className = "course-title";
-
-    title.textContent =
-      String(index + 1).padStart(2, "0") +
-      ". " +
-      group.title;
+    title.textContent = String(index+1).padStart(2,"0") + ". " + group.title;
 
     const count = document.createElement("span");
     count.className = "course-count";
-
-    count.textContent =
-      group.courses.length + " COURSES";
+    count.textContent = group.courses.length + " COURSES";
 
     const courses = document.createElement("p");
     courses.className = "course-list";
     courses.textContent = group.courses.join(" · ");
 
-    heading.append(title, count);
-    wrapper.append(heading, courses);
-
+    heading.append(title,count);
+    wrapper.append(heading,courses);
     target.appendChild(wrapper);
   });
 }
-
 function renderAbout() {
   byId("aboutIntro").textContent = tr(translated(
     "그래픽디자인 · 브랜딩 · 편집디자인 · 전시 · 출판 · 시각커뮤니케이션",
     "Graphic Design · Branding · Editorial · Exhibition · Publishing · Visual Communication"
   ));
-
   byId("aboutProjectNote").textContent = tr(translated(
     "그 외 다양한 브랜딩, 추계예술대학교 졸업전시 포스터, 지자체 브로슈어, 도서 편집·출판 디자인을 진행하였습니다.",
     "Additional projects include branding, Chugye University graduation exhibition posters, local government brochures, and editorial and publishing design."
   ));
-
-  renderAboutEntries("experienceList", experiences);
-  renderAboutEntries("careerProjectList", careerProjects);
-  renderAboutEntries("activityList", activities);
+  renderAboutEntries("experienceList",experiences);
+  renderAboutEntries("careerProjectList",careerProjects);
+  renderAboutEntries("activityList",activities);
   renderAcademicCourses();
 }
 
-/* ==============================
-   THREE.JS GLOBE
-============================== */
-
+/* THREE.JS */
 const container = byId("earth");
 const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-  38, 1, 0.1, 100
-);
-
+const camera = new THREE.PerspectiveCamera(38,1,0.1,100);
 camera.position.z = 4.8;
 
 const renderer = new THREE.WebGLRenderer({
-  alpha: true,
-  antialias: true
+  alpha:true,
+  antialias:true
 });
-
-renderer.setPixelRatio(
-  Math.min(window.devicePixelRatio, 2)
-);
-
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 container.appendChild(renderer.domElement);
 
 const globe = new THREE.Group();
 scene.add(globe);
 
-const globeGeometry = new THREE.SphereGeometry(
-  1.35, 128, 128
-);
-
+const globeGeometry = new THREE.SphereGeometry(1.35,128,128);
 const globeMaterial = new THREE.MeshPhysicalMaterial({
-  color: 0xffffff,
-  transparent: true,
-  opacity: 0.10,
-  roughness: 0.08,
-  metalness: 0.02,
-  transmission: 0.5,
-  thickness: 1,
-  ior: 1.35,
-  clearcoat: 1,
-  clearcoatRoughness: 0.08
+  color:0xffffff,
+  transparent:true,
+  opacity:0.10,
+  roughness:0.08,
+  metalness:0.02,
+  transmission:0.5,
+  thickness:1,
+  ior:1.35,
+  clearcoat:1,
+  clearcoatRoughness:0.08
 });
-
-globe.add(
-  new THREE.Mesh(globeGeometry, globeMaterial)
-);
-
-/* SMALL DOTS */
+globe.add(new THREE.Mesh(globeGeometry,globeMaterial));
 
 const DOT_COUNT = 3000;
 const dotPoints = [];
 
-for (let i = 0; i < DOT_COUNT; i++) {
-  const phi = Math.acos(
-    -1 + (2 * i) / DOT_COUNT
-  );
-
-  const theta =
-    Math.sqrt(DOT_COUNT * Math.PI) * phi;
-
+for(let i=0;i<DOT_COUNT;i++) {
+  const phi = Math.acos(-1+(2*i)/DOT_COUNT);
+  const theta = Math.sqrt(DOT_COUNT*Math.PI)*phi;
   const radius = 1.37;
 
   dotPoints.push(
-    radius * Math.cos(theta) * Math.sin(phi),
-    radius * Math.sin(theta) * Math.sin(phi),
-    radius * Math.cos(phi)
+    radius*Math.cos(theta)*Math.sin(phi),
+    radius*Math.sin(theta)*Math.sin(phi),
+    radius*Math.cos(phi)
   );
 }
 
 const dotGeometry = new THREE.BufferGeometry();
-
 dotGeometry.setAttribute(
   "position",
-  new THREE.Float32BufferAttribute(dotPoints, 3)
+  new THREE.Float32BufferAttribute(dotPoints,3)
 );
 
-globe.add(
-  new THREE.Points(
-    dotGeometry,
-    new THREE.PointsMaterial({
-      color: 0xffffff,
-      size: 0.013,
-      transparent: true,
-      opacity: 0.55,
-      sizeAttenuation: true
-    })
-  )
-);
+globe.add(new THREE.Points(
+  dotGeometry,
+  new THREE.PointsMaterial({
+    color:0xffffff,
+    size:0.013,
+    transparent:true,
+    opacity:0.55,
+    sizeAttenuation:true
+  })
+));
 
-/* WIREFRAME */
+globe.add(new THREE.Mesh(
+  new THREE.SphereGeometry(1.36,30,20),
+  new THREE.MeshBasicMaterial({
+    color:0xffffff,
+    wireframe:true,
+    transparent:true,
+    opacity:0.05
+  })
+));
 
-globe.add(
-  new THREE.Mesh(
-    new THREE.SphereGeometry(1.36, 30, 20),
-    new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.05
-    })
-  )
-);
-
-/* LIGHTING */
-
-const lightA = new THREE.DirectionalLight(
-  0xffffff, 4
-);
-
-lightA.position.set(2, 3, 4);
+const lightA = new THREE.DirectionalLight(0xffffff,4);
+lightA.position.set(2,3,4);
 scene.add(lightA);
 
-const lightB = new THREE.DirectionalLight(
-  0xffffff, 2
-);
-
-lightB.position.set(-3, -1, 2);
+const lightB = new THREE.DirectionalLight(0xffffff,2);
+lightB.position.set(-3,-1,2);
 scene.add(lightB);
 
-globe.rotation.x =
-  THREE.MathUtils.degToRad(-14);
+globe.rotation.x = THREE.MathUtils.degToRad(-14);
+globe.rotation.z = THREE.MathUtils.degToRad(-8);
 
-globe.rotation.z =
-  THREE.MathUtils.degToRad(-8);
-
-function latLngToVector3(lat, lng, radius) {
-  const phi =
-    THREE.MathUtils.degToRad(90 - lat);
-
-  const theta =
-    THREE.MathUtils.degToRad(lng + 180);
-
+function latLngToVector3(lat,lng,radius) {
+  const phi = THREE.MathUtils.degToRad(90-lat);
+  const theta = THREE.MathUtils.degToRad(lng+180);
   return new THREE.Vector3(
-    -radius * Math.sin(phi) * Math.cos(theta),
-    radius * Math.cos(phi),
-    radius * Math.sin(phi) * Math.sin(theta)
+    -radius*Math.sin(phi)*Math.cos(theta),
+    radius*Math.cos(phi),
+    radius*Math.sin(phi)*Math.sin(theta)
   );
 }
 
-/* ==============================
-   IMAGE PRELOADING
-============================== */
-
+/* IMAGE PRELOADING */
 const imageCache = new Map();
 const preloadQueue = [];
-
 let activePreloads = 0;
 const MAX_PRELOADS = 2;
 
-function preloadImage(src, highPriority = false) {
-  if (!src) {
-    return Promise.resolve(false);
-  }
+function preloadImage(src,highPriority=false) {
+  if(!src) return Promise.resolve(false);
 
   const existing = imageCache.get(src);
-
-  if (existing) {
-    if (
-      highPriority &&
-      !existing.job.started
-    ) {
+  if(existing) {
+    if(highPriority && !existing.job.started) {
       existing.job.highPriority = true;
-
-      const index =
-        preloadQueue.indexOf(existing.job);
-
-      if (index !== -1) {
-        preloadQueue.splice(index, 1);
+      const index = preloadQueue.indexOf(existing.job);
+      if(index!==-1) {
+        preloadQueue.splice(index,1);
         preloadQueue.unshift(existing.job);
       }
     }
-
     runPreloads();
     return existing.promise;
   }
 
   let finishPromise;
-
   const promise = new Promise(resolve => {
     finishPromise = resolve;
   });
 
-  const job = {
-    src,
-    started: false,
-    finishPromise,
-    highPriority
-  };
+  const job = {src,started:false,finishPromise,highPriority};
+  imageCache.set(src,{promise,job});
 
-  imageCache.set(src, {
-    promise,
-    job
-  });
-
-  if (highPriority) {
-    preloadQueue.unshift(job);
-  } else {
-    preloadQueue.push(job);
-  }
+  if(highPriority) preloadQueue.unshift(job);
+  else preloadQueue.push(job);
 
   runPreloads();
   return promise;
 }
 
 function runPreloads() {
-  while (
-    activePreloads < MAX_PRELOADS &&
-    preloadQueue.length
-  ) {
+  while(activePreloads<MAX_PRELOADS && preloadQueue.length) {
     const job = preloadQueue.shift();
-
     job.started = true;
     activePreloads++;
 
     const image = new Image();
     image.decoding = "async";
-
-    image.fetchPriority =
-      job.highPriority ? "high" : "low";
+    image.fetchPriority = job.highPriority ? "high" : "low";
 
     let finished = false;
-
     const finish = success => {
-      if (finished) return;
-
+      if(finished) return;
       finished = true;
       activePreloads--;
-
-      if (!success) {
-        imageCache.delete(job.src);
-      }
-
+      if(!success) imageCache.delete(job.src);
       job.finishPromise(success);
       runPreloads();
     };
 
     image.onload = async () => {
-      if (typeof image.decode === "function") {
-        try {
-          await image.decode();
-        } catch (error) {}
+      if(typeof image.decode==="function") {
+        try { await image.decode(); }
+        catch(error) {}
       }
-
       finish(true);
     };
 
@@ -2722,280 +1827,166 @@ function runPreloads() {
   }
 }
 
-const getProjectImages = project =>
-  project.images || [];
-
+const getProjectImages = project => project.images || [];
 const getImageSource = item =>
-  typeof item === "string"
-    ? item
-    : (item?.src || "");
-
+  typeof item === "string" ? item : (item?.src || "");
 const getImageDescription = item =>
-  item && typeof item === "object"
-    ? tr(item.description || "")
-    : "";
-
-const displayProjectTitle = project =>
-  tr(project.title);
+  item && typeof item === "object" ? tr(item.description || "") : "";
+const displayProjectTitle = project => tr(project.title);
 
 function getCurrentDescription() {
-  if (!activeProject) return "";
-
-  const images =
-    getProjectImages(activeProject);
-
-  return (
-    getImageDescription(images[activeImageIndex]) ||
-    tr(activeProject.description)
-  );
+  if(!activeProject) return "";
+  return getImageDescription(
+    getProjectImages(activeProject)[activeImageIndex]
+  ) || tr(activeProject.description);
 }
 
 function preloadCover(project) {
   const first = getProjectImages(project)[0];
-
-  if (first) {
-    preloadImage(
-      getImageSource(first),
-      true
-    );
-  }
+  if(first) preloadImage(getImageSource(first),true);
 }
 
 function preloadNeighbors() {
-  if (!activeProject) return;
+  if(!activeProject) return;
+  const images = getProjectImages(activeProject);
+  if(images.length<=1) return;
 
-  const images =
-    getProjectImages(activeProject);
-
-  if (images.length <= 1) return;
-
-  const next =
-    (activeImageIndex + 1) % images.length;
-
-  const previous =
-    (activeImageIndex - 1 + images.length) %
-    images.length;
-
-  preloadImage(
-    getImageSource(images[next]),
-    true
-  );
-
-  if (previous !== next) {
-    preloadImage(
-      getImageSource(images[previous]),
-      true
-    );
+  const next = (activeImageIndex+1)%images.length;
+  const previous = (activeImageIndex-1+images.length)%images.length;
+  preloadImage(getImageSource(images[next]),true);
+  if(previous!==next) {
+    preloadImage(getImageSource(images[previous]),true);
   }
 }
 
-window.addEventListener("load", () => {
-  if (navigator.connection?.saveData) return;
-
-  const mobile = window.matchMedia(
-    "(max-width:900px)"
-  ).matches;
-
+window.addEventListener("load",() => {
+  if(navigator.connection?.saveData) return;
+  const mobile = window.matchMedia("(max-width:900px)").matches;
   const limit = mobile ? 3 : 7;
 
-  const preload = () => {
-    projects
-      .map(project =>
-        getProjectImages(project)[0]
-      )
-      .filter(Boolean)
-      .slice(0, limit)
-      .forEach((item, index) => {
-        setTimeout(() => {
-          preloadImage(getImageSource(item));
-        }, index * 350);
-      });
-  };
-
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(preload, {
-      timeout: 1500
+  const preload = () => projects
+    .map(project => getProjectImages(project)[0])
+    .filter(Boolean)
+    .slice(0,limit)
+    .forEach((item,index) => {
+      setTimeout(() => preloadImage(getImageSource(item)),index*350);
     });
+
+  if("requestIdleCallback" in window) {
+    window.requestIdleCallback(preload,{timeout:1500});
   } else {
-    setTimeout(preload, 800);
+    setTimeout(preload,800);
   }
 });
 
-/* ==============================
-   PROJECT MARKERS
-============================== */
-
-const markerContainer =
-  byId("projectMarkers");
-
+/* PROJECT MARKERS */
+const markerContainer = byId("projectMarkers");
 const projectMarkers = [];
 
-function showMarkerLabel(project, x, y) {
+function showMarkerLabel(project,x,y) {
   label.replaceChildren();
 
   const number = document.createElement("span");
   number.className = "label-number";
   number.textContent = project.number;
 
-  const name = document.createTextNode(
-    displayProjectTitle(project)
-  );
+  const name = document.createTextNode(displayProjectTitle(project));
 
   const category = document.createElement("span");
   category.className = "label-category";
   category.textContent = project.category;
 
-  label.append(number, name, category);
-
-  label.style.left = x + "px";
-  label.style.top = y + "px";
-
+  label.append(number,name,category);
+  label.style.left = x+"px";
+  label.style.top = y+"px";
   label.classList.add("active");
 }
 
 projects.forEach(project => {
   const marker = document.createElement("button");
-
   marker.type = "button";
   marker.className = "project-marker";
-
-  marker.setAttribute(
-    "aria-label",
-    displayProjectTitle(project)
-  );
+  marker.setAttribute("aria-label",displayProjectTitle(project));
 
   marker.style.setProperty(
     "--pulse-duration",
-    (2.5 + Math.random() * 1.7) + "s"
+    (2.5+Math.random()*1.7)+"s"
   );
-
   marker.style.setProperty(
     "--pulse-delay",
-    (-Math.random() * 4) + "s"
+    (-Math.random()*4)+"s"
   );
 
-  const position = latLngToVector3(
-    project.lat,
-    project.lng,
-    1.43
-  );
+  const position = latLngToVector3(project.lat,project.lng,1.43);
 
-  marker.addEventListener("mouseenter", event => {
-    showMarkerLabel(
-      project,
-      event.clientX,
-      event.clientY
-    );
-
+  marker.addEventListener("mouseenter",event => {
+    showMarkerLabel(project,event.clientX,event.clientY);
     preloadCover(project);
   });
-
-  marker.addEventListener("mousemove", event => {
-    label.style.left = event.clientX + "px";
-    label.style.top = event.clientY + "px";
+  marker.addEventListener("mousemove",event => {
+    label.style.left = event.clientX+"px";
+    label.style.top = event.clientY+"px";
   });
-
-  marker.addEventListener("mouseleave", () => {
+  marker.addEventListener("mouseleave",() => {
     label.classList.remove("active");
   });
-
-  marker.addEventListener("click", () => {
-    openProject(project, "globe");
+  marker.addEventListener("click",() => {
+    openProject(project,"globe");
   });
 
   markerContainer.appendChild(marker);
-
-  projectMarkers.push({
-    element: marker,
-    position,
-    project
-  });
+  projectMarkers.push({element:marker,position,project});
 });
 
-/* ==============================
-   PROJECT SLIDER
-============================== */
-
+/* PROJECT SLIDER */
 function renderProjectText() {
-  if (!activeProject) return;
-
-  byId("panelIndex").textContent =
-    activeProject.number + " / PROJECT";
-
-  byId("panelYear").textContent =
-    activeProject.year;
-
-  byId("panelTitle").textContent =
-    displayProjectTitle(activeProject);
-
-  byId("panelCategory").textContent =
-    activeProject.category;
-
-  byId("panelDescription").textContent =
-    getCurrentDescription();
-
-  panelImage.alt =
-    displayProjectTitle(activeProject);
-
-  lightboxImage.alt =
-    displayProjectTitle(activeProject);
+  if(!activeProject) return;
+  byId("panelIndex").textContent = activeProject.number+" / PROJECT";
+  byId("panelYear").textContent = activeProject.year;
+  byId("panelTitle").textContent = displayProjectTitle(activeProject);
+  byId("panelCategory").textContent = activeProject.category;
+  byId("panelDescription").textContent = getCurrentDescription();
+  panelImage.alt = displayProjectTitle(activeProject);
+  lightboxImage.alt = displayProjectTitle(activeProject);
 }
 
 function updateProjectLink() {
   const link = byId("panelLink");
-
-  if (!activeProject?.link) {
+  if(!activeProject?.link) {
     link.classList.remove("active");
     link.removeAttribute("href");
     link.textContent = "";
     return;
   }
-
   link.href = activeProject.link;
   link.textContent = activeProject.link;
   link.classList.add("active");
 }
 
-function showPanelImage(token, source) {
-  if (
-    token !== panelImageToken ||
-    !activeProject
-  ) return;
+function showPanelImage(token,source) {
+  if(token!==panelImageToken || !activeProject) return;
 
   panelImage.onload = () => {
-    if (
-      token !== panelImageToken ||
-      !activeProject ||
-      !panelImage.naturalWidth
-    ) return;
-
+    if(token!==panelImageToken || !activeProject || !panelImage.naturalWidth) {
+      return;
+    }
     requestAnimationFrame(() => {
-      if (
-        token === panelImageToken &&
-        activeProject
-      ) {
+      if(token===panelImageToken && activeProject) {
         panelImage.style.opacity = "1";
       }
     });
   };
 
   panelImage.onerror = () => {
-    if (token !== panelImageToken) return;
-
+    if(token!==panelImageToken) return;
     panelImage.style.display = "none";
-
-    imagePlaceholder.textContent =
-      "IMAGE UNAVAILABLE";
-
+    imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
     imagePlaceholder.classList.add("active");
   };
 
   panelImage.src = source;
 
-  if (
-    panelImage.complete &&
-    panelImage.naturalWidth
-  ) {
+  if(panelImage.complete && panelImage.naturalWidth) {
     panelImage.onload();
   }
 
@@ -3003,245 +1994,153 @@ function showPanelImage(token, source) {
 }
 
 function updateSlider() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
-  const images =
-    getProjectImages(activeProject);
-
+  const images = getProjectImages(activeProject);
   const token = ++panelImageToken;
 
   panelImage.style.opacity = "0";
   renderProjectText();
 
-  if (!images.length) {
+  if(!images.length) {
     panelImage.style.display = "none";
     panelImage.removeAttribute("src");
-
-    imagePlaceholder.textContent =
-      "PROJECT IMAGE";
-
+    imagePlaceholder.textContent = "PROJECT IMAGE";
     imagePlaceholder.classList.add("active");
-
     byId("prevImage").classList.add("hidden");
     byId("nextImage").classList.add("hidden");
-
-    byId("sliderCounter").textContent =
-      "00 / 00";
-
+    byId("sliderCounter").textContent = "00 / 00";
     byId("sliderDots").replaceChildren();
-
     return;
   }
 
-  const source = getImageSource(
-    images[activeImageIndex]
-  );
+  const source = getImageSource(images[activeImageIndex]);
 
   panelImage.style.display = "block";
   panelImage.removeAttribute("src");
-
   imagePlaceholder.classList.remove("active");
 
   byId("sliderCounter").textContent =
-    String(activeImageIndex + 1).padStart(2, "0") +
-    " / " +
-    String(images.length).padStart(2, "0");
+    String(activeImageIndex+1).padStart(2,"0")+
+    " / "+
+    String(images.length).padStart(2,"0");
 
   const dots = byId("sliderDots");
   dots.replaceChildren();
 
-  images.forEach((_, index) => {
+  images.forEach((_,index) => {
     const dot = document.createElement("span");
-
-    dot.className =
-      "slider-dot" +
-      (index === activeImageIndex ? " active" : "");
-
+    dot.className = "slider-dot" +
+      (index===activeImageIndex ? " active" : "");
     dots.appendChild(dot);
   });
 
-  byId("prevImage").classList.toggle(
-    "hidden",
-    images.length <= 1
-  );
+  byId("prevImage").classList.toggle("hidden",images.length<=1);
+  byId("nextImage").classList.toggle("hidden",images.length<=1);
 
-  byId("nextImage").classList.toggle(
-    "hidden",
-    images.length <= 1
-  );
+  preloadImage(source,true).then(success => {
+    if(token!==panelImageToken || !activeProject) return;
 
-  preloadImage(source, true).then(success => {
-    if (
-      token !== panelImageToken ||
-      !activeProject
-    ) return;
-
-    if (!success) {
+    if(!success) {
       panelImage.style.display = "none";
-
-      imagePlaceholder.textContent =
-        "IMAGE UNAVAILABLE";
-
+      imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
       imagePlaceholder.classList.add("active");
-
       return;
     }
-
-    showPanelImage(token, source);
+    showPanelImage(token,source);
   });
 }
 
 function nextSlide() {
-  if (!activeProject) return;
+  if(!activeProject) return;
+  const count = getProjectImages(activeProject).length;
+  if(count<=1) return;
 
-  const count =
-    getProjectImages(activeProject).length;
-
-  if (count <= 1) return;
-
-  activeImageIndex =
-    (activeImageIndex + 1) % count;
-
+  activeImageIndex = (activeImageIndex+1)%count;
   updateSlider();
 
-  if (imageLightbox.classList.contains("active")) {
-    updateLightbox();
-  }
+  if(imageLightbox.classList.contains("active")) updateLightbox();
 }
 
 function previousSlide() {
-  if (!activeProject) return;
+  if(!activeProject) return;
+  const count = getProjectImages(activeProject).length;
+  if(count<=1) return;
 
-  const count =
-    getProjectImages(activeProject).length;
-
-  if (count <= 1) return;
-
-  activeImageIndex =
-    (activeImageIndex - 1 + count) % count;
-
+  activeImageIndex = (activeImageIndex-1+count)%count;
   updateSlider();
 
-  if (imageLightbox.classList.contains("active")) {
-    updateLightbox();
-  }
+  if(imageLightbox.classList.contains("active")) updateLightbox();
 }
+byId("prevImage").addEventListener("click",previousSlide);
+byId("nextImage").addEventListener("click",nextSlide);
 
-byId("prevImage").addEventListener(
-  "click",
-  previousSlide
-);
-
-byId("nextImage").addEventListener(
-  "click",
-  nextSlide
-);
-
-/* ==============================
-   PROJECT PANEL OPEN / CLOSE
-============================== */
-
-function openProject(project, source = "globe") {
+/* PROJECT PANEL */
+function openProject(project,source="globe") {
   closeAbout();
   hideProjectIndex();
 
   activeProject = project;
   activeImageIndex = 0;
+  projectOpenedFromIndex = source==="index";
 
-  projectOpenedFromIndex =
-    source === "index";
-
-  byId("backPanel").classList.toggle(
-    "hidden",
-    !projectOpenedFromIndex
-  );
-
+  byId("backPanel").classList.toggle("hidden",!projectOpenedFromIndex);
   updateProjectLink();
   updateSlider();
 
+  panel.scrollTop = 0;
   panel.classList.add("active");
   panelOverlay.classList.add("active");
-
   label.classList.remove("active");
 }
 
 function hidePanel() {
   panel.classList.remove("active");
   panelOverlay.classList.remove("active");
-
   hideLightbox();
 
   activeProject = null;
   projectOpenedFromIndex = false;
-
   panelImageToken++;
-
   byId("backPanel").classList.add("hidden");
 }
 
 function backToIndex() {
-  if (!projectOpenedFromIndex) return;
-
+  if(!projectOpenedFromIndex) return;
   hidePanel();
   openProjectIndex();
 }
+byId("backPanel").addEventListener("click",backToIndex);
+byId("closePanel").addEventListener("click",hidePanel);
+panelOverlay.addEventListener("click",hidePanel);
 
-byId("backPanel").addEventListener(
-  "click",
-  backToIndex
-);
-
-byId("closePanel").addEventListener(
-  "click",
-  hidePanel
-);
-
-panelOverlay.addEventListener(
-  "click",
-  hidePanel
-);
-
-/* ==============================
-   PROJECT INDEX
-============================== */
-
-function createProjectRow(project, index) {
+/* PROJECT INDEX */
+function createProjectRow(project,index) {
   const row = document.createElement("button");
-
   row.type = "button";
   row.className = "project-list-row";
 
   [
-    ["project-row-number", project.number],
-    ["project-row-title", displayProjectTitle(project)],
-    ["project-row-category", project.category],
-    ["project-row-year", project.year || "—"]
-  ].forEach(([className, value]) => {
+    ["project-row-number",project.number],
+    ["project-row-title",displayProjectTitle(project)],
+    ["project-row-category",project.category],
+    ["project-row-year",project.year || "—"]
+  ].forEach(([className,value]) => {
     const span = document.createElement("span");
-
     span.className = className;
     span.textContent = value;
-
     row.appendChild(span);
   });
 
-  row.addEventListener("mouseenter", () => {
-    preloadCover(project);
-  });
-
-  row.addEventListener("click", () => {
-    openProject(projects[index], "index");
-  });
-
+  row.addEventListener("mouseenter",() => preloadCover(project));
+  row.addEventListener("click",() => openProject(projects[index],"index"));
   return row;
 }
 
 function createGroupTitle(value) {
   const element = document.createElement("div");
-
   element.className = "project-group-title";
   element.textContent = value;
-
   return element;
 }
 
@@ -3249,79 +2148,64 @@ function getYearValue(project) {
   return Number(project.year) || -1;
 }
 
-function renderProjectIndex(mode = "all") {
+function renderProjectIndex(mode="all") {
   projectSortMode = mode;
   projectIndexList.replaceChildren();
 
-  const indexed = projects.map((project, index) => ({
-    project,
-    index
+  const indexed = projects.map((project,index) => ({
+    project,index
   }));
 
-  if (mode === "year") {
-    indexed.sort((a, b) =>
-      getYearValue(b.project) -
-      getYearValue(a.project) ||
+  if(mode==="year") {
+    indexed.sort((a,b) =>
+      getYearValue(b.project)-getYearValue(a.project) ||
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language === "kr" ? "ko" : "en"
+        language==="kr"?"ko":"en"
       )
     );
 
     let lastYear = null;
 
     indexed.forEach(item => {
-      const year =
-        item.project.year || "YEAR NOT SET";
-
-      if (year !== lastYear) {
-        projectIndexList.appendChild(
-          createGroupTitle(year)
-        );
-
+      const year = item.project.year || "YEAR NOT SET";
+      if(year!==lastYear) {
+        projectIndexList.appendChild(createGroupTitle(year));
         lastYear = year;
       }
-
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
 
-  } else if (mode === "name") {
-    indexed.sort((a, b) =>
+  } else if(mode==="name") {
+    indexed.sort((a,b) =>
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language === "kr" ? "ko" : "en",
-        { sensitivity: "base" }
+        language==="kr"?"ko":"en",
+        {sensitivity:"base"}
       )
     );
 
     let lastLetter = null;
 
     indexed.forEach(item => {
-      const letter =
-        displayProjectTitle(item.project)
-          .trim()
-          .charAt(0)
-          .toUpperCase();
+      const letter = displayProjectTitle(item.project)
+        .trim().charAt(0).toUpperCase();
 
-      if (letter !== lastLetter) {
-        projectIndexList.appendChild(
-          createGroupTitle(letter)
-        );
-
+      if(letter!==lastLetter) {
+        projectIndexList.appendChild(createGroupTitle(letter));
         lastLetter = letter;
       }
-
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
 
   } else {
     indexed.forEach(item => {
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
   }
@@ -3330,10 +2214,8 @@ function renderProjectIndex(mode = "all") {
 function openProjectIndex() {
   closeAbout();
   hidePanel();
-
   projectIndexOverlay.classList.add("active");
   projectIndexPanel.classList.add("active");
-
   renderProjectIndex(projectSortMode);
 }
 
@@ -3342,52 +2224,30 @@ function hideProjectIndex() {
   projectIndexPanel.classList.remove("active");
 }
 
-byId("projectsMenuButton").addEventListener(
-  "click",
-  openProjectIndex
-);
+byId("projectsMenuButton").addEventListener("click",openProjectIndex);
+byId("closeProjectIndex").addEventListener("click",hideProjectIndex);
+projectIndexOverlay.addEventListener("click",hideProjectIndex);
 
-byId("closeProjectIndex").addEventListener(
-  "click",
-  hideProjectIndex
-);
-
-projectIndexOverlay.addEventListener(
-  "click",
-  hideProjectIndex
-);
-
-document.querySelectorAll(".project-sort-button")
-  .forEach(button => {
-    button.addEventListener("click", () => {
-      document.querySelectorAll(".project-sort-button")
-        .forEach(item => {
-          item.classList.remove("active");
-        });
-
-      button.classList.add("active");
-
-      renderProjectIndex(button.dataset.sort);
-    });
+document.querySelectorAll(".project-sort-button").forEach(button => {
+  button.addEventListener("click",() => {
+    document.querySelectorAll(".project-sort-button")
+      .forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    renderProjectIndex(button.dataset.sort);
   });
+});
 
-byId("projectCount").textContent =
-  projects.length + " PROJECTS";
+byId("projectCount").textContent = projects.length+" PROJECTS";
 
-/* ==============================
-   ABOUT OPEN / CLOSE
-============================== */
-
+/* ABOUT PANEL */
 function openAbout() {
   hideLightbox();
   hideProjectIndex();
   hidePanel();
-
   aboutScroll.scrollTop = 0;
 
   aboutOverlay.classList.add("active");
   aboutPanel.classList.add("active");
-
   label.classList.remove("active");
 }
 
@@ -3395,74 +2255,41 @@ function closeAbout() {
   aboutOverlay.classList.remove("active");
   aboutPanel.classList.remove("active");
 }
+byId("aboutMenuButton").addEventListener("click",openAbout);
+byId("closeAbout").addEventListener("click",closeAbout);
+aboutOverlay.addEventListener("click",closeAbout);
 
-byId("aboutMenuButton").addEventListener(
-  "click",
-  openAbout
-);
-
-byId("closeAbout").addEventListener(
-  "click",
-  closeAbout
-);
-
-aboutOverlay.addEventListener(
-  "click",
-  closeAbout
-);
-
-/* ==============================
-   LIGHTBOX
-============================== */
-
+/* LIGHTBOX */
 function updateLightbox() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
-  const images =
-    getProjectImages(activeProject);
-
-  if (!images.length) return;
+  const images = getProjectImages(activeProject);
+  if(!images.length) return;
 
   const token = ++lightboxImageToken;
-
-  const source = getImageSource(
-    images[activeImageIndex]
-  );
+  const source = getImageSource(images[activeImageIndex]);
 
   lightboxImage.style.opacity = "0";
   lightboxImage.removeAttribute("src");
 
   byId("lightboxCounter").textContent =
-    String(activeImageIndex + 1).padStart(2, "0") +
-    " / " +
-    String(images.length).padStart(2, "0");
+    String(activeImageIndex+1).padStart(2,"0")+
+    " / "+
+    String(images.length).padStart(2,"0");
 
-  byId("lightboxPrev").classList.toggle(
-    "hidden",
-    images.length <= 1
-  );
+  byId("lightboxPrev").classList.toggle("hidden",images.length<=1);
+  byId("lightboxNext").classList.toggle("hidden",images.length<=1);
 
-  byId("lightboxNext").classList.toggle(
-    "hidden",
-    images.length <= 1
-  );
-
-  preloadImage(source, true).then(success => {
-    if (
-      !success ||
-      token !== lightboxImageToken ||
-      !activeProject
-    ) return;
+  preloadImage(source,true).then(success => {
+    if(!success || token!==lightboxImageToken || !activeProject) return;
 
     lightboxImage.onload = () => {
-      if (
-        token !== lightboxImageToken ||
-        !activeProject ||
-        !lightboxImage.naturalWidth
-      ) return;
+      if(token!==lightboxImageToken ||
+         !activeProject ||
+         !lightboxImage.naturalWidth) return;
 
       requestAnimationFrame(() => {
-        if (token === lightboxImageToken) {
+        if(token===lightboxImageToken) {
           lightboxImage.style.opacity = "1";
         }
       });
@@ -3471,21 +2298,16 @@ function updateLightbox() {
     lightboxImage.src = source;
     lightboxImage.alt = displayProjectTitle(activeProject);
 
-    if (
-      lightboxImage.complete &&
-      lightboxImage.naturalWidth
-    ) {
+    if(lightboxImage.complete && lightboxImage.naturalWidth) {
       lightboxImage.onload();
     }
   });
 }
 
-panelImage.addEventListener("click", () => {
-  if (
-    !activeProject ||
-    !getProjectImages(activeProject).length ||
-    panelImage.style.opacity !== "1"
-  ) return;
+panelImage.addEventListener("click",() => {
+  if(!activeProject ||
+     !getProjectImages(activeProject).length ||
+     panelImage.style.opacity!=="1") return;
 
   imageLightbox.classList.add("active");
   updateLightbox();
@@ -3495,154 +2317,89 @@ function hideLightbox() {
   imageLightbox.classList.remove("active");
   lightboxImageToken++;
 }
-
-byId("closeLightbox").addEventListener(
-  "click",
-  hideLightbox
-);
-
-byId("lightboxPrev").addEventListener(
-  "click",
-  previousSlide
-);
-
-byId("lightboxNext").addEventListener(
-  "click",
-  nextSlide
-);
-
-imageLightbox.addEventListener("click", event => {
-  if (event.target === imageLightbox) {
-    hideLightbox();
-  }
+byId("closeLightbox").addEventListener("click",hideLightbox);
+byId("lightboxPrev").addEventListener("click",previousSlide);
+byId("lightboxNext").addEventListener("click",nextSlide);
+imageLightbox.addEventListener("click",event => {
+  if(event.target===imageLightbox) hideLightbox();
 });
 
-/* ==============================
-   MOBILE SWIPE
-============================== */
-
+/* MOBILE SWIPE */
 function registerSwipe(element) {
   let startX = 0;
   let startY = 0;
 
-  element.addEventListener("touchstart", event => {
+  element.addEventListener("touchstart",event => {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
-  }, { passive: true });
+  },{passive:true});
 
-  element.addEventListener("touchend", event => {
-    const dx =
-      startX - event.changedTouches[0].clientX;
-
-    const dy =
-      startY - event.changedTouches[0].clientY;
-
-    if (
-      Math.abs(dx) < 40 ||
-      Math.abs(dx) < Math.abs(dy)
-    ) return;
-
-    if (dx > 0) {
-      nextSlide();
-    } else {
-      previousSlide();
-    }
-  }, { passive: true });
+  element.addEventListener("touchend",event => {
+    const dx = startX-event.changedTouches[0].clientX;
+    const dy = startY-event.changedTouches[0].clientY;
+    if(Math.abs(dx)<40 || Math.abs(dx)<Math.abs(dy)) return;
+    if(dx>0) nextSlide();
+    else previousSlide();
+  },{passive:true});
 }
-
-registerSwipe(
-  document.querySelector(".slider")
-);
-
+registerSwipe(document.querySelector(".slider"));
 registerSwipe(imageLightbox);
 
-/* ==============================
-   KEYBOARD
-============================== */
-
-document.addEventListener("keydown", event => {
-  if (imageLightbox.classList.contains("active")) {
-    if (event.key === "Escape") hideLightbox();
-    if (event.key === "ArrowRight") nextSlide();
-    if (event.key === "ArrowLeft") previousSlide();
+/* KEYBOARD */
+document.addEventListener("keydown",event => {
+  if(imageLightbox.classList.contains("active")) {
+    if(event.key==="Escape") hideLightbox();
+    if(event.key==="ArrowRight") nextSlide();
+    if(event.key==="ArrowLeft") previousSlide();
     return;
   }
-
-  if (aboutPanel.classList.contains("active")) {
-    if (event.key === "Escape") closeAbout();
+  if(aboutPanel.classList.contains("active")) {
+    if(event.key==="Escape") closeAbout();
     return;
   }
-
-  if (projectIndexPanel.classList.contains("active")) {
-    if (event.key === "Escape") hideProjectIndex();
+  if(projectIndexPanel.classList.contains("active")) {
+    if(event.key==="Escape") hideProjectIndex();
     return;
   }
-
-  if (
-    panel.classList.contains("active") &&
-    event.key === "Escape"
-  ) {
+  if(panel.classList.contains("active") && event.key==="Escape") {
     hidePanel();
   }
 });
 
-/* ==============================
-   LANGUAGE SWITCH
-============================== */
-
+/* LANGUAGE CONTROL */
 function updateLanguageButtons() {
   document.querySelectorAll(
     "[data-language-control] .lang-button"
   ).forEach(button => {
-    const active =
-      button.dataset.lang === language;
-
-    button.classList.toggle("active", active);
-
-    button.setAttribute(
-      "aria-pressed",
-      String(active)
-    );
+    const active = button.dataset.lang===language;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-pressed",String(active));
   });
 
   document.documentElement.lang =
-    language === "kr" ? "ko" : "en";
+    language==="kr" ? "ko" : "en";
 }
 
 function setLanguage(nextLanguage) {
-  if (
-    nextLanguage !== "kr" &&
-    nextLanguage !== "en"
-  ) return;
+  if(nextLanguage!=="kr" && nextLanguage!=="en") return;
 
   language = nextLanguage;
 
   try {
-    localStorage.setItem(
-      "scientistsroom-language",
-      language
-    );
-  } catch (error) {}
+    localStorage.setItem("scientistsroom-language",language);
+  } catch(error) {}
 
-  const aboutPosition =
-    aboutScroll.scrollTop;
-
-  const indexPosition =
-    projectIndexList.scrollTop;
+  const aboutPosition = aboutScroll.scrollTop;
+  const indexPosition = projectIndexList.scrollTop;
 
   updateLanguageButtons();
   renderAbout();
   renderProjectIndex(projectSortMode);
 
-  aboutScroll.scrollTop =
-    aboutPosition;
+  aboutScroll.scrollTop = aboutPosition;
+  projectIndexList.scrollTop = indexPosition;
 
-  projectIndexList.scrollTop =
-    indexPosition;
-
-  if (activeProject) {
-    renderProjectText();
-  }
+  if(activeProject) renderProjectText();
 
   projectMarkers.forEach(marker => {
     marker.element.setAttribute(
@@ -3657,15 +2414,12 @@ function setLanguage(nextLanguage) {
 document.querySelectorAll(
   "[data-language-control] .lang-button"
 ).forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click",() => {
     setLanguage(button.dataset.lang);
   });
 });
 
-/* ==============================
-   MARKER PROJECTION
-============================== */
-
+/* MARKER PROJECTION */
 const markerWorld = new THREE.Vector3();
 const markerProjected = new THREE.Vector3();
 const globeCenter = new THREE.Vector3();
@@ -3676,7 +2430,6 @@ const markerToCamera = new THREE.Vector3();
 function updateProjectMarkers() {
   globe.updateMatrixWorld(true);
   camera.updateMatrixWorld(true);
-
   globe.getWorldPosition(globeCenter);
   camera.getWorldPosition(cameraPosition);
 
@@ -3687,107 +2440,70 @@ function updateProjectMarkers() {
     markerWorld.copy(marker.position);
     globe.localToWorld(markerWorld);
 
-    markerNormal
-      .copy(markerWorld)
-      .sub(globeCenter)
-      .normalize();
+    markerNormal.copy(markerWorld)
+      .sub(globeCenter).normalize();
+    markerToCamera.copy(cameraPosition)
+      .sub(markerWorld).normalize();
 
-    markerToCamera
-      .copy(cameraPosition)
-      .sub(markerWorld)
-      .normalize();
+    const facing = markerNormal.dot(markerToCamera);
 
-    const facing =
-      markerNormal.dot(markerToCamera);
+    markerProjected.copy(markerWorld).project(camera);
+    const x = (markerProjected.x*.5+.5)*width;
+    const y = (-markerProjected.y*.5+.5)*height;
 
-    markerProjected
-      .copy(markerWorld)
-      .project(camera);
+    const normalizedFacing = THREE.MathUtils.clamp(
+      (facing+1)/2,0,1
+    );
+    const visibility = .18+normalizedFacing*.82;
 
-    const x =
-      (markerProjected.x * .5 + .5) * width;
-
-    const y =
-      (-markerProjected.y * .5 + .5) * height;
-
-    const normalizedFacing =
-      THREE.MathUtils.clamp(
-        (facing + 1) / 2,
-        0,
-        1
-      );
-
-    const visibility =
-      0.18 + normalizedFacing * 0.82;
-
-    marker.element.style.left = x + "px";
-    marker.element.style.top = y + "px";
+    marker.element.style.left = x+"px";
+    marker.element.style.top = y+"px";
     marker.element.style.opacity = visibility;
     marker.element.style.pointerEvents = "auto";
-
     marker.element.style.zIndex =
-      Math.round(
-        100 + normalizedFacing * 100
-      );
+      Math.round(100+normalizedFacing*100);
   });
 }
 
-/* ==============================
-   MOUSE / RESIZE / ANIMATION
-============================== */
-
+/* ANIMATION */
 let mouseX = 0;
 let mouseY = 0;
 
-document.addEventListener("mousemove", event => {
-  mouseX =
-    event.clientX / window.innerWidth - .5;
-
-  mouseY =
-    event.clientY / window.innerHeight - .5;
+document.addEventListener("mousemove",event => {
+  mouseX = event.clientX/window.innerWidth-.5;
+  mouseY = event.clientY/window.innerHeight-.5;
 });
 
 function resize() {
   const width = container.clientWidth;
   const height = container.clientHeight;
+  if(!width || !height) return;
 
-  if (!width || !height) return;
-
-  renderer.setSize(width, height);
-
-  camera.aspect = width / height;
+  renderer.setSize(width,height);
+  camera.aspect = width/height;
   camera.updateProjectionMatrix();
 }
-
-window.addEventListener("resize", resize);
+window.addEventListener("resize",resize);
 
 function animate() {
   requestAnimationFrame(animate);
 
-  globe.rotation.y += 0.0022;
-
+  globe.rotation.y += .0022;
   globe.rotation.x +=
-    (mouseY * 0.18 - globe.rotation.x) * 0.012;
-
+    (mouseY*.18-globe.rotation.x)*.012;
   globe.rotation.z +=
-    (-mouseX * 0.10 - globe.rotation.z) * 0.008;
+    (-mouseX*.10-globe.rotation.z)*.008;
 
   updateProjectMarkers();
-
-  renderer.render(scene, camera);
+  renderer.render(scene,camera);
 }
 
-/* ==============================
-   START
-============================== */
-
+/* START */
 updateLanguageButtons();
 renderAbout();
 renderProjectIndex("all");
 resize();
 animate();
-
 </script>
-
 </body>
 </html>
