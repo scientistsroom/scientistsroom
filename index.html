@@ -89,7 +89,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .panel-title{margin-bottom:18px;font-size:clamp(30px,3.7vw,52px);line-height:.98;letter-spacing:-.055em;font-weight:500}
 .panel-category{margin-bottom:30px;font-size:11px;color:rgba(255,255,255,.48)}
 
-/* IMAGE RATIO FIX */
+/* IMAGE RATIO */
 .slider{position:relative;width:100%;height:auto;aspect-ratio:16/9;flex:0 0 auto;min-height:0;overflow:hidden;background:#161616;margin-bottom:16px}
 #panelImage{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center center;cursor:zoom-in;opacity:0;transition:opacity .35s ease,transform .3s}
 #panelImage:hover{transform:scale(1.012)}
@@ -212,7 +212,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .about-top-actions,.project-index-actions{gap:13px}
 }
 
-/* MOBILE SCROLL FIX */
+/* MOBILE SCROLL */
 #projectPanel,#projectIndexPanel,#aboutPanel{height:100vh}
 @supports(height:100dvh){
 #projectPanel,#projectIndexPanel,#aboutPanel{height:100dvh;max-height:100dvh}
@@ -303,6 +303,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 
 <p class="panel-description" id="panelDescription"></p>
 <a class="panel-link" id="panelLink" target="_blank" rel="noopener noreferrer"></a>
+
 <div class="view-project">
 <span>SELECTED PROJECT</span>
 <span>scientistsroom</span>
@@ -663,7 +664,14 @@ const projects = [
     "AI를 활용한 콘텐츠 디자인 실무 특강 · 디자이너의 창의성과 콘텐츠 디자인의 미래",
     "Practical Content Design Using AI · Designer Creativity and the Future of Content Design"
   ),
-  images:["images/cheongam-lecture-01.jpg"],
+  images:[
+    "images/cheongam-lecture-01.jpg",
+    "images/cheongam-lecture-02.jpg",
+    "images/cheongam-lecture-03.jpg",
+    "images/cheongam-lecture-04.jpg",
+    "images/cheongam-lecture-05.jpg",
+    "images/cheongam-lecture-06.jpg"
+  ],
   lat:-2,lng:165
 }
 ];
@@ -1111,13 +1119,13 @@ function createAboutEntry(item) {
   description.className = "about-entry-desc";
   description.textContent = tr(item.description);
 
-  content.append(title, description);
-  entry.append(date, content);
+  content.append(title,description);
+  entry.append(date,content);
 
   return entry;
 }
 
-function renderAboutEntries(containerId, items) {
+function renderAboutEntries(containerId,items) {
   const container = byId(containerId);
   container.replaceChildren(...items.map(createAboutEntry));
 }
@@ -1126,7 +1134,7 @@ function renderAcademicCourses() {
   const target = byId("academicList");
   target.replaceChildren();
 
-  academicCourses.forEach((group, index) => {
+  academicCourses.forEach((group,index) => {
     const wrapper = document.createElement("div");
     wrapper.className = "course-group";
 
@@ -1135,19 +1143,18 @@ function renderAcademicCourses() {
 
     const title = document.createElement("h3");
     title.className = "course-title";
-    title.textContent =
-      String(index + 1).padStart(2, "0") + ". " + group.title;
+    title.textContent = String(index+1).padStart(2,"0")+". "+group.title;
 
     const count = document.createElement("span");
     count.className = "course-count";
-    count.textContent = group.courses.length + " COURSES";
+    count.textContent = group.courses.length+" COURSES";
 
     const courses = document.createElement("p");
     courses.className = "course-list";
     courses.textContent = group.courses.join(" · ");
 
-    heading.append(title, count);
-    wrapper.append(heading, courses);
+    heading.append(title,count);
+    wrapper.append(heading,courses);
     target.appendChild(wrapper);
   });
 }
@@ -1163,10 +1170,10 @@ function renderAbout() {
     "Additional projects include branding, Chugye University graduation exhibition posters, local government brochures, and editorial and publishing design."
   ));
 
-  renderAboutEntries("experienceList", experiences);
-  renderAboutEntries("careerProjectList", careerProjects);
-  renderAboutEntries("lectureList", lectures);
-  renderAboutEntries("activityList", activities);
+  renderAboutEntries("experienceList",experiences);
+  renderAboutEntries("careerProjectList",careerProjects);
+  renderAboutEntries("lectureList",lectures);
+  renderAboutEntries("activityList",activities);
   renderAcademicCourses();
 }
 
@@ -1174,95 +1181,95 @@ function renderAbout() {
 const container = byId("earth");
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(38,1,0.1,100);
 camera.position.z = 4.8;
 
 const renderer = new THREE.WebGLRenderer({
-  alpha: true,
-  antialias: true
+  alpha:true,
+  antialias:true
 });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 container.appendChild(renderer.domElement);
 
 const globe = new THREE.Group();
 scene.add(globe);
 
-const globeGeometry = new THREE.SphereGeometry(1.35, 128, 128);
+const globeGeometry = new THREE.SphereGeometry(1.35,128,128);
 const globeMaterial = new THREE.MeshPhysicalMaterial({
-  color: 0xffffff,
-  transparent: true,
-  opacity: 0.10,
-  roughness: 0.08,
-  metalness: 0.02,
-  transmission: 0.5,
-  thickness: 1,
-  ior: 1.35,
-  clearcoat: 1,
-  clearcoatRoughness: 0.08
+  color:0xffffff,
+  transparent:true,
+  opacity:0.10,
+  roughness:0.08,
+  metalness:0.02,
+  transmission:0.5,
+  thickness:1,
+  ior:1.35,
+  clearcoat:1,
+  clearcoatRoughness:0.08
 });
-globe.add(new THREE.Mesh(globeGeometry, globeMaterial));
+globe.add(new THREE.Mesh(globeGeometry,globeMaterial));
 
 const DOT_COUNT = 3000;
 const dotPoints = [];
 
-for (let i = 0; i < DOT_COUNT; i++) {
-  const phi = Math.acos(-1 + (2 * i) / DOT_COUNT);
-  const theta = Math.sqrt(DOT_COUNT * Math.PI) * phi;
+for(let i=0;i<DOT_COUNT;i++) {
+  const phi = Math.acos(-1+(2*i)/DOT_COUNT);
+  const theta = Math.sqrt(DOT_COUNT*Math.PI)*phi;
   const radius = 1.37;
 
   dotPoints.push(
-    radius * Math.cos(theta) * Math.sin(phi),
-    radius * Math.sin(theta) * Math.sin(phi),
-    radius * Math.cos(phi)
+    radius*Math.cos(theta)*Math.sin(phi),
+    radius*Math.sin(theta)*Math.sin(phi),
+    radius*Math.cos(phi)
   );
 }
 
 const dotGeometry = new THREE.BufferGeometry();
 dotGeometry.setAttribute(
   "position",
-  new THREE.Float32BufferAttribute(dotPoints, 3)
+  new THREE.Float32BufferAttribute(dotPoints,3)
 );
 
 globe.add(new THREE.Points(
   dotGeometry,
   new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: 0.013,
-    transparent: true,
-    opacity: 0.55,
-    sizeAttenuation: true
+    color:0xffffff,
+    size:0.013,
+    transparent:true,
+    opacity:0.55,
+    sizeAttenuation:true
   })
 ));
 
 globe.add(new THREE.Mesh(
-  new THREE.SphereGeometry(1.36, 30, 20),
+  new THREE.SphereGeometry(1.36,30,20),
   new THREE.MeshBasicMaterial({
-    color: 0xffffff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.05
+    color:0xffffff,
+    wireframe:true,
+    transparent:true,
+    opacity:0.05
   })
 ));
 
-const lightA = new THREE.DirectionalLight(0xffffff, 4);
-lightA.position.set(2, 3, 4);
+const lightA = new THREE.DirectionalLight(0xffffff,4);
+lightA.position.set(2,3,4);
 scene.add(lightA);
 
-const lightB = new THREE.DirectionalLight(0xffffff, 2);
-lightB.position.set(-3, -1, 2);
+const lightB = new THREE.DirectionalLight(0xffffff,2);
+lightB.position.set(-3,-1,2);
 scene.add(lightB);
 
 globe.rotation.x = THREE.MathUtils.degToRad(-14);
 globe.rotation.z = THREE.MathUtils.degToRad(-8);
 
-function latLngToVector3(lat, lng, radius) {
-  const phi = THREE.MathUtils.degToRad(90 - lat);
-  const theta = THREE.MathUtils.degToRad(lng + 180);
+function latLngToVector3(lat,lng,radius) {
+  const phi = THREE.MathUtils.degToRad(90-lat);
+  const theta = THREE.MathUtils.degToRad(lng+180);
 
   return new THREE.Vector3(
-    -radius * Math.sin(phi) * Math.cos(theta),
-    radius * Math.cos(phi),
-    radius * Math.sin(phi) * Math.sin(theta)
+    -radius*Math.sin(phi)*Math.cos(theta),
+    radius*Math.cos(phi),
+    radius*Math.sin(phi)*Math.sin(theta)
   );
 }
 
@@ -1273,18 +1280,18 @@ const preloadQueue = [];
 let activePreloads = 0;
 const MAX_PRELOADS = 2;
 
-function preloadImage(src, highPriority = false) {
-  if (!src) return Promise.resolve(false);
+function preloadImage(src,highPriority=false) {
+  if(!src) return Promise.resolve(false);
 
   const existing = imageCache.get(src);
 
-  if (existing) {
-    if (highPriority && !existing.job.started) {
+  if(existing) {
+    if(highPriority && !existing.job.started) {
       existing.job.highPriority = true;
       const index = preloadQueue.indexOf(existing.job);
 
-      if (index !== -1) {
-        preloadQueue.splice(index, 1);
+      if(index!==-1) {
+        preloadQueue.splice(index,1);
         preloadQueue.unshift(existing.job);
       }
     }
@@ -1294,20 +1301,21 @@ function preloadImage(src, highPriority = false) {
   }
 
   let finishPromise;
+
   const promise = new Promise(resolve => {
     finishPromise = resolve;
   });
 
   const job = {
     src,
-    started: false,
+    started:false,
     finishPromise,
     highPriority
   };
 
-  imageCache.set(src, { promise, job });
+  imageCache.set(src,{promise,job});
 
-  if (highPriority) preloadQueue.unshift(job);
+  if(highPriority) preloadQueue.unshift(job);
   else preloadQueue.push(job);
 
   runPreloads();
@@ -1315,7 +1323,7 @@ function preloadImage(src, highPriority = false) {
 }
 
 function runPreloads() {
-  while (activePreloads < MAX_PRELOADS && preloadQueue.length) {
+  while(activePreloads<MAX_PRELOADS && preloadQueue.length) {
     const job = preloadQueue.shift();
 
     job.started = true;
@@ -1328,22 +1336,22 @@ function runPreloads() {
     let finished = false;
 
     const finish = success => {
-      if (finished) return;
+      if(finished) return;
 
       finished = true;
       activePreloads--;
 
-      if (!success) imageCache.delete(job.src);
+      if(!success) imageCache.delete(job.src);
 
       job.finishPromise(success);
       runPreloads();
     };
 
     image.onload = async () => {
-      if (typeof image.decode === "function") {
+      if(typeof image.decode === "function") {
         try {
           await image.decode();
-        } catch (error) {}
+        } catch(error) {}
       }
 
       finish(true);
@@ -1357,15 +1365,15 @@ function runPreloads() {
 const getProjectImages = project => project.images || [];
 
 const getImageSource = item =>
-  typeof item === "string" ? item : (item?.src || "");
+  typeof item==="string" ? item : (item?.src || "");
 
 const getImageDescription = item =>
-  item && typeof item === "object" ? tr(item.description || "") : "";
+  item && typeof item==="object" ? tr(item.description || "") : "";
 
 const displayProjectTitle = project => tr(project.title);
 
 function getCurrentDescription() {
-  if (!activeProject) return "";
+  if(!activeProject) return "";
 
   return getImageDescription(
     getProjectImages(activeProject)[activeImageIndex]
@@ -1374,27 +1382,27 @@ function getCurrentDescription() {
 
 function preloadCover(project) {
   const first = getProjectImages(project)[0];
-  if (first) preloadImage(getImageSource(first), true);
+  if(first) preloadImage(getImageSource(first),true);
 }
 
 function preloadNeighbors() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
   const images = getProjectImages(activeProject);
-  if (images.length <= 1) return;
+  if(images.length<=1) return;
 
-  const next = (activeImageIndex + 1) % images.length;
-  const previous = (activeImageIndex - 1 + images.length) % images.length;
+  const next = (activeImageIndex+1)%images.length;
+  const previous = (activeImageIndex-1+images.length)%images.length;
 
-  preloadImage(getImageSource(images[next]), true);
+  preloadImage(getImageSource(images[next]),true);
 
-  if (previous !== next) {
-    preloadImage(getImageSource(images[previous]), true);
+  if(previous!==next) {
+    preloadImage(getImageSource(images[previous]),true);
   }
 }
 
-window.addEventListener("load", () => {
-  if (navigator.connection?.saveData) return;
+window.addEventListener("load",() => {
+  if(navigator.connection?.saveData) return;
 
   const mobile = window.matchMedia("(max-width:900px)").matches;
   const limit = mobile ? 3 : 7;
@@ -1402,17 +1410,17 @@ window.addEventListener("load", () => {
   const preload = () => projects
     .map(project => getProjectImages(project)[0])
     .filter(Boolean)
-    .slice(0, limit)
-    .forEach((item, index) => {
+    .slice(0,limit)
+    .forEach((item,index) => {
       setTimeout(() => {
         preloadImage(getImageSource(item));
-      }, index * 350);
+      },index*350);
     });
 
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(preload, { timeout: 1500 });
+  if("requestIdleCallback" in window) {
+    window.requestIdleCallback(preload,{timeout:1500});
   } else {
-    setTimeout(preload, 800);
+    setTimeout(preload,800);
   }
 });
 
@@ -1420,7 +1428,7 @@ window.addEventListener("load", () => {
 const markerContainer = byId("projectMarkers");
 const projectMarkers = [];
 
-function showMarkerLabel(project, x, y) {
+function showMarkerLabel(project,x,y) {
   label.replaceChildren();
 
   const number = document.createElement("span");
@@ -1433,9 +1441,9 @@ function showMarkerLabel(project, x, y) {
   category.className = "label-category";
   category.textContent = project.category;
 
-  label.append(number, name, category);
-  label.style.left = x + "px";
-  label.style.top = y + "px";
+  label.append(number,name,category);
+  label.style.left = x+"px";
+  label.style.top = y+"px";
   label.classList.add("active");
 }
 
@@ -1444,16 +1452,16 @@ projects.forEach(project => {
 
   marker.type = "button";
   marker.className = "project-marker";
-  marker.setAttribute("aria-label", displayProjectTitle(project));
+  marker.setAttribute("aria-label",displayProjectTitle(project));
 
   marker.style.setProperty(
     "--pulse-duration",
-    (2.5 + Math.random() * 1.7) + "s"
+    (2.5+Math.random()*1.7)+"s"
   );
 
   marker.style.setProperty(
     "--pulse-delay",
-    (-Math.random() * 4) + "s"
+    (-Math.random()*4)+"s"
   );
 
   const position = latLngToVector3(
@@ -1462,37 +1470,46 @@ projects.forEach(project => {
     1.43
   );
 
-  marker.addEventListener("mouseenter", event => {
-    showMarkerLabel(project, event.clientX, event.clientY);
+  marker.addEventListener("mouseenter",event => {
+    showMarkerLabel(project,event.clientX,event.clientY);
     preloadCover(project);
   });
 
-  marker.addEventListener("mousemove", event => {
-    label.style.left = event.clientX + "px";
-    label.style.top = event.clientY + "px";
+  marker.addEventListener("mousemove",event => {
+    label.style.left = event.clientX+"px";
+    label.style.top = event.clientY+"px";
   });
 
-  marker.addEventListener("mouseleave", () => {
+  marker.addEventListener("mouseleave",() => {
     label.classList.remove("active");
   });
 
-  marker.addEventListener("click", () => {
-    openProject(project, "globe");
+  marker.addEventListener("click",() => {
+    openProject(project,"globe");
   });
 
   markerContainer.appendChild(marker);
-  projectMarkers.push({ element: marker, position, project });
+  projectMarkers.push({element:marker,position,project});
 });
 
 /* PROJECT SLIDER */
 function renderProjectText() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
-  byId("panelIndex").textContent = activeProject.number + " / PROJECT";
-  byId("panelYear").textContent = activeProject.year;
-  byId("panelTitle").textContent = displayProjectTitle(activeProject);
-  byId("panelCategory").textContent = activeProject.category;
-  byId("panelDescription").textContent = getCurrentDescription();
+  byId("panelIndex").textContent =
+    activeProject.number+" / PROJECT";
+
+  byId("panelYear").textContent =
+    activeProject.year;
+
+  byId("panelTitle").textContent =
+    displayProjectTitle(activeProject);
+
+  byId("panelCategory").textContent =
+    activeProject.category;
+
+  byId("panelDescription").textContent =
+    getCurrentDescription();
 
   panelImage.alt = displayProjectTitle(activeProject);
   lightboxImage.alt = displayProjectTitle(activeProject);
@@ -1501,7 +1518,7 @@ function renderProjectText() {
 function updateProjectLink() {
   const link = byId("panelLink");
 
-  if (!activeProject?.link) {
+  if(!activeProject?.link) {
     link.classList.remove("active");
     link.removeAttribute("href");
     link.textContent = "";
@@ -1513,25 +1530,25 @@ function updateProjectLink() {
   link.classList.add("active");
 }
 
-function showPanelImage(token, source) {
-  if (token !== panelImageToken || !activeProject) return;
+function showPanelImage(token,source) {
+  if(token!==panelImageToken || !activeProject) return;
 
   panelImage.onload = () => {
-    if (
-      token !== panelImageToken ||
+    if(
+      token!==panelImageToken ||
       !activeProject ||
       !panelImage.naturalWidth
     ) return;
 
     requestAnimationFrame(() => {
-      if (token === panelImageToken && activeProject) {
+      if(token===panelImageToken && activeProject) {
         panelImage.style.opacity = "1";
       }
     });
   };
 
   panelImage.onerror = () => {
-    if (token !== panelImageToken) return;
+    if(token!==panelImageToken) return;
 
     panelImage.style.display = "none";
     imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
@@ -1540,7 +1557,7 @@ function showPanelImage(token, source) {
 
   panelImage.src = source;
 
-  if (panelImage.complete && panelImage.naturalWidth) {
+  if(panelImage.complete && panelImage.naturalWidth) {
     panelImage.onload();
   }
 
@@ -1548,7 +1565,7 @@ function showPanelImage(token, source) {
 }
 
 function updateSlider() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
   const images = getProjectImages(activeProject);
   const token = ++panelImageToken;
@@ -1556,7 +1573,7 @@ function updateSlider() {
   panelImage.style.opacity = "0";
   renderProjectText();
 
-  if (!images.length) {
+  if(!images.length) {
     panelImage.style.display = "none";
     panelImage.removeAttribute("src");
 
@@ -1567,6 +1584,7 @@ function updateSlider() {
     byId("nextImage").classList.add("hidden");
     byId("sliderCounter").textContent = "00 / 00";
     byId("sliderDots").replaceChildren();
+
     return;
   }
 
@@ -1577,76 +1595,83 @@ function updateSlider() {
   imagePlaceholder.classList.remove("active");
 
   byId("sliderCounter").textContent =
-    String(activeImageIndex + 1).padStart(2, "0") +
-    " / " +
-    String(images.length).padStart(2, "0");
+    String(activeImageIndex+1).padStart(2,"0")+
+    " / "+
+    String(images.length).padStart(2,"0");
 
   const dots = byId("sliderDots");
   dots.replaceChildren();
 
-  images.forEach((_, index) => {
+  images.forEach((_,index) => {
     const dot = document.createElement("span");
     dot.className =
-      "slider-dot" +
-      (index === activeImageIndex ? " active" : "");
+      "slider-dot"+
+      (index===activeImageIndex ? " active" : "");
 
     dots.appendChild(dot);
   });
 
-  byId("prevImage").classList.toggle("hidden", images.length <= 1);
-  byId("nextImage").classList.toggle("hidden", images.length <= 1);
+  byId("prevImage").classList.toggle("hidden",images.length<=1);
+  byId("nextImage").classList.toggle("hidden",images.length<=1);
 
-  preloadImage(source, true).then(success => {
-    if (token !== panelImageToken || !activeProject) return;
+  preloadImage(source,true).then(success => {
+    if(token!==panelImageToken || !activeProject) return;
 
-    if (!success) {
+    if(!success) {
       panelImage.style.display = "none";
       imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
       imagePlaceholder.classList.add("active");
       return;
     }
 
-    showPanelImage(token, source);
+    showPanelImage(token,source);
   });
 }
 
 function nextSlide() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
   const count = getProjectImages(activeProject).length;
-  if (count <= 1) return;
+  if(count<=1) return;
 
-  activeImageIndex = (activeImageIndex + 1) % count;
+  activeImageIndex = (activeImageIndex+1)%count;
   updateSlider();
 
-  if (imageLightbox.classList.contains("active")) updateLightbox();
+  if(imageLightbox.classList.contains("active")) {
+    updateLightbox();
+  }
 }
 
 function previousSlide() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
   const count = getProjectImages(activeProject).length;
-  if (count <= 1) return;
+  if(count<=1) return;
 
-  activeImageIndex = (activeImageIndex - 1 + count) % count;
+  activeImageIndex = (activeImageIndex-1+count)%count;
   updateSlider();
 
-  if (imageLightbox.classList.contains("active")) updateLightbox();
+  if(imageLightbox.classList.contains("active")) {
+    updateLightbox();
+  }
 }
 
-byId("prevImage").addEventListener("click", previousSlide);
-byId("nextImage").addEventListener("click", nextSlide);
+byId("prevImage").addEventListener("click",previousSlide);
+byId("nextImage").addEventListener("click",nextSlide);
 
 /* PROJECT PANEL */
-function openProject(project, source = "globe") {
+function openProject(project,source="globe") {
   closeAbout();
   hideProjectIndex();
 
   activeProject = project;
   activeImageIndex = 0;
-  projectOpenedFromIndex = source === "index";
+  projectOpenedFromIndex = source==="index";
 
-  byId("backPanel").classList.toggle("hidden", !projectOpenedFromIndex);
+  byId("backPanel").classList.toggle(
+    "hidden",
+    !projectOpenedFromIndex
+  );
 
   updateProjectLink();
   updateSlider();
@@ -1670,36 +1695,36 @@ function hidePanel() {
 }
 
 function backToIndex() {
-  if (!projectOpenedFromIndex) return;
+  if(!projectOpenedFromIndex) return;
 
   hidePanel();
   openProjectIndex();
 }
 
-byId("backPanel").addEventListener("click", backToIndex);
-byId("closePanel").addEventListener("click", hidePanel);
-panelOverlay.addEventListener("click", hidePanel);
+byId("backPanel").addEventListener("click",backToIndex);
+byId("closePanel").addEventListener("click",hidePanel);
+panelOverlay.addEventListener("click",hidePanel);
 
 /* PROJECT INDEX */
-function createProjectRow(project, index) {
+function createProjectRow(project,index) {
   const row = document.createElement("button");
   row.type = "button";
   row.className = "project-list-row";
 
   [
-    ["project-row-number", project.number],
-    ["project-row-title", displayProjectTitle(project)],
-    ["project-row-category", project.category],
-    ["project-row-year", project.year || "—"]
-  ].forEach(([className, value]) => {
+    ["project-row-number",project.number],
+    ["project-row-title",displayProjectTitle(project)],
+    ["project-row-category",project.category],
+    ["project-row-year",project.year || "—"]
+  ].forEach(([className,value]) => {
     const span = document.createElement("span");
     span.className = className;
     span.textContent = value;
     row.appendChild(span);
   });
 
-  row.addEventListener("mouseenter", () => preloadCover(project));
-  row.addEventListener("click", () => openProject(projects[index], "index"));
+  row.addEventListener("mouseenter",() => preloadCover(project));
+  row.addEventListener("click",() => openProject(projects[index],"index"));
 
   return row;
 }
@@ -1715,20 +1740,20 @@ function getYearValue(project) {
   return Number(project.year) || -1;
 }
 
-function renderProjectIndex(mode = "all") {
+function renderProjectIndex(mode="all") {
   projectSortMode = mode;
   projectIndexList.replaceChildren();
 
-  const indexed = projects.map((project, index) => ({
-    project, index
+  const indexed = projects.map((project,index) => ({
+    project,index
   }));
 
-  if (mode === "year") {
-    indexed.sort((a, b) =>
-      getYearValue(b.project) - getYearValue(a.project) ||
+  if(mode==="year") {
+    indexed.sort((a,b) =>
+      getYearValue(b.project)-getYearValue(a.project) ||
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language === "kr" ? "ko" : "en"
+        language==="kr" ? "ko" : "en"
       )
     );
 
@@ -1737,22 +1762,22 @@ function renderProjectIndex(mode = "all") {
     indexed.forEach(item => {
       const year = item.project.year || "YEAR NOT SET";
 
-      if (year !== lastYear) {
+      if(year!==lastYear) {
         projectIndexList.appendChild(createGroupTitle(year));
         lastYear = year;
       }
 
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
 
-  } else if (mode === "name") {
-    indexed.sort((a, b) =>
+  } else if(mode==="name") {
+    indexed.sort((a,b) =>
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language === "kr" ? "ko" : "en",
-        { sensitivity: "base" }
+        language==="kr" ? "ko" : "en",
+        {sensitivity:"base"}
       )
     );
 
@@ -1764,20 +1789,20 @@ function renderProjectIndex(mode = "all") {
         .charAt(0)
         .toUpperCase();
 
-      if (letter !== lastLetter) {
+      if(letter!==lastLetter) {
         projectIndexList.appendChild(createGroupTitle(letter));
         lastLetter = letter;
       }
 
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
 
   } else {
     indexed.forEach(item => {
       projectIndexList.appendChild(
-        createProjectRow(item.project, item.index)
+        createProjectRow(item.project,item.index)
       );
     });
   }
@@ -1797,12 +1822,12 @@ function hideProjectIndex() {
   projectIndexPanel.classList.remove("active");
 }
 
-byId("projectsMenuButton").addEventListener("click", openProjectIndex);
-byId("closeProjectIndex").addEventListener("click", hideProjectIndex);
-projectIndexOverlay.addEventListener("click", hideProjectIndex);
+byId("projectsMenuButton").addEventListener("click",openProjectIndex);
+byId("closeProjectIndex").addEventListener("click",hideProjectIndex);
+projectIndexOverlay.addEventListener("click",hideProjectIndex);
 
 document.querySelectorAll(".project-sort-button").forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click",() => {
     document.querySelectorAll(".project-sort-button")
       .forEach(item => item.classList.remove("active"));
 
@@ -1811,7 +1836,7 @@ document.querySelectorAll(".project-sort-button").forEach(button => {
   });
 });
 
-byId("projectCount").textContent = projects.length + " PROJECTS";
+byId("projectCount").textContent = projects.length+" PROJECTS";
 
 /* ABOUT PANEL */
 function openAbout() {
@@ -1831,16 +1856,16 @@ function closeAbout() {
   aboutPanel.classList.remove("active");
 }
 
-byId("aboutMenuButton").addEventListener("click", openAbout);
-byId("closeAbout").addEventListener("click", closeAbout);
-aboutOverlay.addEventListener("click", closeAbout);
+byId("aboutMenuButton").addEventListener("click",openAbout);
+byId("closeAbout").addEventListener("click",closeAbout);
+aboutOverlay.addEventListener("click",closeAbout);
 
 /* LIGHTBOX */
 function updateLightbox() {
-  if (!activeProject) return;
+  if(!activeProject) return;
 
   const images = getProjectImages(activeProject);
-  if (!images.length) return;
+  if(!images.length) return;
 
   const token = ++lightboxImageToken;
   const source = getImageSource(images[activeImageIndex]);
@@ -1849,25 +1874,25 @@ function updateLightbox() {
   lightboxImage.removeAttribute("src");
 
   byId("lightboxCounter").textContent =
-    String(activeImageIndex + 1).padStart(2, "0") +
-    " / " +
-    String(images.length).padStart(2, "0");
+    String(activeImageIndex+1).padStart(2,"0")+
+    " / "+
+    String(images.length).padStart(2,"0");
 
-  byId("lightboxPrev").classList.toggle("hidden", images.length <= 1);
-  byId("lightboxNext").classList.toggle("hidden", images.length <= 1);
+  byId("lightboxPrev").classList.toggle("hidden",images.length<=1);
+  byId("lightboxNext").classList.toggle("hidden",images.length<=1);
 
-  preloadImage(source, true).then(success => {
-    if (!success || token !== lightboxImageToken || !activeProject) return;
+  preloadImage(source,true).then(success => {
+    if(!success || token!==lightboxImageToken || !activeProject) return;
 
     lightboxImage.onload = () => {
-      if (
-        token !== lightboxImageToken ||
+      if(
+        token!==lightboxImageToken ||
         !activeProject ||
         !lightboxImage.naturalWidth
       ) return;
 
       requestAnimationFrame(() => {
-        if (token === lightboxImageToken) {
+        if(token===lightboxImageToken) {
           lightboxImage.style.opacity = "1";
         }
       });
@@ -1876,17 +1901,17 @@ function updateLightbox() {
     lightboxImage.src = source;
     lightboxImage.alt = displayProjectTitle(activeProject);
 
-    if (lightboxImage.complete && lightboxImage.naturalWidth) {
+    if(lightboxImage.complete && lightboxImage.naturalWidth) {
       lightboxImage.onload();
     }
   });
 }
 
-panelImage.addEventListener("click", () => {
-  if (
+panelImage.addEventListener("click",() => {
+  if(
     !activeProject ||
     !getProjectImages(activeProject).length ||
-    panelImage.style.opacity !== "1"
+    panelImage.style.opacity!=="1"
   ) return;
 
   imageLightbox.classList.add("active");
@@ -1898,12 +1923,12 @@ function hideLightbox() {
   lightboxImageToken++;
 }
 
-byId("closeLightbox").addEventListener("click", hideLightbox);
-byId("lightboxPrev").addEventListener("click", previousSlide);
-byId("lightboxNext").addEventListener("click", nextSlide);
+byId("closeLightbox").addEventListener("click",hideLightbox);
+byId("lightboxPrev").addEventListener("click",previousSlide);
+byId("lightboxNext").addEventListener("click",nextSlide);
 
-imageLightbox.addEventListener("click", event => {
-  if (event.target === imageLightbox) hideLightbox();
+imageLightbox.addEventListener("click",event => {
+  if(event.target===imageLightbox) hideLightbox();
 });
 
 /* MOBILE SWIPE */
@@ -1911,45 +1936,45 @@ function registerSwipe(element) {
   let startX = 0;
   let startY = 0;
 
-  element.addEventListener("touchstart", event => {
+  element.addEventListener("touchstart",event => {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
-  }, { passive: true });
+  },{passive:true});
 
-  element.addEventListener("touchend", event => {
-    const dx = startX - event.changedTouches[0].clientX;
-    const dy = startY - event.changedTouches[0].clientY;
+  element.addEventListener("touchend",event => {
+    const dx = startX-event.changedTouches[0].clientX;
+    const dy = startY-event.changedTouches[0].clientY;
 
-    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    if(Math.abs(dx)<40 || Math.abs(dx)<Math.abs(dy)) return;
 
-    if (dx > 0) nextSlide();
+    if(dx>0) nextSlide();
     else previousSlide();
-  }, { passive: true });
+  },{passive:true});
 }
 
 registerSwipe(document.querySelector(".slider"));
 registerSwipe(imageLightbox);
 
 /* KEYBOARD */
-document.addEventListener("keydown", event => {
-  if (imageLightbox.classList.contains("active")) {
-    if (event.key === "Escape") hideLightbox();
-    if (event.key === "ArrowRight") nextSlide();
-    if (event.key === "ArrowLeft") previousSlide();
+document.addEventListener("keydown",event => {
+  if(imageLightbox.classList.contains("active")) {
+    if(event.key==="Escape") hideLightbox();
+    if(event.key==="ArrowRight") nextSlide();
+    if(event.key==="ArrowLeft") previousSlide();
     return;
   }
 
-  if (aboutPanel.classList.contains("active")) {
-    if (event.key === "Escape") closeAbout();
+  if(aboutPanel.classList.contains("active")) {
+    if(event.key==="Escape") closeAbout();
     return;
   }
 
-  if (projectIndexPanel.classList.contains("active")) {
-    if (event.key === "Escape") hideProjectIndex();
+  if(projectIndexPanel.classList.contains("active")) {
+    if(event.key==="Escape") hideProjectIndex();
     return;
   }
 
-  if (panel.classList.contains("active") && event.key === "Escape") {
+  if(panel.classList.contains("active") && event.key==="Escape") {
     hidePanel();
   }
 });
@@ -1959,23 +1984,24 @@ function updateLanguageButtons() {
   document.querySelectorAll(
     "[data-language-control] .lang-button"
   ).forEach(button => {
-    const active = button.dataset.lang === language;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
+    const active = button.dataset.lang===language;
+
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-pressed",String(active));
   });
 
   document.documentElement.lang =
-    language === "kr" ? "ko" : "en";
+    language==="kr" ? "ko" : "en";
 }
 
 function setLanguage(nextLanguage) {
-  if (nextLanguage !== "kr" && nextLanguage !== "en") return;
+  if(nextLanguage!=="kr" && nextLanguage!=="en") return;
 
   language = nextLanguage;
 
   try {
-    localStorage.setItem("scientistsroom-language", language);
-  } catch (error) {}
+    localStorage.setItem("scientistsroom-language",language);
+  } catch(error) {}
 
   const aboutPosition = aboutScroll.scrollTop;
   const indexPosition = projectIndexList.scrollTop;
@@ -1987,7 +2013,7 @@ function setLanguage(nextLanguage) {
   aboutScroll.scrollTop = aboutPosition;
   projectIndexList.scrollTop = indexPosition;
 
-  if (activeProject) renderProjectText();
+  if(activeProject) renderProjectText();
 
   projectMarkers.forEach(marker => {
     marker.element.setAttribute(
@@ -2002,7 +2028,7 @@ function setLanguage(nextLanguage) {
 document.querySelectorAll(
   "[data-language-control] .lang-button"
 ).forEach(button => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click",() => {
     setLanguage(button.dataset.lang);
   });
 });
@@ -2041,21 +2067,21 @@ function updateProjectMarkers() {
 
     markerProjected.copy(markerWorld).project(camera);
 
-    const x = (markerProjected.x * .5 + .5) * width;
-    const y = (-markerProjected.y * .5 + .5) * height;
+    const x = (markerProjected.x*.5+.5)*width;
+    const y = (-markerProjected.y*.5+.5)*height;
 
     const normalizedFacing = THREE.MathUtils.clamp(
-      (facing + 1) / 2, 0, 1
+      (facing+1)/2,0,1
     );
 
-    const visibility = .18 + normalizedFacing * .82;
+    const visibility = .18+normalizedFacing*.82;
 
-    marker.element.style.left = x + "px";
-    marker.element.style.top = y + "px";
+    marker.element.style.left = x+"px";
+    marker.element.style.top = y+"px";
     marker.element.style.opacity = visibility;
     marker.element.style.pointerEvents = "auto";
     marker.element.style.zIndex =
-      Math.round(100 + normalizedFacing * 100);
+      Math.round(100+normalizedFacing*100);
   });
 }
 
@@ -2063,35 +2089,35 @@ function updateProjectMarkers() {
 let mouseX = 0;
 let mouseY = 0;
 
-document.addEventListener("mousemove", event => {
-  mouseX = event.clientX / window.innerWidth - .5;
-  mouseY = event.clientY / window.innerHeight - .5;
+document.addEventListener("mousemove",event => {
+  mouseX = event.clientX/window.innerWidth-.5;
+  mouseY = event.clientY/window.innerHeight-.5;
 });
 
 function resize() {
   const width = container.clientWidth;
   const height = container.clientHeight;
 
-  if (!width || !height) return;
+  if(!width || !height) return;
 
-  renderer.setSize(width, height);
-  camera.aspect = width / height;
+  renderer.setSize(width,height);
+  camera.aspect = width/height;
   camera.updateProjectionMatrix();
 }
 
-window.addEventListener("resize", resize);
+window.addEventListener("resize",resize);
 
 function animate() {
   requestAnimationFrame(animate);
 
   globe.rotation.y += .0022;
   globe.rotation.x +=
-    (mouseY * .18 - globe.rotation.x) * .012;
+    (mouseY*.18-globe.rotation.x)*.012;
   globe.rotation.z +=
-    (-mouseX * .10 - globe.rotation.z) * .008;
+    (-mouseX*.10-globe.rotation.z)*.008;
 
   updateProjectMarkers();
-  renderer.render(scene, camera);
+  renderer.render(scene,camera);
 }
 
 /* START */
