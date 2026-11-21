@@ -67,7 +67,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 .right-item{text-align:right}
 .right-item p{margin-left:auto}
 
-/* COMMON PANEL CONTROLS */
+/* PANEL CONTROLS */
 .panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .5s;z-index:80}
 .panel-overlay.active{opacity:1;pointer-events:auto}
 .panel-actions{display:flex;align-items:center;gap:18px}
@@ -227,6 +227,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 }
 </style>
 </head>
+
 <body>
 
 <main class="hero">
@@ -235,17 +236,22 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 <div class="top-center">PORTFOLIO</div>
 <button class="top-menu-button" id="projectsMenuButton" type="button">PROJECTS</button>
 </header>
+
 <div class="title">Scientists[room]</div>
+
 <div class="guide-circle">
 <div class="line one"></div>
 <div class="line two"></div>
 </div>
+
 <div class="side-line left"></div>
 <div class="side-line right"></div>
+
 <div id="earthWrap">
 <div id="earth"></div>
 <div id="projectMarkers"></div>
 </div>
+
 <section class="bottom">
 <div class="item">
 <h3>Visual Design</h3>
@@ -278,25 +284,33 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 <button class="panel-action-button" id="closePanel" type="button" aria-label="Close project">×</button>
 </div>
 </div>
+
 <div class="panel-year" id="panelYear"></div>
 <h2 class="panel-title" id="panelTitle"></h2>
 <div class="panel-category" id="panelCategory"></div>
+
 <div class="slider">
 <img id="panelImage" alt="" decoding="async">
 <div class="image-placeholder" id="imagePlaceholder">PROJECT IMAGE</div>
 <button class="slider-button" id="prevImage" type="button" aria-label="Previous image">←</button>
 <button class="slider-button" id="nextImage" type="button" aria-label="Next image">→</button>
 </div>
+
 <div class="slider-info">
 <div id="sliderCounter">00 / 00</div>
 <div class="slider-dots" id="sliderDots"></div>
 </div>
+
 <p class="panel-description" id="panelDescription"></p>
 <a class="panel-link" id="panelLink" target="_blank" rel="noopener noreferrer"></a>
-<div class="view-project"><span>SELECTED PROJECT</span><span>scientistsroom</span></div>
+<div class="view-project">
+<span>SELECTED PROJECT</span>
+<span>scientistsroom</span>
+</div>
 </aside>
 
 <div id="projectIndexOverlay"></div>
+
 <section id="projectIndexPanel" aria-label="Projects index">
 <div class="project-index-header">
 <div class="project-index-top">
@@ -310,6 +324,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 <button id="closeProjectIndex" type="button" aria-label="Close projects">×</button>
 </div>
 </div>
+
 <div class="project-index-meta">
 <div class="project-count" id="projectCount"></div>
 <div class="project-sort">
@@ -323,6 +338,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 </section>
 
 <div id="aboutOverlay"></div>
+
 <aside id="aboutPanel" aria-label="About Kim Min U">
 <div class="about-header">
 <div class="about-top">
@@ -337,6 +353,7 @@ button:focus-visible,a:focus-visible{outline:1px solid #fff;outline-offset:4px}
 </div>
 </div>
 </div>
+
 <div class="about-scroll" id="aboutScroll">
 <h1 class="about-name">Kim Min U.</h1>
 <div class="about-role">GRAPHIC DESIGNER / VISUAL COMMUNICATION</div>
@@ -406,13 +423,15 @@ const translated = (kr,en) => ({kr,en});
 let language = "kr";
 
 try {
-  language = localStorage.getItem("scientistsroom-language")==="en" ? "en" : "kr";
+  language = localStorage.getItem("scientistsroom-language") === "en" ? "en" : "kr";
 } catch(error) {
   language = "kr";
 }
 
 const tr = value =>
-  typeof value==="string" ? value : (value?.[language] || value?.kr || "");
+  typeof value === "string"
+    ? value
+    : (value?.[language] || value?.kr || "");
 
 /* MAIN PROJECTS */
 const projects = [
@@ -548,7 +567,7 @@ const projects = [
     "유치원 / 초등학교 1-2학년 / 초등학교 3-4학년 / 초등학교 5-6학년 / 중학교 / 고등학교 / 학부모를 대상으로 개인형 이동장치(PM) 안전교육 자료의 그래픽 / 편집디자인을 진행하였습니다.",
     "Created graphic and editorial designs for personal mobility (PM) safety education materials tailored to kindergarten students, elementary school grades 1–2, 3–4, and 5–6, middle and high school students, and parents."
   ),
-  images:[],
+  images:["images/office-of-education-01.jpg"],
   link:"https://www.schoolsafe24.or.kr/front/rpstr/selectRpstrInfo.do?menuSn=185&upperMenuSn=148&rpstrPstSn=4905",
   lat:18,lng:-52
 },
@@ -623,8 +642,8 @@ const projects = [
 {
   number:"15",
   title:translated(
-    "제26회 홍익대학교 문화예술경영학과 학술제",
-    "26th Hongik University Arts and Cultural Management Academic Conference"
+    "홍익대학교 학술제",
+    "Hongik University Academic Conference"
   ),
   year:"2026.11",
   category:"EDITORIAL / POSTER / PUBLISHING",
@@ -632,7 +651,7 @@ const projects = [
     "제26회 홍익대학교 문화예술경영학과 학술제의 공식 포스터 및 도록을 제작하였습니다.",
     "Designed the official poster and conference proceedings booklet for the 26th Hongik University Arts and Cultural Management Academic Conference."
   ),
-  images:[],
+  images:["images/hongik-conference-01.jpg"],
   lat:-24,lng:-150
 },
 {
@@ -644,17 +663,23 @@ const projects = [
     "AI를 활용한 콘텐츠 디자인 실무 특강 · 디자이너의 창의성과 콘텐츠 디자인의 미래",
     "Practical Content Design Using AI · Designer Creativity and the Future of Content Design"
   ),
-  images:[],
+  images:["images/cheongam-lecture-01.jpg"],
   lat:-2,lng:165
 }
 ];
 
-/* ABOUT — EXPERIENCE */
+/* EXPERIENCE */
 const experiences = [
 {
   date:"2026.09 — PRESENT",
-  title:translated("홍익대학교 · HD LAB 4기","Hongik University · HD LAB, Cohort 4"),
-  description:translated("주연화 교수","Professor Joo Yeonhwa")
+  title:translated(
+    "홍익대학교 · HD LAB 4기",
+    "Hongik University · HD LAB, Cohort 4"
+  ),
+  description:translated(
+    "주연화 교수",
+    "Professor Joo Yeonhwa"
+  )
 },
 {
   date:"2026.06 — PRESENT",
@@ -695,13 +720,13 @@ const experiences = [
 }
 ];
 
-/* ABOUT — PROJECT ARCHIVE */
+/* PROJECT ARCHIVE */
 const careerProjects = [
 {
   date:"2026.11",
   title:translated(
-    "제26회 홍익대학교 문화예술경영학과 학술제",
-    "26th Hongik University Arts and Cultural Management Academic Conference"
+    "홍익대학교 학술제",
+    "Hongik University Academic Conference"
   ),
   description:translated(
     "학술제 공식 포스터 · 도록 제작",
@@ -710,8 +735,14 @@ const careerProjects = [
 },
 {
   date:"2026.07 — PRESENT",
-  title:translated("삼성화재 PoC AX 디자인","Samsung Fire & Marine Insurance PoC"),
-  description:translated("삼성화재 PoC · AX 디자인","PoC project · AX design")
+  title:translated(
+    "삼성화재 PoC AX 디자인",
+    "Samsung Fire & Marine Insurance PoC"
+  ),
+  description:translated(
+    "삼성화재 PoC · AX 디자인",
+    "PoC project · AX design"
+  )
 },
 {
   date:"2024.06 / 2025.01 / 2025.06 / 2025.12 / 2026.06 / 2026.10",
@@ -826,7 +857,10 @@ const careerProjects = [
 },
 {
   date:"2022.01 — 2022.03",
-  title:translated("아모레퍼시픽 광주지부","Amorepacific · Gwangju Branch"),
+  title:translated(
+    "아모레퍼시픽 광주지부",
+    "Amorepacific · Gwangju Branch"
+  ),
   description:translated(
     "지부장 포스터 · 브로슈어 · 제34~35회 정기총회 책자 제작",
     "Branch head posters, brochures, and the 34th–35th general meeting booklets"
@@ -842,11 +876,14 @@ const careerProjects = [
 }
 ];
 
-/* ABOUT — LECTURES & WORKSHOPS */
+/* LECTURES & WORKSHOPS */
 const lectures = [
 {
   date:"2026.11",
-  title:translated("청암고등학교","Cheongam High School"),
+  title:translated(
+    "청암고등학교",
+    "Cheongam High School"
+  ),
   description:translated(
     "AI를 활용한 콘텐츠 디자인 실무 특강 · 디자이너의 창의성과 콘텐츠 디자인의 미래",
     "Practical Content Design Using AI · Designer Creativity and the Future of Content Design"
@@ -854,7 +891,10 @@ const lectures = [
 },
 {
   date:"2018.04 — 2022.01",
-  title:translated("예술대학 홍보대사","College of Arts Ambassador"),
+  title:translated(
+    "예술대학 홍보대사",
+    "College of Arts Ambassador"
+  ),
   description:translated(
     "대학소개 · 대학박람회 · 외국인 학생 캠퍼스투어",
     "University introductions · Education fairs · Campus tours for international students"
@@ -862,7 +902,7 @@ const lectures = [
 }
 ];
 
-/* ABOUT — ACADEMIC COURSES */
+/* ACADEMIC COURSES */
 const academicCourses = [
 {
   title:"Visual Design",
@@ -909,12 +949,13 @@ const academicCourses = [
 {
   title:"Education & Communication",
   courses:[
-    "진로설계와자기이해","상업정보교재연구및지도법"
+    "진로설계와자기이해",
+    "상업정보교재연구및지도법"
   ]
 }
 ];
 
-/* ABOUT — SELECTED ACTIVITIES */
+/* SELECTED ACTIVITIES */
 const activities = [
 {
   date:"2025.12.06 — 12.28",
@@ -940,7 +981,10 @@ const activities = [
 },
 {
   date:"2025.10.27 — 11.04",
-  title:translated("HYBE &TEAM 팝업","HYBE &TEAM Pop-up"),
+  title:translated(
+    "HYBE &TEAM 팝업",
+    "HYBE &TEAM Pop-up"
+  ),
   description:translated(
     "앤팀 아이돌 팝업",
     "Pop-up event for idol group &TEAM"
@@ -948,7 +992,10 @@ const activities = [
 },
 {
   date:"2025.10.01 — 10.24",
-  title:translated("LG 한국전자전 (KES)","KES · LG"),
+  title:translated(
+    "LG 한국전자전 (KES)",
+    "KES · LG"
+  ),
   description:translated(
     "한국전자전 · 디자인 및 광고대행사 업무",
     "Korea Electronics Show · Design and advertising agency work"
@@ -1020,16 +1067,20 @@ const activities = [
 
 /* DOM / STATE */
 const byId = id => document.getElementById(id);
+
 const aboutPanel = byId("aboutPanel");
 const aboutOverlay = byId("aboutOverlay");
 const aboutScroll = byId("aboutScroll");
+
 const panel = byId("projectPanel");
 const panelOverlay = byId("panelOverlay");
 const panelImage = byId("panelImage");
 const imagePlaceholder = byId("imagePlaceholder");
+
 const projectIndexPanel = byId("projectIndexPanel");
 const projectIndexOverlay = byId("projectIndexOverlay");
 const projectIndexList = byId("projectIndexList");
+
 const imageLightbox = byId("imageLightbox");
 const lightboxImage = byId("lightboxImage");
 const label = byId("projectLabel");
@@ -1060,20 +1111,22 @@ function createAboutEntry(item) {
   description.className = "about-entry-desc";
   description.textContent = tr(item.description);
 
-  content.append(title,description);
-  entry.append(date,content);
+  content.append(title, description);
+  entry.append(date, content);
+
   return entry;
 }
 
-function renderAboutEntries(containerId,items) {
-  byId(containerId).replaceChildren(...items.map(createAboutEntry));
+function renderAboutEntries(containerId, items) {
+  const container = byId(containerId);
+  container.replaceChildren(...items.map(createAboutEntry));
 }
 
 function renderAcademicCourses() {
   const target = byId("academicList");
   target.replaceChildren();
 
-  academicCourses.forEach((group,index) => {
+  academicCourses.forEach((group, index) => {
     const wrapper = document.createElement("div");
     wrapper.className = "course-group";
 
@@ -1082,18 +1135,19 @@ function renderAcademicCourses() {
 
     const title = document.createElement("h3");
     title.className = "course-title";
-    title.textContent = String(index+1).padStart(2,"0")+". "+group.title;
+    title.textContent =
+      String(index + 1).padStart(2, "0") + ". " + group.title;
 
     const count = document.createElement("span");
     count.className = "course-count";
-    count.textContent = group.courses.length+" COURSES";
+    count.textContent = group.courses.length + " COURSES";
 
     const courses = document.createElement("p");
     courses.className = "course-list";
     courses.textContent = group.courses.join(" · ");
 
-    heading.append(title,count);
-    wrapper.append(heading,courses);
+    heading.append(title, count);
+    wrapper.append(heading, courses);
     target.appendChild(wrapper);
   });
 }
@@ -1109,10 +1163,10 @@ function renderAbout() {
     "Additional projects include branding, Chugye University graduation exhibition posters, local government brochures, and editorial and publishing design."
   ));
 
-  renderAboutEntries("experienceList",experiences);
-  renderAboutEntries("careerProjectList",careerProjects);
-  renderAboutEntries("lectureList",lectures);
-  renderAboutEntries("activityList",activities);
+  renderAboutEntries("experienceList", experiences);
+  renderAboutEntries("careerProjectList", careerProjects);
+  renderAboutEntries("lectureList", lectures);
+  renderAboutEntries("activityList", activities);
   renderAcademicCourses();
 }
 
@@ -1120,154 +1174,150 @@ function renderAbout() {
 const container = byId("earth");
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(38,1,0.1,100);
+const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
 camera.position.z = 4.8;
 
 const renderer = new THREE.WebGLRenderer({
-  alpha:true,
-  antialias:true
+  alpha: true,
+  antialias: true
 });
-
-renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 container.appendChild(renderer.domElement);
 
 const globe = new THREE.Group();
 scene.add(globe);
 
-const globeGeometry = new THREE.SphereGeometry(1.35,128,128);
+const globeGeometry = new THREE.SphereGeometry(1.35, 128, 128);
 const globeMaterial = new THREE.MeshPhysicalMaterial({
-  color:0xffffff,
-  transparent:true,
-  opacity:0.10,
-  roughness:0.08,
-  metalness:0.02,
-  transmission:0.5,
-  thickness:1,
-  ior:1.35,
-  clearcoat:1,
-  clearcoatRoughness:0.08
+  color: 0xffffff,
+  transparent: true,
+  opacity: 0.10,
+  roughness: 0.08,
+  metalness: 0.02,
+  transmission: 0.5,
+  thickness: 1,
+  ior: 1.35,
+  clearcoat: 1,
+  clearcoatRoughness: 0.08
 });
-
-globe.add(new THREE.Mesh(globeGeometry,globeMaterial));
+globe.add(new THREE.Mesh(globeGeometry, globeMaterial));
 
 const DOT_COUNT = 3000;
 const dotPoints = [];
 
-for(let i=0;i<DOT_COUNT;i++) {
-  const phi = Math.acos(-1+(2*i)/DOT_COUNT);
-  const theta = Math.sqrt(DOT_COUNT*Math.PI)*phi;
+for (let i = 0; i < DOT_COUNT; i++) {
+  const phi = Math.acos(-1 + (2 * i) / DOT_COUNT);
+  const theta = Math.sqrt(DOT_COUNT * Math.PI) * phi;
   const radius = 1.37;
 
   dotPoints.push(
-    radius*Math.cos(theta)*Math.sin(phi),
-    radius*Math.sin(theta)*Math.sin(phi),
-    radius*Math.cos(phi)
+    radius * Math.cos(theta) * Math.sin(phi),
+    radius * Math.sin(theta) * Math.sin(phi),
+    radius * Math.cos(phi)
   );
 }
 
 const dotGeometry = new THREE.BufferGeometry();
-
 dotGeometry.setAttribute(
   "position",
-  new THREE.Float32BufferAttribute(dotPoints,3)
+  new THREE.Float32BufferAttribute(dotPoints, 3)
 );
 
 globe.add(new THREE.Points(
   dotGeometry,
   new THREE.PointsMaterial({
-    color:0xffffff,
-    size:0.013,
-    transparent:true,
-    opacity:0.55,
-    sizeAttenuation:true
+    color: 0xffffff,
+    size: 0.013,
+    transparent: true,
+    opacity: 0.55,
+    sizeAttenuation: true
   })
 ));
 
 globe.add(new THREE.Mesh(
-  new THREE.SphereGeometry(1.36,30,20),
+  new THREE.SphereGeometry(1.36, 30, 20),
   new THREE.MeshBasicMaterial({
-    color:0xffffff,
-    wireframe:true,
-    transparent:true,
-    opacity:0.05
+    color: 0xffffff,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.05
   })
 ));
 
-const lightA = new THREE.DirectionalLight(0xffffff,4);
-lightA.position.set(2,3,4);
+const lightA = new THREE.DirectionalLight(0xffffff, 4);
+lightA.position.set(2, 3, 4);
 scene.add(lightA);
 
-const lightB = new THREE.DirectionalLight(0xffffff,2);
-lightB.position.set(-3,-1,2);
+const lightB = new THREE.DirectionalLight(0xffffff, 2);
+lightB.position.set(-3, -1, 2);
 scene.add(lightB);
 
 globe.rotation.x = THREE.MathUtils.degToRad(-14);
 globe.rotation.z = THREE.MathUtils.degToRad(-8);
 
-function latLngToVector3(lat,lng,radius) {
-  const phi = THREE.MathUtils.degToRad(90-lat);
-  const theta = THREE.MathUtils.degToRad(lng+180);
+function latLngToVector3(lat, lng, radius) {
+  const phi = THREE.MathUtils.degToRad(90 - lat);
+  const theta = THREE.MathUtils.degToRad(lng + 180);
 
   return new THREE.Vector3(
-    -radius*Math.sin(phi)*Math.cos(theta),
-    radius*Math.cos(phi),
-    radius*Math.sin(phi)*Math.sin(theta)
+    -radius * Math.sin(phi) * Math.cos(theta),
+    radius * Math.cos(phi),
+    radius * Math.sin(phi) * Math.sin(theta)
   );
 }
 
 /* IMAGE PRELOADING */
 const imageCache = new Map();
 const preloadQueue = [];
+
 let activePreloads = 0;
 const MAX_PRELOADS = 2;
 
-function preloadImage(src,highPriority=false) {
-  if(!src) return Promise.resolve(false);
+function preloadImage(src, highPriority = false) {
+  if (!src) return Promise.resolve(false);
 
   const existing = imageCache.get(src);
 
-  if(existing) {
-    if(highPriority && !existing.job.started) {
+  if (existing) {
+    if (highPriority && !existing.job.started) {
       existing.job.highPriority = true;
       const index = preloadQueue.indexOf(existing.job);
 
-      if(index!==-1) {
-        preloadQueue.splice(index,1);
+      if (index !== -1) {
+        preloadQueue.splice(index, 1);
         preloadQueue.unshift(existing.job);
       }
     }
+
     runPreloads();
     return existing.promise;
   }
 
   let finishPromise;
-
   const promise = new Promise(resolve => {
     finishPromise = resolve;
   });
 
   const job = {
     src,
-    started:false,
+    started: false,
     finishPromise,
     highPriority
   };
 
-  imageCache.set(src,{promise,job});
+  imageCache.set(src, { promise, job });
 
-  if(highPriority) {
-    preloadQueue.unshift(job);
-  } else {
-    preloadQueue.push(job);
-  }
+  if (highPriority) preloadQueue.unshift(job);
+  else preloadQueue.push(job);
 
   runPreloads();
   return promise;
 }
 
 function runPreloads() {
-  while(activePreloads<MAX_PRELOADS && preloadQueue.length) {
+  while (activePreloads < MAX_PRELOADS && preloadQueue.length) {
     const job = preloadQueue.shift();
+
     job.started = true;
     activePreloads++;
 
@@ -1278,24 +1328,24 @@ function runPreloads() {
     let finished = false;
 
     const finish = success => {
-      if(finished) return;
+      if (finished) return;
+
       finished = true;
       activePreloads--;
 
-      if(!success) {
-        imageCache.delete(job.src);
-      }
+      if (!success) imageCache.delete(job.src);
 
       job.finishPromise(success);
       runPreloads();
     };
 
     image.onload = async () => {
-      if(typeof image.decode==="function") {
+      if (typeof image.decode === "function") {
         try {
           await image.decode();
-        } catch(error) {}
+        } catch (error) {}
       }
+
       finish(true);
     };
 
@@ -1307,66 +1357,62 @@ function runPreloads() {
 const getProjectImages = project => project.images || [];
 
 const getImageSource = item =>
-  typeof item==="string" ? item : (item?.src || "");
+  typeof item === "string" ? item : (item?.src || "");
 
 const getImageDescription = item =>
-  item && typeof item==="object" ? tr(item.description || "") : "";
+  item && typeof item === "object" ? tr(item.description || "") : "";
 
 const displayProjectTitle = project => tr(project.title);
 
 function getCurrentDescription() {
-  if(!activeProject) return "";
+  if (!activeProject) return "";
 
-  return (
-    getImageDescription(
-      getProjectImages(activeProject)[activeImageIndex]
-    ) || tr(activeProject.description)
-  );
+  return getImageDescription(
+    getProjectImages(activeProject)[activeImageIndex]
+  ) || tr(activeProject.description);
 }
 
 function preloadCover(project) {
   const first = getProjectImages(project)[0];
-  if(first) preloadImage(getImageSource(first),true);
+  if (first) preloadImage(getImageSource(first), true);
 }
 
 function preloadNeighbors() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
   const images = getProjectImages(activeProject);
-  if(images.length<=1) return;
+  if (images.length <= 1) return;
 
-  const next = (activeImageIndex+1)%images.length;
-  const previous = (activeImageIndex-1+images.length)%images.length;
+  const next = (activeImageIndex + 1) % images.length;
+  const previous = (activeImageIndex - 1 + images.length) % images.length;
 
-  preloadImage(getImageSource(images[next]),true);
+  preloadImage(getImageSource(images[next]), true);
 
-  if(previous!==next) {
-    preloadImage(getImageSource(images[previous]),true);
+  if (previous !== next) {
+    preloadImage(getImageSource(images[previous]), true);
   }
 }
 
-window.addEventListener("load",() => {
-  if(navigator.connection?.saveData) return;
+window.addEventListener("load", () => {
+  if (navigator.connection?.saveData) return;
 
   const mobile = window.matchMedia("(max-width:900px)").matches;
   const limit = mobile ? 3 : 7;
 
-  const preload = () => {
-    projects
-      .map(project => getProjectImages(project)[0])
-      .filter(Boolean)
-      .slice(0,limit)
-      .forEach((item,index) => {
-        setTimeout(() => {
-          preloadImage(getImageSource(item));
-        },index*350);
-      });
-  };
+  const preload = () => projects
+    .map(project => getProjectImages(project)[0])
+    .filter(Boolean)
+    .slice(0, limit)
+    .forEach((item, index) => {
+      setTimeout(() => {
+        preloadImage(getImageSource(item));
+      }, index * 350);
+    });
 
-  if("requestIdleCallback" in window) {
-    window.requestIdleCallback(preload,{timeout:1500});
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(preload, { timeout: 1500 });
   } else {
-    setTimeout(preload,800);
+    setTimeout(preload, 800);
   }
 });
 
@@ -1374,7 +1420,7 @@ window.addEventListener("load",() => {
 const markerContainer = byId("projectMarkers");
 const projectMarkers = [];
 
-function showMarkerLabel(project,x,y) {
+function showMarkerLabel(project, x, y) {
   label.replaceChildren();
 
   const number = document.createElement("span");
@@ -1387,71 +1433,66 @@ function showMarkerLabel(project,x,y) {
   category.className = "label-category";
   category.textContent = project.category;
 
-  label.append(number,name,category);
-  label.style.left = x+"px";
-  label.style.top = y+"px";
+  label.append(number, name, category);
+  label.style.left = x + "px";
+  label.style.top = y + "px";
   label.classList.add("active");
 }
 
 projects.forEach(project => {
   const marker = document.createElement("button");
+
   marker.type = "button";
   marker.className = "project-marker";
-
-  marker.setAttribute("aria-label",displayProjectTitle(project));
+  marker.setAttribute("aria-label", displayProjectTitle(project));
 
   marker.style.setProperty(
     "--pulse-duration",
-    (2.5+Math.random()*1.7)+"s"
+    (2.5 + Math.random() * 1.7) + "s"
   );
 
   marker.style.setProperty(
     "--pulse-delay",
-    (-Math.random()*4)+"s"
+    (-Math.random() * 4) + "s"
   );
 
-  const position = latLngToVector3(project.lat,project.lng,1.43);
+  const position = latLngToVector3(
+    project.lat,
+    project.lng,
+    1.43
+  );
 
-  marker.addEventListener("mouseenter",event => {
-    showMarkerLabel(project,event.clientX,event.clientY);
+  marker.addEventListener("mouseenter", event => {
+    showMarkerLabel(project, event.clientX, event.clientY);
     preloadCover(project);
   });
 
-  marker.addEventListener("mousemove",event => {
-    label.style.left = event.clientX+"px";
-    label.style.top = event.clientY+"px";
+  marker.addEventListener("mousemove", event => {
+    label.style.left = event.clientX + "px";
+    label.style.top = event.clientY + "px";
   });
 
-  marker.addEventListener("mouseleave",() => {
+  marker.addEventListener("mouseleave", () => {
     label.classList.remove("active");
   });
 
-  marker.addEventListener("click",() => {
-    openProject(project,"globe");
+  marker.addEventListener("click", () => {
+    openProject(project, "globe");
   });
 
   markerContainer.appendChild(marker);
-  projectMarkers.push({element:marker,position,project});
+  projectMarkers.push({ element: marker, position, project });
 });
 
 /* PROJECT SLIDER */
 function renderProjectText() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
-  byId("panelIndex").textContent =
-    activeProject.number+" / PROJECT";
-
-  byId("panelYear").textContent =
-    activeProject.year;
-
-  byId("panelTitle").textContent =
-    displayProjectTitle(activeProject);
-
-  byId("panelCategory").textContent =
-    activeProject.category;
-
-  byId("panelDescription").textContent =
-    getCurrentDescription();
+  byId("panelIndex").textContent = activeProject.number + " / PROJECT";
+  byId("panelYear").textContent = activeProject.year;
+  byId("panelTitle").textContent = displayProjectTitle(activeProject);
+  byId("panelCategory").textContent = activeProject.category;
+  byId("panelDescription").textContent = getCurrentDescription();
 
   panelImage.alt = displayProjectTitle(activeProject);
   lightboxImage.alt = displayProjectTitle(activeProject);
@@ -1460,7 +1501,7 @@ function renderProjectText() {
 function updateProjectLink() {
   const link = byId("panelLink");
 
-  if(!activeProject?.link) {
+  if (!activeProject?.link) {
     link.classList.remove("active");
     link.removeAttribute("href");
     link.textContent = "";
@@ -1472,25 +1513,25 @@ function updateProjectLink() {
   link.classList.add("active");
 }
 
-function showPanelImage(token,source) {
-  if(token!==panelImageToken || !activeProject) return;
+function showPanelImage(token, source) {
+  if (token !== panelImageToken || !activeProject) return;
 
   panelImage.onload = () => {
-    if(
-      token!==panelImageToken ||
+    if (
+      token !== panelImageToken ||
       !activeProject ||
       !panelImage.naturalWidth
     ) return;
 
     requestAnimationFrame(() => {
-      if(token===panelImageToken && activeProject) {
+      if (token === panelImageToken && activeProject) {
         panelImage.style.opacity = "1";
       }
     });
   };
 
   panelImage.onerror = () => {
-    if(token!==panelImageToken) return;
+    if (token !== panelImageToken) return;
 
     panelImage.style.display = "none";
     imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
@@ -1499,7 +1540,7 @@ function showPanelImage(token,source) {
 
   panelImage.src = source;
 
-  if(panelImage.complete && panelImage.naturalWidth) {
+  if (panelImage.complete && panelImage.naturalWidth) {
     panelImage.onload();
   }
 
@@ -1507,7 +1548,7 @@ function showPanelImage(token,source) {
 }
 
 function updateSlider() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
   const images = getProjectImages(activeProject);
   const token = ++panelImageToken;
@@ -1515,7 +1556,7 @@ function updateSlider() {
   panelImage.style.opacity = "0";
   renderProjectText();
 
-  if(!images.length) {
+  if (!images.length) {
     panelImage.style.display = "none";
     panelImage.removeAttribute("src");
 
@@ -1536,84 +1577,76 @@ function updateSlider() {
   imagePlaceholder.classList.remove("active");
 
   byId("sliderCounter").textContent =
-    String(activeImageIndex+1).padStart(2,"0")+
-    " / "+
-    String(images.length).padStart(2,"0");
+    String(activeImageIndex + 1).padStart(2, "0") +
+    " / " +
+    String(images.length).padStart(2, "0");
 
   const dots = byId("sliderDots");
   dots.replaceChildren();
 
-  images.forEach((_,index) => {
+  images.forEach((_, index) => {
     const dot = document.createElement("span");
-
     dot.className =
-      "slider-dot"+
-      (index===activeImageIndex ? " active" : "");
+      "slider-dot" +
+      (index === activeImageIndex ? " active" : "");
 
     dots.appendChild(dot);
   });
 
-  byId("prevImage").classList.toggle("hidden",images.length<=1);
-  byId("nextImage").classList.toggle("hidden",images.length<=1);
+  byId("prevImage").classList.toggle("hidden", images.length <= 1);
+  byId("nextImage").classList.toggle("hidden", images.length <= 1);
 
-  preloadImage(source,true).then(success => {
-    if(token!==panelImageToken || !activeProject) return;
+  preloadImage(source, true).then(success => {
+    if (token !== panelImageToken || !activeProject) return;
 
-    if(!success) {
+    if (!success) {
       panelImage.style.display = "none";
       imagePlaceholder.textContent = "IMAGE UNAVAILABLE";
       imagePlaceholder.classList.add("active");
       return;
     }
 
-    showPanelImage(token,source);
+    showPanelImage(token, source);
   });
 }
 
 function nextSlide() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
   const count = getProjectImages(activeProject).length;
-  if(count<=1) return;
+  if (count <= 1) return;
 
-  activeImageIndex = (activeImageIndex+1)%count;
+  activeImageIndex = (activeImageIndex + 1) % count;
   updateSlider();
 
-  if(imageLightbox.classList.contains("active")) {
-    updateLightbox();
-  }
+  if (imageLightbox.classList.contains("active")) updateLightbox();
 }
 
 function previousSlide() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
   const count = getProjectImages(activeProject).length;
-  if(count<=1) return;
+  if (count <= 1) return;
 
-  activeImageIndex = (activeImageIndex-1+count)%count;
+  activeImageIndex = (activeImageIndex - 1 + count) % count;
   updateSlider();
 
-  if(imageLightbox.classList.contains("active")) {
-    updateLightbox();
-  }
+  if (imageLightbox.classList.contains("active")) updateLightbox();
 }
 
-byId("prevImage").addEventListener("click",previousSlide);
-byId("nextImage").addEventListener("click",nextSlide);
+byId("prevImage").addEventListener("click", previousSlide);
+byId("nextImage").addEventListener("click", nextSlide);
 
 /* PROJECT PANEL */
-function openProject(project,source="globe") {
+function openProject(project, source = "globe") {
   closeAbout();
   hideProjectIndex();
 
   activeProject = project;
   activeImageIndex = 0;
-  projectOpenedFromIndex = source==="index";
+  projectOpenedFromIndex = source === "index";
 
-  byId("backPanel").classList.toggle(
-    "hidden",
-    !projectOpenedFromIndex
-  );
+  byId("backPanel").classList.toggle("hidden", !projectOpenedFromIndex);
 
   updateProjectLink();
   updateSlider();
@@ -1637,39 +1670,36 @@ function hidePanel() {
 }
 
 function backToIndex() {
-  if(!projectOpenedFromIndex) return;
+  if (!projectOpenedFromIndex) return;
 
   hidePanel();
   openProjectIndex();
 }
 
-byId("backPanel").addEventListener("click",backToIndex);
-byId("closePanel").addEventListener("click",hidePanel);
-panelOverlay.addEventListener("click",hidePanel);
+byId("backPanel").addEventListener("click", backToIndex);
+byId("closePanel").addEventListener("click", hidePanel);
+panelOverlay.addEventListener("click", hidePanel);
 
 /* PROJECT INDEX */
-function createProjectRow(project,index) {
+function createProjectRow(project, index) {
   const row = document.createElement("button");
   row.type = "button";
   row.className = "project-list-row";
 
   [
-    ["project-row-number",project.number],
-    ["project-row-title",displayProjectTitle(project)],
-    ["project-row-category",project.category],
-    ["project-row-year",project.year || "—"]
-  ].forEach(([className,value]) => {
+    ["project-row-number", project.number],
+    ["project-row-title", displayProjectTitle(project)],
+    ["project-row-category", project.category],
+    ["project-row-year", project.year || "—"]
+  ].forEach(([className, value]) => {
     const span = document.createElement("span");
     span.className = className;
     span.textContent = value;
     row.appendChild(span);
   });
 
-  row.addEventListener("mouseenter",() => preloadCover(project));
-
-  row.addEventListener("click",() => {
-    openProject(projects[index],"index");
-  });
+  row.addEventListener("mouseenter", () => preloadCover(project));
+  row.addEventListener("click", () => openProject(projects[index], "index"));
 
   return row;
 }
@@ -1685,20 +1715,20 @@ function getYearValue(project) {
   return Number(project.year) || -1;
 }
 
-function renderProjectIndex(mode="all") {
+function renderProjectIndex(mode = "all") {
   projectSortMode = mode;
   projectIndexList.replaceChildren();
 
-  const indexed = projects.map((project,index) => ({
-    project,index
+  const indexed = projects.map((project, index) => ({
+    project, index
   }));
 
-  if(mode==="year") {
-    indexed.sort((a,b) =>
-      getYearValue(b.project)-getYearValue(a.project) ||
+  if (mode === "year") {
+    indexed.sort((a, b) =>
+      getYearValue(b.project) - getYearValue(a.project) ||
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language==="kr" ? "ko" : "en"
+        language === "kr" ? "ko" : "en"
       )
     );
 
@@ -1707,23 +1737,22 @@ function renderProjectIndex(mode="all") {
     indexed.forEach(item => {
       const year = item.project.year || "YEAR NOT SET";
 
-      if(year!==lastYear) {
+      if (year !== lastYear) {
         projectIndexList.appendChild(createGroupTitle(year));
         lastYear = year;
       }
 
       projectIndexList.appendChild(
-        createProjectRow(item.project,item.index)
+        createProjectRow(item.project, item.index)
       );
     });
 
-  } else if(mode==="name") {
-
-    indexed.sort((a,b) =>
+  } else if (mode === "name") {
+    indexed.sort((a, b) =>
       displayProjectTitle(a.project).localeCompare(
         displayProjectTitle(b.project),
-        language==="kr" ? "ko" : "en",
-        {sensitivity:"base"}
+        language === "kr" ? "ko" : "en",
+        { sensitivity: "base" }
       )
     );
 
@@ -1735,20 +1764,20 @@ function renderProjectIndex(mode="all") {
         .charAt(0)
         .toUpperCase();
 
-      if(letter!==lastLetter) {
+      if (letter !== lastLetter) {
         projectIndexList.appendChild(createGroupTitle(letter));
         lastLetter = letter;
       }
 
       projectIndexList.appendChild(
-        createProjectRow(item.project,item.index)
+        createProjectRow(item.project, item.index)
       );
     });
 
   } else {
     indexed.forEach(item => {
       projectIndexList.appendChild(
-        createProjectRow(item.project,item.index)
+        createProjectRow(item.project, item.index)
       );
     });
   }
@@ -1768,12 +1797,12 @@ function hideProjectIndex() {
   projectIndexPanel.classList.remove("active");
 }
 
-byId("projectsMenuButton").addEventListener("click",openProjectIndex);
-byId("closeProjectIndex").addEventListener("click",hideProjectIndex);
-projectIndexOverlay.addEventListener("click",hideProjectIndex);
+byId("projectsMenuButton").addEventListener("click", openProjectIndex);
+byId("closeProjectIndex").addEventListener("click", hideProjectIndex);
+projectIndexOverlay.addEventListener("click", hideProjectIndex);
 
 document.querySelectorAll(".project-sort-button").forEach(button => {
-  button.addEventListener("click",() => {
+  button.addEventListener("click", () => {
     document.querySelectorAll(".project-sort-button")
       .forEach(item => item.classList.remove("active"));
 
@@ -1782,7 +1811,7 @@ document.querySelectorAll(".project-sort-button").forEach(button => {
   });
 });
 
-byId("projectCount").textContent = projects.length+" PROJECTS";
+byId("projectCount").textContent = projects.length + " PROJECTS";
 
 /* ABOUT PANEL */
 function openAbout() {
@@ -1802,16 +1831,16 @@ function closeAbout() {
   aboutPanel.classList.remove("active");
 }
 
-byId("aboutMenuButton").addEventListener("click",openAbout);
-byId("closeAbout").addEventListener("click",closeAbout);
-aboutOverlay.addEventListener("click",closeAbout);
+byId("aboutMenuButton").addEventListener("click", openAbout);
+byId("closeAbout").addEventListener("click", closeAbout);
+aboutOverlay.addEventListener("click", closeAbout);
 
 /* LIGHTBOX */
 function updateLightbox() {
-  if(!activeProject) return;
+  if (!activeProject) return;
 
   const images = getProjectImages(activeProject);
-  if(!images.length) return;
+  if (!images.length) return;
 
   const token = ++lightboxImageToken;
   const source = getImageSource(images[activeImageIndex]);
@@ -1820,25 +1849,25 @@ function updateLightbox() {
   lightboxImage.removeAttribute("src");
 
   byId("lightboxCounter").textContent =
-    String(activeImageIndex+1).padStart(2,"0")+
-    " / "+
-    String(images.length).padStart(2,"0");
+    String(activeImageIndex + 1).padStart(2, "0") +
+    " / " +
+    String(images.length).padStart(2, "0");
 
-  byId("lightboxPrev").classList.toggle("hidden",images.length<=1);
-  byId("lightboxNext").classList.toggle("hidden",images.length<=1);
+  byId("lightboxPrev").classList.toggle("hidden", images.length <= 1);
+  byId("lightboxNext").classList.toggle("hidden", images.length <= 1);
 
-  preloadImage(source,true).then(success => {
-    if(!success || token!==lightboxImageToken || !activeProject) return;
+  preloadImage(source, true).then(success => {
+    if (!success || token !== lightboxImageToken || !activeProject) return;
 
     lightboxImage.onload = () => {
-      if(
-        token!==lightboxImageToken ||
+      if (
+        token !== lightboxImageToken ||
         !activeProject ||
         !lightboxImage.naturalWidth
       ) return;
 
       requestAnimationFrame(() => {
-        if(token===lightboxImageToken) {
+        if (token === lightboxImageToken) {
           lightboxImage.style.opacity = "1";
         }
       });
@@ -1847,17 +1876,17 @@ function updateLightbox() {
     lightboxImage.src = source;
     lightboxImage.alt = displayProjectTitle(activeProject);
 
-    if(lightboxImage.complete && lightboxImage.naturalWidth) {
+    if (lightboxImage.complete && lightboxImage.naturalWidth) {
       lightboxImage.onload();
     }
   });
 }
 
-panelImage.addEventListener("click",() => {
-  if(
+panelImage.addEventListener("click", () => {
+  if (
     !activeProject ||
     !getProjectImages(activeProject).length ||
-    panelImage.style.opacity!=="1"
+    panelImage.style.opacity !== "1"
   ) return;
 
   imageLightbox.classList.add("active");
@@ -1869,14 +1898,12 @@ function hideLightbox() {
   lightboxImageToken++;
 }
 
-byId("closeLightbox").addEventListener("click",hideLightbox);
-byId("lightboxPrev").addEventListener("click",previousSlide);
-byId("lightboxNext").addEventListener("click",nextSlide);
+byId("closeLightbox").addEventListener("click", hideLightbox);
+byId("lightboxPrev").addEventListener("click", previousSlide);
+byId("lightboxNext").addEventListener("click", nextSlide);
 
-imageLightbox.addEventListener("click",event => {
-  if(event.target===imageLightbox) {
-    hideLightbox();
-  }
+imageLightbox.addEventListener("click", event => {
+  if (event.target === imageLightbox) hideLightbox();
 });
 
 /* MOBILE SWIPE */
@@ -1884,75 +1911,71 @@ function registerSwipe(element) {
   let startX = 0;
   let startY = 0;
 
-  element.addEventListener("touchstart",event => {
+  element.addEventListener("touchstart", event => {
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
-  },{passive:true});
+  }, { passive: true });
 
-  element.addEventListener("touchend",event => {
-    const dx = startX-event.changedTouches[0].clientX;
-    const dy = startY-event.changedTouches[0].clientY;
+  element.addEventListener("touchend", event => {
+    const dx = startX - event.changedTouches[0].clientX;
+    const dy = startY - event.changedTouches[0].clientY;
 
-    if(Math.abs(dx)<40 || Math.abs(dx)<Math.abs(dy)) return;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
 
-    if(dx>0) nextSlide();
+    if (dx > 0) nextSlide();
     else previousSlide();
-  },{passive:true});
+  }, { passive: true });
 }
 
 registerSwipe(document.querySelector(".slider"));
 registerSwipe(imageLightbox);
 
 /* KEYBOARD */
-document.addEventListener("keydown",event => {
-  if(imageLightbox.classList.contains("active")) {
-    if(event.key==="Escape") hideLightbox();
-    if(event.key==="ArrowRight") nextSlide();
-    if(event.key==="ArrowLeft") previousSlide();
+document.addEventListener("keydown", event => {
+  if (imageLightbox.classList.contains("active")) {
+    if (event.key === "Escape") hideLightbox();
+    if (event.key === "ArrowRight") nextSlide();
+    if (event.key === "ArrowLeft") previousSlide();
     return;
   }
 
-  if(aboutPanel.classList.contains("active")) {
-    if(event.key==="Escape") closeAbout();
+  if (aboutPanel.classList.contains("active")) {
+    if (event.key === "Escape") closeAbout();
     return;
   }
 
-  if(projectIndexPanel.classList.contains("active")) {
-    if(event.key==="Escape") hideProjectIndex();
+  if (projectIndexPanel.classList.contains("active")) {
+    if (event.key === "Escape") hideProjectIndex();
     return;
   }
 
-  if(panel.classList.contains("active") && event.key==="Escape") {
+  if (panel.classList.contains("active") && event.key === "Escape") {
     hidePanel();
   }
 });
 
-/* LANGUAGE */
+/* LANGUAGE CONTROL */
 function updateLanguageButtons() {
   document.querySelectorAll(
     "[data-language-control] .lang-button"
   ).forEach(button => {
-    const active = button.dataset.lang===language;
-
-    button.classList.toggle("active",active);
-    button.setAttribute("aria-pressed",String(active));
+    const active = button.dataset.lang === language;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
   });
 
   document.documentElement.lang =
-    language==="kr" ? "ko" : "en";
+    language === "kr" ? "ko" : "en";
 }
 
 function setLanguage(nextLanguage) {
-  if(nextLanguage!=="kr" && nextLanguage!=="en") return;
+  if (nextLanguage !== "kr" && nextLanguage !== "en") return;
 
   language = nextLanguage;
 
   try {
-    localStorage.setItem(
-      "scientistsroom-language",
-      language
-    );
-  } catch(error) {}
+    localStorage.setItem("scientistsroom-language", language);
+  } catch (error) {}
 
   const aboutPosition = aboutScroll.scrollTop;
   const indexPosition = projectIndexList.scrollTop;
@@ -1964,9 +1987,7 @@ function setLanguage(nextLanguage) {
   aboutScroll.scrollTop = aboutPosition;
   projectIndexList.scrollTop = indexPosition;
 
-  if(activeProject) {
-    renderProjectText();
-  }
+  if (activeProject) renderProjectText();
 
   projectMarkers.forEach(marker => {
     marker.element.setAttribute(
@@ -1981,12 +2002,12 @@ function setLanguage(nextLanguage) {
 document.querySelectorAll(
   "[data-language-control] .lang-button"
 ).forEach(button => {
-  button.addEventListener("click",() => {
+  button.addEventListener("click", () => {
     setLanguage(button.dataset.lang);
   });
 });
 
-/* PROJECT MARKER PROJECTION */
+/* MARKER PROJECTION */
 const markerWorld = new THREE.Vector3();
 const markerProjected = new THREE.Vector3();
 const globeCenter = new THREE.Vector3();
@@ -2020,22 +2041,21 @@ function updateProjectMarkers() {
 
     markerProjected.copy(markerWorld).project(camera);
 
-    const x = (markerProjected.x*.5+.5)*width;
-    const y = (-markerProjected.y*.5+.5)*height;
+    const x = (markerProjected.x * .5 + .5) * width;
+    const y = (-markerProjected.y * .5 + .5) * height;
 
     const normalizedFacing = THREE.MathUtils.clamp(
-      (facing+1)/2,0,1
+      (facing + 1) / 2, 0, 1
     );
 
-    const visibility = .18+normalizedFacing*.82;
+    const visibility = .18 + normalizedFacing * .82;
 
-    marker.element.style.left = x+"px";
-    marker.element.style.top = y+"px";
+    marker.element.style.left = x + "px";
+    marker.element.style.top = y + "px";
     marker.element.style.opacity = visibility;
     marker.element.style.pointerEvents = "auto";
-
     marker.element.style.zIndex =
-      Math.round(100+normalizedFacing*100);
+      Math.round(100 + normalizedFacing * 100);
   });
 }
 
@@ -2043,35 +2063,35 @@ function updateProjectMarkers() {
 let mouseX = 0;
 let mouseY = 0;
 
-document.addEventListener("mousemove",event => {
-  mouseX = event.clientX/window.innerWidth-.5;
-  mouseY = event.clientY/window.innerHeight-.5;
+document.addEventListener("mousemove", event => {
+  mouseX = event.clientX / window.innerWidth - .5;
+  mouseY = event.clientY / window.innerHeight - .5;
 });
 
 function resize() {
   const width = container.clientWidth;
   const height = container.clientHeight;
 
-  if(!width || !height) return;
+  if (!width || !height) return;
 
-  renderer.setSize(width,height);
-  camera.aspect = width/height;
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
 }
 
-window.addEventListener("resize",resize);
+window.addEventListener("resize", resize);
 
 function animate() {
   requestAnimationFrame(animate);
 
   globe.rotation.y += .0022;
   globe.rotation.x +=
-    (mouseY*.18-globe.rotation.x)*.012;
+    (mouseY * .18 - globe.rotation.x) * .012;
   globe.rotation.z +=
-    (-mouseX*.10-globe.rotation.z)*.008;
+    (-mouseX * .10 - globe.rotation.z) * .008;
 
   updateProjectMarkers();
-  renderer.render(scene,camera);
+  renderer.render(scene, camera);
 }
 
 /* START */
@@ -2080,7 +2100,7 @@ renderAbout();
 renderProjectIndex("all");
 resize();
 animate();
-</script>
 
+</script>
 </body>
 </html>
